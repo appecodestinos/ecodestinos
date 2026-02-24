@@ -4,35 +4,42 @@ import Mapa from './Mapa';
 import Quiz from './Quiz';
 import Agente from './Agente';
 
-// 1. EL MAPA DE SABIDURÍA (Documento Maestro Inyectado)
+// 1. EL MAPA DE SABIDURÍA (Con rutas de fotos y colores vivos)
 const INFO_DESTINOS = {
   Amazonas: {
-    titulo: "Raíz Viva", arquetipo: "El Ancestro", proceso: "Pertenencia y retorno al origen", color: "rgba(40, 114, 38, 1)",
-    desc: "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales."
+    titulo: "Raíz Viva", arquetipo: "Ancestralidad", proceso: "Pertenencia y retorno al origen", color: "rgba(40, 114, 38, 1)",
+    desc: "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales.",
+    foto: "/assets/amazonastarjeta.jpg"
   },
   Macizo: {
-    titulo: "Útero de la Tierra", arquetipo: "La Gran Madre", proceso: "Gestación y transformación", color: "rgba(96, 46, 231, 0.6)",
-    desc: "San Agustín y Silvia. Donde nace la estrella fluvial (Río Magdalena). Custodiado por los volcanes Puracé y Sotará. Sabiduría Misak y arcilla."
+    titulo: "Útero de la Tierra", arquetipo: "Nutrición", proceso: "Gestación y transformación", color: "rgba(138, 100, 240, 1)",
+    desc: "San Agustín y Silvia. Donde nace la estrella fluvial (Río Magdalena). Custodiado por los volcanes Puracé y Sotará. Sabiduría Misak y arcilla.",
+    foto: "/assets/macizotarjeta.jpg"
   },
   Guainia: {
-    titulo: "Aguas de Unidad", arquetipo: "El Conciliador", proceso: "Reintegración de la memoria", color: "hsla(130, 92%, 29%, 1.00)",
-    desc: "Los Cerros de Mavecure son la Tulpa Gigante de 3 piedras. Rocas más antiguas del planeta para unir los fuegos sagrados de los pueblos."
+    titulo: "Aguas de Unidad", arquetipo: "Conciliación", proceso: "Reintegración de la memoria", color: "hsla(130, 92%, 29%, 1.00)",
+    desc: "Los Cerros de Mavecure son la Tulpa Gigante de 3 piedras. Rocas más antiguas del planeta para unir los fuegos sagrados de los pueblos.",
+    foto: "/assets/guainiatarjeta.jpg"
   },
   Sierra: {
-    titulo: "Corazón Manifestador", arquetipo: "Guerrero Espiritual", proceso: "Propósito y dirección", color: "#0407a8ff",
-    desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida."
+    titulo: "Corazón Manifestador", arquetipo: "Despertar", proceso: "Propósito y dirección", color: "#8d0f6eff",
+    desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida.",
+    foto: "/assets/sierratarjeta.jpg"
   },
   Pacífico: {
-    titulo: "Memoria del Océano", arquetipo: "Sanador Herido", proceso: "Limpieza de linaje y familia", color: "rgba(9, 114, 212, 1)",
-    desc: "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para sanar la historia familiar."
+    titulo: "Memoria del Océano", arquetipo: "Sanación", proceso: "Limpieza de linaje y familia", color: "rgba(9, 114, 212, 1)",
+    desc: "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para sanar la historia familiar.",
+    foto: "/assets/pacificotarjeta.jpg"
   },
   Putumayo: {
-    titulo: "Bosque Medicina", arquetipo: "El Alquimista", proceso: "Integración y medicina interna", color: "rgba(107, 27, 27, 1)",
-    desc: "Territorio del Jaguar. Transformación mística en el silencio sonoro de la selva agreste con plantas de poder."
+    titulo: "Bosque Medicina", arquetipo: "Alquimia", proceso: "Integración y medicina interna", color: "rgba(0, 61, 0, 1)",
+    desc: "Territorio del Jaguar. Transformación mística en el silencio sonoro de la selva agreste con plantas de poder.",
+    foto: "/assets/putumayotarjeta.jpg"
   },
   Bogota: {
-    titulo: "Círculo de Integración", arquetipo: "El Sabio", proceso: "Cierre consciente y luz del alma", color: "rgba(139, 21, 0, 1)",
-    desc: "Laguna de Guatavita. El vientre de Bachué donde nació la gente. Encontramos el Oro del Alma para brillar en nuestro entorno."
+    titulo: "Círculo de Integración", arquetipo: "Sabiduría", proceso: "Cierre consciente y luz del alma", color: "rgba(139, 21, 0, 1)",
+    desc: "Laguna de Guatavita. El vientre de Bachué donde nació la gente. Encontramos el Oro del Alma para brillar en nuestro entorno.",
+    foto: "/assets/bogotatarjeta.jpg"
   }
 };
 
@@ -52,10 +59,9 @@ export default function App() {
     if (c) setInputCorreo(c);
   }, []);
 
-  // 3. CAPTURA DE LEADS (COLUMNA INVISIBLE)
+  // 3. CAPTURA DE LEADS
   const capturarLead = (nombre, correo, destinos) => {
     console.log("🐸 Lead para Drive:", { nombre, correo, destinos, fecha: new Date().toLocaleString() });
-    // Aquí iría el fetch a Google Apps Script
   };
 
   const enviarCorreoYEntrar = (e) => {
@@ -78,8 +84,8 @@ export default function App() {
             <img src="/assets/logocircular.png" alt="Ecodestinos" className="logo-landing" />
             <h1 className="titulo-principal">Territorios Vivos</h1>
             <p className="texto-tagline">Mapeando la compatibilidad entre tu alma y la tierra</p>
-            <button className="boton-brillante-grande" onClick={() => setPantallaActiva('quiz')}>Iniciar Diagnóstico</button>
-            <button className="boton-omitir" onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }}>Omitir al mapa</button>
+            <button className="boton-brillante-grande" onClick={() => setPantallaActiva('quiz')}>Iniciar medición de energía</button>
+            <button className="boton-omitir" onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }}>Omitir Quiz</button>
           </div>
         );
 
@@ -98,44 +104,31 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <h2 className="titulo-resultados">Tu Energía Resuena Con:</h2>
+
             <div className="contenedor-tarjetas">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
                 return (
-                  <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}`, background: `${info.color}15` }}>
+                  <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
+                    <span className="nombre-geografico-label" style={{ color: info.color }}>{clave.toUpperCase()}</span>
                     <h3 style={{ color: info.color }}>{info.titulo}</h3>
-                    <p><strong>Arquetipo:</strong> {info.arquetipo}</p>
+                    <p className="arquetipo-tag" style={{ color: info.color }}>{info.arquetipo.toUpperCase()}</p>
                     <p style={{ fontSize: '13px' }}>{info.desc}</p>
                   </div>
                 );
               })}
             </div>
-            <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
-              <input
-                type="text"
-                placeholder="Tu nombre"
-                required
-                value={inputNombre}
-                onChange={(e) => setInputNombre(e.target.value)}
-                className="input-correo-elegante"
-              />
-              <input
-                type="email"
-                placeholder="Tu correo"
-                required
-                value={inputCorreo}
-                onChange={(e) => setInputCorreo(e.target.value)}
-                className="input-correo-elegante"
-              />
-              <button type="submit" className="boton-brillante-grande">
-                Recibir mi Medicina y Entrar
-              </button>
-            </form>
 
             <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
-              <input type="text" placeholder="¿Tu nombre, viajero?" required value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" />
-              <input type="email" placeholder="Tu correo para enviarte los PDF..." required value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" />
-              <button type="submit" className="boton-brillante-grande">Recibir mi Medicina y Entrar</button>
+              <div className="fila-registro">
+                <label className="etiqueta-input">tu nombre:</label>
+                <input type="text" required value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" />
+              </div>
+              <div className="fila-registro">
+                <label className="etiqueta-input">tu correo:</label>
+                <input type="email" required value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" />
+              </div>
+              <button type="submit" className="boton-brillante-grande">Recibir mis destinos</button>
             </form>
           </div>
         );
@@ -151,10 +144,20 @@ export default function App() {
                   <div className="mapa-fijo-superior"><Mapa /></div>
 
                   <div className="lista-destinos-scroll">
-                    {Object.values(INFO_DESTINOS).map((d, i) => (
-                      <div key={i} className="tarjeta-destino-estilo-nuevo" style={{ backgroundColor: `${d.color}33`, borderColor: d.color }}>
-                        <h4 className="titulo-tarjeta" style={{ color: d.color }}>{d.titulo}</h4>
-                        <p className="lugar-tarjeta">{d.arquetipo}</p> {/* Aquí iría "Alquimia de Agua" por ejemplo */}
+                    {Object.entries(INFO_DESTINOS).map(([lugar, d], i) => (
+                      <div key={i} className="tarjeta-destino-estilo-nuevo" style={{ borderColor: d.color }}>
+                        {/* 🖼️ IMAGEN DE FONDO */}
+                        <img src={d.foto} alt={lugar} className="foto-destino-card" />
+
+                        {/* 🌫️ CAPA DE TRANSPARENCIA (Overlay) */}
+                        <div className="capa-transparencia-foto"></div>
+
+                        {/* ✍️ TEXTO CON COLOR VIVO (Encima de la capa) */}
+                        <div className="info-overlay-card">
+                          <span className="nombre-geografico-label" style={{ color: d.color }}>{lugar.toUpperCase()}</span>
+                          <h4 className="titulo-tarjeta" style={{ color: d.color }}>{d.titulo}</h4>
+                          <p className="lugar-tarjeta" style={{ color: d.color }}>{d.arquetipo.toUpperCase()}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -206,7 +209,6 @@ export default function App() {
                       <p><strong>Transparencia:</strong> 85% del valor de tu viaje va directo a la autonomía comunitaria.</p>
                     </div>
                     <div className="galeria-fotos-comu">
-                      {/* Aquí irían las fotos de los Misak, Emberas, etc */}
                       <div className="foto-placeholder">Galería de Testimonios</div>
                     </div>
                   </div>
@@ -230,14 +232,15 @@ export default function App() {
             </nav>
           </div>
         );
-      default: return null;
+      default:
+        return null;
     }
   };
 
   return (
     <div className="contenedor-maestro">
       {renderizarPantalla()}
-      <Agente nombre={nombreUsuario} />
+      {pantallaActiva === 'app' && <Agente nombre={nombreUsuario} />}
     </div>
   );
 }

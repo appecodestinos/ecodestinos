@@ -2,19 +2,13 @@
    REGISTRO DE TUS FUENTES LOCALES (Ubuntu)
    ========================================== */
 
+/* 1. Elimina el registro de Nazegul y añade este */
 @font-face {
-  font-family: 'Nazegul';
-  src: url('./fonts/Nazegul-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'KGPerfectPenmanship';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
 }
 
-@font-face {
-  font-family: 'Nazegul';
-  src: url('./fonts/Nazegul-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
-
+/* Mantén MasterOfCustom si la sigues usando, o cámbiala también */
 @font-face {
   font-family: 'MasterOfCustom';
   src: url('./fonts/Master of Custom.ttf') format('truetype');
@@ -24,7 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Syne:wght@800&display=swap');
 
 :root {
-  --font-nazegul: 'Nazegul', serif;
+  --font-KGPerfectPenmanship: 'KGPerfectPenmanship', cursive;
   --font-custom: 'MasterOfCustom', cursive;
   --font-syne: 'Syne', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
@@ -37,7 +31,7 @@
 h1,
 h2,
 .titulo-principal {
-  font-family: var(--font-nazegul);
+  font-family: var(--font-KGPerfectPenmanship);
   text-transform: uppercase;
 }
 
@@ -59,7 +53,7 @@ span {
 
 /* ESTILO DE LA TARJETA (Como tu imagen_821c16.png) */
 .tarjeta-destino-estilo-nuevo {
-  background-color: #c4d6bd;
+  background-color: #016fa1;
   /* Verde de la captura */
   border: 1.5px solid #2E472D;
   border-radius: 40px;
@@ -70,7 +64,7 @@ span {
 }
 
 .titulo-tarjeta {
-  font-family: var(--font-nazegul);
+  font-family: var(--font-KGPerfectPenmanship);
   font-size: 2.2rem;
   color: #2E472D;
   margin: 0;
@@ -391,6 +385,57 @@ img {
   line-height: 1.6;
 }
 
+/* 1. Registro de fuentes con los nombres exactos de tu carpeta */
+@font-face {
+  font-family: 'MasterOfCustom';
+  src: url('./fonts/Master of Custom.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'KGPerfectPenmanship';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
+}
+
+/* Contenedor de la fila para que queden AL LADO */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  /* Espacio entre el texto y la casilla */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas "tu nombre:" y "tu correo:" */
+.etiqueta-input {
+  font-family: var(--font-syne);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #1A2E1A;
+  min-width: 110px;
+  /* Tamaño fijo para que los inputs queden alineaditos */
+  text-align: right;
+}
+
+/* La casilla de entrada */
+.input-correo-elegante {
+  width: 250px !important;
+  padding: 10px 15px !important;
+  border-radius: 10px !important;
+  border: 1px solid #ccc !important;
+  font-family: var(--font-montserrat);
+}
+
+.formulario-registro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
 .formulario-email {
   width: 100%;
   max-width: 400px;
@@ -475,12 +520,108 @@ img {
 }
 
 .galeria-tarjeta {
-  background: white;
+  background: rgb(90, 127, 168);
   margin: 0 20px 25px 20px;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   text-align: left;
+}
+
+/* 1. TAMAÑO DE LOS CUADRADITOS (EDITA AQUÍ) */
+.tarjeta-destino-estilo-nuevo {
+  min-width: 160px !important;
+  /* ANCHO */
+  height: 190px !important;
+  /* ALTO */
+
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 2px solid;
+  scroll-snap-align: center;
+  flex-shrink: 0;
+}
+
+/* 2. LA FOTO DE FONDO */
+.foto-destino-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Aquí le damos la transparencia a la foto */
+  opacity: 0.6;
+}
+
+/* 3. CAPA SOBRE LA FOTO (PARA QUE EL TEXTO RESALTE) */
+.info-overlay-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Un degradado oscuro muy suave para no apagar las letras */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+}
+
+/* 4. LETRAS CON COLOR VIVO (CINZEL) */
+.nombre-geografico-label {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 900 !important;
+  font-size: 1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* El color lo hereda del 'style' en el JS, se mantendrá vivo */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Esto hace que el color resalte */
+  margin-bottom: 5px;
+}
+
+.arquetipo-tag,
+.lugar-tarjeta {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  color: white;
+  /* El arquetipo lo ponemos blanco para que contraste */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* 5. FORMULARIO: ETIQUETAS PEGADAS (GAP 2PX) */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px !important;
+  /* PEGADITOS */
+  margin-bottom: 10px;
+}
+
+.etiqueta-input {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.8rem !important;
+  margin-right: 5px;
+}
+
+/* 6. NAVBAR Y ICONOS GRANDES */
+.barra-navegacion {
+  height: 90px !important;
+}
+
+.icono-nav {
+  width: 38px !important;
+  height: 38px !important;
 }
 
 .titulo-galeria {
@@ -891,17 +1032,14 @@ h4,
   }
 }
 
-/* El contenedor del Agente Flotante */
 .agente-flotante-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  /* Por encima de todo */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  position: fixed !important;
+  /* Subimos a 140px y ponemos !important para que nadie le gane */
+  bottom: 140px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
 }
+
 
 /* La burbuja que late */
 .burbuja-agente {
@@ -1002,13 +1140,13 @@ h4,
 }
 
 @font-face {
-  font-family: 'Nazegul';
-  src: url('./fonts/Nazegul-Regular.ttf') format('truetype');
+  font-family: 'KGPerfectPenmanship';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Nazegul';
-  src: url('./fonts/Nazegul-Italic.ttf') format('truetype');
+  font-family: 'KGPerfectPenmanship';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
   font-style: italic;
 }
 
@@ -1063,4 +1201,311 @@ h4,
 .burbuja-agente {
   width: 55px !important;
   height: 55px !important;
+}
+
+/* Estilo para el nombre geográfico (AMAZONAS, SIERRA...) */
+.nombre-geografico-label {
+  font-family: var(--font-syne);
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 5px;
+  opacity: 0.7;
+}
+
+/* Ajustamos el título para que la Master of Custom luzca bien */
+.titulo-tarjeta {
+  font-family: 'MasterOfCustom', cursive !important;
+  font-size: 2.3rem !important;
+  margin: 5px 0 !important;
+  line-height: 1;
+}
+
+/* El arquetipo sólido debajo */
+.lugar-tarjeta {
+  font-family: var(--font-syne);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* 1. Registro de la fuente única que subiste */
+@font-face {
+  font-family: 'KGPerfectPenmanship';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
+}
+
+/* 2. Aplicación global (Sustituyendo Nazegul) */
+.titulo-resultados,
+.nombre-geografico,
+.etiqueta-input,
+.nombre-rana {
+  font-family: 'KGPerfectPenmanship', cursive !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+}
+
+/* 3. Etiquetas AL LADO de los inputs */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.etiqueta-input {
+  font-size: 1.4rem;
+  min-width: 110px;
+  text-align: right;
+  color: #1A2E1A;
+}
+
+/* 5. Estilo para el nombre del destino */
+.nombre-geografico {
+  display: block;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  opacity: 0.7;
+}
+
+/* 1. ACERCAR ETIQUETAS A LAS VENTANAS */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px !important;
+  /* REDUCIDO PARA QUE ESTÉN PEGADITOS */
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.etiqueta-input {
+  font-family: 'KGPerfectPenmanship', cursive !important;
+  font-size: 1.5rem !important;
+  color: #1A2E1A;
+  text-align: right;
+  min-width: 90px;
+  /* Ajuste para que se alineen bien */
+}
+
+/* 2. CAMBIAR LA FUENTE DE MACIZO, GUAINÍA, ETC. */
+.nombre-geografico-label {
+  /* Quitamos KG Penmanship de aquí y ponemos Syne (Sólida) */
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 6px;
+  display: block;
+  opacity: 0.9;
+}
+
+/* 3. TU AGENTE ESTÁ ARREGLADO (Como pediste, subido para no chocar) */
+.agente-flotante-container {
+  position: fixed !important;
+  bottom: 150px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+}
+
+/* 1. REGISTRO DE TU LETRA "RUTA SAGRADA" */
+@font-face {
+  font-family: 'RutaSagrada';
+  src: url('./fonts/KGPerfectPenmanship.ttf') format('truetype');
+}
+
+/* 2. APLICACIÓN DE LA LETRA A DESTINOS, ARQUETIPOS Y FORMULARIO */
+.nombre-geografico-label,
+.arquetipo-tag,
+.lugar-tarjeta,
+.etiqueta-input,
+.titulo-resultados {
+  font-family: 'RutaSagrada', cursive !important;
+  text-transform: none !important;
+  font-weight: normal !important;
+  /* Subimos el tamaño porque esta letra es delgada */
+  font-size: 1.8rem !important;
+}
+
+/* 3. PEGAR ETIQUETAS A LOS INPUTS (CERCANÍA MÁXIMA) */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px !important;
+  /* Casi pegados */
+  margin-bottom: 10px;
+}
+
+.etiqueta-input {
+  margin-right: 5px;
+  /* Ajusta este valor si quieres que se toquen */
+  text-align: right;
+}
+
+/* 4. TAMAÑO DE LOS CUADRADITOS (TARJETAS DEBAJO DEL MAPA) */
+.tarjeta-destino-estilo-nuevo {
+  /* EDITA ESTOS VALORES PARA CAMBIAR EL TAMAÑO */
+  min-width: 140px !important;
+  /* ANCHO DEL CUADRADITO */
+  height: 140px !important;
+  /* ALTO DEL CUADRADITO */
+
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid;
+  scroll-snap-align: center;
+}
+
+/* Ajuste para que los títulos quepan en los cuadraditos */
+.titulo-tarjeta {
+  font-family: 'MasterOfCustom', cursive !important;
+  /* Si esta NO es la que quieres, cámbiala por 'RutaSagrada' */
+  font-size: 1.5rem !important;
+  margin: 5px 0;
+}
+
+/* 1. IMPORTAR LA FUENTE DE "TU RUTA SAGRADA" (CINZEL) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+
+/* 2. APLICAR CINZEL A DESTINOS, ARQUETIPOS Y ETIQUETAS */
+.nombre-geografico-label,
+.etiqueta-input,
+.arquetipo-tag,
+.titulo-resultados {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.nombre-geografico-label {
+  font-size: 0.9rem !important;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.etiqueta-input {
+  font-size: 0.8rem !important;
+  color: #1A2E1A;
+}
+
+/* 3. PEGAR ETIQUETAS A LAS VENTANAS */
+.fila-registro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px !important;
+  /* TOTALMENTE PEGADOS */
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.etiqueta-input {
+  margin-right: 2px;
+  /* Un roce mínimo */
+  text-align: right;
+  min-width: auto !important;
+  /* Permitimos que se acerquen al máximo */
+}
+
+/* 4. TAMAÑO DE LOS CUADRADITOS (TARJETAS DEBAJO DEL MAPA) */
+.tarjeta-destino-estilo-nuevo {
+  /* MODIFICA ESTO PARA CAMBIAR EL TAMAÑO DE LOS CUADROS */
+  min-width: 145px !important;
+  /* Ancho */
+  height: 170px !important;
+  /* Alto */
+
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid;
+  scroll-snap-align: center;
+  background: white;
+}
+
+/* Ajuste del título dentro de los cuadraditos */
+.titulo-tarjeta {
+  font-family: 'MasterOfCustom', cursive !important;
+  font-size: 1.6rem !important;
+  margin: 4px 0;
+}
+
+/* 1. AGRANDAR LA NAVBAR */
+.barra-navegacion {
+  height: 85px !important;
+  /* Aumentado de los ~65px estándar */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(1, 40, 99);
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  /* Espacio extra para pulgares en móviles modernos */
+  z-index: 1000;
+}
+
+/* 2. AGRANDAR LOS LOGOS/ICONOS DE LA NAV */
+.icono-nav {
+  width: 32px !important;
+  /* Antes solían estar en 24px */
+  height: 32px !important;
+  margin-bottom: 4px;
+  object-fit: contain;
+}
+
+/* 3. AJUSTAR EL TEXTO DE LA NAV */
+.barra-navegacion button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #666;
+  font-family: 'Cinzel', serif;
+  /* Usando Cinzel como identidad */
+  font-size: 1 rem;
+}
+
+.barra-navegacion button.activo {
+  color: #064E3B;
+  font-weight: 700;
+}
+
+.barra-navegacion button span {
+  font-size: 1rem !important;
+  /* Un poco más grande para legibilidad */
+}
+
+/* 4. OPCIONAL: AGRANDAR EL LOGO DEL HEADER (ARRIBA) */
+.logo-header {
+  height: 45px !important;
+  /* Ajusta este valor si lo quieres aún más grande */
+  width: auto;
+}
+
+.header-app {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #f0f0f0;
 }
