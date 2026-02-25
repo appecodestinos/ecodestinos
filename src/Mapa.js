@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// 🌟 COORDINADAS AJUSTADAS (Más cerca entre sí y centradas)
+// 🌟 TUS COORDINADAS Y ICONOS (Preservados exactamente como los tenías)
 const DESTINOS = [
     {
         id: 'Sierra', titulo: 'Corazón Manifestador', lugar: 'Sierra Nevada',
@@ -39,66 +39,113 @@ const DESTINOS = [
     }
 ];
 
-export default function Mapa() {
+// Añadimos la prop onMarkerClick que viene de App.js
+export default function Mapa({ onMarkerClick }) {
     const [sel, setSel] = useState(null);
 
-    return (
-        <div style={{ padding: '20px', textAlign: 'center' }}>
-            <h2 style={{ color: '#064E3B' }}>Tu Ruta Sagrada</h2>
+    const manejarClickIcono = (d) => {
+        setSel(d); // Mostramos la burbuja localmente
+        // Si la función existe en el padre, avisamos para que inicie el "viaje" de 5s
+        if (onMarkerClick) {
+            onMarkerClick(d.id);
+        }
+    };
 
-            {/* CONTENEDOR RELATIVO - EL ANCLA DE TODO */}
+    return (
+        <div style={{ padding: '10px', textAlign: 'center' }}>
+            {/* Título preservado */}
+            <h2 style={{
+                color: '#064E3B',
+                fontFamily: 'Cinzel, serif',
+                marginBottom: '10px'
+            }}>Tu Ruta Sagrada</h2>
+
             <div style={{
                 position: 'relative',
-                display: 'inline-block', // Crucial: el contenedor mide lo mismo que la imagen
+                display: 'inline-block',
                 margin: '0 auto',
-                maxWidth: '90vw'
+                maxWidth: '95vw'
             }}>
 
-                {/* IMAGEN BASE */}
-                <img src="/assets/mapa_base.png" alt="Mapa" style={{ width: '100%', display: 'block', borderRadius: '15px' }} />
+                {/* IMAGEN BASE PRESERVADA */}
+                <img src="/assets/mapa_base.png" alt="Mapa" style={{
+                    width: '100%',
+                    display: 'block',
+                    borderRadius: '15px',
+                    border: '2px solid #064E3B' // El bordecito verde sencillo que pediste
+                }} />
 
-                {/* PINES INTERACTIVOS */}
+                {/* PINES INTERACTIVOS (Tus botones con iconos) */}
                 {DESTINOS.map((d) => (
                     <button
                         key={d.id}
-                        onClick={() => setSel(d)}
+                        onClick={() => manejarClickIcono(d)}
                         style={{
                             position: 'absolute',
                             left: d.x,
                             top: d.y,
                             transform: 'translate(-50%, -50%)',
-                            width: '40px', // Tamaño controlado
-                            height: '40px',
+                            width: '45px',
+                            height: '45px',
                             borderRadius: '50%',
                             border: `3px solid ${d.color}`,
                             backgroundColor: 'white',
                             cursor: 'pointer',
                             overflow: 'hidden',
                             zIndex: 10,
-                            padding: '0'
+                            padding: '0',
+                            boxShadow: '0 0 10px rgba(0,0,0,0.2)'
                         }}
                     >
                         <img src={d.iconoImg} alt={d.id} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     </button>
                 ))}
 
-                {/* BURBUJA DE INFO */}
+                {/* BURBUJA DE INFO (Ajustada según tu pedido: Nombre arriba de la descripción) */}
                 {sel && (
-                    <div style={{
+                    <div className="fade-in" style={{
                         position: 'absolute',
                         top: sel.y,
                         left: sel.x,
-                        transform: 'translate(-50%, -120%)',
-                        background: 'white',
-                        padding: '10px',
-                        borderRadius: '10px',
-                        boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                        transform: 'translate(-50%, -130%)',
+                        background: 'rgba(255, 255, 255, 0.95)',
+                        padding: '12px',
+                        borderRadius: '15px',
+                        boxShadow: '0 8px 25px rgba(0,0,0,0.3)',
                         zIndex: 100,
-                        width: '150px'
+                        width: '180px',
+                        border: `2px solid ${sel.color}`
                     }}>
-                        <strong style={{ color: sel.color, fontSize: '12px' }}>{sel.titulo}</strong>
-                        <p style={{ margin: '5px 0 0', fontSize: '11px' }}>{sel.frase}</p>
-                        <button onClick={() => setSel(null)} style={{ border: 'none', background: 'none', cursor: 'pointer', float: 'right' }}>×</button>
+                        {/* El destino por su nombre encima */}
+                        <strong style={{
+                            color: sel.color,
+                            fontSize: '14px',
+                            display: 'block',
+                            fontFamily: 'Cinzel, serif'
+                        }}>
+                            {sel.lugar.toUpperCase()}
+                        </strong>
+
+                        {/* La descripción debajo */}
+                        <p style={{
+                            margin: '5px 0 0',
+                            fontSize: '11px',
+                            color: '#333',
+                            lineHeight: '1.3'
+                        }}>
+                            {sel.desc}
+                        </p>
+
+                        <button onClick={() => setSel(null)} style={{
+                            position: 'absolute',
+                            top: '5px',
+                            right: '5px',
+                            border: 'none',
+                            background: 'none',
+                            cursor: 'pointer',
+                            fontSize: '16px',
+                            color: '#999'
+                        }}>×</button>
                     </div>
                 )}
             </div>
