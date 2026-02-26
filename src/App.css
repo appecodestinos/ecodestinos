@@ -505,28 +505,7 @@ img {
   padding-bottom: 80px;
 }
 
-/* === GALERÍAS SCROLLEABLES (NUEVO) === */
-.seccion-galerias {
-  margin-top: 30px;
-  padding-bottom: 40px;
-}
 
-.titulo-seccion-home {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: var(--verde-eco);
-  padding: 0 20px;
-  margin-bottom: 20px;
-}
-
-.galeria-tarjeta {
-  background: rgb(90, 127, 168);
-  margin: 0 20px 25px 20px;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-  text-align: left;
-}
 
 /* 1. TAMAÑO DE LOS CUADRADITOS (EDITA AQUÍ) */
 .tarjeta-destino-estilo-nuevo {
@@ -624,69 +603,7 @@ img {
   height: 38px !important;
 }
 
-.titulo-galeria {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin: 0 0 5px 0;
-}
 
-.lugar-galeria {
-  font-family: 'Lora', serif;
-  font-size: 11px;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 0 0 15px 0;
-  font-weight: bold;
-}
-
-/* El contenedor que permite deslizar el dedo hacia los lados */
-.carrusel-horizontal {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-}
-
-/* Ocultar la barra de scroll para que se vea como una app nativa */
-.carrusel-horizontal::-webkit-scrollbar {
-  display: none;
-}
-
-.tarjeta-foto {
-  min-width: 140px;
-  height: 180px;
-  background-color: #f5f5f5;
-  border-radius: 15px;
-  scroll-snap-align: start;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.tarjeta-foto img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.etiqueta-foto {
-  position: relative;
-  z-index: 2;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  width: 100%;
-  padding: 20px 10px 10px 10px;
-  color: white;
-  font-family: 'Lora', serif;
-  font-size: 12px;
-  text-align: center;
-}
 
 /* Esto permite que si el contenido es largo, se deslice suavemente */
 .area-contenido {

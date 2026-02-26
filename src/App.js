@@ -7,6 +7,13 @@ import './App.css';
 import Mapa from './Mapa';
 import Quiz from './Quiz';
 import Agente from './Agente';
+import Amazonas from './Amazonas';
+import Putumayo from './Putumayo';
+import Macizo from './Macizo';
+import Guainia from './Guainia';
+import Sierra from './Sierra';
+import Pacifico from './Pacifico';
+import Bogota from './Bogota';
 
 // 1. EL MAPA DE SABIDURÍA (Con rutas de fotos, colores vivos y nueva multimedia)
 const INFO_DESTINOS = {
@@ -226,40 +233,17 @@ export default function App() {
                 </div>
               )}
 
-              {/* --- 2. SECCIÓN DETALLE TERRITORIO (NUEVA INTERFAZ MULTIMEDIA) --- */}
+              {/* --- 2. SECCIÓN DETALLE TERRITORIO (MODULARIZADA) --- */}
               {seccionInterna === 'detalle-territorio' && territorioActivo && (
-                <div className="pagina-territorio fade-in">
-                  <button className="boton-regresar" onClick={() => setSeccionInterna('home')}>← REGRESAR AL MAPA</button>
-
-                  <div className="hero-territorio">
-                    <img src={INFO_DESTINOS[territorioActivo].foto} alt="F" className="foto-cabecera" />
-                    <div className="overlay-titulo">
-                      <h1 className="cinzel-font">{territorioActivo.toUpperCase()}</h1>
-                      <p className="arquetipo-sub">{INFO_DESTINOS[territorioActivo].arquetipo}</p>
-                    </div>
-                  </div>
-
-                  <div className="contenido-multimedia-wrap">
-                    <div className="bloque-texto">
-                      <h3>Sabiduría del Territorio</h3>
-                      <p className="texto-maestro">{INFO_DESTINOS[territorioActivo].desc}</p>
-                    </div>
-
-                    <div className="bloque-video">
-                      <h3>Video Inmersivo</h3>
-                      <video controls className="video-territorio" src={INFO_DESTINOS[territorioActivo].video}></video>
-                    </div>
-
-                    <div className="bloque-galeria">
-                      <h3>Galería de Memorias</h3>
-                      <div className="grid-galeria">
-                        {INFO_DESTINOS[territorioActivo].galeria.map((img, idx) => (
-                          <img key={idx} src={img} alt="G" className="img-galeria" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <>
+                  {territorioActivo === 'Amazonas' && <Amazonas info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Putumayo' && <Putumayo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Macizo' && <Macizo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Guainia' && <Guainia info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Sierra' && <Sierra info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Pacífico' && <Pacifico info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Bogota' && <Bogota info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                </>
               )}
 
               {/* --- 3. SECCIÓN MALOKA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
