@@ -1661,3 +1661,41 @@ h4,
   font-size: 0.7rem;
   font-weight: bold;
 }
+
+/* 1. EL CONTENEDOR DEBE LLENAR TODO EL ESPACIO DISPONIBLE */
+.contenedor-home-mapa-total {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* Calculamos el alto: 100% de pantalla menos header (80px) y navbar (85px) */
+  height: calc(100vh - 165px);
+  overflow: hidden !important;
+  /* Evita que el mapa se mueva hacia los lados o arriba */
+  background-color: #f0f0f0;
+}
+
+/* 2. AJUSTE DINÁMICO DEL MAPA (PARA IPHONE) */
+.mapa-anclado-fondo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  /* CORTA LOS LADOS Y ESTIRA A LO LARGO */
+  object-position: center;
+  /* Mantiene el centro del mapa siempre a la vista */
+  display: block;
+}
+
+/* 3. AGRANDAMOS LOS ICONOS DE LOS DESTINOS */
+.pin-destino {
+  width: 55px !important;
+  /* Eran de 45px, ahora son más imponentes */
+  height: 55px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.3s ease;
+}
+
+.pin-destino:active {
+  transform: translate(-50%, -50%) scale(1.2);
+  /* Efecto al tocar */
+}

@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
+import { db, storage } from "./firebase";
 import './App.css';
 import Mapa from './Mapa';
 import Quiz from './Quiz';
 import Agente from './Agente';
 
-// 1. EL MAPA DE SABIDURÍA (Expandido con Multimedia para las nuevas páginas)
+// 1. EL MAPA DE SABIDURÍA (Con rutas de fotos, colores vivos y nueva multimedia)
 const INFO_DESTINOS = {
   Amazonas: {
     titulo: "Raíz Viva", arquetipo: "Ancestralidad", proceso: "Pertenencia y retorno al origen", color: "rgba(40, 114, 38, 1)",
     desc: "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales.",
     foto: "/assets/amazonastarjeta.jpg",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4", // Reemplazar con tus links
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     galeria: ["/assets/amz1.jpg", "/assets/amz2.jpg", "/assets/amz3.jpg"]
   },
   Macizo: {
@@ -69,6 +73,11 @@ export default function App() {
   const [territorioActivo, setTerritorioActivo] = useState(null);
   const [cargandoDestino, setCargandoDestino] = useState(false);
 
+  // ESTADOS DE BITÁCORA
+  const [bitacoraTexto, setBitacoraTexto] = useState('');
+  const [subiendoArchivo, setSubiendoArchivo] = useState(false);
+
+  // 2. RECUPERAR MEMORIA
   useEffect(() => {
     const n = localStorage.getItem('ecoNombre');
     const c = localStorage.getItem('ecoEmail');
@@ -76,8 +85,20 @@ export default function App() {
     if (c) setInputCorreo(c);
   }, []);
 
-  const capturarLead = (nombre, correo, destinos) => {
-    console.log("🐸 Lead para Drive:", { nombre, correo, destinos, fecha: new Date().toLocaleString() });
+  // 3. CAPTURA DE LEADS
+  const capturarLead = async (nombre, correo, destinos) => {
+    console.log("🐸 Lead para Firebase:", { nombre, correo, destinos, fecha: new Date().toLocaleString() });
+    try {
+      const docRef = await addDoc(collection(db, "leads"), {
+        nombre,
+        correo,
+        destinos,
+        fecha: new Date().toISOString()
+      });
+      console.log("Lead guardado con ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error añadiendo el lead: ", e);
+    }
   };
 
   const enviarCorreoYEntrar = (e) => {
@@ -101,6 +122,23 @@ export default function App() {
       setCargandoDestino(false);
       setSeccionInterna('detalle-territorio');
     }, 5000);
+  };
+
+  const guardarBitacora = async () => {
+    if (!bitacoraTexto.trim()) return;
+    setSubiendoArchivo(true);
+    try {
+      const timestamp = Date.now();
+      const archivoRef = ref(storage, `bitacoras/${nombreUsuario || 'anon'}_${timestamp}.txt`);
+      const blob = new Blob([bitacoraTexto], { type: "text/plain" });
+      await uploadBytes(archivoRef, blob);
+      alert("¡Bitácora guardada en la nube con éxito!");
+      setBitacoraTexto('');
+    } catch (error) {
+      console.error("Error al subir bitácora", error);
+      alert("Hubo un error al guardar tu bitácora.");
+    }
+    setSubiendoArchivo(false);
   };
 
   const renderizarPantalla = () => {
@@ -166,13 +204,13 @@ export default function App() {
             </header>
 
             <div className="area-contenido-app">
-              {/* --- 1. SECCIÓN HOME (MAPA GIGANTE) --- */}
+
+              {/* --- 1. SECCIÓN HOME (MAPA GIGANTE INMERSIVO) --- */}
               {seccionInterna === 'home' && (
                 <div className="contenedor-home-mapa-total">
-                  {/* El Mapa ahora recibe la función de viaje */}
                   <Mapa onMarkerClick={iniciarViaje} />
 
-                  {/* BURBUJA DE TRANSICIÓN MÍSTICA */}
+                  {/* BURBUJA DE TRANSICIÓN MÍSTICA (5 SEGUNDOS) */}
                   {cargandoDestino && (
                     <div className="burbuja-transicion fade-in">
                       <div className="halo-energia" style={{ borderColor: INFO_DESTINOS[territorioActivo].color }}></div>
@@ -188,7 +226,7 @@ export default function App() {
                 </div>
               )}
 
-              {/* --- 2. SECCIÓN DETALLE TERRITORIO (MULTIMEDIA) --- */}
+              {/* --- 2. SECCIÓN DETALLE TERRITORIO (NUEVA INTERFAZ MULTIMEDIA) --- */}
               {seccionInterna === 'detalle-territorio' && territorioActivo && (
                 <div className="pagina-territorio fade-in">
                   <button className="boton-regresar" onClick={() => setSeccionInterna('home')}>← REGRESAR AL MAPA</button>
@@ -224,28 +262,72 @@ export default function App() {
                 </div>
               )}
 
-              {/* --- RESTO DE SECCIONES PRESERVADAS --- */}
+              {/* --- 3. SECCIÓN MALOKA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'maloka' && (
                 <div className="fade-in p-20">
                   <h2 style={{ color: '#064E3B' }}>Maloka Ancestral</h2>
                   <div className="tarjeta-multimedia">
                     <h3>🎬 Talleres: El Vientre del Macizo</h3>
                     <p>Encuentro con los Hijos del Agua (Misak) y la medicina de la arcilla.</p>
+                    <div className="video-fake">▶ Reproducir Taller</div>
+                  </div>
+                  <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
+                    <h3>🎧 Audios: El Canto de las Ballenas</h3>
+                    <p>Meditación guiada para la sanación del linaje familiar en el Pacífico.</p>
+                  </div>
+                  <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
+                    <h3>🎙️ Podcast: La Voz de los Abuelos</h3>
+                    <p>Sabiduría Kogui y Arhuaca sobre el propósito de vida.</p>
                   </div>
                 </div>
               )}
 
+              {/* --- 4. SECCIÓN MI RUTA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'miruta' && (
                 <div className="fade-in p-20">
                   <h2 style={{ color: '#064E3B' }}>Mi Bitácora de Viaje</h2>
-                  <button className="boton-secundario">📍 Localización en el Territorio</button>
+                  <div className="modulo-mapa-offline">
+                    <button className="boton-secundario">📍 Localización en el Territorio</button>
+                    <button className="boton-secundario">🗺️ Mapas Offline (Maps.me)</button>
+                  </div>
+                  <div className="grabadora-experiencia" style={{ marginTop: '30px' }}>
+                    <h3>🎙️ Graba tu sentir hoy (o escríbelo en tu bitácora)</h3>
+                    <p style={{ fontSize: '12px' }}>Tus registros se guardarán para tu integración post-viaje.</p>
+                    <textarea
+                      className="caja-texto"
+                      placeholder="Escribe o graba aquí tus procesos emocionales..."
+                      value={bitacoraTexto}
+                      onChange={(e) => setBitacoraTexto(e.target.value)}
+                    ></textarea>
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+                      <button className="boton-microfono">🔴 Iniciar Audio (Próximamente)</button>
+                      <button
+                        className="boton-brillante-grande"
+                        onClick={guardarBitacora}
+                        disabled={subiendoArchivo || !bitacoraTexto.trim()}
+                        style={{ padding: '10px 20px', fontSize: '14px' }}
+                      >
+                        {subiendoArchivo ? "Guardando en la Nube..." : "☁️ Guardar Texto"}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               )}
 
+              {/* --- 5. SECCIÓN COMUNIDADES (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'comunidades' && (
                 <div className="fade-in p-20">
                   <h2 style={{ color: '#064E3B' }}>Comunidades Vivas</h2>
-                  <p>Nuestra comunidad participa en las decisiones y la formación emocional.</p>
+                  <div className="modulo-comunidad">
+                    <h3>👥 Socios Estratégicos</h3>
+                    <p>Nuestra comunidad participa en las decisiones y la formación emocional.</p>
+                    <div className="tarjeta-transparencia">
+                      <p><strong>Transparencia:</strong> 85% del valor de tu viaje va directo a la autonomía comunitaria.</p>
+                    </div>
+                    <div className="galeria-fotos-comu">
+                      <div className="foto-placeholder">Galería de Testimonios</div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -275,6 +357,7 @@ export default function App() {
     <div className="contenedor-maestro">
       {renderizarPantalla()}
       {pantallaActiva === 'app' && <Agente nombre={nombreUsuario} />}
+      <Analytics />
     </div>
   );
 }
