@@ -53,9 +53,14 @@ const resources = {
                 "record_title": "🎙️ Graba tu sentir hoy (o escríbelo en tu bitácora)",
                 "record_desc": "Tus registros se guardarán para tu integración post-viaje.",
                 "placeholder": "Escribe o graba aquí tus procesos emocionales...",
+                "btn_start_record": "🎙️ Iniciar Grabación",
+                "btn_stop_record": "⏹️ Detener Grabación",
                 "btn_audio": "🔴 Iniciar Audio (Próximamente)",
                 "btn_save": "☁️ Guardar Texto",
-                "saving": "Guardando en la Nube..."
+                "saving": "Guardando en la Nube...",
+                "save_success": "Diario guardado en la nube ☁️",
+                "save_error": "Error al guardar la bitácora. Intenta de nuevo.",
+                "record_not_supported": "Transcripción por voz no soportada en tu navegador."
             },
             "comunidades": {
                 "title": "Comunidades Vivas",
@@ -234,9 +239,14 @@ const resources = {
                 "record_title": "🎙️ Record your feelings today (or write them)",
                 "record_desc": "Your records will be saved for your post-trip integration.",
                 "placeholder": "Write or record your emotional processes here...",
+                "btn_start_record": "🎙️ Start Recording",
+                "btn_stop_record": "⏹️ Stop Recording",
                 "btn_audio": "🔴 Start Audio (Coming soon)",
                 "btn_save": "☁️ Save Text",
-                "saving": "Saving to Cloud..."
+                "saving": "Saving to Cloud...",
+                "save_success": "Logbook saved to the cloud ☁️",
+                "save_error": "Error saving logbook. Try again.",
+                "record_not_supported": "Voice transcription not supported in your browser."
             },
             "comunidades": {
                 "title": "Living Communities",
@@ -415,9 +425,14 @@ const resources = {
                 "record_title": "🎙️ Nimm deine heutigen Gefühle auf (oder schreibe sie)",
                 "record_desc": "Deine Aufzeichnungen werden für deine Integration nach der Reise gespeichert.",
                 "placeholder": "Schreibe oder nimm deine emotionalen Prozesse hier auf...",
+                "btn_start_record": "🎙️ Aufnahme starten",
+                "btn_stop_record": "⏹️ Aufnahme beenden",
                 "btn_audio": "🔴 Audio starten (Demnächst)",
                 "btn_save": "☁️ Text speichern",
-                "saving": "Speichere in der Cloud..."
+                "saving": "Speichere in der Cloud...",
+                "save_success": "Tagebuch in der Cloud gespeichert ☁️",
+                "save_error": "Fehler beim Speichern. Versuche es erneut.",
+                "record_not_supported": "Sprachtranskription wird in deinem Browser nicht unterstützt."
             },
             "comunidades": {
                 "title": "Lebendige Gemeinschaften",
@@ -596,9 +611,14 @@ const resources = {
                 "record_title": "🎙️ Enregistrez vos sentiments aujourd'hui (ou écrivez-les)",
                 "record_desc": "Vos enregistrements seront sauvegardés pour votre intégration post-voyage.",
                 "placeholder": "Écrivez ou enregistrez vos processus émotionnels ici...",
+                "btn_start_record": "🎙️ Commencer l'enregistrement",
+                "btn_stop_record": "⏹️ Arrêter l'enregistrement",
                 "btn_audio": "🔴 Démarrer l'Audio (Bientôt)",
                 "btn_save": "☁️ Enregistrer le Texte",
-                "saving": "Enregistrement dans le Cloud..."
+                "saving": "Enregistrement dans le Cloud...",
+                "save_success": "Journal enregistré dans le cloud ☁️",
+                "save_error": "Erreur lors de l'enregistrement. Réessayez.",
+                "record_not_supported": "Transcription vocale non prise en charge dans votre navigateur."
             },
             "comunidades": {
                 "title": "Communautés Vivantes",

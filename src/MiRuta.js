@@ -191,7 +191,16 @@ export default function MiRuta() {
         <div style={containerStyle} className="fade-in">
             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
                 <h1 style={{ color: '#2A3B2B', fontSize: '2.5rem' }}>{t('miruta.title')}</h1>
-                <p style={{ color: '#5C4B3F', fontSize: '1.2rem' }}>{t('miruta.record_desc')}</p>
+                <p style={{ color: '#5C4B3F', fontSize: '1.2rem', marginBottom: '20px' }}>{t('miruta.record_desc')}</p>
+
+                {/* Botón Maps.me Offline */}
+                <div style={{ marginBottom: '30px' }}>
+                    <a href="https://maps.me" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <button className="boton-secundario">
+                            {t('miruta.btn_offline')}
+                        </button>
+                    </a>
+                </div>
             </div>
 
             <div style={{ position: 'relative' }}>
@@ -213,7 +222,7 @@ export default function MiRuta() {
 
             <div style={buttonRowStyle}>
                 <button onClick={toggleRecording} style={recordBtnStyle}>
-                    {isRecording ? '⏹️ Detener Grabación' : '🎙️ Iniciar Grabación'}
+                    {isRecording ? t('miruta.btn_stop_record') : t('miruta.btn_start_record')}
                 </button>
 
                 <button
@@ -228,12 +237,12 @@ export default function MiRuta() {
             {/* Alertas Visuales */}
             {saveStatus === 'success' && (
                 <div style={{ textAlign: 'center', marginTop: '20px', color: '#28a745', fontWeight: 'bold' }} className="fade-in">
-                    Diario guardado en la nube ☁️
+                    {t('miruta.save_success')}
                 </div>
             )}
             {saveStatus === 'error' && (
                 <div style={{ textAlign: 'center', marginTop: '20px', color: '#dc3545', fontWeight: 'bold' }} className="fade-in">
-                    Error al guardar la bitácora. Intenta de nuevo.
+                    {t('miruta.save_error')}
                 </div>
             )}
 
