@@ -21,6 +21,11 @@ export default function MiRuta() {
     const [saveStatus, setSaveStatus] = useState(""); // 'saving', 'success', 'error'
     const recognitionRef = useRef(null);
 
+    // ESTADOS PARA RASTREO GPS NATIVO
+    const [isTracking, setIsTracking] = useState(false);
+    const [rutaCoords, setRutaCoords] = useState([]);
+    const watchIdRef = useRef(null);
+
     // Inicializar SpeechRecognition en el montaje del componente
     useEffect(() => {
         // Compatibilidad con navegadores que prefijan webkit
@@ -92,6 +97,57 @@ export default function MiRuta() {
         }
     };
 
+    // FUNCIONES DE RASTREO GPS
+    const toggleTracking = () => {
+        if (!navigator.geolocation) {
+            alert("Tu navegador no soporta geolocalización.");
+            return;
+        }
+
+        if (isTracking) {
+            // Detener rastreo
+            if (watchIdRef.current !== null) {
+                navigator.geolocation.clearWatch(watchIdRef.current);
+                watchIdRef.current = null;
+            }
+            setIsTracking(false);
+        } else {
+            // Iniciar rastreo
+            setIsTracking(true);
+            setSaveStatus(""); // Limpiar estado de guardado
+            watchIdRef.current = navigator.geolocation.watchPosition(
+                (position) => {
+                    const newPoint = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                        acc: position.coords.accuracy,
+                        timestamp: position.timestamp
+                    };
+                    setRutaCoords(prev => [...prev, newPoint]);
+                },
+                (error) => {
+                    console.error("Error obteniendo ubicación:", error);
+                    alert("No pudimos acceder a tu ubicación. Verifica los permisos de tu dispositivo.");
+                    setIsTracking(false);
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    maximumAge: 5000
+                }
+            );
+        }
+    };
+
+    // Limpiar el watcher al desmontar
+    useEffect(() => {
+        return () => {
+            if (watchIdRef.current !== null) {
+                navigator.geolocation.clearWatch(watchIdRef.current);
+            }
+        };
+    }, []);
+
     const handleTextChange = (e) => {
         setTextoTranscrito(e.target.value);
     };
@@ -110,12 +166,13 @@ export default function MiRuta() {
             await addDoc(collection(db, "bitacoras_texto"), {
                 texto: textoTranscrito,
                 idioma: i18n.language,
-                timestamp: new Date()
+                timestamp: new Date(),
+                ruta_gps: rutaCoords // Enviar el vector de rastreo GPS guardado
             });
             setSaveStatus("success");
 
-            // Opcional: Limpiar el textarea después de guardar exitoso si así se desea
-            // setTextoTranscrito(""); 
+            // Opcional: Limpiar el tracker tras enviar
+            // setRutaCoords([]);
 
             // Ocultar mensaje de éxito después de unos segundos
             setTimeout(() => setSaveStatus(""), 4000);
@@ -171,6 +228,22 @@ export default function MiRuta() {
         transition: 'background-color 0.3s'
     };
 
+    const trackBtnStyle = {
+        padding: '12px 24px',
+        borderRadius: '25px',
+        border: 'none',
+        backgroundColor: isTracking ? '#007bff' : '#6c757d',
+        color: '#fff',
+        cursor: 'pointer',
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        transition: 'background-color 0.3s'
+    };
+
     const saveBtnStyle = {
         padding: '12px 24px',
         borderRadius: '25px',
@@ -193,13 +266,17 @@ export default function MiRuta() {
                 <h1 style={{ color: '#2A3B2B', fontSize: '2.5rem' }}>{t('miruta.title')}</h1>
                 <p style={{ color: '#5C4B3F', fontSize: '1.2rem', marginBottom: '20px' }}>{t('miruta.record_desc')}</p>
 
-                {/* Botón Maps.me Offline */}
-                <div style={{ marginBottom: '30px' }}>
+                {/* Botones de Tracking Offline  */}
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '30px', flexWrap: 'wrap' }}>
                     <a href="https://maps.me" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                         <button className="boton-secundario">
                             {t('miruta.btn_offline')}
                         </button>
                     </a>
+
+                    <button onClick={toggleTracking} style={trackBtnStyle}>
+                        {isTracking ? `📍 Rastreando... (${rutaCoords.length} pts)` : '📍 Iniciar Rastreo GPS'}
+                    </button>
                 </div>
             </div>
 
