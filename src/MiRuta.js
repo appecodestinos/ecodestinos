@@ -1,10 +1,251 @@
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from "react-i18next";
-import React from 'react';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./firebase"; // Asume que db está exportado correctamente desde firebase.js
+
+// Mapeo de idiomas de i18next a códigos de SpeechRecognition
+const getSpeechLang = (i18nLang) => {
+    switch (i18nLang) {
+        case 'en': return 'en-US';
+        case 'de': return 'de-DE';
+        case 'fr': return 'fr-FR';
+        case 'es':
+        default: return 'es-ES';
+    }
+};
 
 export default function MiRuta() {
+    const { t, i18n } = useTranslation();
+    const [textoTranscrito, setTextoTranscrito] = useState("");
+    const [isRecording, setIsRecording] = useState(false);
+    const [saveStatus, setSaveStatus] = useState(""); // 'saving', 'success', 'error'
+    const recognitionRef = useRef(null);
+
+    // Inicializar SpeechRecognition en el montaje del componente
+    useEffect(() => {
+        // Compatibilidad con navegadores que prefijan webkit
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+            recognitionRef.current = new SpeechRecognition();
+            recognitionRef.current.continuous = true;
+            recognitionRef.current.interimResults = true;
+
+            recognitionRef.current.onresult = (event) => {
+                let currentTranscript = "";
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        currentTranscript += transcript + " ";
+                    } else {
+                        currentTranscript += transcript;
+                    }
+                }
+
+                // Actualizar el estado del texto inyectando la transcripción continua
+                // Usamos una función pasándole el estado previo para concatenar sin perder texto
+                setTextoTranscrito(prev => prev + currentTranscript);
+            };
+
+            recognitionRef.current.onerror = (event) => {
+                console.error("SpeechRecognition error: ", event.error);
+                setIsRecording(false);
+            };
+
+            recognitionRef.current.onend = () => {
+                // Si el usuario no paró manualmente la grabación pero el API lo hizo (timeout, etc)
+                setIsRecording(false);
+            };
+        } else {
+            console.warn("Speech Recognition API not supported in this browser.");
+        }
+    }, []);
+
+    // Actualizar el idioma del reconocimiento si el usuario cambia el idioma de la app
+    useEffect(() => {
+        if (recognitionRef.current) {
+            recognitionRef.current.lang = getSpeechLang(i18n.language);
+            // Si estaba grabando, se debe detener para que el cambio de idioma tome efecto
+            if (isRecording) {
+                recognitionRef.current.stop();
+                setIsRecording(false);
+            }
+        }
+    }, [i18n.language, isRecording]);
+
+    const toggleRecording = () => {
+        if (!recognitionRef.current) {
+            alert(t('miruta.record_not_supported') || "Transcripción por voz no soportada en tu navegador.");
+            return;
+        }
+
+        if (isRecording) {
+            recognitionRef.current.stop();
+            setIsRecording(false);
+        } else {
+            // Asegurar que guardamos espacio visual o separamos si ya hay texto
+            if (textoTranscrito.length > 0 && !textoTranscrito.endsWith(" ")) {
+                setTextoTranscrito(prev => prev + " ");
+            }
+            recognitionRef.current.start();
+            setIsRecording(true);
+            setSaveStatus(""); // Limpiar estado de guardado anterior al empezar a grabar
+        }
+    };
+
+    const handleTextChange = (e) => {
+        setTextoTranscrito(e.target.value);
+    };
+
+    const guardarBitacoraFirestore = async () => {
+        if (!textoTranscrito.trim()) return; // No guardar vacíos
+
+        // Si está grabando, detener primero
+        if (isRecording && recognitionRef.current) {
+            recognitionRef.current.stop();
+            setIsRecording(false);
+        }
+
+        setSaveStatus("saving");
+        try {
+            await addDoc(collection(db, "bitacoras_texto"), {
+                texto: textoTranscrito,
+                idioma: i18n.language,
+                timestamp: new Date()
+            });
+            setSaveStatus("success");
+
+            // Opcional: Limpiar el textarea después de guardar exitoso si así se desea
+            // setTextoTranscrito(""); 
+
+            // Ocultar mensaje de éxito después de unos segundos
+            setTimeout(() => setSaveStatus(""), 4000);
+        } catch (error) {
+            console.error("Error guardando bitácora: ", error);
+            setSaveStatus("error");
+            setTimeout(() => setSaveStatus(""), 4000);
+        }
+    };
+
+    // Estilos extraídos
+    const containerStyle = {
+        padding: '30px',
+        maxWidth: '800px',
+        margin: '0 auto',
+        fontFamily: "'Playfair Display', serif"
+    };
+
+    const textAreaStyle = {
+        width: '100%',
+        minHeight: '200px',
+        padding: '15px',
+        borderRadius: '12px',
+        border: '1px solid #8B4513',
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        fontSize: '1.1rem',
+        color: '#3a2e28',
+        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)',
+        resize: 'vertical',
+        marginBottom: '20px'
+    };
+
+    const buttonRowStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '20px',
+        flexWrap: 'wrap'
+    };
+
+    const recordBtnStyle = {
+        padding: '12px 24px',
+        borderRadius: '25px',
+        border: 'none',
+        backgroundColor: isRecording ? '#dc3545' : '#28a745',
+        color: '#fff',
+        cursor: 'pointer',
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+        transition: 'background-color 0.3s'
+    };
+
+    const saveBtnStyle = {
+        padding: '12px 24px',
+        borderRadius: '25px',
+        border: 'none',
+        backgroundColor: '#8B4513',
+        color: '#fff',
+        cursor: textoTranscrito.trim() === '' ? 'not-allowed' : 'pointer',
+        opacity: textoTranscrito.trim() === '' ? 0.5 : 1,
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+    };
+
     return (
-        <div style={{ padding: '20px' }}>
-            <h2>Sección en construcción</h2>
+        <div style={containerStyle} className="fade-in">
+            <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                <h1 style={{ color: '#2A3B2B', fontSize: '2.5rem' }}>{t('miruta.title')}</h1>
+                <p style={{ color: '#5C4B3F', fontSize: '1.2rem' }}>{t('miruta.record_desc')}</p>
+            </div>
+
+            <div style={{ position: 'relative' }}>
+                <textarea
+                    style={textAreaStyle}
+                    value={textoTranscrito}
+                    onChange={handleTextChange}
+                    placeholder={t('miruta.placeholder')}
+                />
+                {isRecording && (
+                    <div style={{
+                        position: 'absolute', top: '10px', right: '10px',
+                        height: '15px', width: '15px', borderRadius: '50%',
+                        backgroundColor: '#dc3545',
+                        animation: 'pulse 1.5s infinite'
+                    }} />
+                )}
+            </div>
+
+            <div style={buttonRowStyle}>
+                <button onClick={toggleRecording} style={recordBtnStyle}>
+                    {isRecording ? '⏹️ Detener Grabación' : '🎙️ Iniciar Grabación'}
+                </button>
+
+                <button
+                    onClick={guardarBitacoraFirestore}
+                    style={saveBtnStyle}
+                    disabled={textoTranscrito.trim() === '' || saveStatus === 'saving'}
+                >
+                    ☁️ {saveStatus === 'saving' ? t('miruta.saving') : t('miruta.btn_save')}
+                </button>
+            </div>
+
+            {/* Alertas Visuales */}
+            {saveStatus === 'success' && (
+                <div style={{ textAlign: 'center', marginTop: '20px', color: '#28a745', fontWeight: 'bold' }} className="fade-in">
+                    Diario guardado en la nube ☁️
+                </div>
+            )}
+            {saveStatus === 'error' && (
+                <div style={{ textAlign: 'center', marginTop: '20px', color: '#dc3545', fontWeight: 'bold' }} className="fade-in">
+                    Error al guardar la bitácora. Intenta de nuevo.
+                </div>
+            )}
+
+            <style>
+                {`
+                @keyframes pulse {
+                    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+                    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+                    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+                }
+                `}
+            </style>
         </div>
     );
 }

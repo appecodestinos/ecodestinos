@@ -15,6 +15,7 @@ import Guainia from './Guainia';
 import Sierra from './Sierra';
 import Pacifico from './Pacifico';
 import Bogota from './Bogota';
+import MiRuta from './MiRuta';
 
 // 1. EL MAPA DE SABIDURÍA (Con rutas de fotos, colores vivos y nueva multimedia)
 const INFO_DESTINOS = {
@@ -296,37 +297,8 @@ export default function App() {
                 </div>
               )}
 
-              {/* --- 4. SECCIÓN MI RUTA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
-              {seccionInterna === 'miruta' && (
-                <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>{t('miruta.title')}</h2>
-                  <div className="modulo-mapa-offline">
-                    <button className="boton-secundario">{t('miruta.btn_location')}</button>
-                    <button className="boton-secundario">{t('miruta.btn_offline')}</button>
-                  </div>
-                  <div className="grabadora-experiencia" style={{ marginTop: '30px' }}>
-                    <h3>{t('miruta.record_title')}</h3>
-                    <p style={{ fontSize: '12px' }}>{t('miruta.record_desc')}</p>
-                    <textarea
-                      className="caja-texto"
-                      placeholder={t('miruta.placeholder')}
-                      value={bitacoraTexto}
-                      onChange={(e) => setBitacoraTexto(e.target.value)}
-                    ></textarea>
-                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                      <button className="boton-microfono">{t('miruta.btn_audio')}</button>
-                      <button
-                        className="boton-brillante-grande"
-                        onClick={guardarBitacora}
-                        disabled={subiendoArchivo || !bitacoraTexto.trim()}
-                        style={{ padding: '10px 20px', fontSize: '14px' }}
-                      >
-                        {subiendoArchivo ? t('miruta.saving') : t('miruta.btn_save')}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* --- 4. SECCIÓN MI RUTA (CON SPEECH TO TEXT) --- */}
+              {seccionInterna === 'miruta' && <MiRuta />}
 
               {/* --- 5. SECCIÓN COMUNIDADES (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'comunidades' && (
