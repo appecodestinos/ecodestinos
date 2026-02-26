@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function Agente({ nombre }) {

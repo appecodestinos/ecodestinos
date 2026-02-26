@@ -1,33 +1,35 @@
+import { useTranslation } from "react-i18next";
 import React from 'react';
 
 const Macizo = ({ info, onVolver }) => {
+    const { t } = useTranslation();
     if (!info) return null;
 
     return (
         <div className="pagina-territorio fade-in">
-            <button className="boton-regresar" onClick={onVolver}>← REGRESAR AL MAPA</button>
+            <button className="boton-regresar" onClick={onVolver}>{t("territory.back")}</button>
 
             <div className="hero-territorio">
                 <img src={info.foto} alt="F" className="foto-cabecera" />
                 <div className="overlay-titulo">
                     <h1 className="cinzel-font">MACIZO</h1>
-                    <p className="arquetipo-sub">{info.arquetipo}</p>
+                    <p className="arquetipo-sub">{t("destinos.Macizo.archetype") || info.arquetipo}</p>
                 </div>
             </div>
 
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
-                    <h3>Sabiduría del Territorio</h3>
-                    <p className="texto-maestro">{info.desc}</p>
+                    <h3>{t("territory.wisdom")}</h3>
+                    <p className="texto-maestro">{t("destinos.Macizo.desc") || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">
-                    <h3>Video Inmersivo</h3>
+                    <h3>{t("territory.video")}</h3>
                     <video controls className="video-territorio" src={info.video}></video>
                 </div>
 
                 <div className="bloque-galeria">
-                    <h3>Galería de Memorias</h3>
+                    <h3>{t("territory.gallery")}</h3>
                     <div className="grid-galeria">
                         {info.galeria && info.galeria.map((img, idx) => (
                             <img key={idx} src={img} alt="G" className="img-galeria" />

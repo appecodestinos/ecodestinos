@@ -145,6 +145,37 @@ img {
 }
 
 /* --- AJUSTES DEL LANDING --- */
+.selector-idioma {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.selector-idioma button {
+  background: transparent;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+  color: #8B4513;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selector-idioma button:hover {
+  background: rgba(139, 69, 19, 0.05);
+  transform: translateY(-2px);
+}
+
+.selector-idioma button.idioma-activo {
+  background: #8B4513;
+  color: white;
+  border-color: #8B4513;
+  box-shadow: 0 4px 10px rgba(139, 69, 19, 0.2);
+}
+
 .logo-landing {
   width: 90px;
   margin-bottom: 30px;

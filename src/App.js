@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes } from "firebase/storage";
+import { useTranslation } from 'react-i18next';
 import { db, storage } from "./firebase";
 import './App.css';
 import Mapa from './Mapa';
@@ -69,12 +70,15 @@ const INFO_DESTINOS = {
 };
 
 export default function App() {
+  const { t, i18n } = useTranslation();
+
   const [pantallaActiva, setPantallaActiva] = useState('landing');
   const [seccionInterna, setSeccionInterna] = useState('home');
   const [resultadosQuiz, setResultadosQuiz] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [inputNombre, setInputNombre] = useState('');
   const [inputCorreo, setInputCorreo] = useState('');
+  const [erroresValidacion, setErroresValidacion] = useState({ nombre: '', correo: '' });
 
   // ESTADOS NUEVOS PARA LA NAVEGACIÓN MAPA -> TERRITORIO
   const [territorioActivo, setTerritorioActivo] = useState(null);
@@ -110,7 +114,21 @@ export default function App() {
 
   const enviarCorreoYEntrar = (e) => {
     e.preventDefault();
-    if (inputCorreo.trim() !== '' && inputNombre.trim() !== '') {
+    let errores = { nombre: '', correo: '' };
+    let valido = true;
+
+    if (inputNombre.trim() === '') {
+      errores.nombre = t('validation.error_nombre', { defaultValue: 'Por favor, ingresa tu nombre.' });
+      valido = false;
+    }
+    if (inputCorreo.trim() === '') {
+      errores.correo = t('validation.error_correo', { defaultValue: 'Por favor, ingresa tu correo electrónico.' });
+      valido = false;
+    }
+
+    setErroresValidacion(errores);
+
+    if (valido) {
       capturarLead(inputNombre, inputCorreo, resultadosQuiz);
       setNombreUsuario(inputNombre);
       localStorage.setItem('ecoNombre', inputNombre);
@@ -139,11 +157,11 @@ export default function App() {
       const archivoRef = ref(storage, `bitacoras/${nombreUsuario || 'anon'}_${timestamp}.txt`);
       const blob = new Blob([bitacoraTexto], { type: "text/plain" });
       await uploadBytes(archivoRef, blob);
-      alert("¡Bitácora guardada en la nube con éxito!");
+      alert(t('app.save_success'));
       setBitacoraTexto('');
     } catch (error) {
       console.error("Error al subir bitácora", error);
-      alert("Hubo un error al guardar tu bitácora.");
+      alert(t('app.save_error'));
     }
     setSubiendoArchivo(false);
   };
@@ -154,10 +172,18 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <img src="/assets/logocircular.png" alt="Ecodestinos" className="logo-landing" />
-            <h1 className="titulo-principal">Territorios Vivos</h1>
-            <p className="texto-tagline">Mapeando la compatibilidad entre tu alma y la tierra</p>
-            <button className="boton-brillante-grande" onClick={() => setPantallaActiva('quiz')}>Iniciar medición de energía</button>
-            <button className="boton-omitir" onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }}>Omitir Quiz</button>
+            <h1 className="titulo-principal">{t('landing.title')}</h1>
+            <p className="texto-tagline">{t('landing.tagline')}</p>
+
+            <div className="selector-idioma">
+              <button className={i18n.language === 'es' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('es')}>🇨🇴 ES</button>
+              <button className={i18n.language === 'en' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('en')}>🇺🇸 EN</button>
+              <button className={i18n.language === 'de' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('de')}>🇩🇪 DE</button>
+              <button className={i18n.language === 'fr' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('fr')}>🇫🇷 FR</button>
+            </div>
+
+            <button className="boton-brillante-grande" onClick={() => setPantallaActiva('quiz')}>{t('landing.start')}</button>
+            <button className="boton-omitir" onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }}>{t('landing.skip')}</button>
           </div>
         );
 
@@ -168,37 +194,41 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <div className="contenedor-agente-magico"><div className="halo-azul"></div><img src="/assets/agente.png" alt="A" className="agente-pequeno" /></div>
-            <p className="texto-exotico">La Rana está escuchando tu latido...</p>
+            <p className="texto-exotico">{t('procesando.rana')}</p>
           </div>
         );
 
       case 'resultados':
         return (
           <div className="pantalla-centrada fade-in">
-            <h2 className="titulo-resultados">Tu Energía Resuena Con:</h2>
+            <h2 className="titulo-resultados">{t('resultados.title')}</h2>
             <div className="contenedor-tarjetas">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
+                // Obtener datos traducidos
+                const tInfo = t(`destinos.${clave}`, { returnObjects: true });
                 return (
                   <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
                     <span className="nombre-geografico-label" style={{ color: info.color }}>{clave.toUpperCase()}</span>
-                    <h3 style={{ color: info.color }}>{info.titulo}</h3>
-                    <p className="arquetipo-tag" style={{ color: info.color }}>{info.arquetipo.toUpperCase()}</p>
-                    <p style={{ fontSize: '13px' }}>{info.desc}</p>
+                    <h3 style={{ color: info.color }}>{tInfo.title || info.titulo}</h3>
+                    <p className="arquetipo-tag" style={{ color: info.color }}>{(tInfo.archetype || info.arquetipo).toUpperCase()}</p>
+                    <p style={{ fontSize: '13px' }}>{tInfo.desc || info.desc}</p>
                   </div>
                 );
               })}
             </div>
             <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
               <div className="fila-registro">
-                <label className="etiqueta-input">tu nombre:</label>
-                <input type="text" required value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" />
+                <label className="etiqueta-input">{t('resultados.name_label')}</label>
+                <input type="text" value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" />
+                {erroresValidacion.nombre && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.nombre}</span>}
               </div>
               <div className="fila-registro">
-                <label className="etiqueta-input">tu correo:</label>
-                <input type="email" required value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" />
+                <label className="etiqueta-input">{t('resultados.email_label')}</label>
+                <input type="email" value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" />
+                {erroresValidacion.correo && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.correo}</span>}
               </div>
-              <button type="submit" className="boton-brillante-grande">Recibir mis destinos</button>
+              <button type="submit" className="boton-brillante-grande">{t('resultados.button')}</button>
             </form>
           </div>
         );
@@ -224,7 +254,7 @@ export default function App() {
                       <h2 style={{ color: INFO_DESTINOS[territorioActivo].color }}>
                         {territorioActivo.toUpperCase()}
                       </h2>
-                      <p>{INFO_DESTINOS[territorioActivo].desc}</p>
+                      <p>{t(`destinos.${territorioActivo}.desc`)}</p>
                       <div className="barra-carga-ancestral">
                         <div className="progreso" style={{ backgroundColor: INFO_DESTINOS[territorioActivo].color }}></div>
                       </div>
@@ -249,19 +279,19 @@ export default function App() {
               {/* --- 3. SECCIÓN MALOKA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'maloka' && (
                 <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>Maloka Ancestral</h2>
+                  <h2 style={{ color: '#064E3B' }}>{t('maloka.title')}</h2>
                   <div className="tarjeta-multimedia">
-                    <h3>🎬 Talleres: El Vientre del Macizo</h3>
-                    <p>Encuentro con los Hijos del Agua (Misak) y la medicina de la arcilla.</p>
-                    <div className="video-fake">▶ Reproducir Taller</div>
+                    <h3>{t('maloka.workshop1_title')}</h3>
+                    <p>{t('maloka.workshop1_desc')}</p>
+                    <div className="video-fake">{t('maloka.workshop1_btn')}</div>
                   </div>
                   <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
-                    <h3>🎧 Audios: El Canto de las Ballenas</h3>
-                    <p>Meditación guiada para la sanación del linaje familiar en el Pacífico.</p>
+                    <h3>{t('maloka.audio1_title')}</h3>
+                    <p>{t('maloka.audio1_desc')}</p>
                   </div>
                   <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
-                    <h3>🎙️ Podcast: La Voz de los Abuelos</h3>
-                    <p>Sabiduría Kogui y Arhuaca sobre el propósito de vida.</p>
+                    <h3>{t('maloka.podcast1_title')}</h3>
+                    <p>{t('maloka.podcast1_desc')}</p>
                   </div>
                 </div>
               )}
@@ -269,29 +299,29 @@ export default function App() {
               {/* --- 4. SECCIÓN MI RUTA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'miruta' && (
                 <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>Mi Bitácora de Viaje</h2>
+                  <h2 style={{ color: '#064E3B' }}>{t('miruta.title')}</h2>
                   <div className="modulo-mapa-offline">
-                    <button className="boton-secundario">📍 Localización en el Territorio</button>
-                    <button className="boton-secundario">🗺️ Mapas Offline (Maps.me)</button>
+                    <button className="boton-secundario">{t('miruta.btn_location')}</button>
+                    <button className="boton-secundario">{t('miruta.btn_offline')}</button>
                   </div>
                   <div className="grabadora-experiencia" style={{ marginTop: '30px' }}>
-                    <h3>🎙️ Graba tu sentir hoy (o escríbelo en tu bitácora)</h3>
-                    <p style={{ fontSize: '12px' }}>Tus registros se guardarán para tu integración post-viaje.</p>
+                    <h3>{t('miruta.record_title')}</h3>
+                    <p style={{ fontSize: '12px' }}>{t('miruta.record_desc')}</p>
                     <textarea
                       className="caja-texto"
-                      placeholder="Escribe o graba aquí tus procesos emocionales..."
+                      placeholder={t('miruta.placeholder')}
                       value={bitacoraTexto}
                       onChange={(e) => setBitacoraTexto(e.target.value)}
                     ></textarea>
                     <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                      <button className="boton-microfono">🔴 Iniciar Audio (Próximamente)</button>
+                      <button className="boton-microfono">{t('miruta.btn_audio')}</button>
                       <button
                         className="boton-brillante-grande"
                         onClick={guardarBitacora}
                         disabled={subiendoArchivo || !bitacoraTexto.trim()}
                         style={{ padding: '10px 20px', fontSize: '14px' }}
                       >
-                        {subiendoArchivo ? "Guardando en la Nube..." : "☁️ Guardar Texto"}
+                        {subiendoArchivo ? t('miruta.saving') : t('miruta.btn_save')}
                       </button>
                     </div>
                   </div>
@@ -301,15 +331,15 @@ export default function App() {
               {/* --- 5. SECCIÓN COMUNIDADES (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'comunidades' && (
                 <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>Comunidades Vivas</h2>
+                  <h2 style={{ color: '#064E3B' }}>{t('comunidades.title')}</h2>
                   <div className="modulo-comunidad">
-                    <h3>👥 Socios Estratégicos</h3>
-                    <p>Nuestra comunidad participa en las decisiones y la formación emocional.</p>
+                    <h3>{t('comunidades.partners_title')}</h3>
+                    <p>{t('comunidades.partners_desc')}</p>
                     <div className="tarjeta-transparencia">
-                      <p><strong>Transparencia:</strong> 85% del valor de tu viaje va directo a la autonomía comunitaria.</p>
+                      <p><strong>{t('comunidades.transparency_title')}</strong> {t('comunidades.transparency_desc')}</p>
                     </div>
                     <div className="galeria-fotos-comu">
-                      <div className="foto-placeholder">Galería de Testimonios</div>
+                      <div className="foto-placeholder">{t('comunidades.gallery')}</div>
                     </div>
                   </div>
                 </div>
@@ -318,16 +348,16 @@ export default function App() {
 
             <nav className="barra-navegacion">
               <button onClick={() => setSeccionInterna('home')} className={seccionInterna === 'home' ? 'activo' : ''}>
-                <img src="/assets/home.png" alt="h" className="icono-nav" /><span>Inicio</span>
+                <img src="/assets/home.png" alt="h" className="icono-nav" /><span>{t('nav.home')}</span>
               </button>
               <button onClick={() => setSeccionInterna('maloka')} className={seccionInterna === 'maloka' ? 'activo' : ''}>
-                <img src="/assets/maloka.png" alt="m" className="icono-nav" /><span>Maloka</span>
+                <img src="/assets/maloka.png" alt="m" className="icono-nav" /><span>{t('nav.maloka')}</span>
               </button>
               <button onClick={() => setSeccionInterna('miruta')} className={seccionInterna === 'miruta' ? 'activo' : ''}>
-                <img src="/assets/miruta.png" alt="r" className="icono-nav" /><span>Mi Ruta</span>
+                <img src="/assets/miruta.png" alt="r" className="icono-nav" /><span>{t('nav.route')}</span>
               </button>
               <button onClick={() => setSeccionInterna('comunidades')} className={seccionInterna === 'comunidades' ? 'activo' : ''}>
-                <img src="/assets/comunidades.png" alt="c" className="icono-nav" /><span>Comunidad</span>
+                <img src="/assets/comunidades.png" alt="c" className="icono-nav" /><span>{t('nav.community')}</span>
               </button>
             </nav>
           </div>
