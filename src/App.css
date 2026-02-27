@@ -15,7 +15,7 @@
 }
 
 /* Google Fonts para Syne y Montserrat */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Syne:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Syne:wght@800&display=swap');
 
 :root {
   --font-KGPerfectPenmanship: 'KGPerfectPenmanship', cursive;
@@ -1646,4 +1646,47 @@ h4,
 .pin-destino:active {
   transform: translate(-50%, -50%) scale(1.2);
   /* Efecto al tocar */
+}
+
+/* ==========================================
+   TIPOGRAFÍA PREMIUM Y ESTILOS UI/UX
+   ========================================== */
+
+/* 2. Estilización Premium de Botones */
+.boton-secundario,
+.boton-microfono,
+.boton-regresar,
+.barra-navegacion button,
+.barra-navegacion a {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  text-align: center !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Textos de Párrafos y Tarjetas (Lectura relajante y fluida) */
+.tarjeta-multimedia p,
+.tarjeta-multimedia ul,
+.tarjeta-multimedia li,
+.tarjeta-multimedia div,
+.modulo-comunidad p,
+.modulo-comunidad ul,
+.modulo-comunidad li,
+.modulo-comunidad div,
+.grabadora-experiencia p,
+.grabadora-experiencia ul,
+.grabadora-experiencia li,
+.grabadora-experiencia textarea,
+.pantalla-territorio p,
+.pantalla-territorio ul,
+.pantalla-territorio li {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+  color: #333333;
+  /* Ajusta este tono si tu fondo es muy oscuro */
 }
