@@ -73,50 +73,50 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
             let r = "";
 
             if (consulta.includes('macizo') || consulta.includes('san agustin') || consulta.includes('útero')) {
-                r = "El Macizo es el Útero de la Tierra. Aquí nace el agua que irriga a Colombia. Los volcanes Puracé y Sotará custodian tu transformación. Es un lugar para gestar nuevos proyectos y silenciar el ruido mental.";
+                r = t('agente.macizo');
             } else if (consulta.includes('amazonas') || consulta.includes('selva') || consulta.includes('raíz')) {
-                r = "El Amazonas es la Raíz Viva. En la Maloka, los abuelos restauran tu equilibrio con medicinas del bosque. Recuerda: la selva no se visita, se habita con respeto. (Vacuna de Fiebre Amarilla obligatoria).";
+                r = t('agente.amazonas');
             } else if (consulta.includes('guainia') || consulta.includes('mavecure') || consulta.includes('tulpa')) {
-                r = "Guainía es la Tulpa del Mundo. Los Cerros de Mavecure son las rocas más antiguas que verán tus ojos. Es el destino para reintegrar fragmentos perdidos de tu historia personal.";
+                r = t('agente.guainia');
             } else if (consulta.includes('sierra') || consulta.includes('corazón') || consulta.includes('misión')) {
-                r = "La Sierra Nevada es el Corazón del Mundo. Los hermanos mayores (Kogui/Arhuaco) nos enseñan a ordenar el pensamiento. Ideal si buscas dirección y claridad en tu propósito de vida.";
+                r = t('agente.sierra');
             } else if (consulta.includes('pacifico') || consulta.includes('ballena') || consulta.includes('linaje')) {
-                r = "En el Pacífico, el mar y la selva se abrazan. Las ballenas Yubarta vienen a parir, igual que tú vendrás a sanar tu linaje familiar y soltar lo que ya no te pertenece.";
+                r = t('agente.pacifico');
             } else if (consulta.includes('putumayo') || consulta.includes('jaguar') || consulta.includes('alquimia')) {
-                r = "Putumayo es Alquimia Pura. El territorio del Jaguar te exige presencia absoluta. Es para quienes están listos para una transformación profunda y sin máscaras.";
+                r = t('agente.putumayo');
             } else if (consulta.includes('guatavita') || consulta.includes('muisca') || consulta.includes('oro')) {
-                r = "Guatavita es el vientre de Bachué. Aquí el 'Dorado' no es metal, es la luz de tu alma. Perfecto para cierres de ciclo y nuevos comienzos conscientes.";
+                r = t('agente.guatavita');
             }
 
             // --- 2. SABIDURÍA LOGÍSTICA Y BIENESTAR ---
             else if (consulta.includes('comer') || consulta.includes('comida') || consulta.includes('alimentación')) {
-                r = "Comerás la medicina de la tierra: frutos selváticos, preparaciones ancestrales y alimentos orgánicos de las comunidades. Alimentamos el cuerpo para que el alma pueda viajar.";
+                r = t('agente.comida');
             } else if (consulta.includes('precio') || consulta.includes('cuanto cuesta') || consulta.includes('valor')) {
-                r = "Nuestros viajes son inversiones en tu ser. Los precios varían según el territorio y la profundidad del proceso (aprox. 3.5 a 5.5 millones). Cada peso apoya la autonomía de las comunidades guardianas.";
+                r = t('agente.precio');
             } else if (consulta.includes('yoga') || consulta.includes('meditacion') || consulta.includes('espiritual')) {
-                r = "Toda la ruta es una meditación en movimiento. Practicamos la conexión consciente y el silencio. Si buscas un retiro de yoga específico, el Macizo es tu lugar sagrado.";
+                r = t('agente.yoga');
             } else if (consulta.includes('seguridad') || consulta.includes('miedo') || consulta.includes('peligro')) {
-                r = "La tierra te cuida. Viajamos bajo la protección de las asociaciones indígenas y contamos con seguro médico integral. Estás en manos de los guardianes del territorio.";
+                r = t('agente.seguridad');
             } else if (consulta.includes('vacuna') || consulta.includes('fiebre')) {
-                r = "La rana te recuerda: Para el Amazonas y Putumayo, la vacuna de Fiebre Amarilla es obligatoria 10 días antes. ¡Ecodestinos te otorga seguro médico integral en todo el viaje!";
+                r = t('agente.vacuna');
             } else if (consulta.includes('seguro') || consulta.includes('medico') || consulta.includes('asistencia')) {
-                r = "¡No temas! Cada paso en el territorio está cubierto. Nuestra agencia te brinda un seguro médico integral y atención personalizada de la comunidad.";
+                r = t('agente.seguro');
             } else if (consulta.includes('ropa') || consulta.includes('llevar') || consulta.includes('maleta')) {
-                r = "Lleva ropa de secado rápido, manga larga para mosquitos, botas cómodas, repelente y tus medicamentos personales. ¡La selva te espera preparado!";
+                r = t('agente.ropa');
             } else if (consulta.includes('wifi') || consulta.includes('internet') || consulta.includes('conexión')) {
-                r = "La rana prefiere el agua al Wi-Fi. Solo habrá conexión en los hoteles; en el territorio profundo, la conexión es directa con la tierra y tu corazón. 🌿";
+                r = t('agente.wifi');
             } else if (consulta.includes('quien eres') || consulta.includes('que haces')) {
-                r = "Soy el pulso de Ecodestinos. Mi canto te guía hacia el territorio que tu energía necesita hoy. Soy el puente entre tu latido y el de la tierra.";
+                r = t('agente.quien');
             }
 
             // --- 3. RESPUESTA POR DEFECTO (SIEMPRE AL FINAL) ---
             else {
-                r = "Mis oídos de rana están atentos, pero esa palabra no la reconozco aún. Pregúntame sobre territorios, vacunas, qué llevar o el sentido espiritual de tu viaje.";
+                r = t('agente.default');
             }
 
             // --- 4. CIERRE LÓGICO (CADA 3 MENSAJES) ---
             if (nuevoContador % 3 === 0) {
-                r += `\n\n✨ Escucho tu vibración, ${nombre || 'viajero'}... Si mi canto no es suficiente, presiona abajo para hablar con los guardianes humanos.`;
+                r += t('agente.cierre', { nombre: nombre || 'viajero' });
             }
 
             setMensajes(prev => [...prev, { rol: 'asistente', texto: r }]);
