@@ -123,7 +123,7 @@ const resources = {
                     "question": "¿Qué espacio te daría más paz al imaginarlo?",
                     "opt0": "La cima de una montaña que mira al mar",
                     "opt1": "Un bosque húmedo lleno de vida",
-                    "opt2": "El canto lejano de ballenas en el mar",
+                    "opt2": "El canto de las ballenas en el mar",
                     "opt3": "Un cerro sagrado rodeado de ríos"
                 },
                 "q7": {
@@ -311,7 +311,7 @@ const resources = {
                     "question": "What space would give you the most peace when imagining it?",
                     "opt0": "The top of a mountain overlooking the sea",
                     "opt1": "A humid forest full of life",
-                    "opt2": "The distant song of whales in the sea",
+                    "opt2": "The song of whales in the sea",
                     "opt3": "A sacred hill surrounded by rivers"
                 },
                 "q7": {
@@ -499,7 +499,7 @@ const resources = {
                     "question": "Welcher Raum würde dir am meisten Frieden geben, wenn du ihn dir vorstellst?",
                     "opt0": "Der Gipfel eines Berges mit Blick auf das Meer",
                     "opt1": "Ein feuchter Wald voller Leben",
-                    "opt2": "Der ferne Gesang der Wale im Meer",
+                    "opt2": "Der Gesang der Wale im Meer",
                     "opt3": "Ein heiliger Hügel umgeben von Flüssen"
                 },
                 "q7": {
@@ -687,7 +687,7 @@ const resources = {
                     "question": "Quel espace vous donnerait le plus de paix en l'imaginant ?",
                     "opt0": "Le sommet d'une montagne surplombant la mer",
                     "opt1": "Une forêt humide pleine de vie",
-                    "opt2": "Le chant lointain des baleines dans la mer",
+                    "opt2": "Le chant des baleines dans la mer",
                     "opt3": "Une colline sacrée entourée de rivières"
                 },
                 "q7": {
