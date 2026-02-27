@@ -275,7 +275,7 @@ export default function MiRuta() {
                     </a>
 
                     <button onClick={toggleTracking} style={trackBtnStyle}>
-                        {isTracking ? `📍 Rastreando... (${rutaCoords.length} pts)` : '📍 Iniciar Rastreo GPS'}
+                        {isTracking ? t('miruta.btn_tracking', { count: rutaCoords.length }) : t('miruta.btn_start_tracking')}
                     </button>
                 </div>
             </div>

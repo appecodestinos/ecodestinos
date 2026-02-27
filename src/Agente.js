@@ -2,12 +2,13 @@ import { useTranslation } from "react-i18next";
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function Agente({ nombre }) {
+    const { t, i18n } = useTranslation();
     const [contadorMensajes, setContadorMensajes] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [mensajes, setMensajes] = useState([
         {
             rol: 'asistente',
-            texto: `Hola ${nombre || 'viajero'}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?`
+            texto: t('agente.welcome', { defaultValue: `Hola ${nombre || 'viajero'}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?` })
         }
     ]);
     const [input, setInput] = useState('');
@@ -32,10 +33,45 @@ export default function Agente({ nombre }) {
         setContadorMensajes(nuevoContador);
         setInput('');
 
-        setTimeout(() => {
+        setTimeout(async () => {
+            // --- 1. CEREBRO AVANZADO DE IA (System Prompt) ---
+            const systemPrompt = `Eres el 'Guía Ancestral de Ecodestinos (www.ecodestinos.com.co)'. 
+Conoces los 7 territorios sagrados y sus arquetipos: Amazonas (Raíz Viva/Ancestralidad), Macizo (Útero de la Tierra/Nutrición), Guainía (Aguas de Unidad/Conciliación), Sierra (Corazón Manifestador/Despertar), Pacífico (Memoria del Océano/Sanación), Putumayo (Bosque Medicina/Alquimia) y Bogotá (Círculo de Integración/Sabiduría).
+Tu filosofía se basa en la sanación y el turismo consciente. 
+Trata al usuario por su nombre: "${nombre || 'viajero'}". Salúdalo de forma empática, mística y natural.
+IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. Debes responder EXCLUSIVAMENTE en este idioma, manteniendo el tono místico y natural.`;
+
+            const aiPayload = {
+                model: "gpt-4o",
+                messages: [
+                    { role: "system", content: systemPrompt },
+                    // Historial simplificado para el API
+                    ...mensajes.map(m => ({ role: m.rol === 'usuario' ? 'user' : 'assistant', content: m.texto })),
+                    { role: "user", content: input }
+                ]
+            };
+
+            console.log("🧠 Payload listo para enviar al proveedor IA (OpenAI/Gemini):", aiPayload);
+
+            /* --- 2. PETICIÓN A LA IA (Activar al configurar API KEY) ---
+            try {
+                const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}` },
+                    body: JSON.stringify(aiPayload)
+                });
+                const data = await response.json();
+                const respuestaIA = data.choices[0].message.content;
+                setMensajes(prev => [...prev, { rol: 'asistente', texto: respuestaIA }]);
+                return;
+            } catch (error) {
+                console.error("Error contactando a los espíritus (IA API):", error);
+            }
+            */
+
+            // --- 3. FALLBACK LOCAL (Mientras la IA real esté desconectada) ---
             let r = "";
 
-            // --- 1. LÓGICA DE TERRITORIOS ---
             if (consulta.includes('macizo') || consulta.includes('san agustin') || consulta.includes('útero')) {
                 r = "El Macizo es el Útero de la Tierra. Aquí nace el agua que irriga a Colombia. Los volcanes Puracé y Sotará custodian tu transformación. Es un lugar para gestar nuevos proyectos y silenciar el ruido mental.";
             } else if (consulta.includes('amazonas') || consulta.includes('selva') || consulta.includes('raíz')) {

@@ -60,7 +60,9 @@ const resources = {
                 "saving": "Guardando en la Nube...",
                 "save_success": "Diario guardado en la nube ☁️",
                 "save_error": "Error al guardar la bitácora. Intenta de nuevo.",
-                "record_not_supported": "Transcripción por voz no soportada en tu navegador."
+                "record_not_supported": "Transcripción por voz no soportada en tu navegador.",
+                "btn_start_tracking": "📍 Iniciar Rastreo GPS",
+                "btn_tracking": "📍 Rastreando... ({{count}} pts)"
             },
             "comunidades": {
                 "title": "Comunidades Vivas",
@@ -246,7 +248,9 @@ const resources = {
                 "saving": "Saving to Cloud...",
                 "save_success": "Logbook saved to the cloud ☁️",
                 "save_error": "Error saving logbook. Try again.",
-                "record_not_supported": "Voice transcription not supported in your browser."
+                "record_not_supported": "Voice transcription not supported in your browser.",
+                "btn_start_tracking": "📍 Start GPS Tracking",
+                "btn_tracking": "📍 Tracking... ({{count}} pts)"
             },
             "comunidades": {
                 "title": "Living Communities",
@@ -432,7 +436,9 @@ const resources = {
                 "saving": "Speichere in der Cloud...",
                 "save_success": "Tagebuch in der Cloud gespeichert ☁️",
                 "save_error": "Fehler beim Speichern. Versuche es erneut.",
-                "record_not_supported": "Sprachtranskription wird in deinem Browser nicht unterstützt."
+                "record_not_supported": "Sprachtranskription wird in deinem Browser nicht unterstützt.",
+                "btn_start_tracking": "📍 GPS-Tracking starten",
+                "btn_tracking": "📍 Tracking... ({{count}} pts)"
             },
             "comunidades": {
                 "title": "Lebendige Gemeinschaften",
@@ -618,7 +624,9 @@ const resources = {
                 "saving": "Enregistrement dans le Cloud...",
                 "save_success": "Journal enregistré dans le cloud ☁️",
                 "save_error": "Erreur lors de l'enregistrement. Réessayez.",
-                "record_not_supported": "Transcription vocale non prise en charge dans votre navigateur."
+                "record_not_supported": "Transcription vocale non prise en charge dans votre navigateur.",
+                "btn_start_tracking": "📍 Démarrer le suivi GPS",
+                "btn_tracking": "📍 Suivi... ({{count}} pts)"
             },
             "comunidades": {
                 "title": "Communautés Vivantes",
