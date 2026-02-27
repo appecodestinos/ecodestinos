@@ -153,13 +153,13 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
                             <input
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Háblale a la rana..."
+                                placeholder={t('agente.placeholder')}
                                 style={{ flexGrow: 1, border: 'none', outline: 'none', fontSize: '14px' }}
                             />
                             <button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '18px' }}>🐸</button>
                         </form>
                         <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" style={{ fontSize: '11px', color: '#2E472D', textDecoration: 'none', display: 'block', textAlign: 'center', fontWeight: 'bold' }}>
-                            📲 ¿Dudas sobre el viaje? WhatsApp Directo
+                            {t('agente.whatsapp')}
                         </a>
                     </div>
                 </div>
