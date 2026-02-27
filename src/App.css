@@ -1420,9 +1420,8 @@ h4 {
   background: none;
   border: none;
   color: #666;
-  font-family: 'Cinzel', serif;
-  /* Usando Cinzel como identidad */
-  font-size: 1 rem;
+  /* Font inherited from the universal .barra-navegacion button rule */
+  font-size: 1rem;
 }
 
 .barra-navegacion button.activo {
@@ -1645,8 +1644,14 @@ h4 {
    TIPOGRAFÍA PREMIUM Y ESTILOS UI/UX
    ========================================== */
 
-/* 2. Estilización Premium de Botones */
+/* 1. Reset Global de Botones para anular fuentes del Sistema Operativo */
+button {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* 2. Estilización Premium de Botones y Header */
 .boton-secundario,
+.boton-brillante-grande,
 .boton-microfono,
 .boton-regresar,
 .barra-navegacion button,
