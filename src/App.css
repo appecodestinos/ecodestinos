@@ -40,11 +40,6 @@ h2,
   font-size: 2rem !important;
 }
 
-button,
-.boton-brillante-grande {
-  font-family: var(--font-syne);
-}
-
 body,
 p,
 span {
@@ -96,10 +91,9 @@ body {
 h1,
 h2,
 h3,
-h4,
-.boton-brillante-grande {
+h4 {
   font-family: 'Playfair Display', serif;
-  /* Para titulares y botones importantes */
+  /* Para titulares importantes */
 }
 
 :root {
@@ -683,8 +677,7 @@ body {
 h1,
 h2,
 h3,
-h4,
-.boton-brillante-grande {
+h4 {
   font-family: 'Playfair Display', serif;
 }
 

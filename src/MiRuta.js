@@ -187,8 +187,7 @@ export default function MiRuta() {
     const containerStyle = {
         padding: '30px',
         maxWidth: '800px',
-        margin: '0 auto',
-        fontFamily: "'Playfair Display', serif"
+        margin: '0 auto'
     };
 
     const textAreaStyle = {
@@ -219,10 +218,13 @@ export default function MiRuta() {
         backgroundColor: isRecording ? '#dc3545' : '#28a745',
         color: '#fff',
         cursor: 'pointer',
+        fontFamily: "'Montserrat', sans-serif",
         fontSize: '1rem',
-        fontWeight: 'bold',
+        fontWeight: '600',
+        letterSpacing: '0.5px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '8px',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
         transition: 'background-color 0.3s'
@@ -235,10 +237,13 @@ export default function MiRuta() {
         backgroundColor: isTracking ? '#007bff' : '#6c757d',
         color: '#fff',
         cursor: 'pointer',
+        fontFamily: "'Montserrat', sans-serif",
         fontSize: '1rem',
-        fontWeight: 'bold',
+        fontWeight: '600',
+        letterSpacing: '0.5px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '8px',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
         transition: 'background-color 0.3s'
@@ -252,10 +257,13 @@ export default function MiRuta() {
         color: '#fff',
         cursor: textoTranscrito.trim() === '' ? 'not-allowed' : 'pointer',
         opacity: textoTranscrito.trim() === '' ? 0.5 : 1,
+        fontFamily: "'Montserrat', sans-serif",
         fontSize: '1rem',
-        fontWeight: 'bold',
+        fontWeight: '600',
+        letterSpacing: '0.5px',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '8px',
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
     };
