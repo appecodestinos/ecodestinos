@@ -5,17 +5,18 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     es: {
         translation: {
+            "logo_circular": "/assets/logocircular.png",
             "landing": {
                 "title": "Territorios Vivos",
-                "tagline": "Mapeando la compatibilidad entre tu alma y la tierra",
-                "start": "Iniciar medición de energía",
-                "skip": "Omitir Quiz"
+                "tagline": "En solo 90 segundos descubre qué territorio conecta mejor contigo y recibe recomendaciones",
+                "start": "Comenzar el viaje",
+                "skip": "Explorar el mapa"
             },
             "procesando": {
                 "rana": "La Rana está escuchando tu latido..."
             },
             "resultados": {
-                "title": "Tu Energía Resuena Con:",
+                "title": "TU VIAJE RESUENA CON:",
                 "name_label": "tu nombre:",
                 "email_label": "tu correo:",
                 "button": "Recibir mis destinos"
@@ -73,72 +74,58 @@ const resources = {
                 "gallery": "Galería de Testimonios"
             },
             "quiz": {
-                "progress": "REFLEXIÓN {{current}} / {{total}}",
+                "progress": "ESTACIÓN {{current}} DE 7",
                 "next": "Siguiente",
                 "prev": "Anterior",
                 "finish": "Finalizar",
                 "q0": {
-                    "question": "¿Cómo sientes tu energía en este momento vital?",
-                    "opt0": "Desconectada o con agotamiento mental",
-                    "opt1": "En medio de un proceso de cambio profundo",
-                    "opt2": "Buscando claridad, dirección y propósito",
-                    "opt3": "Sensible, con necesidad de sanar vínculos"
+                    "question": "¿Cómo te has sentido últimamente?",
+                    "opt0": "Con cansancio o agotamiento mental",
+                    "opt1": "En cambio o transición",
+                    "opt2": "Alegre y optimista",
+                    "opt3": "En equilibrio y con curiosidad"
                 },
                 "q1": {
-                    "question": "¿Qué es lo que más necesitas de la naturaleza hoy?",
+                    "question": "¿Qué es lo que más necesitas de la naturaleza?",
                     "opt0": "Estabilidad y arraigo",
-                    "opt1": "Contención para gestar algo nuevo",
-                    "opt2": "Armonía y suavidad",
-                    "opt3": "Medicina natural e integración"
+                    "opt1": "Armonía y suavidad",
+                    "opt2": "Recuperación e integración",
+                    "opt3": "Inspiración y aire fresco"
                 },
                 "q2": {
-                    "question": "¿Cuál sientes que es tu mayor desafío emocional actualmente?",
-                    "opt0": "La saturación mental y el ritmo acelerado",
-                    "opt1": "Ciclos del pasado que necesitan cerrarse",
-                    "opt2": "La sensación de fragmentación interior",
-                    "opt3": "La falta de claridad para ordenar lo vivido"
+                    "question": "¿Qué paisaje te acompaña mejor hoy?",
+                    "opt0": "La tierra húmeda",
+                    "opt1": "Respirar el horizonte en las montañas",
+                    "opt2": "Atardecer a la orilla del mar",
+                    "opt3": "Contemplar el reflejo en el agua serena"
                 },
                 "q3": {
-                    "question": "Si tuvieras que elegir un paisaje para acompañar tu proceso, sería:",
-                    "opt0": "La tierra húmeda y la inmensidad verde",
-                    "opt1": "La montaña fuerte y la piedra antigua",
-                    "opt2": "El océano profundo y sonoro",
-                    "opt3": "El agua calma de una laguna sagrada"
+                    "question": "¿Qué ritmo de viaje prefieres?",
+                    "opt0": "Tranquilo, una actividad al día",
+                    "opt1": "Equilibrado, dos actividades al día",
+                    "opt2": "Activo, varias experiencias al día",
+                    "opt3": "Flexible, según el día"
                 },
                 "q4": {
-                    "question": "¿Cómo prefieres atravesar tus momentos de transformación?",
-                    "opt0": "Soltando lo viejo en completo silencio",
-                    "opt1": "Integrando opuestos y buscando reconciliación",
-                    "opt2": "Convirtiendo mi intención en acción directa",
-                    "opt3": "Ablandando el proceso con suavidad"
+                    "question": "¿Qué quieres activar en ti con este viaje?",
+                    "opt0": "Enraizamiento y estabilidad (Raíz)",
+                    "opt1": "Creatividad y nuevos comienzos (Creación)",
+                    "opt2": "Amor propio y vínculos (Corazón)",
+                    "opt3": "Manifestación y visión (Propósito)"
                 },
                 "q5": {
-                    "question": "En tus relaciones y entorno, hoy buscas:",
-                    "opt0": "Recordar que pertenezco a un sistema mayor",
-                    "opt1": "Reconexión con la historia familiar",
-                    "opt2": "Convivencia pacífica en la diferencia",
-                    "opt3": "Cierre consciente y comprensión"
+                    "question": "¿Qué tipo de bienestar quieres vivir?",
+                    "opt0": "Caminatas conscientes en la naturaleza",
+                    "opt1": "Masajes, spa y rituales de bienestar",
+                    "opt2": "Conexión con comunidades y prácticas ancestrales",
+                    "opt3": "Crear con las manos (tejido, cerámica, cocina)"
                 },
                 "q6": {
-                    "question": "¿Qué espacio te daría más paz al imaginarlo?",
-                    "opt0": "La cima de una montaña que mira al mar",
-                    "opt1": "Un bosque húmedo lleno de vida",
-                    "opt2": "El canto de las ballenas en el mar",
-                    "opt3": "Un cerro sagrado rodeado de ríos"
-                },
-                "q7": {
-                    "question": "Frente a una decisión importante en tu vida, tú necesitas:",
-                    "opt0": "Enraizarme y encontrar mi centro primero",
-                    "opt1": "Que mis pensamientos se conviertan en actos",
-                    "opt2": "Escuchar mi intuición antes de hablar",
-                    "opt3": "Entender cada parte del proceso antes de saltar"
-                },
-                "q8": {
-                    "question": "El mensaje que más resuena contigo hoy es:",
-                    "opt0": "Sin raíz no hay expansión.",
-                    "opt1": "Toda transformación necesita contención.",
-                    "opt2": "Antes de hablar, escucha profundo.",
-                    "opt3": "Comprender es parte vital del viaje."
+                    "question": "¿Qué formato de viaje prefieres?",
+                    "opt0": "Independiente, solo/a o a mi ritmo",
+                    "opt1": "En pareja",
+                    "opt2": "En familia",
+                    "opt3": "En grupo para retiro o experiencia guiada"
                 }
             },
             "agente": {
@@ -216,17 +203,18 @@ const resources = {
     },
     en: {
         translation: {
+            "logo_circular": "/assets/logo-ecodestinos-circular-en.png",
             "landing": {
                 "title": "Living Territories",
-                "tagline": "Mapping the compatibility between your soul and the earth",
-                "start": "Start energy measurement",
-                "skip": "Skip Quiz"
+                "tagline": "In just 90 seconds, discover which territory connects best with you and receive recommendations",
+                "start": "Begin the journey",
+                "skip": "Explore the map"
             },
             "procesando": {
                 "rana": "The Frog is listening to your heartbeat..."
             },
             "resultados": {
-                "title": "Your Energy Resonates With:",
+                "title": "YOUR TRIP RESONATES WITH:",
                 "name_label": "your name:",
                 "email_label": "your email:",
                 "button": "Receive my destinations"
@@ -284,72 +272,58 @@ const resources = {
                 "gallery": "Testimonial Gallery"
             },
             "quiz": {
-                "progress": "REFLECTION {{current}} / {{total}}",
+                "progress": "STATION {{current}} OF 7",
                 "next": "Next",
                 "prev": "Previous",
                 "finish": "Finish",
                 "q0": {
-                    "question": "How do you feel your energy at this vital moment?",
-                    "opt0": "Disconnected or mentally exhausted",
-                    "opt1": "In the midst of a deep process of change",
-                    "opt2": "Seeking clarity, direction and purpose",
-                    "opt3": "Sensitive, needing to heal bonds"
+                    "question": "How have you been feeling lately?",
+                    "opt0": "Tired or mentally exhausted",
+                    "opt1": "In change or transition",
+                    "opt2": "Joyful and optimistic",
+                    "opt3": "In balance and curious"
                 },
                 "q1": {
-                    "question": "What do you need most from nature today?",
+                    "question": "What do you need most from nature?",
                     "opt0": "Stability and grounding",
-                    "opt1": "Containment to gestate something new",
-                    "opt2": "Harmony and softness",
-                    "opt3": "Natural medicine and integration"
+                    "opt1": "Harmony and softness",
+                    "opt2": "Recovery and integration",
+                    "opt3": "Inspiration and fresh air"
                 },
                 "q2": {
-                    "question": "What do you feel is your biggest emotional challenge currently?",
-                    "opt0": "Mental saturation and the fast pace",
-                    "opt1": "Past cycles that need to be closed",
-                    "opt2": "The feeling of inner fragmentation",
-                    "opt3": "Lack of clarity to order what has been lived"
+                    "question": "Which landscape accompanies you best today?",
+                    "opt0": "The moist earth",
+                    "opt1": "Breathing the horizon in the mountains",
+                    "opt2": "Sunset on the seashore",
+                    "opt3": "Contemplating the reflection in serene water"
                 },
                 "q3": {
-                    "question": "If you had to choose a landscape to accompany your process, it would be:",
-                    "opt0": "The moist earth and green immensity",
-                    "opt1": "The strong mountain and ancient stone",
-                    "opt2": "The deep and sonorous ocean",
-                    "opt3": "The calm water of a sacred lagoon"
+                    "question": "What travel pace do you prefer?",
+                    "opt0": "Quiet, one activity per day",
+                    "opt1": "Balanced, two activities per day",
+                    "opt2": "Active, several experiences per day",
+                    "opt3": "Flexible, depending on the day"
                 },
                 "q4": {
-                    "question": "How do you prefer to go through your moments of transformation?",
-                    "opt0": "Releasing the old in complete silence",
-                    "opt1": "Integrating opposites and seeking reconciliation",
-                    "opt2": "Turning my intention into direct action",
-                    "opt3": "Softening the process gently"
+                    "question": "What do you want to activate in yourself with this trip?",
+                    "opt0": "Grounding and stability (Root)",
+                    "opt1": "Creativity and new beginnings (Creation)",
+                    "opt2": "Self-love and bonds (Heart)",
+                    "opt3": "Manifestation and vision (Purpose)"
                 },
                 "q5": {
-                    "question": "In your relationships and environment, today you seek:",
-                    "opt0": "To remember that I belong to a larger system",
-                    "opt1": "Reconnection with family history",
-                    "opt2": "Peaceful coexistence in difference",
-                    "opt3": "Conscious closure and understanding"
+                    "question": "What kind of wellness do you want to experience?",
+                    "opt0": "Conscious walks in nature",
+                    "opt1": "Massages, spa and wellness rituals",
+                    "opt2": "Connection with communities and ancestral practices",
+                    "opt3": "Creating with your hands (weaving, ceramics, cooking)"
                 },
                 "q6": {
-                    "question": "What space would give you the most peace when imagining it?",
-                    "opt0": "The top of a mountain overlooking the sea",
-                    "opt1": "A humid forest full of life",
-                    "opt2": "The song of whales in the sea",
-                    "opt3": "A sacred hill surrounded by rivers"
-                },
-                "q7": {
-                    "question": "Faced with an important decision in your life, you need:",
-                    "opt0": "To ground myself and find my center first",
-                    "opt1": "For my thoughts to become actions",
-                    "opt2": "To listen to my intuition before speaking",
-                    "opt3": "To understand every part of the process before jumping"
-                },
-                "q8": {
-                    "question": "The message that resonates most with you today is:",
-                    "opt0": "Without root there is no expansion.",
-                    "opt1": "Every transformation needs containment.",
-                    "opt2": "Before speaking, listen deeply.",
-                    "opt3": "Understanding is a vital part of the journey."
+                    "question": "What travel format do you prefer?",
+                    "opt0": "Independent, solo or at my own pace",
+                    "opt1": "As a couple",
+                    "opt2": "With family",
+                    "opt3": "In a group for a retreat or guided experience"
                 }
             },
             "agente": {
@@ -427,17 +401,18 @@ const resources = {
     },
     de: {
         translation: {
+            "logo_circular": "/assets/logo-ecodestinos-circular-de.png",
             "landing": {
                 "title": "Lebendige Territorien",
-                "tagline": "Kartierung der Kompatibilität zwischen deiner Seele und der Erde",
-                "start": "Energiemessung starten",
-                "skip": "Quiz überspringen"
+                "tagline": "Entdecke in nur 90 Sekunden, welches Gebiet am besten mit dir in Resonanz tritt, und erhalte Empfehlungen",
+                "start": "Die Reise beginnen",
+                "skip": "Die Karte erkunden"
             },
             "procesando": {
                 "rana": "Der Frosch hört deinen Herzschlag..."
             },
             "resultados": {
-                "title": "Deine Energie resoniert mit:",
+                "title": "DEINE REISE RESONIERT MIT:",
                 "name_label": "dein Name:",
                 "email_label": "deine E-Mail:",
                 "button": "Meine Ziele erhalten"
@@ -495,72 +470,58 @@ const resources = {
                 "gallery": "Testimonial-Galerie"
             },
             "quiz": {
-                "progress": "REFLEXION {{current}} / {{total}}",
+                "progress": "STATION {{current}} VON 7",
                 "next": "Weiter",
                 "prev": "Zurück",
                 "finish": "Beenden",
                 "q0": {
-                    "question": "Wie fühlst du deine Energie in diesem vitalen Moment?",
-                    "opt0": "Getrennt oder geistig erschöpft",
-                    "opt1": "Inmitten eines tiefen Veränderungsprozesses",
-                    "opt2": "Suche nach Klarheit, Richtung und Zweck",
-                    "opt3": "Sensibel, muss Bindungen heilen"
+                    "question": "Wie hast du dich in letzter Zeit gefühlt?",
+                    "opt0": "Müde oder geistig erschöpft",
+                    "opt1": "Im Wandel oder Übergang",
+                    "opt2": "Fröhlich und optimistisch",
+                    "opt3": "Im Gleichgewicht und neugierig"
                 },
                 "q1": {
-                    "question": "Was brauchst du heute am meisten von der Natur?",
+                    "question": "Was brauchst du am meisten von der Natur?",
                     "opt0": "Stabilität und Verwurzelung",
-                    "opt1": "Eindämmung, um etwas Neues zu gebären",
-                    "opt2": "Harmonie und Weichheit",
-                    "opt3": "Naturmedizin und Integration"
+                    "opt1": "Harmonie und Weichheit",
+                    "opt2": "Erholung und Integration",
+                    "opt3": "Inspiration und frische Luft"
                 },
                 "q2": {
-                    "question": "Was ist derzeit deine größte emotionale Herausforderung?",
-                    "opt0": "Mentale Sättigung und das schnelle Tempo",
-                    "opt1": "Vergangene Zyklen, die geschlossen werden müssen",
-                    "opt2": "Das Gefühl innerer Fragmentierung",
-                    "opt3": "Mangelnde Klarheit, um das Erlebte zu ordnen"
+                    "question": "Welche Landschaft begleitet dich heute am besten?",
+                    "opt0": "Die feuchte Erde",
+                    "opt1": "Den Horizont in den Bergen atmen",
+                    "opt2": "Sonnenuntergang am Meer",
+                    "opt3": "Die Reflexion im ruhigen Wasser betrachten"
                 },
                 "q3": {
-                    "question": "Wenn du eine Landschaft wählen müsstest, die deinen Prozess begleitet, wäre es:",
-                    "opt0": "Die feuchte Erde und die grüne Unermesslichkeit",
-                    "opt1": "Der starke Berg und der alte Stein",
-                    "opt2": "Der tiefe und klangvolle Ozean",
-                    "opt3": "Das ruhige Wasser einer heiligen Lagune"
+                    "question": "Welches Reisetempo bevorzugst du?",
+                    "opt0": "Ruhig, eine Aktivität am Tag",
+                    "opt1": "Ausgewogen, zwei Aktivitäten am Tag",
+                    "opt2": "Aktiv, mehrere Erlebnisse am Tag",
+                    "opt3": "Flexibel, je nach Tag"
                 },
                 "q4": {
-                    "question": "Wie durchlebst du am liebsten deine Momente der Transformation?",
-                    "opt0": "Das Alte in völliger Stille loslassen",
-                    "opt1": "Gegensätze integrieren und Versöhnung suchen",
-                    "opt2": "Meine Absicht in direkte Aktion umsetzen",
-                    "opt3": "Den Prozess sanft abmildern"
+                    "question": "Was möchtest du mit dieser Reise in dir aktivieren?",
+                    "opt0": "Verwurzelung und Stabilität (Wurzel)",
+                    "opt1": "Kreativität und Neuanfänge (Schöpfung)",
+                    "opt2": "Selbstliebe und Verbundenheit (Herz)",
+                    "opt3": "Manifestation und Vision (Zweck)"
                 },
                 "q5": {
-                    "question": "In deinen Beziehungen und in deinem Umfeld suchst du heute:",
-                    "opt0": "Mich daran zu erinnern, dass ich zu einem größeren System gehöre",
-                    "opt1": "Wiederverbindung mit der Familiengeschichte",
-                    "opt2": "Friedliches Zusammenleben in der Differenz",
-                    "opt3": "Bewusster Abschluss und Verständnis"
+                    "question": "Welche Art von Wellness möchtest du erleben?",
+                    "opt0": "Bewusste Spaziergänge in der Natur",
+                    "opt1": "Massagen, Spa und Wellness-Rituale",
+                    "opt2": "Verbindung mit Gemeinschaften und alten Praktiken",
+                    "opt3": "Mit den Händen kreieren (Weben, Keramik, Kochen)"
                 },
                 "q6": {
-                    "question": "Welcher Raum würde dir am meisten Frieden geben, wenn du ihn dir vorstellst?",
-                    "opt0": "Der Gipfel eines Berges mit Blick auf das Meer",
-                    "opt1": "Ein feuchter Wald voller Leben",
-                    "opt2": "Der Gesang der Wale im Meer",
-                    "opt3": "Ein heiliger Hügel umgeben von Flüssen"
-                },
-                "q7": {
-                    "question": "Angesichts einer wichtigen Entscheidung in deinem Leben brauchst du:",
-                    "opt0": "Mich zu erden und zuerst mein Zentrum zu finden",
-                    "opt1": "Dass meine Gedanken zu Taten werden",
-                    "opt2": "Auf meine Intuition zu hören, bevor ich spreche",
-                    "opt3": "Jeden Teil des Prozesses zu verstehen, bevor ich springe"
-                },
-                "q8": {
-                    "question": "Die Botschaft, die heute am meisten mit dir resoniert, ist:",
-                    "opt0": "Ohne Wurzel gibt es keine Expansion.",
-                    "opt1": "Jede Transformation braucht Eindämmung.",
-                    "opt2": "Bevor du sprichst, höre tief zu.",
-                    "opt3": "Verstehen ist ein wesentlicher Teil der Reise."
+                    "question": "Welches Reiseformat bevorzugst du?",
+                    "opt0": "Unabhängig, alleine oder in meinem eigenen Tempo",
+                    "opt1": "Als Paar",
+                    "opt2": "Mit Familie",
+                    "opt3": "In einer Gruppe für ein Retreat oder geführte Erfahrung"
                 }
             },
             "agente": {
@@ -638,17 +599,18 @@ const resources = {
     },
     fr: {
         translation: {
+            "logo_circular": "/assets/logo-ecodestinos-circular-fr.png",
             "landing": {
                 "title": "Territoires Vivants",
-                "tagline": "Cartographie de la compatibilité entre votre âme et la terre",
-                "start": "Commencer la mesure d'énergie",
-                "skip": "Passer le quiz"
+                "tagline": "En seulement 90 secondes, découvrez quel territoire résonne le mieux avec vous et recevez des recommandations",
+                "start": "Commencer le voyage",
+                "skip": "Explorer la carte"
             },
             "procesando": {
                 "rana": "La Grenouille écoute votre rythme cardiaque..."
             },
             "resultados": {
-                "title": "Votre énergie résonne avec:",
+                "title": "VOTRE VOYAGE RÉSONNE AVEC :",
                 "name_label": "votre nom:",
                 "email_label": "votre e-mail:",
                 "button": "Recevoir mes destinations"
@@ -706,72 +668,58 @@ const resources = {
                 "gallery": "Galerie de Témoignages"
             },
             "quiz": {
-                "progress": "RÉFLEXION {{current}} / {{total}}",
+                "progress": "STATION {{current}} SUR 7",
                 "next": "Suivant",
                 "prev": "Précédent",
                 "finish": "Terminer",
                 "q0": {
-                    "question": "Comment ressentez-vous votre énergie à ce moment vital ?",
-                    "opt0": "Déconnecté ou mentalement épuisé",
-                    "opt1": "Au milieu d'un processus profond de changement",
-                    "opt2": "Cherchant de la clarté, de la direction et un but",
-                    "opt3": "Sensible, ayant besoin de guérir des liens"
+                    "question": "Comment vous êtes-vous senti dernièrement ?",
+                    "opt0": "Fatigué ou mentalement épuisé",
+                    "opt1": "En changement ou transition",
+                    "opt2": "Joyeux et optimiste",
+                    "opt3": "En équilibre et curieux"
                 },
                 "q1": {
-                    "question": "De quoi avez-vous le plus besoin de la nature aujourd'hui ?",
+                    "question": "De quoi avez-vous le plus besoin de la nature ?",
                     "opt0": "Stabilité et enracinement",
-                    "opt1": "Contenance pour engendrer quelque chose de nouveau",
-                    "opt2": "Harmonie et douceur",
-                    "opt3": "Médecine naturelle et intégration"
+                    "opt1": "Harmonie et douceur",
+                    "opt2": "Récupération et intégration",
+                    "opt3": "Inspiration et air frais"
                 },
                 "q2": {
-                    "question": "Quel est selon vous votre plus grand défi émotionnel actuellement ?",
-                    "opt0": "La saturation mentale et le rythme rapide",
-                    "opt1": "Les cycles passés qui doivent être fermés",
-                    "opt2": "Le sentiment de fragmentation intérieure",
-                    "opt3": "Le manque de clarté pour ordonner le vécu"
+                    "question": "Quel paysage vous accompagne le mieux aujourd'hui ?",
+                    "opt0": "La terre humide",
+                    "opt1": "Respirer l'horizon dans les montagnes",
+                    "opt2": "Coucher de soleil au bord de la mer",
+                    "opt3": "Contempler le reflet dans une eau sereine"
                 },
                 "q3": {
-                    "question": "Si vous deviez choisir un paysage pour vous accompagner, ce serait :",
-                    "opt0": "La terre humide et l'immensité verte",
-                    "opt1": "La montagne forte et la pierre ancienne",
-                    "opt2": "L'océan profond et sonore",
-                    "opt3": "L'eau calme d'une lagune sacrée"
+                    "question": "Quel rythme de voyage préférez-vous ?",
+                    "opt0": "Calme, une activité par jour",
+                    "opt1": "Équilibré, deux activités par jour",
+                    "opt2": "Actif, plusieurs expériences par jour",
+                    "opt3": "Flexible, selon le jour"
                 },
                 "q4": {
-                    "question": "Comment préférez-vous traverser vos moments de transformation ?",
-                    "opt0": "Relâcher l'ancien dans un silence complet",
-                    "opt1": "Intégrer les opposés et chercher la réconciliation",
-                    "opt2": "Transformer mon intention en action directe",
-                    "opt3": "Adoucir doucement le processus"
+                    "question": "Que voulez-vous activer en vous avec ce voyage ?",
+                    "opt0": "Enracinement et stabilité (Racine)",
+                    "opt1": "Créativité et nouveaux départs (Création)",
+                    "opt2": "Amour-propre et liens (Cœur)",
+                    "opt3": "Manifestation et vision (Objectif)"
                 },
                 "q5": {
-                    "question": "Dans vos relations et votre environnement, vous cherchez aujourd'hui :",
-                    "opt0": "À me rappeler que j'appartiens à un système plus vaste",
-                    "opt1": "Reconnexion avec l'histoire familiale",
-                    "opt2": "Coexistence pacifique dans la différence",
-                    "opt3": "Clôture consciente et compréhension"
+                    "question": "Quel type de bien-être souhaitez-vous vivre ?",
+                    "opt0": "Promenades conscientes dans la nature",
+                    "opt1": "Massages, spa et rituels de bien-être",
+                    "opt2": "Connexion avec des communautés et pratiques ancestrales",
+                    "opt3": "Créer avec les mains (tissage, céramique, cuisine)"
                 },
                 "q6": {
-                    "question": "Quel espace vous donnerait le plus de paix en l'imaginant ?",
-                    "opt0": "Le sommet d'une montagne surplombant la mer",
-                    "opt1": "Une forêt humide pleine de vie",
-                    "opt2": "Le chant des baleines dans la mer",
-                    "opt3": "Une colline sacrée entourée de rivières"
-                },
-                "q7": {
-                    "question": "Face à une décision importante dans votre vie, vous avez besoin de :",
-                    "opt0": "M'enraciner et trouver d'abord mon centre",
-                    "opt1": "Que mes pensées deviennent des actes",
-                    "opt2": "Écouter mon intuition avant de parler",
-                    "opt3": "Comprendre chaque partie du processus avant de sauter"
-                },
-                "q8": {
-                    "question": "Le message qui résonne le plus avec vous aujourd'hui est :",
-                    "opt0": "Sans racine, il n'y a pas d'expansion.",
-                    "opt1": "Toute transformation a besoin de contenance.",
-                    "opt2": "Avant de parler, écoute profondément.",
-                    "opt3": "Comprendre est une partie vitale du voyage."
+                    "question": "Quel format de voyage préférez-vous ?",
+                    "opt0": "Indépendant, seul à mon propre rythme",
+                    "opt1": "En couple",
+                    "opt2": "En famille",
+                    "opt3": "En groupe pour une retraite ou une expérience guidée"
                 }
             },
             "agente": {

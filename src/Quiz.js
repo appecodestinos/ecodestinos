@@ -1,17 +1,22 @@
 import { useTranslation } from "react-i18next";
 import React, { useState } from 'react';
 
-// Mapeo original de territorios por cada opción (4 opciones por las 9 preguntas)
+// Mapeo original de territorios por cada opción (4 opciones por las 7 preguntas)
 const MAPEO_PREGUNTAS = [
-    ['Amazonas', 'Macizo', 'Sierra', 'Pacífico'],
-    ['Amazonas', 'Macizo', 'Guainia', 'Putumayo'],
-    ['Amazonas', 'Macizo', 'Guainia', 'Bogota'],
-    ['Amazonas', 'Macizo', 'Pacífico', 'Bogota'],
-    ['Macizo', 'Guainia', 'Sierra', 'Putumayo'],
-    ['Amazonas', 'Pacífico', 'Guainia', 'Bogota'],
-    ['Sierra', 'Putumayo', 'Pacífico', 'Guainia'],
-    ['Amazonas', 'Sierra', 'Pacífico', 'Bogota'],
-    ['Amazonas', 'Macizo', 'Pacífico', 'Bogota']
+    // Q1: Sentimiento -> Agotamiento: Putumayo, Cambio: Macizo, Alegre: Amazonas, Equilibrio: Sierra
+    ['Putumayo', 'Macizo', 'Amazonas', 'Sierra'], 
+    // Q2: Necesidad -> Arraigo: Macizo, Armonía: Pacífico, Recuperación: Putumayo, Aire: Bogota
+    ['Macizo', 'Pacífico', 'Putumayo', 'Bogota'],
+    // Q3: Paisaje -> Tierra: Amazonas, Montaña: Sierra, Mar: Pacífico, Agua: Guainia
+    ['Amazonas', 'Sierra', 'Pacífico', 'Guainia'],
+    // Q4: Ritmo -> Tranquilo: Guainia, Equilibrado: Macizo, Activo: Bogota, Flexible: Amazonas
+    ['Guainia', 'Macizo', 'Bogota', 'Amazonas'],
+    // Q5: Activar -> Raíz: Macizo, Creación: Amazonas, Corazón: Pacífico, Propósito: Sierra
+    ['Macizo', 'Amazonas', 'Pacífico', 'Sierra'],
+    // Q6: Bienestar -> Caminatas: Sierra, Spa: Bogota, Ancestral: Putumayo, Manos: Guainia
+    ['Sierra', 'Bogota', 'Putumayo', 'Guainia'],
+    // Q7: Formato -> Solo: Sierra, Pareja: Pacífico, Familia: Amazonas, Grupo: Macizo
+    ['Sierra', 'Pacífico', 'Amazonas', 'Macizo']
 ];
 
 // 🎨 PALETA EXACTA SEGÚN TUS IMÁGENES (Rotamos estos 3 colores elegantes)
@@ -30,7 +35,7 @@ const COLORES_VIBRATORIOS = [
 const Quiz = ({ alTerminar }) => {
     const { t } = useTranslation();
     const [paso, setPaso] = useState(0);
-    const [respuestas, setRespuestas] = useState(Array(9).fill(null));
+    const [respuestas, setRespuestas] = useState(Array(7).fill(null));
 
     const colorActual = COLORES_VIBRATORIOS[paso];
 
@@ -40,7 +45,7 @@ const Quiz = ({ alTerminar }) => {
         setRespuestas(nuevasRespuestas);
 
         setTimeout(() => {
-            if (paso < 8) {
+            if (paso < 6) {
                 setPaso(paso + 1);
             } else {
                 const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, Sierra: 0, Pacífico: 0, Putumayo: 0, Bogota: 0 };
@@ -56,14 +61,6 @@ const Quiz = ({ alTerminar }) => {
         }, 300);
     };
 
-    // Generar las 4 opciones usando el índice de la pregunta actual
-    const opcionesTexto = [
-        t(`quiz.q${paso}.opt0`),
-        t(`quiz.q${paso}.opt1`),
-        t(`quiz.q${paso}.opt2`),
-        t(`quiz.q${paso}.opt3`)
-    ];
-
     return (
         // Fondo con un tinte muy suave (5% opacidad) del color actual para no cansar la vista
         <div className="quiz-contenedor fade-in" style={{ backgroundColor: `${colorActual}0D`, minHeight: '100vh' }}>
@@ -71,7 +68,7 @@ const Quiz = ({ alTerminar }) => {
 
                 {/* Progreso y Título con el color fuerte exacto */}
                 <p className="quiz-progreso" style={{ color: colorActual, opacity: 0.8 }}>
-                    {t('quiz.progress', { current: paso + 1, total: 9 })}
+                    {t('quiz.progress', { current: paso + 1 })}
                 </p>
 
                 <h2 className="quiz-pregunta" style={{ color: colorActual }}>
@@ -79,7 +76,7 @@ const Quiz = ({ alTerminar }) => {
                 </h2>
 
                 <div className="quiz-opciones">
-                    {opcionesTexto.map((texto, index) => (
+                    {[0, 1, 2, 3].map((index) => (
                         <button
                             key={index}
                             className={`quiz-boton-opcion ${respuestas[paso] === index ? 'seleccionado' : ''}`}
@@ -92,7 +89,7 @@ const Quiz = ({ alTerminar }) => {
                                 color: respuestas[paso] === index ? colorActual : '#3a2e28'
                             }}
                         >
-                            {texto}
+                            {t('quiz.q' + paso + '.opt' + index)}
                         </button>
                     ))}
                 </div>

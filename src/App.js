@@ -172,9 +172,9 @@ export default function App() {
       case 'landing':
         return (
           <div className="pantalla-centrada fade-in">
-            <img src="/assets/logocircular.png" alt="Ecodestinos" className="logo-landing" />
+            <img src={t('logo_circular')} alt="Ecodestinos" className="logo-landing" />
             <h1 className="titulo-principal">{t('landing.title')}</h1>
-            <p className="texto-tagline">{t('landing.tagline')}</p>
+            <p className="texto-tagline" style={{ fontWeight: 'bold', color: '#064E3B' }}>{t('landing.tagline')}</p>
 
             <div className="selector-idioma">
               <button className={i18n.language === 'es' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('es')}>🇨🇴 ES</button>
