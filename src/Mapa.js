@@ -8,7 +8,8 @@ const DESTINOS = [
     { id: 'Guainia', titulo: 'Aguas de Unidad', lugar: 'Guainía e Inírida', desc: 'Tu ser pide armonía y reconciliación.', color: 'hsla(130, 92%, 29%, 1.00)', x: '67.8%', y: '58.4%', iconoImg: '/assets/icono_guainia.png' },
     { id: 'Macizo', titulo: 'Útero de la Tierra', lugar: 'Macizo Colombiano', desc: 'Es tiempo de gestar una transformación.', color: 'rgba(96, 46, 231, 0.6)', x: '41.1%', y: '63.8%', iconoImg: '/assets/icono_macizo.png' },
     { id: 'Putumayo', titulo: 'Bosque Medicina', lugar: 'Putumayo y Caquetá', desc: 'Necesitas integración y suavidad.', color: 'rgba(107, 27, 27, 1)', x: '50.2%', y: '78.5%', iconoImg: '/assets/icono_putumayo.png' },
-    { id: 'Amazonas', titulo: 'Raíz Viva', lugar: 'Amazonas', desc: 'Necesitas recuperar tu equilibrio natural.', color: 'rgba(40, 114, 38, 1)', x: '61.5%', y: '94.2%', iconoImg: '/assets/icono_amazonas.png' }
+    { id: 'Amazonas', titulo: 'Raíz Viva', lugar: 'Amazonas', desc: 'Necesitas recuperar tu equilibrio natural.', color: 'rgba(40, 114, 38, 1)', x: '61.5%', y: '94.2%', iconoImg: '/assets/icono_amazonas.png' },
+    { id: 'Medellin', titulo: 'Territorio de Acción', lugar: 'Medellín', desc: 'Ideal para activar proyectos y transformar.', color: '#E65100', x: '38%', y: '35%', iconoImg: '/assets/icon_medellin.png' }
 ];
 
 export default function Mapa({ onMarkerClick }) {
