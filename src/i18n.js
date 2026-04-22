@@ -156,48 +156,56 @@ const resources = {
                 "error_correo": "Por favor, ingresa tu correo electrónico."
             },
             "destinos": {
+                "intro": "En Ecodestinos, un destino es un territorio vivo donde la naturaleza y la cultura acompañan tu momento de vida.",
                 "Amazonas": {
                     "title": "Raíz Viva",
                     "archetype": "Ancestralidad",
-                    "process": "Pertenencia y retorno al origen",
-                    "desc": "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales."
+                    "process": "Equilibrio y Arraigo",
+                    "desc": "Ideal cuando necesitas estabilidad, arraigo y silencio profundo. Sin raíz no hay expansión."
                 },
                 "Macizo": {
                     "title": "Útero de la Tierra",
                     "archetype": "Nutrición",
-                    "process": "Gestación y transformación",
-                    "desc": "San Agustín y Silvia. Donde nace la estrella fluvial (Río Magdalena). Custodiado por los volcanes Puracé y Sotará. Sabiduría Misak y arcilla."
+                    "process": "Gestación y Transformación",
+                    "desc": "Ideal para gestar nuevas ideas y transformar tu realidad, conectado con la sabiduría de la arcilla y los volcanes."
                 },
                 "Guainia": {
                     "title": "Aguas de Unidad",
                     "archetype": "Conciliación",
-                    "process": "Reintegración de la memoria",
-                    "desc": "Los Cerros de Mavecure son la Tulpa Gigante de 3 piedras. Rocas más antiguas del planeta para unir los fuegos sagrados de los pueblos."
+                    "process": "Integración y Unidad",
+                    "desc": "Ideal para reintegrar memorias y encontrar la unidad interior entre los ríos y cerros más antiguos."
                 },
                 "Sierra": {
                     "title": "Corazón Manifestador",
                     "archetype": "Despertar",
-                    "process": "Propósito y dirección",
-                    "desc": "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida."
+                    "process": "Manifestación y Propósito",
+                    "desc": "Ideal para despertar la conciencia, ordenar el pensamiento y manifestar tu propósito de vida."
                 },
                 "Pacífico": {
                     "title": "Memoria del Océano",
-                    "archetype": "Sanación",
-                    "process": "Limpieza de linaje y familia",
-                    "desc": "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para sanar la historia familiar."
+                    "archetype": "Memoria",
+                    "process": "Emoción y Escucha",
+                    "desc": "Ideal para escuchar tus emociones profundas y equilibrar e integrar la historia de tu linaje."
                 },
                 "Putumayo": {
                     "title": "Bosque Medicina",
                     "archetype": "Alquimia",
-                    "process": "Integración y medicina interna",
-                    "desc": "Territorio del Jaguar. Transformación mística en el silencio sonoro de la selva agreste con plantas de poder."
+                    "process": "Transición e Integración",
+                    "desc": "Ideal para transitar momentos de cambio profundo e integrar tu medicina interna en el silencio de la selva."
                 },
                 "Bogota": {
                     "title": "Círculo de Integración",
                     "archetype": "Sabiduría",
-                    "process": "Cierre consciente y luz del alma",
-                    "desc": "Laguna de Guatavita. El vientre de Bachué donde nació la gente. Encontramos el Oro del Alma para brillar en nuestro entorno."
-                }
+                    "process": "Conciencia y Comprensión",
+                    "desc": "Ideal para cerrar ciclos con conciencia y comprensión, encontrando la luz y sabiduría de tu alma."
+                },
+                "Medellin": {
+                    "title": "Territorio de Acción",
+                    "archetype": "Expansión",
+                    "process": "Acción y Movimiento",
+                    "desc": "Territorio de Acción. Ideal para activar proyectos, salir de la pausa y transformar la realidad a través del movimiento."
+                },
+                "cierre": "No eliges un destino. Eliges el territorio que acompaña tu momento."
             }
         }
     },

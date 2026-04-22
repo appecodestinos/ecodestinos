@@ -9,12 +9,12 @@ const MAPEO_PREGUNTAS = [
     ['Macizo', 'Pacífico', 'Putumayo', 'Bogota'],
     // Q3: Paisaje -> Tierra: Amazonas, Montaña: Sierra, Mar: Pacífico, Agua: Guainia
     ['Amazonas', 'Sierra', 'Pacífico', 'Guainia'],
-    // Q4: Ritmo -> Tranquilo: Guainia, Equilibrado: Macizo, Activo: Bogota, Flexible: Amazonas
-    ['Guainia', 'Macizo', 'Bogota', 'Amazonas'],
-    // Q5: Activar -> Raíz: Macizo, Creación: Amazonas, Corazón: Pacífico, Propósito: Sierra
-    ['Macizo', 'Amazonas', 'Pacífico', 'Sierra'],
-    // Q6: Bienestar -> Caminatas: Sierra, Spa: Bogota, Ancestral: Putumayo, Manos: Guainia
-    ['Sierra', 'Bogota', 'Putumayo', 'Guainia'],
+    // Q4: Ritmo -> Tranquilo: Guainia, Equilibrado: Macizo, Activo: Medellin, Flexible: Amazonas
+    ['Guainia', 'Macizo', 'Medellin', 'Amazonas'],
+    // Q5: Activar -> Raíz: Macizo, Creación/Proyectos: Medellin, Corazón: Pacífico, Propósito: Sierra
+    ['Macizo', 'Medellin', 'Pacífico', 'Sierra'],
+    // Q6: Bienestar -> Caminatas: Sierra, Spa: Bogota, Ancestral: Putumayo, Manos: Medellin
+    ['Sierra', 'Bogota', 'Putumayo', 'Medellin'],
     // Q7: Formato -> Solo: Sierra, Pareja: Pacífico, Familia: Amazonas, Grupo: Macizo
     ['Sierra', 'Pacífico', 'Amazonas', 'Macizo']
 ];
@@ -48,7 +48,7 @@ const Quiz = ({ alTerminar }) => {
             if (paso < 6) {
                 setPaso(paso + 1);
             } else {
-                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, Sierra: 0, Pacífico: 0, Putumayo: 0, Bogota: 0 };
+                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, Sierra: 0, Pacífico: 0, Putumayo: 0, Bogota: 0, Medellin: 0 };
                 nuevasRespuestas.forEach((idxSeleccion, indicePregunta) => {
                     if (idxSeleccion !== null) {
                         const territorio = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];

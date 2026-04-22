@@ -15,58 +15,66 @@ import Guainia from './Guainia';
 import Sierra from './Sierra';
 import Pacifico from './Pacifico';
 import Bogota from './Bogota';
+import Medellin from './Medellin';
 import MiRuta from './MiRuta';
 
 // 1. EL MAPA DE SABIDURÍA (Con rutas de fotos, colores vivos y nueva multimedia)
 const INFO_DESTINOS = {
   Amazonas: {
-    titulo: "Raíz Viva", arquetipo: "Ancestralidad", proceso: "Pertenencia y retorno al origen", color: "rgba(40, 114, 38, 1)",
+    titulo: "Raíz Viva", arquetipo: "Ancestralidad", proceso: "Equilibrio y Arraigo", color: "rgba(40, 114, 38, 1)",
     desc: "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales.",
     foto: "/assets/amazonastarjeta.jpg",
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
     galeria: ["/assets/amz1.jpg", "/assets/amz2.jpg", "/assets/amz3.jpg"]
   },
   Macizo: {
-    titulo: "Útero de la Tierra", arquetipo: "Nutrición", proceso: "Gestación y transformación", color: "rgba(138, 100, 240, 1)",
+    titulo: "Útero de la Tierra", arquetipo: "Nutrición", proceso: "Gestación y Transformación", color: "rgba(138, 100, 240, 1)",
     desc: "San Agustín y Silvia. Donde nace la estrella fluvial (Río Magdalena). Custodiado por los volcanes Puracé y Sotará. Sabiduría Misak y arcilla.",
     foto: "/assets/macizotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/mac1.jpg", "/assets/mac2.jpg"]
   },
   Guainia: {
-    titulo: "Aguas de Unidad", arquetipo: "Conciliación", proceso: "Reintegración de la memoria", color: "hsla(130, 92%, 29%, 1.00)",
+    titulo: "Aguas de Unidad", arquetipo: "Conciliación", proceso: "Integración y Unidad", color: "hsla(130, 92%, 29%, 1.00)",
     desc: "Los Cerros de Mavecure son la Tulpa Gigante de 3 piedras. Rocas más antiguas del planeta para unir los fuegos sagrados de los pueblos.",
     foto: "/assets/guainiatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/gua1.jpg", "/assets/gua2.jpg"]
   },
   Sierra: {
-    titulo: "Corazón Manifestador", arquetipo: "Despertar", proceso: "Propósito y dirección", color: "#8d0f6eff",
+    titulo: "Corazón Manifestador", arquetipo: "Despertar", proceso: "Manifestación y Propósito", color: "#8d0f6eff",
     desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida.",
     foto: "/assets/sierratarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"]
   },
   Pacífico: {
-    titulo: "Memoria del Océano", arquetipo: "Sanación", proceso: "Limpieza de linaje y familia", color: "rgba(9, 114, 212, 1)",
-    desc: "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para sanar la historia familiar.",
+    titulo: "Memoria del Océano", arquetipo: "Memoria", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
+    desc: "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para equilibrar e integrar la historia familiar.",
     foto: "/assets/pacificotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/pac1.jpg", "/assets/pac2.jpg"]
   },
   Putumayo: {
-    titulo: "Bosque Medicina", arquetipo: "Alquimia", proceso: "Integración y medicina interna", color: "rgba(0, 61, 0, 1)",
+    titulo: "Bosque Medicina", arquetipo: "Alquimia", proceso: "Transición e Integración", color: "rgba(0, 61, 0, 1)",
     desc: "Territorio del Jaguar. Transformación mística en el silencio sonoro de la selva agreste con plantas de poder.",
     foto: "/assets/putumayotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/put1.jpg", "/assets/put2.jpg"]
   },
   Bogota: {
-    titulo: "Círculo de Integración", arquetipo: "Sabiduría", proceso: "Cierre consciente y luz del alma", color: "rgba(139, 21, 0, 1)",
+    titulo: "Círculo de Integración", arquetipo: "Sabiduría", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
     desc: "Laguna de Guatavita. El vientre de Bachué donde nació la gente. Encontramos el Oro del Alma para brillar en nuestro entorno.",
     foto: "/assets/bogotatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
+  },
+  Medellin: {
+    titulo: "Territorio de Acción", arquetipo: "Expansión", proceso: "Acción y Movimiento", color: "#E65100",
+    desc: "Ideal para activar proyectos, salir de la pausa y transformar la realidad a través del movimiento.",
+    foto: "/assets/icon_medellin.png",
+    video: "URL_VIDEO",
+    galeria: []
   }
 };
 
@@ -203,6 +211,9 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <h2 className="titulo-resultados">{t('resultados.title')}</h2>
+            <p className="texto-intro-resultados" style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
+              {t('destinos.intro')}
+            </p>
             <div className="contenedor-tarjetas">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
@@ -218,6 +229,9 @@ export default function App() {
                 );
               })}
             </div>
+            <p className="texto-cierre-resultados" style={{ fontSize: '15px', fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
+              {t('destinos.cierre')}
+            </p>
             <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
               <div className="fila-registro">
                 <label className="etiqueta-input">{t('resultados.name_label')}</label>
@@ -274,6 +288,7 @@ export default function App() {
                   {territorioActivo === 'Sierra' && <Sierra info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Pacífico' && <Pacifico info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Bogota' && <Bogota info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Medellin' && <Medellin info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                 </>
               )}
 
