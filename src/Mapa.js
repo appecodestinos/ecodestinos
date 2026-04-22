@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const DESTINOS = [
     { id: 'Sierra', titulo: 'Corazón Manifestador', lugar: 'Sierra Nevada', desc: 'Buscas propósito y fuerza para actuar.', color: '#0407a8ff', x: '48.5%', y: '20.5%', iconoImg: '/assets/icono_sierra.png' },
-    { id: 'Pacífico', titulo: 'Memoria del Océano', lugar: 'Pacífico', desc: 'Es el momento de sanar linaje.', color: 'rgba(9, 114, 212, 1)', x: '32.2%', y: '46.5%', iconoImg: '/assets/icono_pacifico.png' },
+    { id: 'Pacífico', titulo: 'Memoria del Océano', lugar: 'Pacífico', desc: 'Es el momento de sanar linaje.', color: 'rgba(9, 114, 212, 1)', x: '29.2%', y: '46.5%', iconoImg: '/assets/icono_pacifico.png' },
     { id: 'Bogota', titulo: 'Círculo de Integración', lugar: 'Bogotá y Guatavita', desc: 'La comprensión y el cierre de ciclos.', color: 'rgba(139, 21, 0, 1)', x: '55.3%', y: '51.2%', iconoImg: '/assets/icono_bogota.png' },
     { id: 'Guainia', titulo: 'Aguas de Unidad', lugar: 'Guainía e Inírida', desc: 'Tu ser pide armonía y reconciliación.', color: 'hsla(130, 92%, 29%, 1.00)', x: '67.8%', y: '58.4%', iconoImg: '/assets/icono_guainia.png' },
     { id: 'Macizo', titulo: 'Útero de la Tierra', lugar: 'Macizo Colombiano', desc: 'Es tiempo de gestar una transformación.', color: 'rgba(96, 46, 231, 0.6)', x: '41.1%', y: '63.8%', iconoImg: '/assets/icono_macizo.png' },
