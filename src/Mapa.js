@@ -9,7 +9,7 @@ const DESTINOS = [
     { id: 'Macizo', titulo: 'Útero de la Tierra', lugar: 'Macizo Colombiano', desc: 'Es tiempo de gestar una transformación.', color: 'rgba(96, 46, 231, 0.6)', x: '41.1%', y: '63.8%', iconoImg: '/assets/icono_macizo.png' },
     { id: 'Putumayo', titulo: 'Bosque Medicina', lugar: 'Putumayo y Caquetá', desc: 'Necesitas integración y suavidad.', color: 'rgba(107, 27, 27, 1)', x: '50.2%', y: '78.5%', iconoImg: '/assets/icono_putumayo.png' },
     { id: 'Amazonas', titulo: 'Raíz Viva', lugar: 'Amazonas', desc: 'Necesitas recuperar tu equilibrio natural.', color: 'rgba(40, 114, 38, 1)', x: '61.5%', y: '94.2%', iconoImg: '/assets/icono_amazonas.png' },
-    { id: 'Medellin', titulo: 'Territorio de Acción', lugar: 'Medellín', desc: 'Ideal para activar proyectos y transformar.', color: '#E65100', x: '38%', y: '35%', iconoImg: '/assets/icon_medellin.png' }
+    { id: 'Medellin', titulo: 'Territorio de Acción', lugar: 'Medellín', desc: 'Ideal para activar proyectos y transformar.', color: '#E65100', x: '42%', y: '45%', iconoImg: '/assets/icon_medellin.png' }
 ];
 
 export default function Mapa({ onMarkerClick }) {
@@ -49,7 +49,7 @@ export default function Mapa({ onMarkerClick }) {
                         borderRadius: '50%'
                     }}
                 >
-                    <img src={d.iconoImg} alt={d.id} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                    <img src={d.iconoImg} alt={d.id} style={d.id === 'Medellin' ? { width: '130%', height: '130%', objectFit: 'cover', borderRadius: '50%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' } : { width: '100%', height: '100%', objectFit: 'contain' }} />
                 </button>
             ))}
 
