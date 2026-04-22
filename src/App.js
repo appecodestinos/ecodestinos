@@ -212,7 +212,7 @@ export default function App() {
           <div className="pantalla-centrada fade-in">
             <h2 className="titulo-resultados">{t('resultados.title')}</h2>
             <p className="texto-intro-resultados" style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
-              {t('destinos.intro')}
+              {t('introduccion.texto')}
             </p>
             <div className="contenedor-tarjetas">
               {resultadosQuiz.map((clave, index) => {
@@ -230,7 +230,7 @@ export default function App() {
               })}
             </div>
             <p className="texto-cierre-resultados" style={{ fontSize: '15px', fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
-              {t('destinos.cierre')}
+              {t('frase_final')}
             </p>
             <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
               <div className="fila-registro">

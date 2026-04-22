@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
     "es": {
         "translation": {
-            "logo_circular": "/assets/logo_es.png",
+            "logo_circular": "/assets/logocircular.png",
             "landing": {
                 "title": "Territorios Vivos",
                 "tagline": "En solo 90 segundos descubre, Qué territorio conecta mejor contigo y recibe recomendaciones",
@@ -15,7 +15,7 @@ const resources = {
                 "rana": "La Rana está escuchando tu latido..."
             },
             "resultados": {
-                "title": "TU VIAJE CONECTA CON:",
+                "title": "TU VIAJE RESUENA CON:",
                 "name_label": "tu nombre:",
                 "email_label": "tu correo:",
                 "button": "Recibir mis destinos"
@@ -175,6 +175,11 @@ const resources = {
                     "archetype": "Despertar",
                     "desc": "Territorio Manifestación. Ideal cuando quieres tomar decisiones y encontrar dirección. Manifestar es coherencia."
                 },
+                "Pacífico": {
+                    "title": "Memoria del Océano",
+                    "archetype": "Sanación",
+                    "desc": "Territorio Linaje. Ideal cuando necesitas soltar emociones y reconectar con tu historia profunda. Escuchar transforma."
+                },
                 "Putumayo": {
                     "title": "Bosque Medicina",
                     "archetype": "Alquimia",
@@ -189,18 +194,18 @@ const resources = {
                     "title": "Expansión Creativa",
                     "archetype": "Acción",
                     "desc": "Territorio Movimiento. Ideal cuando quieres avanzar, activar proyectos y salir de la pausa. Avanzar es parte del bienestar."
-                },
-                "Pacífico": {
-                    "title": "Memoria del Océano",
-                    "archetype": "Sanación",
-                    "desc": "Territorio Linaje. Ideal cuando necesitas soltar emociones y reconectar con tu historia profunda. Escuchar transforma."
                 }
-            }
+            },
+            "introduccion": {
+                "titulo": "Territorios Vivos",
+                "texto": "En Ecodestinos, un destino no es solo un lugar. Es un territorio vivo donde la naturaleza, la cultura y la memoria ancestral sostienen una energía única que acompaña tu momento de vida."
+            },
+            "frase_final": "No eliges un destino. Eliges el territorio que acompaña tu momento."
         }
     },
     "en": {
         "translation": {
-            "logo_circular": "/assets/logo_en.png",
+            "logo_circular": "/assets/logo-ecodestinos-circular-en.png",
             "landing": {
                 "title": "Living Territories",
                 "tagline": "In just 90 seconds, discover which territory connects best with you and receive recommendations",
@@ -211,7 +216,7 @@ const resources = {
                 "rana": "The Frog is listening to your heartbeat..."
             },
             "resultados": {
-                "title": "YOUR JOURNEY CONNECTS WITH:",
+                "title": "YOUR JOURNEY RESONATES WITH:",
                 "name_label": "your name:",
                 "email_label": "your email:",
                 "button": "Receive my destinations"
@@ -390,15 +395,18 @@ const resources = {
                     "title": "Creative Expansion",
                     "archetype": "Action",
                     "desc": "Movement Territory. Ideal when you want to move forward, activate projects, and break the pause. Moving forward is part of well-being."
-                },
-                "intro": "In Ecodestinos, a destination is a living territory where nature and culture accompany your life moment.",
-                "cierre": "You do not choose a destination. You choose the territory that accompanies your moment."
-            }
+                }
+            },
+            "introduccion": {
+                "titulo": "Living Territories",
+                "texto": "In Ecodestinos, a destination is not just a place. It is a living territory where nature, culture, and ancestral memory sustain a unique energy that accompanies your life moment."
+            },
+            "frase_final": "You do not choose a destination. You choose the territory that accompanies your moment."
         }
     },
     "de": {
         "translation": {
-            "logo_circular": "/assets/logo_de.png",
+            "logo_circular": "/assets/logo-ecodestinos-circular-de.png",
             "landing": {
                 "title": "Lebendige Territorien",
                 "tagline": "Entdecke in nur 90 Sekunden, welches Gebiet am besten mit dir in Resonanz tritt, und erhalte Empfehlungen",
@@ -409,7 +417,7 @@ const resources = {
                 "rana": "Der Frosch hört deinen Herzschlag..."
             },
             "resultados": {
-                "title": "DEINE REISE VERBINDET SICH MIT:",
+                "title": "DEINE REISE RESONIERT MIT:",
                 "name_label": "dein Name:",
                 "email_label": "deine E-Mail:",
                 "button": "Meine Ziele erhalten"
@@ -588,15 +596,18 @@ const resources = {
                     "title": "Kreative Expansion",
                     "archetype": "Aktion",
                     "desc": "Bewegungs-Territorium. Ideal, wenn du vorwärts gehen, Projekte aktivieren und aus der Pause herauskommen möchtest. Vorwärtsgehen ist Teil des Wohlbefindens."
-                },
-                "intro": "In Ecodestinos ist ein Reiseziel ein lebendiges Territorium, in dem Natur und Kultur deinen Lebensmoment begleiten.",
-                "cierre": "Du wählst kein Reiseziel. Du wählst das Territorium, das deinen Moment begleitet."
-            }
+                }
+            },
+            "introduccion": {
+                "titulo": "Lebendige Territorien",
+                "texto": "In Ecodestinos ist ein Reiseziel nicht nur ein Ort. Es ist ein lebendiges Territorium, in dem Natur, Kultur und die Erinnerung der Ahnen eine einzigartige Energie bewahren, die deinen Lebensmoment begleitet."
+            },
+            "frase_final": "Du wählst kein Reiseziel. Du wählst das Territorium, das deinen Moment begleitet."
         }
     },
     "fr": {
         "translation": {
-            "logo_circular": "/assets/logo_fr.png",
+            "logo_circular": "/assets/logo-ecodestinos-circular-fr.png",
             "landing": {
                 "title": "Territoires Vivants",
                 "tagline": "En seulement 90 secondes découvrez quel territoire résonne le mieux avec vous et recevez des recommandations",
@@ -607,7 +618,7 @@ const resources = {
                 "rana": "La Grenouille écoute votre rythme cardiaque..."
             },
             "resultados": {
-                "title": "VOTRE VOYAGE SE CONNECTE AVEC :",
+                "title": "VOTRE VOYAGE RÉSONNE AVEC :",
                 "name_label": "votre nom:",
                 "email_label": "votre e-mail:",
                 "button": "Recevoir mes destinations"
@@ -780,16 +791,19 @@ const resources = {
                 "Bogota": {
                     "title": "Cercle d'Intégration",
                     "archetype": "Sagesse",
-                    "desc": "Territoire Conscience. Idéal pour organiser ce qui a été vécu et chercher la clarté mentale. Comprendre, cest aussi transformer."
+                    "desc": "Territoire Conscience. Idéal pour organiser ce qui a été vécu et chercher la clarté mentale. Comprendre, c'est aussi transformer."
                 },
                 "Medellin": {
                     "title": "Expansion Créative",
                     "archetype": "Action",
                     "desc": "Territoire Mouvement. Idéal lorsque vous souhaitez avancer, activer des projets et sortir de la pause. Avancer fait partie du bien-être."
-                },
-                "intro": "Dans Ecodestinos, une destination est un territoire vivant où la nature et la culture accompagnent votre moment de vie.",
-                "cierre": "Vous ne choisissez pas une destination. Vous choisissez le territoire qui accompagne votre moment."
-            }
+                }
+            },
+            "introduccion": {
+                "titulo": "Territoires Vivants",
+                "texto": "Dans Ecodestinos, une destination n'est pas seulement un lieu. C'est un territoire vivant où la nature, la culture et la mémoire ancestrale soutiennent une énergie unique qui accompagne votre moment de vie."
+            },
+            "frase_final": "Vous ne choisissez pas une destination. Vous choisissez le territoire qui accompagne votre moment."
         }
     }
 };
