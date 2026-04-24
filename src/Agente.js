@@ -8,7 +8,8 @@ export default function Agente({ nombre }) {
     const [mensajes, setMensajes] = useState([
         {
             rol: 'asistente',
-            texto: t('agente.welcome', { defaultValue: `Hola ${nombre || 'viajero'}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?` })
+            // AQUI ESTÁ EL CAMBIO PRINCIPAL:
+            texto: t('agente.welcome', { defaultValue: `${nombre ? 'Hola, ' + nombre : 'Hola'}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?` })
         }
     ]);
     const [input, setInput] = useState('');
@@ -38,7 +39,7 @@ export default function Agente({ nombre }) {
             const systemPrompt = `Eres el 'Guía Ancestral de Ecodestinos (www.ecodestinos.com.co)'. 
 Conoces los 7 territorios sagrados y sus arquetipos: Amazonas (Raíz Viva/Ancestralidad), Macizo (Útero de la Tierra/Nutrición), Guainía (Aguas de Unidad/Conciliación), Sierra (Corazón Manifestador/Despertar), Pacífico (Memoria del Océano/Sanación), Putumayo (Bosque Medicina/Alquimia) y Bogotá (Círculo de Integración/Sabiduría).
 Tu filosofía se basa en la sanación y el turismo consciente. 
-Trata al usuario por su nombre: "${nombre || 'viajero'}". Salúdalo de forma empática, mística y natural.
+${nombre ? `Trata al usuario por su nombre: "${nombre}".` : "El usuario no ha proporcionado su nombre."} Salúdalo de forma empática, mística y natural.
 IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. Debes responder EXCLUSIVAMENTE en este idioma, manteniendo el tono místico y natural.`;
 
             const aiPayload = {
@@ -116,7 +117,8 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
 
             // --- 4. CIERRE LÓGICO (CADA 3 MENSAJES) ---
             if (nuevoContador % 3 === 0) {
-                r += t('agente.cierre', { nombre: nombre || 'viajero' });
+                // TAMBIÉN ACTUALIZADO AQUÍ PARA QUE NO LANCE UNDEFINED:
+                r += t('agente.cierre', { nombre: nombre ? nombre : '' });
             }
 
             setMensajes(prev => [...prev, { rol: 'asistente', texto: r }]);
