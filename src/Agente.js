@@ -27,7 +27,7 @@ export default function Agente({ nombre }) {
         }
     }, [mensajes, isOpen]);
 
-    const manejarEnvio = (e) => {
+    const manejarEnvio = async (e) => {
         e.preventDefault();
         if (!input.trim()) return;
 
