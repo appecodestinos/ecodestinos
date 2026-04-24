@@ -128,6 +128,15 @@ const resources = {
                 }
             },
             "agente": {
+                "rana_nombre": "La Rana",
+                "rana_saludo": "¡Hola {{nombre}}! Bienvenida a Territorios Vivos. Soy La Rana, tu guía espiritual y logística. Estoy aquí para acompañar tu camino. ¿En qué puedo colaborar hoy?",
+                "rana_saludo_anon": "¡Hola! Bienvenida a Territorios Vivos. Soy La Rana, tu guía espiritual y logística. Estoy aquí para acompañar tu camino. ¿En qué puedo colaborar hoy?",
+                "menu_territorio": "Quiero conocer un territorio",
+                "menu_llevar": "¿Qué debo llevar?",
+                "menu_salud": "Dudas sobre salud/vacunas",
+                "menu_asesor": "Hablar con un asesor (WhatsApp)",
+                "respuesta_mistica": "Cada territorio tiene su propia frecuencia. Para diseñar tu ruta personalizada y verificar la disponibilidad de este espacio sagrado, te invito a hablar con nosotros por WhatsApp. ¡Hagamos que suceda!",
+                "btn_whatsapp": "Ir a WhatsApp",
                 "welcome": "Hola {{nombre}}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?",
                 "welcome_anon": "Hola, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?",
                 "macizo": "El Macizo es el Útero de la Tierra. Aquí nace el agua que irriga a Colombia. Los volcanes Puracé y Sotará custodian tu transformación. Es un lugar para gestar nuevos proyectos y silenciar el ruido mental.",
@@ -331,6 +340,15 @@ const resources = {
                 }
             },
             "agente": {
+                "rana_nombre": "The Frog",
+                "rana_saludo": "Hello {{nombre}}! Welcome to Territorios Vivos. I am The Frog, your spiritual and logistical guide. I am here to accompany your path. How can I help you today?",
+                "rana_saludo_anon": "Hello! Welcome to Territorios Vivos. I am The Frog, your spiritual and logistical guide. I am here to accompany your path. How can I help you today?",
+                "menu_territorio": "I want to know a territory",
+                "menu_llevar": "What should I pack?",
+                "menu_salud": "Doubts about health/vaccines",
+                "menu_asesor": "Speak with an advisor (WhatsApp)",
+                "respuesta_mistica": "Each territory has its own frequency. To design your personalized route and verify the availability of this sacred space, I invite you to speak with us via WhatsApp. Let's make it happen!",
+                "btn_whatsapp": "Go to WhatsApp",
                 "welcome": "Hello {{nombre}}, welcome to the heartbeat of the earth. What territory or question do you come to share?",
                 "welcome_anon": "Hello, welcome to the heartbeat of the earth. What territory or question do you come to share?",
                 "macizo": "The Massif is the Womb of the Earth. Here the water that irrigates Colombia is born. The Puracé and Sotará volcanoes guard your transformation. It's a place to gestate new projects and silence mental noise.",
@@ -534,6 +552,15 @@ const resources = {
                 }
             },
             "agente": {
+                "rana_nombre": "Der Frosch",
+                "rana_saludo": "Hallo {{nombre}}! Willkommen bei Territorios Vivos. Ich bin Der Frosch, dein spiritueller und logistischer Begleiter. Ich bin hier, um deinen Weg zu begleiten. Wie kann ich dir heute helfen?",
+                "rana_saludo_anon": "Hallo! Willkommen bei Territorios Vivos. Ich bin Der Frosch, dein spiritueller und logistischer Begleiter. Ich bin hier, um deinen Weg zu begleiten. Wie kann ich dir heute helfen?",
+                "menu_territorio": "Ich möchte ein Territorium kennenlernen",
+                "menu_llevar": "Was soll ich mitbringen?",
+                "menu_salud": "Zweifel an Gesundheit/Impfstoffen",
+                "menu_asesor": "Sprich mit einem Berater (WhatsApp)",
+                "respuesta_mistica": "Jedes Territorium hat seine eigene Frequenz. Um deine personalisierte Route zu entwerfen und die Verfügbarkeit dieses heiligen Raums zu überprüfen, lade ich dich ein, mit uns über WhatsApp zu sprechen. Lass es uns verwirklichen!",
+                "btn_whatsapp": "Zu WhatsApp gehen",
                 "welcome": "Hallo {{nombre}}, willkommen beim Herzschlag der Erde. Welches Gebiet oder welche Frage möchtest du teilen?",
                 "welcome_anon": "Hallo, willkommen beim Herzschlag der Erde. Welches Gebiet oder welche Frage möchtest du teilen?",
                 "macizo": "Das Massiv ist der Schoß der Erde. Hier wird das Wasser geboren, das Kolumbien bewässert. Die Vulkane Puracé und Sotará bewachen deine Transformation. Es ist ein Ort, um neue Projekte zu gebären und geistigen Lärm zum Schweigen zu bringen.",
@@ -737,6 +764,15 @@ const resources = {
                 }
             },
             "agente": {
+                "rana_nombre": "La Grenouille",
+                "rana_saludo": "Bonjour {{nombre}} ! Bienvenue chez Territorios Vivos. Je suis La Grenouille, votre guide spirituel et logistique. Je suis ici pour accompagner votre chemin. Comment puis-je vous aider aujourd'hui ?",
+                "rana_saludo_anon": "Bonjour ! Bienvenue chez Territorios Vivos. Je suis La Grenouille, votre guide spirituel et logistique. Je suis ici pour accompagner votre chemin. Comment puis-je vous aider aujourd'hui ?",
+                "menu_territorio": "Je veux connaître un territoire",
+                "menu_llevar": "Que dois-je apporter ?",
+                "menu_salud": "Doutes sur la santé/vaccins",
+                "menu_asesor": "Parler avec un conseiller (WhatsApp)",
+                "respuesta_mistica": "Chaque territoire a sa propre fréquence. Pour concevoir votre itinéraire personnalisé et vérifier la disponibilité de cet espace sacré, je vous invite à nous parler sur WhatsApp. Faisons en sorte que cela se produise !",
+                "btn_whatsapp": "Aller sur WhatsApp",
                 "welcome": "Bonjour {{nombre}}, bienvenue au battement de cœur de la terre. Quel territoire ou question venez-vous partager ?",
                 "welcome_anon": "Bonjour, bienvenue au battement de cœur de la terre. Quel territoire ou question venez-vous partager ?",
                 "macizo": "Le Massif est l'Utérus de la Terre. C'est ici que naît l'eau qui irrigue la Colombie. Les volcans Puracé et Sotará gardent votre transformation. C'est un endroit pour faire naître de nouveaux projets et faire taire le bruit mental.",

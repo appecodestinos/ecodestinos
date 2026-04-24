@@ -11,9 +11,9 @@ export default function Agente({ nombre }) {
     const [mensajes, setMensajes] = useState([
         {
             rol: 'asistente',
-            // AQUI ESTÁ EL CAMBIO PRINCIPAL:
-        texto: nombre ? `Hola, ${nombre}` : 'Hola'
-        }
+            texto: nombre ? t('agente.rana_saludo', { nombre }) : t('agente.rana_saludo_anon')
+        },
+        { rol: 'asistente', tipo: 'menu' }
     ]);
 const [input, setInput] = useState('');
 const [isTyping, setIsTyping] = useState(false);
@@ -27,19 +27,47 @@ useEffect(() => {
     }
 }, [mensajes, isOpen]);
 
+const handleOptionClick = (opcionKey) => {
+    const optionText = t(`agente.${opcionKey}`);
+    setMensajes(prev => [...prev, { rol: 'usuario', texto: optionText }]);
+    setIsTyping(true);
+
+    setTimeout(() => {
+        const r = t('agente.respuesta_mistica');
+        setMensajes(prev => [
+            ...prev,
+            { rol: 'asistente', texto: r },
+            { rol: 'asistente', tipo: 'whatsapp_btn' }
+        ]);
+        setIsTyping(false);
+    }, 1000);
+};
+
 const manejarEnvio = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
 
     const userMsg = { rol: 'usuario', texto: input };
-    setMensajes([...mensajes, userMsg]);
-    const consulta = input.toLowerCase();
+    setMensajes(prev => [...prev, userMsg]);
+    const consulta = input.toLowerCase().trim();
     const nuevoContador = contadorMensajes + 1;
     setContadorMensajes(nuevoContador);
     setInput('');
 
-    setIsTyping(true);
+    if (['hola', 'hi', 'bonjour', 'hallo', 'buenas', 'saludos'].some(s => consulta === s || consulta.startsWith(s + ' '))) {
+        setIsTyping(true);
+        setTimeout(() => {
+            setMensajes(prev => [
+                ...prev,
+                { rol: 'asistente', texto: nombre ? t('agente.rana_saludo', { nombre }) : t('agente.rana_saludo_anon') },
+                { rol: 'asistente', tipo: 'menu' }
+            ]);
+            setIsTyping(false);
+        }, 800);
+        return;
+    }
 
+    setIsTyping(true);
     try {
         const systemPrompt = `Eres el Guía Experto y Espíritu Guardián de Ecodestinos (ecodestinos.com.co). Tu propósito es guiar a los viajeros hacia el buen vivir mediante el turismo de bienestar sostenible en Colombia.
 
@@ -89,7 +117,7 @@ return (
         {isOpen && (
             <div className="ventana-chat-agente fade-in">
                 <div style={{ background: '#2E472D', color: 'white', padding: '15px', display: 'flex', justifyContent: 'space-between', borderRadius: '15px 15px 0 0' }}>
-                    <span className="nombre-rana">La Rana</span>
+                    <span className="nombre-rana">{t('agente.rana_nombre')}</span>
                     <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '20px' }}>×</button>
                 </div>
 
@@ -97,13 +125,32 @@ return (
                     {mensajes.map((m, i) => (
                         <div key={i} style={{ textAlign: m.rol === 'usuario' ? 'right' : 'left', marginBottom: '12px' }}>
                             <div style={{
-                                background: m.rol === 'usuario' ? '#2E472D' : '#E0E7DA',
+                                background: m.rol === 'usuario' ? '#2E472D' : (m.tipo === 'menu' ? 'transparent' : '#E0E7DA'),
                                 color: m.rol === 'usuario' ? 'white' : '#1A2E1A',
-                                padding: '10px 14px', borderRadius: '15px', display: 'inline-block',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                                padding: m.tipo === 'menu' ? '0' : '10px 14px',
+                                borderRadius: '15px', display: 'inline-block',
+                                boxShadow: m.tipo === 'menu' ? 'none' : '0 2px 4px rgba(0,0,0,0.1)',
                                 lineHeight: '1.4'
                             }}>
-                                {m.texto}
+                                {m.tipo === 'menu' ? (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '5px' }}>
+                                        {['menu_territorio', 'menu_llevar', 'menu_salud', 'menu_asesor'].map(opt => (
+                                            <button key={opt} onClick={() => handleOptionClick(opt)} style={{
+                                                background: '#2E472D', color: 'white', border: 'none', padding: '8px 12px', borderRadius: '10px', cursor: 'pointer', textAlign: 'left', fontSize: '13px'
+                                            }}>
+                                                {t(`agente.${opt}`)}
+                                            </button>
+                                        ))}
+                                    </div>
+                                ) : m.tipo === 'whatsapp_btn' ? (
+                                    <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" style={{
+                                        display: 'inline-block', padding: '10px 16px', background: '#25D366', color: 'white', borderRadius: '20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px'
+                                    }}>
+                                        {t('agente.btn_whatsapp')} 🐸
+                                    </a>
+                                ) : (
+                                    m.texto
+                                )}
                             </div>
                         </div>
                     ))}
