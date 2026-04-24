@@ -1,5 +1,8 @@
 import { useTranslation } from "react-i18next";
 import React, { useState, useEffect, useRef } from 'react';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_API_KEY);
 
 export default function Agente({ nombre }) {
     const { t, i18n } = useTranslation();
@@ -13,6 +16,7 @@ export default function Agente({ nombre }) {
         }
     ]);
     const [input, setInput] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
     const scrollRef = useRef(null);
 
     const WHATSAPP_LINK = "https://wa.me/573156074044";
@@ -34,95 +38,48 @@ export default function Agente({ nombre }) {
         setContadorMensajes(nuevoContador);
         setInput('');
 
-        setTimeout(async () => {
-            // --- 1. CEREBRO AVANZADO DE IA (System Prompt) ---
-            const systemPrompt = `Eres el 'Guía Ancestral de Ecodestinos (www.ecodestinos.com.co)'. 
-Conoces los 7 territorios sagrados y sus arquetipos: Amazonas (Raíz Viva/Ancestralidad), Macizo (Útero de la Tierra/Nutrición), Guainía (Aguas de Unidad/Conciliación), Sierra (Corazón Manifestador/Despertar), Pacífico (Memoria del Océano/Sanación), Putumayo (Bosque Medicina/Alquimia) y Bogotá (Círculo de Integración/Sabiduría).
-Tu filosofía se basa en la sanación y el turismo consciente. 
-${nombre ? `Trata al usuario por su nombre: "${nombre}".` : "El usuario no ha proporcionado su nombre."} Salúdalo de forma empática, mística y natural.
-IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. Debes responder EXCLUSIVAMENTE en este idioma, manteniendo el tono místico y natural.`;
+        setIsTyping(true);
 
-            const aiPayload = {
-                model: "gpt-4o",
-                messages: [
-                    { role: "system", content: systemPrompt },
-                    // Historial simplificado para el API
-                    ...mensajes.map(m => ({ role: m.rol === 'usuario' ? 'user' : 'assistant', content: m.texto })),
-                    { role: "user", content: input }
-                ]
-            };
+        try {
+            const systemPrompt = `Identidad: 'Eres el Guardián de los Territorios Vivos de Ecodestinos. Tu misión es guiar a los viajeros hacia el buen vivir. Eres sabio, cálido y hablas en primera persona del plural (nosotros).'
 
-            console.log("🧠 Payload listo para enviar al proveedor IA (OpenAI/Gemini):", aiPayload);
+Vocabulario: Nunca uses la palabra 'sanar'. Usa siempre: 'equilibrar', 'transformar' e 'integrar'.
 
-            /* --- 2. PETICIÓN A LA IA (Activar al configurar API KEY) ---
-            try {
-                const response = await fetch("https://api.openai.com/v1/chat/completions", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json", "Authorization": `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}` },
-                    body: JSON.stringify(aiPayload)
-                });
-                const data = await response.json();
-                const respuestaIA = data.choices[0].message.content;
-                setMensajes(prev => [...prev, { rol: 'asistente', texto: respuestaIA }]);
-                return;
-            } catch (error) {
-                console.error("Error contactando a los espíritus (IA API):", error);
-            }
-            */
+Conocimiento: Solo conoces 8 territorios: Amazonas (Raíz), Macizo (Gestación), Guainía (Integración), Sierra Nevada (Propósito), Pacífico (Emoción), Putumayo (Transición), Bogotá (Conciencia) y Medellín (Acción).
 
-            // --- 3. FALLBACK LOCAL (Mientras la IA real esté desconectada) ---
-            let r = "";
+Regla de Bloqueo (CRÍTICA): Si el usuario saluda, devuélvele el saludo amablemente e invítalo a hacer el Quiz o explorar el mapa. Si el usuario pregunta sobre medicina, política, vacunas, clima, o cualquier cosa ajena a Ecodestinos y el turismo de bienestar, DEBES responder textualmente: 'Mi sabiduría pertenece a la tierra y a los viajes con propósito. Para todo lo demás, el viento guarda las respuestas. ¿Te gustaría saber qué territorio resuena con tu momento de vida hoy?'
 
-            if (consulta.includes('macizo') || consulta.includes('san agustin') || consulta.includes('útero')) {
-                r = t('agente.macizo');
-            } else if (consulta.includes('amazonas') || consulta.includes('selva') || consulta.includes('raíz')) {
-                r = t('agente.amazonas');
-            } else if (consulta.includes('guainia') || consulta.includes('mavecure') || consulta.includes('tulpa')) {
-                r = t('agente.guainia');
-            } else if (consulta.includes('sierra') || consulta.includes('corazón') || consulta.includes('misión')) {
-                r = t('agente.sierra');
-            } else if (consulta.includes('pacifico') || consulta.includes('ballena') || consulta.includes('linaje')) {
-                r = t('agente.pacifico');
-            } else if (consulta.includes('putumayo') || consulta.includes('jaguar') || consulta.includes('alquimia')) {
-                r = t('agente.putumayo');
-            } else if (consulta.includes('guatavita') || consulta.includes('muisca') || consulta.includes('oro')) {
-                r = t('agente.guatavita');
-            }
+${nombre ? `Trata al usuario por su nombre: "${nombre}".` : "El usuario no ha proporcionado su nombre."}
+IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. Debes responder EXCLUSIVAMENTE en este idioma.`;
 
-            // --- 2. SABIDURÍA LOGÍSTICA Y BIENESTAR ---
-            else if (consulta.includes('comer') || consulta.includes('comida') || consulta.includes('alimentación')) {
-                r = t('agente.comida');
-            } else if (consulta.includes('precio') || consulta.includes('cuanto cuesta') || consulta.includes('valor')) {
-                r = t('agente.precio');
-            } else if (consulta.includes('yoga') || consulta.includes('meditacion') || consulta.includes('espiritual')) {
-                r = t('agente.yoga');
-            } else if (consulta.includes('seguridad') || consulta.includes('miedo') || consulta.includes('peligro')) {
-                r = t('agente.seguridad');
-            } else if (consulta.includes('vacuna') || consulta.includes('fiebre')) {
-                r = t('agente.vacuna');
-            } else if (consulta.includes('seguro') || consulta.includes('medico') || consulta.includes('asistencia')) {
-                r = t('agente.seguro');
-            } else if (consulta.includes('ropa') || consulta.includes('llevar') || consulta.includes('maleta')) {
-                r = t('agente.ropa');
-            } else if (consulta.includes('wifi') || consulta.includes('internet') || consulta.includes('conexión')) {
-                r = t('agente.wifi');
-            } else if (consulta.includes('quien eres') || consulta.includes('que haces')) {
-                r = t('agente.quien');
-            }
+            const model = genAI.getGenerativeModel({
+                model: "gemini-1.5-flash",
+                systemInstruction: systemPrompt
+            });
 
-            // --- 3. RESPUESTA POR DEFECTO (SIEMPRE AL FINAL) ---
-            else {
-                r = t('agente.default');
-            }
+            const history = mensajes.map(m => ({
+                role: m.rol === 'usuario' ? 'user' : 'model',
+                parts: [{ text: m.texto }]
+            }));
 
-            // --- 4. CIERRE LÓGICO (CADA 3 MENSAJES) ---
+            const chat = model.startChat({ history });
+            const result = await chat.sendMessage(input);
+            const respuestaIA = result.response.text();
+
+            let r = respuestaIA;
+
+            // --- CIERRE LÓGICO (CADA 3 MENSAJES) ---
             if (nuevoContador % 3 === 0) {
-                // TAMBIÉN ACTUALIZADO AQUÍ PARA QUE NO LANCE UNDEFINED:
-                r += nombre ? t('agente.cierre', { nombre }) : t('agente.cierre_anon');
+                r += "\n\n" + (nombre ? t('agente.cierre', { nombre }) : t('agente.cierre_anon'));
             }
 
             setMensajes(prev => [...prev, { rol: 'asistente', texto: r }]);
-        }, 900);
+        } catch (error) {
+            console.error("Error contactando a Gemini:", error);
+            setMensajes(prev => [...prev, { rol: 'asistente', texto: t('agente.default') }]);
+        } finally {
+            setIsTyping(false);
+        }
     };
 
     return (
@@ -148,6 +105,20 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
                                 </div>
                             </div>
                         ))}
+                        {isTyping && (
+                            <div style={{ textAlign: 'left', marginBottom: '12px' }}>
+                                <div style={{
+                                    background: '#E0E7DA',
+                                    color: '#1A2E1A',
+                                    padding: '10px 14px', borderRadius: '15px', display: 'inline-block',
+                                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                                    lineHeight: '1.4',
+                                    fontStyle: 'italic'
+                                }}>
+                                    Escribiendo...
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <div style={{ padding: '12px', background: 'white', borderTop: '1px solid #ddd' }}>
