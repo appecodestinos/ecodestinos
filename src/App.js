@@ -88,6 +88,9 @@ export default function App() {
   const [inputNombre, setInputNombre] = useState('');
   const [inputCorreo, setInputCorreo] = useState('');
   const [erroresValidacion, setErroresValidacion] = useState({ nombre: '', correo: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   // ESTADOS NUEVOS PARA LA NAVEGACIÓN MAPA -> TERRITORIO
   const [territorioActivo, setTerritorioActivo] = useState(null);
@@ -121,7 +124,7 @@ export default function App() {
     }
   };
 
-  const enviarCorreoYEntrar = (e) => {
+  const enviarCorreoYEntrar = async (e) => {
     e.preventDefault();
     let errores = { nombre: '', correo: '' };
     let valido = true;
@@ -138,12 +141,35 @@ export default function App() {
     setErroresValidacion(errores);
 
     if (valido) {
-      capturarLead(inputNombre, inputCorreo, resultadosQuiz);
-      setNombreUsuario(inputNombre);
-      localStorage.setItem('ecoNombre', inputNombre);
-      localStorage.setItem('ecoEmail', inputCorreo);
-      setPantallaActiva('app');
-      setSeccionInterna('home');
+      setIsLoading(true);
+      setIsError(false);
+      try {
+        capturarLead(inputNombre, inputCorreo, resultadosQuiz);
+        
+        const response = await fetch('/api/submitLead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre: inputNombre,
+            correo: inputCorreo,
+            destinos: resultadosQuiz
+          })
+        });
+
+        if (response.ok) {
+          setIsSuccess(true);
+          setNombreUsuario(inputNombre);
+          localStorage.setItem('ecoNombre', inputNombre);
+          localStorage.setItem('ecoEmail', inputCorreo);
+        } else {
+          setIsError(true);
+        }
+      } catch (error) {
+        console.error("Error al enviar el correo:", error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
@@ -232,19 +258,33 @@ export default function App() {
             <p className="texto-cierre-resultados" style={{ fontSize: '15px', fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
               {t('frase_final')}
             </p>
-            <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
-              <div className="fila-registro">
-                <label className="etiqueta-input">{t('resultados.name_label')}</label>
-                <input type="text" value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" />
-                {erroresValidacion.nombre && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.nombre}</span>}
+            {isSuccess ? (
+              <div className="mensaje-exito" style={{ marginTop: '20px', padding: '20px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '15px', border: '1px solid #064E3B', textAlign: 'center' }}>
+                <p style={{ color: '#064E3B', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px' }}>
+                  ¡El viaje ha comenzado! Revisa tu correo electrónico para ver tus rutas (revisa también tu bandeja de spam).
+                </p>
+                <button onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }} className="boton-brillante-grande">
+                  Entrar al Mapa
+                </button>
               </div>
-              <div className="fila-registro">
-                <label className="etiqueta-input">{t('resultados.email_label')}</label>
-                <input type="email" value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" />
-                {erroresValidacion.correo && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.correo}</span>}
-              </div>
-              <button type="submit" className="boton-brillante-grande">{t('resultados.button')}</button>
-            </form>
+            ) : (
+              <form onSubmit={enviarCorreoYEntrar} className="formulario-registro">
+                <div className="fila-registro">
+                  <label className="etiqueta-input">{t('resultados.name_label')}</label>
+                  <input type="text" value={inputNombre} onChange={(e) => setInputNombre(e.target.value)} className="input-correo-elegante" disabled={isLoading} />
+                  {erroresValidacion.nombre && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.nombre}</span>}
+                </div>
+                <div className="fila-registro">
+                  <label className="etiqueta-input">{t('resultados.email_label')}</label>
+                  <input type="email" value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" disabled={isLoading} />
+                  {erroresValidacion.correo && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.correo}</span>}
+                </div>
+                {isError && <p style={{ color: '#D32F2F', fontSize: '14px', marginTop: '10px', textAlign: 'center' }}>Hubo un error al conectar. Por favor, intenta de nuevo.</p>}
+                <button type="submit" className="boton-brillante-grande" disabled={isLoading}>
+                  {isLoading ? 'Enviando...' : t('resultados.button')}
+                </button>
+              </form>
+            )}
           </div>
         );
 
