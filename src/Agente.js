@@ -9,7 +9,7 @@ export default function Agente({ nombre }) {
         {
             rol: 'asistente',
             // AQUI ESTÁ EL CAMBIO PRINCIPAL:
-            texto: t('agente.welcome', { defaultValue: `${nombre ? 'Hola, ' + nombre : 'Hola'}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?` })
+            texto: nombre ? t('agente.welcome', { nombre }) : t('agente.welcome_anon')
         }
     ]);
     const [input, setInput] = useState('');
@@ -118,7 +118,7 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
             // --- 4. CIERRE LÓGICO (CADA 3 MENSAJES) ---
             if (nuevoContador % 3 === 0) {
                 // TAMBIÉN ACTUALIZADO AQUÍ PARA QUE NO LANCE UNDEFINED:
-                r += t('agente.cierre', { nombre: nombre ? nombre : '' });
+                r += nombre ? t('agente.cierre', { nombre }) : t('agente.cierre_anon');
             }
 
             setMensajes(prev => [...prev, { rol: 'asistente', texto: r }]);
