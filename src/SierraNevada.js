@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import React from 'react';
 
-const Sierra = ({ info, onVolver }) => {
+const SierraNevada = ({ info, onVolver }) => {
     const { t } = useTranslation();
     if (!info) return null;
 
@@ -12,15 +12,15 @@ const Sierra = ({ info, onVolver }) => {
             <div className="hero-territorio">
                 <img src={info.foto} alt="F" className="foto-cabecera" />
                 <div className="overlay-titulo">
-                    <h1 className="cinzel-font">SIERRA</h1>
-                    <p className="arquetipo-sub">{t("destinos.Sierra.archetype") || info.arquetipo}</p>
+                    <h1 className="cinzel-font">SIERRA NEVADA</h1>
+                    <p className="arquetipo-sub">{t("destinos.SierraNevada.archetype") || info.arquetipo}</p>
                 </div>
             </div>
 
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
                     <h3>{t("territory.wisdom")}</h3>
-                    <p className="texto-maestro">{t("destinos.Sierra.desc") || info.desc}</p>
+                    <p className="texto-maestro">{t("destinos.SierraNevada.desc") || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">
@@ -41,4 +41,4 @@ const Sierra = ({ info, onVolver }) => {
     );
 };
 
-export default Sierra;
+export default SierraNevada;

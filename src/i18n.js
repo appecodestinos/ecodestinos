@@ -137,6 +137,22 @@ const resources = {
                 "menu_asesor": "Hablar con un asesor (WhatsApp)",
                 "respuesta_mistica": "Cada territorio tiene su propia frecuencia. Para diseñar tu ruta personalizada y verificar la disponibilidad de este espacio sagrado, te invito a hablar con nosotros por WhatsApp. ¡Hagamos que suceda!",
                 "btn_whatsapp": "Ir a WhatsApp",
+                "funnel": {
+                    "que_llevar_pregunta": "¿A qué territorio deseas viajar?",
+                    "que_llevar_consejo": "Para este territorio recomendamos calzado resistente (botas o senderismo), vestimenta ligera y transpirable, y repelente orgánico. Prioriza siempre productos naturales y biodegradables para honrar la tierra.",
+                    "salud_texto": "Tu bienestar es nuestra prioridad. Te recomendamos llevar tus tratamientos médicos habituales e informarnos sobre cualquier patología crónica. Contamos con kit de primeros auxilios en ruta. Para zonas de selva (Amazonas, Putumayo, Guainía), la vacuna de fiebre amarilla es recomendable, aunque no obligatoria. Consulta detalles finales con nosotros.",
+                    "btn_disenar_viaje": "Diseñar mi viaje en WhatsApp",
+                    "btn_consultar_asesor": "Consultar a un asesor por WhatsApp",
+                    "btn_volver": "Volver al menú principal",
+                    "terr_amazonas": "Amazonas",
+                    "terr_macizo": "Macizo Colombiano",
+                    "terr_guainia": "Guainía",
+                    "terr_sierranevada": "Sierra Nevada",
+                    "terr_pacifico": "Pacífico",
+                    "terr_putumayo": "Putumayo & Caquetá",
+                    "terr_bogota": "Bogotá & Sabana",
+                    "terr_medellin": "Medellín"
+                },
                 "welcome": "Hola {{nombre}}, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?",
                 "welcome_anon": "Hola, bienvenido al latido de la tierra. ¿Qué territorio o duda vienes a compartir?",
                 "macizo": "El Macizo es el Útero de la Tierra. Aquí nace el agua que irriga a Colombia. Los volcanes Puracé y Sotará custodian tu transformación. Es un lugar para gestar nuevos proyectos y silenciar el ruido mental.",
@@ -181,7 +197,7 @@ const resources = {
                     "archetype": "Conciliación",
                     "desc": "Territorio Trinidad. Ideal cuando buscas equilibrio interno y armonía. Lo diferente también puede coexistir."
                 },
-                "Sierra": {
+                "SierraNevada": {
                     "title": "Corazón Manifestador",
                     "archetype": "Despertar",
                     "desc": "Territorio Manifestación. Ideal cuando quieres tomar decisiones y encontrar dirección. Manifestar es coherencia."
@@ -349,6 +365,22 @@ const resources = {
                 "menu_asesor": "Speak with an advisor (WhatsApp)",
                 "respuesta_mistica": "Each territory has its own frequency. To design your personalized route and verify the availability of this sacred space, I invite you to speak with us via WhatsApp. Let's make it happen!",
                 "btn_whatsapp": "Go to WhatsApp",
+                "funnel": {
+                    "que_llevar_pregunta": "Which territory do you want to visit?",
+                    "que_llevar_consejo": "For this territory we recommend sturdy footwear (boots or hiking shoes), light and breathable clothing, and organic repellent. Always prioritize natural and biodegradable products to honor the earth.",
+                    "salud_texto": "Your well-being is our priority. We recommend bringing your regular medical treatments and informing us of any chronic pathology. We have a first aid kit en route. For jungle areas (Amazonas, Putumayo, Guainía), the yellow fever vaccine is recommended, although not mandatory. Consult final details with us.",
+                    "btn_disenar_viaje": "Design my trip on WhatsApp",
+                    "btn_consultar_asesor": "Consult an advisor on WhatsApp",
+                    "btn_volver": "Return to main menu",
+                    "terr_amazonas": "Amazonas",
+                    "terr_macizo": "Colombian Massif",
+                    "terr_guainia": "Guainía",
+                    "terr_sierranevada": "Sierra Nevada",
+                    "terr_pacifico": "Pacific",
+                    "terr_putumayo": "Putumayo & Caquetá",
+                    "terr_bogota": "Bogotá & Sabana",
+                    "terr_medellin": "Medellín"
+                },
                 "welcome": "Hello {{nombre}}, welcome to the heartbeat of the earth. What territory or question do you come to share?",
                 "welcome_anon": "Hello, welcome to the heartbeat of the earth. What territory or question do you come to share?",
                 "macizo": "The Massif is the Womb of the Earth. Here the water that irrigates Colombia is born. The Puracé and Sotará volcanoes guard your transformation. It's a place to gestate new projects and silence mental noise.",
@@ -393,7 +425,7 @@ const resources = {
                     "archetype": "Conciliation",
                     "desc": "Trinity Territory. Ideal when you seek inner balance and harmony. The different can also coexist."
                 },
-                "Sierra": {
+                "SierraNevada": {
                     "title": "Manifesting Heart",
                     "archetype": "Awakening",
                     "desc": "Manifestation Territory. Ideal when you want to make decisions and find direction. Manifesting is coherence."
@@ -561,6 +593,22 @@ const resources = {
                 "menu_asesor": "Sprich mit einem Berater (WhatsApp)",
                 "respuesta_mistica": "Jedes Territorium hat seine eigene Frequenz. Um deine personalisierte Route zu entwerfen und die Verfügbarkeit dieses heiligen Raums zu überprüfen, lade ich dich ein, mit uns über WhatsApp zu sprechen. Lass es uns verwirklichen!",
                 "btn_whatsapp": "Zu WhatsApp gehen",
+                "funnel": {
+                    "que_llevar_pregunta": "Welches Territorium möchtest du besuchen?",
+                    "que_llevar_consejo": "Für dieses Territorium empfehlen wir festes Schuhwerk (Stiefel oder Wanderschuhe), leichte und atmungsaktive Kleidung sowie biologisches Abwehrmittel. Bevorzuge immer natürliche und biologisch abbaubare Produkte, um die Erde zu ehren.",
+                    "salud_texto": "Dein Wohlbefinden hat für uns Priorität. Wir empfehlen dir, deine gewohnten medizinischen Behandlungen mitzubringen und uns über chronische Krankheiten zu informieren. Wir haben ein Erste-Hilfe-Set auf der Route dabei. Für Dschungelgebiete (Amazonas, Putumayo, Guainía) wird eine Gelbfieberimpfung empfohlen, obwohl sie nicht obligatorisch ist. Besprich die letzten Details mit uns.",
+                    "btn_disenar_viaje": "Meine Reise auf WhatsApp gestalten",
+                    "btn_consultar_asesor": "Einen Berater auf WhatsApp konsultieren",
+                    "btn_volver": "Zurück zum Hauptmenü",
+                    "terr_amazonas": "Amazonas",
+                    "terr_macizo": "Kolumbianisches Massiv",
+                    "terr_guainia": "Guainía",
+                    "terr_sierranevada": "Sierra Nevada",
+                    "terr_pacifico": "Pazifik",
+                    "terr_putumayo": "Putumayo & Caquetá",
+                    "terr_bogota": "Bogotá & Sabana",
+                    "terr_medellin": "Medellín"
+                },
                 "welcome": "Hallo {{nombre}}, willkommen beim Herzschlag der Erde. Welches Gebiet oder welche Frage möchtest du teilen?",
                 "welcome_anon": "Hallo, willkommen beim Herzschlag der Erde. Welches Gebiet oder welche Frage möchtest du teilen?",
                 "macizo": "Das Massiv ist der Schoß der Erde. Hier wird das Wasser geboren, das Kolumbien bewässert. Die Vulkane Puracé und Sotará bewachen deine Transformation. Es ist ein Ort, um neue Projekte zu gebären und geistigen Lärm zum Schweigen zu bringen.",
@@ -605,7 +653,7 @@ const resources = {
                     "archetype": "Schlichtung",
                     "desc": "Trinitäts-Territorium. Ideal, wenn du inneres Gleichgewicht und Harmonie suchst. Auch das Andere kann koexistieren."
                 },
-                "Sierra": {
+                "SierraNevada": {
                     "title": "Manifestierendes Herz",
                     "archetype": "Erwachen",
                     "desc": "Manifestations-Territorium. Ideal, wenn du Entscheidungen treffen und Richtung finden möchtest. Manifestieren ist Kohärenz."
@@ -773,6 +821,22 @@ const resources = {
                 "menu_asesor": "Parler avec un conseiller (WhatsApp)",
                 "respuesta_mistica": "Chaque territoire a sa propre fréquence. Pour concevoir votre itinéraire personnalisé et vérifier la disponibilité de cet espace sacré, je vous invite à nous parler sur WhatsApp. Faisons en sorte que cela se produise !",
                 "btn_whatsapp": "Aller sur WhatsApp",
+                "funnel": {
+                    "que_llevar_pregunta": "Quel territoire souhaitez-vous visiter ?",
+                    "que_llevar_consejo": "Pour ce territoire, nous recommandons des chaussures solides (bottes ou chaussures de randonnée), des vêtements légers et respirants, et un répulsif biologique. Privilégiez toujours les produits naturels et biodégradables pour honorer la terre.",
+                    "salud_texto": "Votre bien-être est notre priorité. Nous vous recommandons d'apporter vos traitements médicaux habituels et de nous informer de toute pathologie chronique. Nous avons une trousse de premiers secours en route. Pour les zones de jungle (Amazonas, Putumayo, Guainía), le vaccin contre la fièvre jaune est recommandé, bien que non obligatoire. Consultez-nous pour les derniers détails.",
+                    "btn_disenar_viaje": "Concevoir mon voyage sur WhatsApp",
+                    "btn_consultar_asesor": "Consulter un conseiller sur WhatsApp",
+                    "btn_volver": "Retour au menu principal",
+                    "terr_amazonas": "Amazonas",
+                    "terr_macizo": "Massif Colombien",
+                    "terr_guainia": "Guainía",
+                    "terr_sierranevada": "Sierra Nevada",
+                    "terr_pacifico": "Pacifique",
+                    "terr_putumayo": "Putumayo & Caquetá",
+                    "terr_bogota": "Bogotá & Sabana",
+                    "terr_medellin": "Medellín"
+                },
                 "welcome": "Bonjour {{nombre}}, bienvenue au battement de cœur de la terre. Quel territoire ou question venez-vous partager ?",
                 "welcome_anon": "Bonjour, bienvenue au battement de cœur de la terre. Quel territoire ou question venez-vous partager ?",
                 "macizo": "Le Massif est l'Utérus de la Terre. C'est ici que naît l'eau qui irrigue la Colombie. Les volcans Puracé et Sotará gardent votre transformation. C'est un endroit pour faire naître de nouveaux projets et faire taire le bruit mental.",
@@ -817,7 +881,7 @@ const resources = {
                     "archetype": "Conciliation",
                     "desc": "Territoire Trinité. Idéal quand vous cherchez un équilibre intérieur et une harmonie. Les différences peuvent aussi coexister."
                 },
-                "Sierra": {
+                "SierraNevada": {
                     "title": "Cœur Manifesteur",
                     "archetype": "Éveil",
                     "desc": "Territoire Manifestation. Idéal lorsque vous souhaitez prendre des décisions et trouver une direction. Manifester est cohérence."

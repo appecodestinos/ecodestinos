@@ -4,6 +4,25 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.REACT_APP_GEMINI_KEY);
 
+const mensajesWhatsApp = {
+  amazonas: "¡Hola! Estaba hablando con La Rana y siento el llamado del Amazonas. Me gustaría diseñar mi viaje para encontrar arraigo y silencio profundo.",
+  macizo: "¡Hola! Estaba hablando con La Rana y siento el llamado del Macizo Colombiano. Me gustaría diseñar mi viaje para mi proceso de transición y transformación.",
+  guainia: "¡Hola! Estaba hablando con La Rana y siento el llamado de Guainía. Me gustaría diseñar mi viaje para conectar con la armonía y el equilibrio.",
+  sierranevada: "¡Hola! Estaba hablando con La Rana y siento el llamado de la Sierra Nevada. Me gustaría diseñar mi viaje para activar mi propósito y encontrar dirección.",
+  pacifico: "¡Hola! Estaba hablando con La Rana y siento el llamado del Pacífico. Me gustaría diseñar mi viaje para reconectar con mi historia y escuchar mis emociones.",
+  putumayo: "¡Hola! Estaba hablando con La Rana y siento el llamado del Putumayo. Me gustaría diseñar mi viaje para asimilar y buscar profundidad en mi camino.",
+  bogota: "¡Hola! Estaba hablando con La Rana y siento el llamado de la Sabana. Me gustaría diseñar mi viaje para encontrar claridad mental y organizar lo vivido.",
+  medellin: "¡Hola! Estaba hablando con La Rana y siento el llamado de Medellín. Me gustaría diseñar mi viaje para activar mi energía, crear y expandirme.",
+  salud: "¡Hola! Estaba hablando con La Rana y quiero consultar con un asesor sobre temas de salud, vacunas o equipaje para mi próximo viaje.",
+  general: "¡Hola! Quiero información sobre los Territorios Vivos."
+};
+
+const generarLinkWpp = (clave) => {
+  const numero = "573156074044"; // Número de Ecodestinos
+  const mensaje = mensajesWhatsApp[clave] || mensajesWhatsApp.general;
+  return `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+};
+
 export default function Agente({ nombre }) {
     const { t, i18n } = useTranslation();
     const [contadorMensajes, setContadorMensajes] = useState(0);
@@ -15,11 +34,10 @@ export default function Agente({ nombre }) {
         },
         { rol: 'asistente', tipo: 'menu' }
     ]);
+    const [nivelEmbudo, setNivelEmbudo] = useState('inicio');
 const [input, setInput] = useState('');
 const [isTyping, setIsTyping] = useState(false);
 const scrollRef = useRef(null);
-
-const WHATSAPP_LINK = "https://wa.me/573156074044";
 
 useEffect(() => {
     if (scrollRef.current) {
@@ -32,15 +50,75 @@ const handleOptionClick = (opcionKey) => {
     setMensajes(prev => [...prev, { rol: 'usuario', texto: optionText }]);
     setIsTyping(true);
 
-    setTimeout(() => {
-        const r = t('agente.respuesta_mistica');
-        setMensajes(prev => [
-            ...prev,
-            { rol: 'asistente', texto: r },
-            { rol: 'asistente', tipo: 'whatsapp_btn' }
-        ]);
-        setIsTyping(false);
-    }, 1000);
+    if (opcionKey === 'menu_territorio') {
+        setNivelEmbudo('seleccion_territorio_conocer');
+        setTimeout(() => {
+            setMensajes(prev => [...prev, { rol: 'asistente', tipo: 'menu_territorios_conocer' }]);
+            setIsTyping(false);
+        }, 800);
+    } else if (opcionKey === 'menu_llevar') {
+        setNivelEmbudo('seleccion_territorio_llevar');
+        setTimeout(() => {
+            setMensajes(prev => [
+                ...prev,
+                { rol: 'asistente', texto: t('agente.funnel.que_llevar_pregunta') },
+                { rol: 'asistente', tipo: 'menu_territorios_llevar' }
+            ]);
+            setIsTyping(false);
+        }, 800);
+    } else if (opcionKey === 'menu_salud') {
+        setNivelEmbudo('dudas_salud');
+        setTimeout(() => {
+            setMensajes(prev => [
+                ...prev,
+                { rol: 'asistente', texto: t('agente.funnel.salud_texto') },
+                { rol: 'asistente', tipo: 'whatsapp_btn_custom', wppKey: 'salud', btnLabel: t('agente.funnel.btn_consultar_asesor') }
+            ]);
+            setIsTyping(false);
+        }, 800);
+    } else if (opcionKey === 'menu_asesor') {
+        setTimeout(() => {
+            setIsTyping(false);
+            window.open(generarLinkWpp('general'), '_blank');
+        }, 500);
+    }
+};
+
+const handleTerritorioClick = (terrKey, context) => {
+    const terrName = t(`agente.funnel.terr_${terrKey}`);
+    setMensajes(prev => [...prev, { rol: 'usuario', texto: terrName }]);
+    setIsTyping(true);
+    
+    if (context === 'conocer') {
+        setTimeout(() => {
+            // Mapeo especial para coincidir con las llaves antiguas en i18n
+            const keyToUse = terrKey === 'sierranevada' ? 'sierra' : terrKey === 'bogota' ? 'guatavita' : terrKey;
+            let desc = t(`agente.${keyToUse}`);
+            if (desc === `agente.${keyToUse}`) desc = "Un territorio lleno de magia y sanación. Contáctanos para más detalles."; // Fallback
+            
+            setMensajes(prev => [
+                ...prev,
+                { rol: 'asistente', texto: desc },
+                { rol: 'asistente', tipo: 'whatsapp_btn_custom', wppKey: terrKey, btnLabel: t('agente.funnel.btn_disenar_viaje') }
+            ]);
+            setIsTyping(false);
+        }, 1000);
+    } else if (context === 'llevar') {
+        setTimeout(() => {
+            const consejo = t('agente.funnel.que_llevar_consejo');
+            setMensajes(prev => [
+                ...prev,
+                { rol: 'asistente', texto: consejo },
+                { rol: 'asistente', tipo: 'whatsapp_btn_custom', wppKey: 'salud', btnLabel: t('agente.funnel.btn_consultar_asesor') }
+            ]);
+            setIsTyping(false);
+        }, 1000);
+    }
+};
+
+const handleVolverMenu = () => {
+    setNivelEmbudo('inicio');
+    setMensajes(prev => [...prev, { rol: 'asistente', tipo: 'menu' }]);
 };
 
 const manejarEnvio = async (e) => {
@@ -115,7 +193,7 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
 return (
     <div className="agente-flotante-container">
         {isOpen && (
-            <div className="ventana-chat-agente fade-in">
+            <div className={`ventana-chat-agente fade-in embudo-${nivelEmbudo}`}>
                 <div style={{ background: '#2E472D', color: 'white', padding: '15px', display: 'flex', justifyContent: 'space-between', borderRadius: '15px 15px 0 0' }}>
                     <span className="nombre-rana">{t('agente.rana_nombre')}</span>
                     <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '20px' }}>×</button>
@@ -142,8 +220,32 @@ return (
                                             </button>
                                         ))}
                                     </div>
+                                ) : m.tipo === 'menu_territorios_conocer' || m.tipo === 'menu_territorios_llevar' ? (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '5px' }}>
+                                        {['amazonas', 'macizo', 'guainia', 'sierranevada', 'pacifico', 'putumayo', 'bogota', 'medellin'].map(terr => (
+                                            <button key={terr} onClick={() => handleTerritorioClick(terr, m.tipo === 'menu_territorios_conocer' ? 'conocer' : 'llevar')} style={{
+                                                background: '#4CAF50', color: 'white', border: 'none', padding: '8px 12px', borderRadius: '10px', cursor: 'pointer', textAlign: 'left', fontSize: '13px'
+                                            }}>
+                                                {t(`agente.funnel.terr_${terr}`)}
+                                            </button>
+                                        ))}
+                                        <button onClick={handleVolverMenu} style={{ background: '#777', color: 'white', border: 'none', padding: '8px 12px', borderRadius: '10px', cursor: 'pointer', textAlign: 'left', fontSize: '13px', marginTop: '5px' }}>
+                                            {t('agente.funnel.btn_volver')}
+                                        </button>
+                                    </div>
+                                ) : m.tipo === 'whatsapp_btn_custom' ? (
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '5px' }}>
+                                        <a href={generarLinkWpp(m.wppKey)} target="_blank" rel="noopener noreferrer" style={{
+                                            display: 'inline-block', padding: '10px 16px', background: '#25D366', color: 'white', borderRadius: '20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px'
+                                        }}>
+                                            {m.btnLabel} 🐸
+                                        </a>
+                                        <button onClick={handleVolverMenu} style={{ background: '#777', color: 'white', border: 'none', padding: '8px 12px', borderRadius: '10px', cursor: 'pointer', textAlign: 'left', fontSize: '13px' }}>
+                                            {t('agente.funnel.btn_volver')}
+                                        </button>
+                                    </div>
                                 ) : m.tipo === 'whatsapp_btn' ? (
-                                    <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" style={{
+                                    <a href={generarLinkWpp('general')} target="_blank" rel="noopener noreferrer" style={{
                                         display: 'inline-block', padding: '10px 16px', background: '#25D366', color: 'white', borderRadius: '20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px'
                                     }}>
                                         {t('agente.btn_whatsapp')} 🐸
@@ -180,7 +282,7 @@ return (
                         />
                         <button type="submit" style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '18px' }}>🐸</button>
                     </form>
-                    <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" style={{ fontSize: '11px', color: '#2E472D', textDecoration: 'none', display: 'block', textAlign: 'center', fontWeight: 'bold' }}>
+                    <a href={generarLinkWpp('general')} target="_blank" rel="noopener noreferrer" style={{ fontSize: '11px', color: '#2E472D', textDecoration: 'none', display: 'block', textAlign: 'center', fontWeight: 'bold' }}>
                         {t('agente.whatsapp')}
                     </a>
                 </div>

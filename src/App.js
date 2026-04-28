@@ -12,7 +12,7 @@ import Amazonas from './Amazonas';
 import Putumayo from './Putumayo';
 import Macizo from './Macizo';
 import Guainia from './Guainia';
-import Sierra from './Sierra';
+import SierraNevada from './SierraNevada';
 import Pacifico from './Pacifico';
 import Bogota from './Bogota';
 import Medellin from './Medellin';
@@ -41,12 +41,18 @@ const INFO_DESTINOS = {
     video: "URL_VIDEO",
     galeria: ["/assets/gua1.jpg", "/assets/gua2.jpg"]
   },
-  Sierra: {
-    titulo: "Corazón Manifestador", arquetipo: "Despertar", proceso: "Manifestación y Propósito", color: "#8d0f6eff",
+  SierraNevada: {
+    titulo: 'Corazón Manifestador',
+    arquetipo: 'Despertar',
+    proceso: "Manifestación y Propósito",
+    color: "#8d0f6eff",
     desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida.",
-    foto: "/assets/sierratarjeta.jpg",
+    foto: "/assets/sierranevadatarjeta.jpg",
+    imagenCard: '/assets/sierranevadatarjeta.jpg',
     video: "URL_VIDEO",
-    galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"]
+    galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"],
+    destacado: true,
+    wppLink: 'https://wa.me/573156074044?text=Hola!%20Vengo%20de%20la%20Rana%20y%20quiero%20saber%20más%20sobre%20la%20Sierra%20Nevada'
   },
   Pacífico: {
     titulo: "Memoria del Océano", arquetipo: "Memoria", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
@@ -70,11 +76,17 @@ const INFO_DESTINOS = {
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
   },
   Medellin: {
-    titulo: "Territorio de Acción", arquetipo: "Expansión", proceso: "Acción y Movimiento", color: "#E65100",
+    titulo: 'Expansión Creativa',
+    arquetipo: 'Acción',
+    proceso: "Acción y Movimiento",
+    color: "#E65100",
     desc: "Ideal para activar proyectos, salir de la pausa y transformar la realidad a través del movimiento.",
-    foto: "/assets/icon_medellin.png",
+    foto: "/assets/medellintarjeta.jpg",
+    imagenCard: '/assets/medellintarjeta.jpg',
     video: "URL_VIDEO",
-    galeria: []
+    galeria: [],
+    destacado: true,
+    wppLink: 'https://wa.me/573156074044?text=Hola!%20Vengo%20de%20la%20Rana%20y%20quiero%20saber%20más%20sobre%20Medellín'
   }
 };
 
@@ -240,17 +252,27 @@ export default function App() {
             <p className="texto-intro-resultados" style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
               {t('introduccion.texto')}
             </p>
-            <div className="contenedor-tarjetas">
+            <div className="contenedor-tarjetas grid-resultados">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
                 // Obtener datos traducidos
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
                 return (
                   <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
+                    {info.imagenCard && (
+                      <img src={info.imagenCard} alt={info.titulo} className="imagen-tarjeta-resultado" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '12px', objectFit: 'cover', maxHeight: '150px' }} />
+                    )}
                     <span className="nombre-geografico-label" style={{ color: info.color }}>{clave.toUpperCase()}</span>
                     <h3 style={{ color: info.color }}>{tInfo.title || info.titulo}</h3>
                     <p className="arquetipo-tag" style={{ color: info.color }}>{(tInfo.archetype || info.arquetipo).toUpperCase()}</p>
                     <p style={{ fontSize: '13px' }}>{tInfo.desc || info.desc}</p>
+                    {info.wppLink && (
+                      <div style={{ marginTop: '12px', textAlign: 'center' }}>
+                        <a href={info.wppLink} target="_blank" rel="noopener noreferrer" className="btn-wpp-resultado" style={{ display: 'inline-block', background: '#25D366', color: 'white', padding: '8px 16px', borderRadius: '20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px' }}>
+                          Hablar con un asesor 🐸
+                        </a>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -325,7 +347,7 @@ export default function App() {
                   {territorioActivo === 'Putumayo' && <Putumayo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Macizo' && <Macizo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Guainia' && <Guainia info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Sierra' && <Sierra info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'SierraNevada' && <SierraNevada info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Pacífico' && <Pacifico info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Bogota' && <Bogota info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
                   {territorioActivo === 'Medellin' && <Medellin info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}

@@ -4,19 +4,19 @@ import React, { useState } from 'react';
 // Mapeo original de territorios por cada opción (4 opciones por las 7 preguntas)
 const MAPEO_PREGUNTAS = [
     // Q1: Sentimiento -> Agotamiento: Putumayo, Cambio: Macizo, Alegre: Amazonas, Equilibrio: Sierra
-    ['Putumayo', 'Macizo', 'Amazonas', 'Sierra'], 
+    ['Putumayo', 'Macizo', 'Amazonas', 'SierraNevada'], 
     // Q2: Necesidad -> Arraigo: Macizo, Armonía: Pacífico, Recuperación: Putumayo, Aire: Bogota
     ['Macizo', 'Pacífico', 'Putumayo', 'Bogota'],
     // Q3: Paisaje -> Tierra: Amazonas, Montaña: Sierra, Mar: Pacífico, Agua: Guainia
-    ['Amazonas', 'Sierra', 'Pacífico', 'Guainia'],
+    ['Amazonas', 'SierraNevada', 'Pacífico', 'Guainia'],
     // Q4: Ritmo -> Tranquilo: Guainia, Equilibrado: Macizo, Activo: Medellin, Flexible: Amazonas
     ['Guainia', 'Macizo', 'Medellin', 'Amazonas'],
     // Q5: Activar -> Raíz: Macizo, Creación/Proyectos: Medellin, Corazón: Pacífico, Propósito: Sierra
-    ['Macizo', 'Medellin', 'Pacífico', 'Sierra'],
+    ['Macizo', 'Medellin', 'Pacífico', 'SierraNevada'],
     // Q6: Bienestar -> Caminatas: Sierra, Spa: Bogota, Ancestral: Putumayo, Manos: Medellin
-    ['Sierra', 'Bogota', 'Putumayo', 'Medellin'],
+    ['SierraNevada', 'Bogota', 'Putumayo', 'Medellin'],
     // Q7: Formato -> Solo: Sierra, Pareja: Pacífico, Familia: Amazonas, Grupo: Macizo
-    ['Sierra', 'Pacífico', 'Amazonas', 'Macizo']
+    ['SierraNevada', 'Pacífico', 'Amazonas', 'Macizo']
 ];
 
 // 🎨 PALETA EXACTA SEGÚN TUS IMÁGENES (Rotamos estos 3 colores elegantes)
@@ -48,7 +48,7 @@ const Quiz = ({ alTerminar }) => {
             if (paso < 6) {
                 setPaso(paso + 1);
             } else {
-                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, Sierra: 0, Pacífico: 0, Putumayo: 0, Bogota: 0, Medellin: 0 };
+                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, SierraNevada: 0, Pacífico: 0, Putumayo: 0, Bogota: 0, Medellin: 0 };
                 nuevasRespuestas.forEach((idxSeleccion, indicePregunta) => {
                     if (idxSeleccion !== null) {
                         const territorio = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
