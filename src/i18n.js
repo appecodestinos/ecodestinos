@@ -74,57 +74,54 @@ const resources = {
             },
             "quiz": {
                 "progress": "ESTACIÓN {{current}} DE 7",
-                "next": "Siguiente",
-                "prev": "Anterior",
-                "finish": "Finalizar",
                 "q0": {
-                    "question": "¿En qué estado se encuentra tu energía hoy?",
-                    "opt0": "Necesito silencio y profundidad (Raíz)",
-                    "opt1": "Busco transformación y renacimiento (Útero)",
-                    "opt2": "Siento el llamado de la visión (Corazón)",
-                    "opt3": "Deseo fluir y sanar mis aguas (Memoria)"
+                    "question": "¿Cómo te has sentido últimamente?",
+                    "opt0": "Con cansancio o agotamiento mental",
+                    "opt1": "En cambio o transición",
+                    "opt2": "Alegre y optimista",
+                    "opt3": "En equilibrio y con curiosidad"
                 },
                 "q1": {
-                    "question": "¿Cuál es el elemento que más te llama en este ciclo?",
-                    "opt0": "La tierra húmeda y el bosque denso",
-                    "opt1": "El agua cristalina que brota del Macizo",
-                    "opt2": "La inmensidad de las rocas antiguas",
-                    "opt3": "El susurro místico de las plantas de poder"
+                    "question": "¿Qué es lo que más necesitas de la naturaleza?",
+                    "opt0": "Estabilidad y arraigo",
+                    "opt1": "Armonía y suavidad",
+                    "opt2": "Recuperación e integración",
+                    "opt3": "Inspiración y aire fresco"
                 },
                 "q2": {
-                    "question": "Si tu alma fuera un paisaje, ¿cómo se vería?",
-                    "opt0": "Un útero de montañas custodiado por volcanes",
-                    "opt1": "Un pulmón verde infinito donde nace la vida",
-                    "opt2": "Un océano salvaje que limpia el linaje",
-                    "opt3": "Una laguna sagrada que refleja el oro"
+                    "question": "¿Qué paisaje te acompaña mejor hoy?",
+                    "opt0": "La tierra húmeda",
+                    "opt1": "Respirar el horizonte en las montañas",
+                    "opt2": "Atardecer a la orilla del mar",
+                    "opt3": "Contemplar el reflejo en el agua serena"
                 },
                 "q3": {
-                    "question": "¿Cómo deseas que sea el ritmo de tu caminar?",
-                    "opt0": "Lento, contemplativo y en profundo silencio",
-                    "opt1": "Equilibrado, entre la aventura y el descanso",
-                    "opt2": "Dinámico, integrando medicinas y saberes",
-                    "opt3": "Fluido, siguiendo el latido del territorio"
+                    "question": "¿Qué ritmo de viaje prefieres?",
+                    "opt0": "Tranquilo, una actividad al día",
+                    "opt1": "Equilibrado, dos actividades al día",
+                    "opt2": "Activo, varias experiencias al día",
+                    "opt3": "Flexible, según el día"
                 },
                 "q4": {
-                    "question": "¿Qué intención deseas sembrar en este viaje?",
-                    "opt0": "Retorno al origen y pertenencia ancestral",
-                    "opt1": "Alquimia interna y medicina del jaguar",
-                    "opt2": "Ordenar el pensamiento y diseñar mi misión",
-                    "opt3": "Nutrición y gestación de nuevos proyectos"
+                    "question": "¿Qué quieres activar en ti con este viaje?",
+                    "opt0": "Enraizamiento y estabilidad (Raíz)",
+                    "opt1": "Creatividad y nuevos comienzos (Creación)",
+                    "opt2": "Amor propio y vínculos (Corazón)",
+                    "opt3": "Manifestación y visión (Propósito)"
                 },
                 "q5": {
-                    "question": "¿Qué tipo de medicina necesitas recibir?",
-                    "opt0": "El abrazo de la Maloka y la palabra de los abuelos",
-                    "opt1": "La purificación del mar y el canto de las ballenas",
-                    "opt2": "La Tulpa de piedra y el fuego de la unidad",
-                    "opt3": "El cierre consciente de ciclos en aguas sagradas"
+                    "question": "¿Qué tipo de bienestar quieres vivir?",
+                    "opt0": "Caminatas conscientes en la naturaleza",
+                    "opt1": "Masajes, spa y rituales de bienestar",
+                    "opt2": "Conexión con comunidades y prácticas ancestrales",
+                    "opt3": "Crear con las manos (tejido, cerámica, cocina)"
                 },
                 "q6": {
-                    "question": "¿Con quién deseas compartir esta ruta sagrada?",
-                    "opt0": "En soledad, para un encuentro conmigo mismo",
-                    "opt1": "En pareja, para armonizar nuestra energía",
-                    "opt2": "Con mi familia, para sanar raíces comunes",
-                    "opt3": "Con mi comunidad, para expandir la visión"
+                    "question": "¿Qué formato de viaje prefieres?",
+                    "opt0": "Independiente, solo/a o a mi ritmo",
+                    "opt1": "En pareja",
+                    "opt2": "En familia",
+                    "opt3": "En grupo para retiro o experiencia guiada"
                 }
             },
             "agente": {
