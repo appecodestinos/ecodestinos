@@ -7,8 +7,8 @@ const resources = {
             "logo_circular": "/assets/logocircular.png",
             "landing": {
                 "title": "Territorios Vivos",
-                "tagline": "En solo 90 segundos descubre, Qué territorio conecta mejor contigo y recibe recomendaciones",
-                "start": "comenzar el viaje",
+                "tagline": "En solo 90 segundos descubre qué territorio conecta mejor contigo y recibe recomendaciones",
+                "start": "Comenzar el viaje",
                 "skip": "Explorar el mapa"
             },
             "procesando": {
@@ -233,14 +233,14 @@ const resources = {
             "landing": {
                 "title": "Living Territories",
                 "tagline": "In just 90 seconds, discover which territory connects best with you and receive recommendations",
-                "start": "begin the journey",
+                "start": "Begin the journey",
                 "skip": "Explore the map"
             },
             "procesando": {
                 "rana": "The Frog is listening to your heartbeat..."
             },
             "resultados": {
-                "title": "YOUR JOURNEY RESONATES WITH:",
+                "title": "YOUR TRIP RESONATES WITH:",
                 "name_label": "your name:",
                 "email_label": "your email:",
                 "button": "Receive my destinations"
@@ -461,7 +461,7 @@ const resources = {
             "landing": {
                 "title": "Lebendige Territorien",
                 "tagline": "Entdecke in nur 90 Sekunden, welches Gebiet am besten mit dir in Resonanz tritt, und erhalte Empfehlungen",
-                "start": "die Reise beginnen",
+                "start": "Die Reise beginnen",
                 "skip": "Die Karte erkunden"
             },
             "procesando": {
@@ -688,8 +688,8 @@ const resources = {
             "logo_circular": "/assets/logo-ecodestinos-circular-fr.png",
             "landing": {
                 "title": "Territoires Vivants",
-                "tagline": "En seulement 90 secondes découvrez quel territoire résonne le mieux avec vous et recevez des recommandations",
-                "start": "commencer le voyage",
+                "tagline": "En seulement 90 secondes, découvrez quel territoire résonne le mieux avec vous et recevez des recommandations",
+                "start": "Commencer le voyage",
                 "skip": "Explorer la carte"
             },
             "procesando": {

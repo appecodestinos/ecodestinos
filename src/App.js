@@ -48,11 +48,9 @@ const INFO_DESTINOS = {
     color: "#8d0f6eff",
     desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida.",
     foto: "/assets/sierranevadatarjeta.jpg",
-    imagenCard: '/assets/sierranevadatarjeta.jpg',
     video: "URL_VIDEO",
     galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"],
-    destacado: true,
-    wppLink: 'https://wa.me/573156074044?text=Hola!%20Vengo%20de%20la%20Rana%20y%20quiero%20saber%20más%20sobre%20la%20Sierra%20Nevada'
+    destacado: true
   },
   Pacífico: {
     titulo: "Memoria del Océano", arquetipo: "Memoria", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
@@ -82,11 +80,9 @@ const INFO_DESTINOS = {
     color: "#E65100",
     desc: "Ideal para activar proyectos, salir de la pausa y transformar la realidad a través del movimiento.",
     foto: "/assets/medellintarjeta.jpg",
-    imagenCard: '/assets/medellintarjeta.jpg',
     video: "URL_VIDEO",
     galeria: [],
-    destacado: true,
-    wppLink: 'https://wa.me/573156074044?text=Hola!%20Vengo%20de%20la%20Rana%20y%20quiero%20saber%20más%20sobre%20Medellín'
+    destacado: true
   }
 };
 
@@ -157,7 +153,7 @@ export default function App() {
       setIsError(false);
       try {
         capturarLead(inputNombre, inputCorreo, resultadosQuiz);
-        
+
         const response = await fetch('/api/submitLead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -259,20 +255,9 @@ export default function App() {
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
                 return (
                   <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
-                    {info.imagenCard && (
-                      <img src={info.imagenCard} alt={info.titulo} className="imagen-tarjeta-resultado" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '12px', objectFit: 'cover', maxHeight: '150px' }} />
-                    )}
-                    <span className="nombre-geografico-label" style={{ color: info.color }}>{clave.toUpperCase()}</span>
                     <h3 style={{ color: info.color }}>{tInfo.title || info.titulo}</h3>
                     <p className="arquetipo-tag" style={{ color: info.color }}>{(tInfo.archetype || info.arquetipo).toUpperCase()}</p>
                     <p style={{ fontSize: '13px' }}>{tInfo.desc || info.desc}</p>
-                    {info.wppLink && (
-                      <div style={{ marginTop: '12px', textAlign: 'center' }}>
-                        <a href={info.wppLink} target="_blank" rel="noopener noreferrer" className="btn-wpp-resultado" style={{ display: 'inline-block', background: '#25D366', color: 'white', padding: '8px 16px', borderRadius: '20px', textDecoration: 'none', fontWeight: 'bold', fontSize: '13px' }}>
-                          Hablar con un asesor 🐸
-                        </a>
-                      </div>
-                    )}
                   </div>
                 );
               })}
