@@ -245,17 +245,19 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <h2 className="titulo-resultados">{t('resultados.title')}</h2>
-            <p className="texto-intro-resultados" style={{ fontSize: '15px', fontStyle: 'italic', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
-              {t('introduccion.texto')}
-            </p>
             <div className="contenedor-tarjetas grid-resultados">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
                 // Obtener datos traducidos
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
+                const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : clave;
                 return (
                   <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
-                    <h3 style={{ color: info.color }}>{tInfo.title || info.titulo}</h3>
+                    {info.foto && (
+                      <img src={info.foto} alt={tInfo.title || info.titulo} className="imagen-tarjeta-resultado" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '12px', objectFit: 'cover', maxHeight: '150px' }} />
+                    )}
+                    <h4 className="nombre-geografico-tarjeta" style={{ color: info.color, textTransform: 'uppercase', fontSize: '12px', letterSpacing: '1px', marginBottom: '4px', marginTop: '0' }}>{nombreDestino}</h4>
+                    <h3 style={{ color: info.color, marginTop: '4px' }}>{tInfo.title || info.titulo}</h3>
                     <p className="arquetipo-tag" style={{ color: info.color }}>{(tInfo.archetype || info.arquetipo).toUpperCase()}</p>
                     <p style={{ fontSize: '13px' }}>{tInfo.desc || info.desc}</p>
                   </div>
