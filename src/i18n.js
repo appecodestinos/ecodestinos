@@ -299,58 +299,13 @@ const resources = {
             },
             "quiz": {
                 "progress": "STATION {{current}} OF 7",
-                "next": "Next",
-                "prev": "Previous",
-                "finish": "Finish",
-                "q0": {
-                    "question": "How is your energy state today?",
-                    "opt0": "I need silence and depth (Root)",
-                    "opt1": "I seek transformation and rebirth (Womb)",
-                    "opt2": "I feel the call of vision (Heart)",
-                    "opt3": "I wish to flow and heal my waters (Memory)"
-                },
-                "q1": {
-                    "question": "Which element calls you most in this cycle?",
-                    "opt0": "Moist earth and dense forest",
-                    "opt1": "Crystalline water springing from the Massif",
-                    "opt2": "The immensity of ancient rocks",
-                    "opt3": "The mystical whisper of power plants"
-                },
-                "q2": {
-                    "question": "If your soul were a landscape, what would it look like?",
-                    "opt0": "A womb of mountains guarded by volcanoes",
-                    "opt1": "An infinite green lung where life is born",
-                    "opt2": "A wild ocean that cleanses the lineage",
-                    "opt3": "A sacred lagoon reflecting gold"
-                },
-                "q3": {
-                    "question": "How do you wish the rhythm of your walk to be?",
-                    "opt0": "Slow, contemplative, and in deep silence",
-                    "opt1": "Balanced, between adventure and rest",
-                    "opt2": "Dynamic, integrating medicines and knowledge",
-                    "opt3": "Fluid, following the heartbeat of the territory"
-                },
-                "q4": {
-                    "question": "What intention do you wish to plant on this journey?",
-                    "opt0": "Return to origin and ancestral belonging",
-                    "opt1": "Inner alchemy and jaguar medicine",
-                    "opt2": "Ordering thoughts and designing my mission",
-                    "opt3": "Nutrition and gestation of new projects"
-                },
-                "q5": {
-                    "question": "What kind of medicine do you need to receive?",
-                    "opt0": "The embrace of the Maloka and words of the elders",
-                    "opt1": "The purification of the sea and song of the whales",
-                    "opt2": "The stone Tulpa and the fire of unity",
-                    "opt3": "Conscious closing of cycles in sacred waters"
-                },
-                "q6": {
-                    "question": "Who do you wish to share this sacred route with?",
-                    "opt0": "In solitude, for a meeting with myself",
-                    "opt1": "As a couple, to harmonize our energy",
-                    "opt2": "With my family, to heal common roots",
-                    "opt3": "With my community, to expand the vision"
-                }
+                "q0": { "question": "How have you been feeling lately?", "opt0": "Mentally tired or exhausted", "opt1": "In transition or change", "opt2": "Cheerful and optimistic", "opt3": "Balanced and curious" },
+                "q1": { "question": "What do you need most from nature?", "opt0": "Stability and grounding", "opt1": "Harmony and softness", "opt2": "Recovery and integration", "opt3": "Inspiration and fresh air" },
+                "q2": { "question": "Which landscape accompanies you best today?", "opt0": "Damp earth", "opt1": "Breathing the mountain horizon", "opt2": "Sunset by the sea", "opt3": "Contemplating the reflection in serene water" },
+                "q3": { "question": "What travel pace do you prefer?", "opt0": "Calm, one activity per day", "opt1": "Balanced, two activities per day", "opt2": "Active, multiple experiences per day", "opt3": "Flexible, depending on the day" },
+                "q4": { "question": "What do you want to activate in yourself with this trip?", "opt0": "Grounding and stability (Root)", "opt1": "Creativity and new beginnings (Creation)", "opt2": "Self-love and connections (Heart)", "opt3": "Manifestation and vision (Purpose)" },
+                "q5": { "question": "What type of wellness do you want to experience?", "opt0": "Mindful walks in nature", "opt1": "Massages, spa, and wellness rituals", "opt2": "Connection with communities and ancestral practices", "opt3": "Creating with your hands (weaving, ceramics, cooking)" },
+                "q6": { "question": "What travel format do you prefer?", "opt0": "Independent, solo or at my own pace", "opt1": "As a couple", "opt2": "With family", "opt3": "In a group for a retreat or guided experience" }
             },
             "agente": {
                 "rana_nombre": "The Frog",
@@ -527,58 +482,13 @@ const resources = {
             },
             "quiz": {
                 "progress": "STATION {{current}} VON 7",
-                "next": "Weiter",
-                "prev": "Zurück",
-                "finish": "Beenden",
-                "q0": {
-                    "question": "In welchem Energiezustand befindest du dich heute?",
-                    "opt0": "Ich brauche Stille und Tiefe (Wurzel)",
-                    "opt1": "Ich suche Transformation und Wiedergeburt (Schoß)",
-                    "opt2": "Ich spüre den Ruf der Vision (Herz)",
-                    "opt3": "Ich möchte fließen und meine Gewässer heilen (Erinnerung)"
-                },
-                "q1": {
-                    "question": "Welches Element ruft dich in diesem Zyklus am meisten?",
-                    "opt0": "Die feuchte Erde und der dichte Wald",
-                    "opt1": "Das kristallklare Wasser aus dem Massiv",
-                    "opt2": "Die Unermesslichkeit alter Felsen",
-                    "opt3": "Das mystische Flüstern von Kraftpflanzen"
-                },
-                "q2": {
-                    "question": "Wenn deine Seele eine Landschaft wäre, wie würde sie aussehen?",
-                    "opt0": "Ein von Vulkanen bewachter Schoß aus Bergen",
-                    "opt1": "Eine unendliche grüne Lunge, in der Leben entsteht",
-                    "opt2": "Ein wilder Ozean, der die Ahnenlinie reinigt",
-                    "opt3": "Eine heilige Lagune, die Gold reflektiert"
-                },
-                "q3": {
-                    "question": "Wie möchtest du den Rhythmus deines Gehens gestalten?",
-                    "opt0": "Langsam, besinnlich und in tiefer Stille",
-                    "opt1": "Ausgewogen, zwischen Abenteuer und Ruhe",
-                    "opt2": "Dynamisch, unter Einbeziehung von Medizin und Wissen",
-                    "opt3": "Fließend, dem Herzschlag des Territoriums folgend"
-                },
-                "q4": {
-                    "question": "Welche Absicht möchtest du auf dieser Reise säen?",
-                    "opt0": "Rückkehr zum Ursprung und angestammte Zugehörigkeit",
-                    "opt1": "Innere Alchemie und Jaguarmedizin",
-                    "opt2": "Gedanken ordnen und meine Mission entwerfen",
-                    "opt3": "Ernährung und Entwicklung neuer Projekte"
-                },
-                "q5": {
-                    "question": "Welche Art von Medizin musst du erhalten?",
-                    "opt0": "Die Umarmung der Maloka und die Worte der Großeltern",
-                    "opt1": "Die Reinigung des Meeres und der Gesang der Wale",
-                    "opt2": "Die Stein-Tulpa und das Feuer der Einheit",
-                    "opt3": "Das bewusste Schließen von Zyklen in heiligen Gewässern"
-                },
-                "q6": {
-                    "question": "Mit wem möchtest du diese heilige Route teilen?",
-                    "opt0": "In Einsamkeit, für eine Begegnung mit mir selbst",
-                    "opt1": "Als Paar, um unsere Energie zu harmonisieren",
-                    "opt2": "Mit meiner Familie, um gemeinsame Wurzeln zu heilen",
-                    "opt3": "Mit meiner Gemeinschaft, um die Vision zu erweitern"
-                }
+                "q0": { "question": "Wie hast du dich in letzter Zeit gefühlt?", "opt0": "Geistig müde oder erschöpft", "opt1": "Im Wandel oder Übergang", "opt2": "Fröhlich und optimistisch", "opt3": "Im Gleichgewicht und neugierig" },
+                "q1": { "question": "Was brauchst du am meisten von der Natur?", "opt0": "Stabilität und Erdung", "opt1": "Harmonie und Sanftheit", "opt2": "Erholung und Integration", "opt3": "Inspiration und frische Luft" },
+                "q2": { "question": "Welche Landschaft passt heute am besten zu dir?", "opt0": "Die feuchte Erde", "opt1": "Den Horizont in den Bergen atmen", "opt2": "Sonnenuntergang am Meer", "opt3": "Das Spiegelbild im ruhigen Wasser betrachten" },
+                "q3": { "question": "Welches Reisetempo bevorzugst du?", "opt0": "Ruhig, eine Aktivität pro Tag", "opt1": "Ausgewogen, zwei Aktivitäten pro Tag", "opt2": "Aktiv, mehrere Erlebnisse pro Tag", "opt3": "Flexibel, je nach Tag" },
+                "q4": { "question": "Was möchtest du mit dieser Reise in dir aktivieren?", "opt0": "Erdung und Stabilität (Wurzel)", "opt1": "Kreativität und Neuanfänge (Schöpfung)", "opt2": "Selbstliebe und Verbindungen (Herz)", "opt3": "Manifestation und Vision (Zweck)" },
+                "q5": { "question": "Welche Art von Wellness möchtest du erleben?", "opt0": "Achtsame Spaziergänge in der Natur", "opt1": "Massagen, Spa und Wellness-Rituale", "opt2": "Verbindung mit Gemeinschaften und alten Praktiken", "opt3": "Mit den Händen erschaffen (Weben, Keramik, Kochen)" },
+                "q6": { "question": "Welches Reiseformat bevorzugst du?", "opt0": "Unabhängig, alleine oder in meinem eigenen Tempo", "opt1": "Als Paar", "opt2": "Mit der Familie", "opt3": "In einer Gruppe für ein Retreat oder geführte Erfahrung" }
             },
             "agente": {
                 "rana_nombre": "Der Frosch",
@@ -755,58 +665,13 @@ const resources = {
             },
             "quiz": {
                 "progress": "STATION {{current}} SUR 7",
-                "next": "Suivant",
-                "prev": "Précédent",
-                "finish": "Terminer",
-                "q0": {
-                    "question": "Dans quel état se trouve votre énergie aujourd'hui ?",
-                    "opt0": "J'ai besoin de silence et de profondeur (Racine)",
-                    "opt1": "Je cherche transformation et renaissance (Utérus)",
-                    "opt2": "Je ressens l'appel de la vision (Cœur)",
-                    "opt3": "Je souhaite couler et guérir mes eaux (Mémoire)"
-                },
-                "q1": {
-                    "question": "Quel est l'élément qui vous appelle le plus dans ce cycle ?",
-                    "opt0": "La terre humide et la forêt dense",
-                    "opt1": "L'eau cristalline qui jaillit du Massif",
-                    "opt2": "L'immensité des roches anciennes",
-                    "opt3": "Le murmure mystique des plantes de pouvoir"
-                },
-                "q2": {
-                    "question": "Si votre âme était un paysage, à quoi ressemblerait-elle ?",
-                    "opt0": "Un utérus de montagnes gardé par des volcans",
-                    "opt1": "Un poumon vert infini où la vie naît",
-                    "opt2": "Un océan sauvage qui nettoie la lignée",
-                    "opt3": "Une lagune sacrée qui reflète l'or"
-                },
-                "q3": {
-                    "question": "Comment souhaitez-vous que soit le rythme de votre marche ?",
-                    "opt0": "Lent, contemplatif et en profond silence",
-                    "opt1": "Équilibré, entre aventure et repos",
-                    "opt2": "Dynamique, intégrant médecines et savoirs",
-                    "opt3": "Fluide, suivant le battement du territoire"
-                },
-                "q4": {
-                    "question": "Quelle intention souhaitez-vous semer lors de ce voyage ?",
-                    "opt0": "Retour à l'origine et appartenance ancestrale",
-                    "opt1": "Alchimie interne et médecine du jaguar",
-                    "opt2": "Ordonner les pensées et concevoir ma mission",
-                    "opt3": "Nutrition et gestation de nouveaux projets"
-                },
-                "q5": {
-                    "question": "Quel type de médecine avez-vous besoin de recevoir ?",
-                    "opt0": "L'étreinte de la Maloka et la parole des grands-parents",
-                    "opt1": "La purification de la mer et le chant des baleines",
-                    "opt2": "La Tulpa de pierre et le feu de l'unité",
-                    "opt3": "La clôture consciente des cycles dans les eaux sacrées"
-                },
-                "q6": {
-                    "question": "Avec qui souhaitez-vous partager cet itinéraire sacré ?",
-                    "opt0": "En solitude, pour une rencontre avec moi-même",
-                    "opt1": "En couple, pour harmoniser notre énergie",
-                    "opt2": "Avec ma famille, pour guérir des racines communes",
-                    "opt3": "Avec ma communauté, pour élargir la vision"
-                }
+                "q0": { "question": "Comment vous êtes-vous senti(e) dernièrement ?", "opt0": "Fatigue ou épuisement mental", "opt1": "En changement ou transition", "opt2": "Joyeux(se) et optimiste", "opt3": "En équilibre et curieux(se)" },
+                "q1": { "question": "De quoi avez-vous le plus besoin de la part de la nature ?", "opt0": "Stabilité et ancrage", "opt1": "Harmonie et douceur", "opt2": "Récupération et intégration", "opt3": "Inspiration et air frais" },
+                "q2": { "question": "Quel paysage vous accompagne le mieux aujourd'hui ?", "opt0": "La terre humide", "opt1": "Respirer l'horizon dans les montagnes", "opt2": "Un coucher de soleil au bord de la mer", "opt3": "Contempler le reflet dans une eau sereine" },
+                "q3": { "question": "Quel rythme de voyage préférez-vous ?", "opt0": "Calme, une activité par jour", "opt1": "Équilibré, deux activités par jour", "opt2": "Actif, plusieurs expériences par jour", "opt3": "Flexible, selon la journée" },
+                "q4": { "question": "Que souhaitez-vous activer en vous avec ce voyage ?", "opt0": "Ancrage et stabilité (Racine)", "opt1": "Créativité et nouveaux départs (Création)", "opt2": "Amour propre et liens (Cœur)", "opt3": "Manifestation et vision (Objectif)" },
+                "q5": { "question": "Quel type de bien-être souhaitez-vous vivre ?", "opt0": "Marches conscientes dans la nature", "opt1": "Massages, spa et rituels de bien-être", "opt2": "Connexion avec les communautés et pratiques ancestrales", "opt3": "Créer avec ses mains (tissage, céramique, cuisine)" },
+                "q6": { "question": "Quel format de voyage préférez-vous ?", "opt0": "Indépendant(e), seul(e) ou à mon rythme", "opt1": "En couple", "opt2": "En famille", "opt3": "En groupe pour une retraite ou expérience guidée" }
             },
             "agente": {
                 "rana_nombre": "La Grenouille",
