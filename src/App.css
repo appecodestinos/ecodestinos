@@ -1717,19 +1717,16 @@ h1, h2, h3, .titulo-destino, .titulo-principal {
 
 /* Fondos específicos por vista */
 .pantalla-centrada {
-  background-image: url('/assets/fondo-app-landing.png');
   background-size: cover;
   background-position: center;
 }
 
 .quiz-contenedor {
-  background-image: url('/assets/fondo-app-quiz.png');
   background-size: cover;
   background-position: center;
 }
 
 .contenedor-home-mapa-total {
-  background-image: url('/assets/fondo-app-home.png');
   background-size: cover;
   background-position: center;
 }
