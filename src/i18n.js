@@ -799,18 +799,6 @@ const resources = {
             },
             "landing_outro": {
                 "vision": "🌎 NOTRE VISION\n\nNous croyons que voyager peut aussi être une façon de :\n• Mieux se reposer\n• S'inspirer\n• Se reconnecter\n• Créer\n• Partager\n• Se sentir plus présent\n\nPlus que des destinations, la Colombie offre des territoires vivants qui accompagnent différents moments de la vie.\n\n✨ Bienvenue pour voyager selon ce que vous avez besoin de ressentir aujourd'hui."
-            },nsition. Idéal pour assimiler ce qui a été vécu et chercher de la profondeur sans rupture. Toute transformation nécessite une intégration."
-                },
-                "Bogota": {
-                    "title": "Cercle d'Intégration",
-                    "archetype": "Sagesse",
-                    "desc": "Territoire Conscience. Idéal pour organiser ce qui a été vécu et chercher la clarté mentale. Comprendre, c'est aussi transformer."
-                },
-                "Medellin": {
-                    "title": "Expansion Créative",
-                    "archetype": "Action",
-                    "desc": "Territoire Mouvement. Idéal lorsque vous souhaitez avancer, activer des projets et sortir de la pause. Avancer fait partie du bien-être."
-                }
             },
             "introduccion": {
                 "titulo": "Territoires Vivants",
