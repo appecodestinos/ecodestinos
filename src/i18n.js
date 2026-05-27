@@ -741,8 +741,17 @@ const resources = {
                 "ropa": "Apportez des vêtements à séchage rapide, des manches longues pour les moustiques, des bottes confortables, du répulsif et vos médicaments personnels. La jungle vous attend préparé !",
                 "wifi": "La grenouille préfère l'eau au Wi-Fi. Il n'y aura de connexion que dans les hôtels ; dans le territoire profond, la connexion est directe avec la terre et votre cœur. 🌿",
                 "quien": "Je suis le pouls d'Ecodestinos. Mon chant vous guide vers le territoire dont votre énergie a besoin aujourd'hui. Je suis le pont entre votre battement de cœur et celui de la terre.",
-                "default": "Mes oreilles de grenouille sont attentives, mais je ne reconnais pas encore ce mot. Posez-moi des quest            "landing_intro": {
-                "titulo": "LA COLOMBIE COMME CARTE DE BIEN-ÊTRE",
+                "default": "Mes oreilles de grenouille sont attentives, mais je ne reconnais pas encore ce mot. Posez-moi des questions sur les territoires, les vaccins, ce qu'il faut emporter ou la signification spirituelle de votre voyage.",
+                "cierre": "\n\n✨ J'entends votre vibration, {{nombre}}... Si mon chant ne suffit pas, appuyez ci-dessous pour parler avec les gardiens humains.",
+                "cierre_anon": "\n\n✨ J'entends votre vibration... Si mon chant ne suffit pas, appuyez ci-dessous pour parler avec les gardiens humains.",
+                "placeholder": "Parlez avec la grenouille...",
+                "whatsapp": "📲 Appeler un gardien sur WhatsApp"
+            },
+            "validation": {
+                "error_nombre": "Veuillez entrer votre nom.",
+                "error_correo": "Veuillez entrer votre adresse e-mail."
+            },
+            "landing_intro": {
                 "subtitulo": "Des territoires vivants pour voyager selon le moment que vous vivez",
                 "descripcion": "Chez Ecodestinos, nous comprenons que tous les voyages ne se ressentent pas de la même manière.\nChaque territoire de Colombie a une énergie, un rythme et une façon différente de nous accompagner.\n\nCertains endroits aident à se reposer. D'autres inspirent de nouvelles idées. D'autres encore invitent à se reconnecter avec la nature, avec les gens ou avec soi-même.\n\nCette carte d'expériences a été créée pour aider chaque voyageur à découvrir quel territoire peut lui faire du bien aujourd'hui."
             },
