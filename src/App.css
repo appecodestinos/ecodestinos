@@ -1844,25 +1844,81 @@ body, html, #root {
   border-color: var(--dorado-premium) !important;
 }
 
-/* Tarjeta de Resultados Advanced */
-.tarjeta-resultado {
-  background-color: var(--negro-translucido-premium) !important;
-  backdrop-filter: blur(10px) !important;
+/* ========================================================
+   ESTILOS PREMIUM DE RESULTADOS (LIMPIEZA Y CONSOLIDACIÓN)
+   ======================================================== */
+.result-card-container {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
   border-radius: 20px !important;
-  border: 1px solid rgba(200, 169, 110, 0.15) !important;
-  padding: 2rem !important;
-  color: var(--crema-pura) !important;
+  border: 1px solid rgba(200, 169, 110, 0.2) !important;
+  padding: 2.5rem !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6) !important;
+  margin-bottom: 2rem !important;
 }
 
-.imagen-tarjeta-resultado {
-  border-radius: 20px !important; /* Redondeo de imagen avanzado */
+.result-card-image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  max-height: 200px !important;
+  border-radius: 12px !important;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.header-destino {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
+.destino-geografico {
+  font-family: 'Montserrat', sans-serif !important;
+  color: #f5f0e8 !important; /* Crema pura */
+  text-transform: uppercase !important;
+  letter-spacing: 4px !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+.titulo-premium {
+  font-family: 'Playfair Display', serif !important;
+  color: #c8a96e !important; /* Dorado premium */
+  font-size: clamp(2.5rem, 6vw, 3.8rem) !important;
+  font-style: italic !important;
+  text-align: center !important;
+  line-height: 1.1 !important;
+  margin: 0 !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+}
+
+.descripcion-premium {
+  font-family: 'Montserrat', sans-serif !important;
+  color: #f5f0e8 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
+}
+
+/* Reparación de botones de acción finales */
+.contenedor-resultados button, 
+.contenedor-resultados a.btn {
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  border: 1px solid #c8a96e !important;
+  font-family: 'Montserrat', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
 }
 
 /* CORRECCIÓN DE CONTRASTE: Título principal a blanco puro */
 .contenedor-resultados h2.titulo-resultados {
-  font-family: var(--fuente-textos) !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 1.2rem !important;
   color: #fff !important; /* Blanco puro para legibilidad total */
   opacity: 1 !important;
@@ -1870,63 +1926,4 @@ body, html, #root {
   letter-spacing: 3px !important;
   margin-bottom: 2.5rem !important;
   filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)) !important;
-}
-
-/* Blindaje de Tarjeta Amazonas Advanced */
-.tarjeta-resultado[data-id="Amazonas"] {
-  background-color: var(--negro-translucido-premium) !important;
-  backdrop-filter: blur(15px) !important; /* Efecto cristal advanced */
-  -webkit-backdrop-filter: blur(15px) !important;
-  border-radius: 20px !important;
-  border: 1px solid rgba(200, 169, 110, 0.2) !important;
-  padding: 2.5rem !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6) !important;
-}
-
-/* REEMPLAZO DE TÍTULO PRECARIO (image_12.png): Stack advanced de texto en image_13.png */
-.tarjeta-resultado[data-id="Amazonas"] h3 {
-  font-family: var(--fuente-titulos) !important;
-  font-size: clamp(2.2rem, 8vw, 3.8rem) !important;
-  line-height: 1.1 !important;
-  color: transparent !important; /* Oculta el texto original precario */
-  position: relative !important;
-  text-align: center !important;
-}
-
-/* Stack de Título con Pseudo-elementos blindados */
-.tarjeta-resultado[data-id="Amazonas"] h3::before {
-  content: 'AMAZONAS' !important; /* Primera línea (dorado) */
-  display: block !important;
-  font-family: var(--fuente-titulos) !important;
-  font-weight: 400 !important;
-  color: var(--dorado-premium) !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  font-size: clamp(2rem, 6vw, 3.2rem) !important;
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)) !important;
-}
-
-.tarjeta-resultado[data-id="Amazonas"] h3::after {
-  content: 'Origen y Arraigo' !important; /* Segunda línea (serif elegante blanco) */
-  display: block !important;
-  font-family: var(--fuente-titulos) !important;
-  font-weight: 400 !important;
-  font-style: italic !important; /* Ver image_13.png como referencia */
-  color: var(--crema-pura) !important;
-  position: relative !important;
-  top: 2rem !important; /* Ajuste milimétrico para apilado */
-  font-size: clamp(1.8rem, 5vw, 2.8rem) !important;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
-}
-
-/* Blindaje de cuerpo de texto de resultados */
-.tarjeta-resultado p:last-of-type {
-  font-family: var(--fuente-textos) !important;
-  font-weight: 400 !important;
-  color: var(--crema-pura) !important;
-  font-size: 1.1rem !important;
-  line-height: 1.7 !important;
-  margin-top: 5rem !important; /* Margen para el stack de títulos */
 }

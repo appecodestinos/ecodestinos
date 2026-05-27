@@ -257,14 +257,17 @@ export default function App() {
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
                 const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : clave;
                 return (
-                  <div key={index} data-id={clave} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
+                  <div key={index} className="result-card-container">
                     {info.foto && (
-                      <img src={info.foto} alt={tInfo.title || info.titulo} className="imagen-tarjeta-resultado" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '12px', objectFit: 'cover', maxHeight: '150px' }} />
+                      <img src={info.foto} alt={tInfo.title || info.titulo} className="result-card-image" />
                     )}
-                    <h4 className="nombre-geografico-tarjeta" style={{ color: info.color, textTransform: 'uppercase', fontSize: '12px', letterSpacing: '1px', marginBottom: '4px', marginTop: '0' }}>{nombreDestino}</h4>
-                    <h3 style={{ color: info.color, marginTop: '4px' }}>{tInfo.title || info.titulo}</h3>
-                    <p className="arquetipo-tag" style={{ color: info.color }}>{(tInfo.archetype || info.arquetipo).toUpperCase()}</p>
-                    <p style={{ fontSize: '13px' }}>{tInfo.desc || info.desc}</p>
+                    
+                    <div className="header-destino">
+                      <h4 className="destino-geografico">{nombreDestino}</h4> 
+                      <h1 className="titulo-premium">{tInfo.title || info.titulo}</h1>
+                    </div>
+
+                    <p className="descripcion-premium">{tInfo.desc || info.desc}</p>
                   </div>
                 );
               })}
