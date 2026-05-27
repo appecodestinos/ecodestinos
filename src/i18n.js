@@ -178,47 +178,55 @@ const resources = {
                 "error_nombre": "Por favor, ingresa tu nombre.",
                 "error_correo": "Por favor, ingresa tu correo electrónico."
             },
+            "landing_intro": {
+                "titulo": "COLOMBIA COMO MAPA DE BIENESTAR",
+                "subtitulo": "Territorios vivos para viajar según el momento que estás viviendo",
+                "descripcion": "En Ecodestinos entendemos que no todos los viajes se sienten igual.\nCada territorio de Colombia tiene una energía, un ritmo y una forma distinta de acompañarnos.\n\nAlgunos lugares ayudan a descansar. Otros inspiran nuevas ideas. Otros invitan a reconectar con la naturaleza, con las personas o con uno mismo.\n\nEste mapa de experiencias fue creado para ayudar a cada viajero a descubrir qué territorio puede hacerle bien hoy."
+            },
             "destinos": {
                 "Amazonas": {
-                    "title": "Raíz Viva",
+                    "title": "ORIGEN Y ARRAIGO",
                     "archetype": "Ancestralidad",
-                    "desc": "Territorio Raíz. Ideal cuando necesitas estabilidad, arraigo y silencio profundo. Nos recuerda que sin raíz no hay expansión."
+                    "desc": "Selva viva para desconectar y volver a lo esencial.\n\nIdeal si necesitas bajar el ritmo, silenciar la mente y sentirte más presente, estable y conectado con la naturaleza.\n\nLa Amazonía colombiana ofrece experiencias de inmersión en selva, ríos y culturas locales que ayudan a recuperar equilibrio y simplicidad.\n\nPerfecto para:\n• Desconexión digital\n• Descanso mental\n• Naturaleza profunda\n• Viajes conscientes\n\n(Fuerza Raíz)"
                 },
                 "Macizo": {
-                    "title": "Útero de la Tierra",
+                    "title": "ARQUEOLOGÍA INTERIOR",
                     "archetype": "Nutrición",
-                    "desc": "Territorio Útero. Ideal cuando estás en transición o algo nuevo quiere nacer. Toda transformación necesita contención."
+                    "desc": "Naturaleza, memoria ancestral y bienestar para renovarte profundamente.\n\nIdeal si estás cerrando una etapa o comenzando una nueva, y buscas descanso, calma y una sensación de renovación interior.\n\nEl Macizo Colombiano y San Agustín albergan uno de los legados arqueológicos más importantes de América del Sur. Sus paisajes, esculturas ancestrales y sitios ceremoniales invitan a reflexionar sobre el origen, la memoria y la transformación personal.\n\nExperiencias destacadas:\n• Exploración arqueológica y cultural\n• Cerámica y creación de ocarinas\n• Música y folclor tradicional\n• Agricultura orgánica\n• Caminatas suaves y bienestar\n• Espacios de pausa y contemplación\n\nPerfecto para:\n• Renovación personal\n• Viajes culturales y conscientes\n• Creatividad y descanso\n• Conexión con la historia viva del territorio\n\n(Territorio de Transformación)"
                 },
                 "Guainia": {
-                    "title": "Aguas de Unidad",
+                    "title": "AGUAS DE UNIDAD",
                     "archetype": "Conciliación",
-                    "desc": "Territorio Trinidad. Ideal cuando buscas equilibrio interno y armonía. Lo diferente también puede coexistir."
+                    "desc": "Un territorio de calma, conexión y equilibrio.\n\nIdeal si buscas desconectar del ruido, sentirte en armonía y reconectar contigo y con los demás en un entorno natural único.\n\nGuainía invita a viajar con calma, navegar entre ríos y descubrir culturas y paisajes profundamente auténticos. Las tradiciones vivas de comunidades como los curripacos y puinaves enriquecen la experiencia a través de relatos, saberes locales y formas ancestrales de relacionarse con el agua y la selva.\n\nExperiencias destacadas:\n• Navegación entre ríos y cerros sagrados\n• Encuentros culturales con comunidades locales\n• Gastronomía tradicional\n• Naturaleza y contemplación\n• Experiencias boutique de bienestar y conexión\n\nPerfecto para:\n• Slow travel\n• Bienestar emocional\n• Conexión con la naturaleza\n• Culturas vivas y experiencias auténticas\n\n(Territorio de Encuentro)"
                 },
                 "SierraNevada": {
-                    "title": "Corazón Manifestador",
+                    "title": "ALQUIMIA DEL CORAZÓN",
                     "archetype": "Despertar",
-                    "desc": "Territorio Manifestación. Ideal cuando quieres tomar decisiones y encontrar dirección. Manifestar es coherencia."
+                    "desc": "Montañas y mar para inspirarte, agradecer y encontrar dirección.\n\nIdeal si buscas claridad para tus próximos pasos, reconectar con tu motivación y vivir experiencias con sentido.\n\nLa Sierra Nevada de Santa Marta es considerada por sus pueblos indígenas como el “Corazón del Mundo”. La sabiduría de sus guardianes ancestrales, sus prácticas de armonización y el respeto por la naturaleza inspiran experiencias de gratitud, equilibrio y conexión profunda con la vida.\n\nExperiencias destacadas:\n• Encuentros culturales y saberes ancestrales\n• Caminatas entre montaña, río y mar\n• Espacios de contemplación y bienestar\n• Rituales tradicionales de gratitud y armonización\n• Naturaleza viva y experiencias transformadoras\n\nPerfecto para:\n• Inspiración y propósito\n• Bienestar integral\n• Conexión con naturaleza y cultura\n• Viajes con sentido y profundidad humana\n\n(Territorio de Gratitud y Manifestación)"
                 },
                 "Pacífico": {
-                    "title": "Memoria del Océano",
+                    "title": "MEMORIA DEL OCÉANO",
                     "archetype": "Sanación",
-                    "desc": "Territorio Linaje. Ideal cuando necesitas soltar emociones y reconectar con tu historia profunda. Escuchar transforma."
+                    "desc": "Selva y mar para descansar, sentir y reconectar.\n\nIdeal si necesitas soltar tensión, cuidar de ti y vivir una experiencia cálida, auténtica y profundamente humana.\n\nEl Pacífico colombiano invita a conectar con el ritmo natural del océano, la música tradicional y la riqueza cultural de sus comunidades.\n\nExperiencias destacadas:\n• Avistamiento de ballenas\n• Música y danza tradicional\n• Gastronomía del Pacífico\n• Caminatas entre selva y playa\n• Bienestar junto al mar\n\n(Territorio de Vínculo y Memoria)"
                 },
                 "Putumayo": {
-                    "title": "Bosque Medicina",
+                    "title": "REFUGIO ANCESTRAL",
                     "archetype": "Alquimia",
-                    "desc": "Territorio Transición. Ideal para asimilar lo vivido y buscar profundidad sin ruptura. Toda transformación necesita integración."
+                    "desc": "Naturaleza profunda para descansar e integrar.\n\nIdeal si sientes agotamiento mental o físico y buscas una experiencia tranquila, restauradora y conectada con saberes tradicionales.\n\nEste territorio, entre los Andes y la Amazonía, ofrece espacios de silencio, naturaleza y bienestar que ayudan a recuperar equilibrio y presencia.\n\nPerfecto para:\n• Descanso profundo\n• Bienestar natural\n• Integración personal\n• Conexión cultural\n\n(Territorio de Integración)"
                 },
                 "Bogota": {
-                    "title": "Círculo de Integración",
+                    "title": "SABIDURÍA",
                     "archetype": "Sabiduría",
-                    "desc": "Territorio Conciencia. Ideal para organizar lo vivido y buscar claridad mental. Comprender también es transformar."
+                    "desc": "Espacios para pausar, ordenar ideas y ganar claridad.\n\nIdeal si buscas tomar perspectiva, comprender mejor el momento que estás viviendo y volver con una mente más tranquila y enfocada.\n\nLa Sabana de Bogotá combina cultura, naturaleza y paisajes de alta montaña que invitan a respirar más lento y reconectar con el entorno. Sus lagunas sagradas, páramos y prácticas musicales tradicionales crean experiencias de contemplación, memoria y bienestar.\n\nExperiencias destacadas:\n• Caminatas suaves en páramos y reservas naturales\n• Visitas a lagunas sagradas y paisajes andinos\n• Experiencias musicales y culturales\n• Gastronomía local y bienestar urbano\n• Espacios de conversación y pausa consciente\n\nPerfecto para viajeros interesados en:\n• Bienestar urbano\n• Cultura e historia\n• Naturaleza cercana\n• Inspiración y claridad mental\n\n(Territorio Conciencia)"
                 },
                 "Medellin": {
-                    "title": "Expansión Creativa",
+                    "title": "EXPANSIÓN CREATIVA",
                     "archetype": "Acción",
-                    "desc": "Territorio Movimiento. Ideal cuando quieres avanzar, activar proyectos y salir de la pausa. Avanzar es parte del bienestar."
+                    "desc": "Energía, innovación y nuevas experiencias.\n\nIdeal si buscas inspiración, movimiento, conexión con otros y un entorno dinámico que impulse nuevas ideas y proyectos.\n\nMedellín combina creatividad, cultura, transformación urbana y naturaleza cercana en una experiencia vibrante y contemporánea.\n\nPerfecto para:\n• Viajeros creativos\n• Innovación\n• Arte y diseño\n• Experiencias urbanas con propósito\n\n(Fuerza de Acción)"
                 }
+            },
+            "landing_outro": {
+                "vision": "🌎 NUESTRA VISIÓN\n\nCreemos que viajar también puede ser una forma de:\n• Descansar mejor\n• Inspirarse\n• Reconectar\n• Crear\n• Compartir\n• Sentirse más presente\n\nMás que destinos, Colombia ofrece territorios vivos que acompañan diferentes momentos de la vida.\n\n✨ Bienvenido a viajar desde lo que necesitas sentir hoy."
             },
             "introduccion": {
                 "titulo": "Territorios Vivos",
@@ -361,47 +369,55 @@ const resources = {
                 "error_nombre": "Please enter your name.",
                 "error_correo": "Please enter your email."
             },
+            "landing_intro": {
+                "titulo": "COLOMBIA AS A WELLNESS MAP",
+                "subtitulo": "Living territories to travel according to the moment you are living",
+                "descripcion": "At Ecodestinos we understand that not all trips feel the same.\nEach territory in Colombia has a different energy, rhythm, and way of accompanying us.\n\nSome places help us rest. Others inspire new ideas. Others invite us to reconnect with nature, with people, or with ourselves.\n\nThis map of experiences was created to help each traveler discover which territory can do them good today."
+            },
             "destinos": {
                 "Amazonas": {
-                    "title": "Living Root",
+                    "title": "ORIGIN AND ROOTING",
                     "archetype": "Ancestry",
-                    "desc": "Root Territory. Ideal when you need stability, grounding, and deep silence. It reminds us that without a root there is no expansion."
+                    "desc": "Living jungle to disconnect and return to the essential.\n\nIdeal if you need to slow down, silence your mind, and feel more present, stable, and connected to nature.\n\nThe Colombian Amazon offers immersion experiences in the jungle, rivers, and local cultures that help restore balance and simplicity.\n\nPerfect for:\n• Digital disconnection\n• Mental rest\n• Deep nature\n• Mindful travel\n\n(Root Force)"
                 },
                 "Macizo": {
-                    "title": "Womb of the Earth",
+                    "title": "INNER ARCHAEOLOGY",
                     "archetype": "Nutrition",
-                    "desc": "Womb Territory. Ideal when you are in transition or something new wants to be born. All transformation needs containment."
+                    "desc": "Nature, ancestral memory, and wellness to renew yourself deeply.\n\nIdeal if you are closing a chapter or starting a new one, and are looking for rest, calm, and a sense of inner renewal.\n\nThe Colombian Massif and San Agustín house one of the most important archaeological legacies in South America. Its landscapes, ancestral sculptures, and ceremonial sites invite reflection on origin, memory, and personal transformation.\n\nFeatured experiences:\n• Archaeological and cultural exploration\n• Ceramics and ocarina creation\n• Traditional music and folklore\n• Organic agriculture\n• Gentle hikes and wellness\n• Spaces for pause and contemplation\n\nPerfect for:\n• Personal renewal\n• Cultural and mindful travel\n• Creativity and rest\n• Connection with the living history of the territory\n\n(Transformation Territory)"
                 },
                 "Guainia": {
-                    "title": "Waters of Unity",
+                    "title": "WATERS OF UNITY",
                     "archetype": "Conciliation",
-                    "desc": "Trinity Territory. Ideal when you seek inner balance and harmony. The different can also coexist."
+                    "desc": "A territory of calm, connection, and balance.\n\nIdeal if you want to disconnect from the noise, feel in harmony, and reconnect with yourself and others in a unique natural environment.\n\nGuainía invites you to travel calmly, navigate between rivers, and discover deeply authentic cultures and landscapes. The living traditions of communities like the Curripacos and Puinaves enrich the experience through stories, local knowledge, and ancestral ways of relating to water and the jungle.\n\nFeatured experiences:\n• Navigation between rivers and sacred hills\n• Cultural encounters with local communities\n• Traditional gastronomy\n• Nature and contemplation\n• Boutique wellness and connection experiences\n\nPerfect for:\n• Slow travel\n• Emotional wellness\n• Connection with nature\n• Living cultures and authentic experiences\n\n(Encounter Territory)"
                 },
                 "SierraNevada": {
-                    "title": "Manifesting Heart",
+                    "title": "ALCHEMY OF THE HEART",
                     "archetype": "Awakening",
-                    "desc": "Manifestation Territory. Ideal when you want to make decisions and find direction. Manifesting is coherence."
+                    "desc": "Mountains and sea to inspire you, give thanks, and find direction.\n\nIdeal if you are looking for clarity for your next steps, reconnecting with your motivation, and living meaningful experiences.\n\nThe Sierra Nevada de Santa Marta is considered by its indigenous peoples as the “Heart of the World”. The wisdom of its ancestral guardians, its harmonization practices, and respect for nature inspire experiences of gratitude, balance, and a deep connection with life.\n\nFeatured experiences:\n• Cultural encounters and ancestral knowledge\n• Hikes between mountain, river, and sea\n• Spaces for contemplation and wellness\n• Traditional rituals of gratitude and harmonization\n• Living nature and transformative experiences\n\nPerfect for:\n• Inspiration and purpose\n• Holistic wellness\n• Connection with nature and culture\n• Travel with meaning and human depth\n\n(Gratitude and Manifestation Territory)"
                 },
                 "Pacífico": {
-                    "title": "Memory of the Ocean",
+                    "title": "MEMORY OF THE OCEAN",
                     "archetype": "Healing",
-                    "desc": "Lineage Territory. Ideal when you need to release emotions and reconnect with your deep history. Listening transforms."
+                    "desc": "Jungle and sea to rest, feel, and reconnect.\n\nIdeal if you need to release tension, take care of yourself, and live a warm, authentic, and deeply human experience.\n\nThe Colombian Pacific invites you to connect with the natural rhythm of the ocean, traditional music, and the cultural richness of its communities.\n\nFeatured experiences:\n• Whale watching\n• Traditional music and dance\n• Pacific gastronomy\n• Hikes between jungle and beach\n• Wellness by the sea\n\n(Bond and Memory Territory)"
                 },
                 "Putumayo": {
-                    "title": "Medicine Forest",
+                    "title": "ANCESTRAL REFUGE",
                     "archetype": "Alchemy",
-                    "desc": "Transition Territory. Ideal for assimilating what has been lived and seeking depth without rupture. All transformation needs integration."
+                    "desc": "Deep nature to rest and integrate.\n\nIdeal if you feel mental or physical exhaustion and are looking for a quiet, restorative experience connected to traditional knowledge.\n\nThis territory, between the Andes and the Amazon, offers spaces of silence, nature, and wellness that help restore balance and presence.\n\nPerfect for:\n• Deep rest\n• Natural wellness\n• Personal integration\n• Cultural connection\n\n(Integration Territory)"
                 },
                 "Bogota": {
-                    "title": "Circle of Integration",
+                    "title": "WISDOM",
                     "archetype": "Wisdom",
-                    "desc": "Consciousness Territory. Ideal for organizing what has been lived and seeking mental clarity. Understanding is also transforming."
+                    "desc": "Spaces to pause, organize ideas, and gain clarity.\n\nIdeal if you are looking to gain perspective, better understand the moment you are living, and return with a calmer and more focused mind.\n\nThe Bogota Savanna combines culture, nature, and high mountain landscapes that invite you to breathe slower and reconnect with the environment. Its sacred lagoons, moorlands, and traditional musical practices create experiences of contemplation, memory, and wellness.\n\nFeatured experiences:\n• Gentle hikes in moorlands and nature reserves\n• Visits to sacred lagoons and Andean landscapes\n• Musical and cultural experiences\n• Local gastronomy and urban wellness\n• Spaces for conversation and mindful pause\n\nPerfect for travelers interested in:\n• Urban wellness\n• Culture and history\n• Nearby nature\n• Inspiration and mental clarity\n\n(Consciousness Territory)"
                 },
                 "Medellin": {
-                    "title": "Creative Expansion",
+                    "title": "CREATIVE EXPANSION",
                     "archetype": "Action",
-                    "desc": "Movement Territory. Ideal when you want to move forward, activate projects, and break the pause. Moving forward is part of well-being."
+                    "desc": "Energy, innovation, and new experiences.\n\nIdeal if you are looking for inspiration, movement, connection with others, and a dynamic environment that drives new ideas and projects.\n\nMedellín combines creativity, culture, urban transformation, and nearby nature in a vibrant and contemporary experience.\n\nPerfect for:\n• Creative travelers\n• Innovation\n• Art and design\n• Purposeful urban experiences\n\n(Action Force)"
                 }
+            },
+            "landing_outro": {
+                "vision": "🌎 OUR VISION\n\nWe believe that traveling can also be a way to:\n• Rest better\n• Get inspired\n• Reconnect\n• Create\n• Share\n• Feel more present\n\nMore than destinations, Colombia offers living territories that accompany different moments in life.\n\n✨ Welcome to travel from what you need to feel today."
             },
             "introduccion": {
                 "titulo": "Living Territories",
@@ -544,47 +560,55 @@ const resources = {
                 "error_nombre": "Bitte gib deinen Namen ein.",
                 "error_correo": "Bitte gib deine E-Mail-Adresse ein."
             },
+            "landing_intro": {
+                "titulo": "KOLUMBIEN ALS WELLNESS-KARTE",
+                "subtitulo": "Lebendige Gebiete zum Reisen, je nachdem, welchen Moment Sie gerade erleben",
+                "descripcion": "Bei Ecodestinos verstehen wir, dass sich nicht alle Reisen gleich anfühlen.\nJedes Gebiet in Kolumbien hat eine andere Energie, einen anderen Rhythmus und eine andere Art, uns zu begleiten.\n\nEinige Orte helfen beim Ausruhen. Andere inspirieren zu neuen Ideen. Wieder andere laden uns ein, uns wieder mit der Natur, mit Menschen oder mit uns selbst zu verbinden.\n\nDiese Erlebniskarte wurde erstellt, um jedem Reisenden zu helfen, herauszufinden, welches Gebiet ihm heute guttun kann."
+            },
             "destinos": {
                 "Amazonas": {
-                    "title": "Lebendige Wurzel",
+                    "title": "URSPRUNG UND VERWURZELUNG",
                     "archetype": "Abstammung",
-                    "desc": "Wurzel-Territorium. Ideal, wenn Sie Stabilität, Erdung und tiefe Stille brauchen. Es erinnert uns daran, dass ohne Wurzel keine Expansion möglich ist."
+                    "desc": "Lebendiger Dschungel, um abzuschalten und zum Wesentlichen zurückzukehren.\n\nIdeal, wenn Sie das Tempo drosseln, Ihren Geist beruhigen und sich präsenter, stabiler und mit der Natur verbunden fühlen müssen.\n\nDer kolumbianische Amazonas bietet immersive Erlebnisse im Dschungel, an Flüssen und in lokalen Kulturen, die helfen, Gleichgewicht und Einfachheit wiederherzustellen.\n\nPerfekt für:\n• Digitale Entgiftung\n• Geistige Erholung\n• Tiefe Natur\n• Bewusstes Reisen\n\n(Wurzelkraft)"
                 },
                 "Macizo": {
-                    "title": "Schoß der Erde",
+                    "title": "INNERE ARCHÄOLOGIE",
                     "archetype": "Ernährung",
-                    "desc": "Schoß-Territorium. Ideal, wenn du im Übergang bist oder etwas Neues geboren werden will. Jede Transformation erfordert einen Behälter."
+                    "desc": "Natur, Ahnenwissen und Wellness, um sich tiefgreifend zu erneuern.\n\nIdeal, wenn Sie ein Kapitel abschließen oder ein neues beginnen und nach Ruhe, Gelassenheit und einem Gefühl der inneren Erneuerung suchen.\n\nDas kolumbianische Massiv und San Agustín beherbergen eines der wichtigsten archäologischen Erben Südamerikas. Seine Landschaften, angestammten Skulpturen und zeremoniellen Stätten laden zum Nachdenken über Ursprung, Erinnerung und persönliche Transformation ein.\n\nAusgewählte Erlebnisse:\n• Archäologische und kulturelle Erkundung\n• Keramik und Okarina-Herstellung\n• Traditionelle Musik und Folklore\n• Ökologischer Landbau\n• Sanfte Wanderungen und Wellness\n• Räume für Pausen und Kontemplation\n\nPerfekt für:\n• Persönliche Erneuerung\n• Kulturelles und bewusstes Reisen\n• Kreativität und Erholung\n• Verbindung mit der lebendigen Geschichte des Gebiets\n\n(Transformationsgebiet)"
                 },
                 "Guainia": {
-                    "title": "Wasser der Einheit",
+                    "title": "GEWÄSSER DER EINHEIT",
                     "archetype": "Schlichtung",
-                    "desc": "Trinitäts-Territorium. Ideal, wenn du inneres Gleichgewicht und Harmonie suchst. Auch das Andere kann koexistieren."
+                    "desc": "Ein Gebiet der Ruhe, Verbindung und des Gleichgewichts.\n\nIdeal, wenn Sie vom Lärm abschalten, sich in Harmonie fühlen und sich in einer einzigartigen natürlichen Umgebung wieder mit sich selbst und anderen verbinden möchten.\n\nGuainía lädt Sie ein, ruhig zu reisen, zwischen Flüssen zu navigieren und zutiefst authentische Kulturen und Landschaften zu entdecken. Die lebendigen Traditionen von Gemeinschaften wie den Curripacos und Puinaves bereichern das Erlebnis durch Geschichten, lokales Wissen und traditionelle Arten, sich mit dem Wasser und dem Dschungel zu verbinden.\n\nAusgewählte Erlebnisse:\n• Navigation zwischen Flüssen und heiligen Hügeln\n• Kulturelle Begegnungen mit lokalen Gemeinschaften\n• Traditionelle Gastronomie\n• Natur und Kontemplation\n• Boutique-Wellness und Verbindungserlebnisse\n\nPerfekt für:\n• Slow Travel\n• Emotionales Wohlbefinden\n• Verbindung mit der Natur\n• Lebendige Kulturen und authentische Erlebnisse\n\n(Begegnungsgebiet)"
                 },
                 "SierraNevada": {
-                    "title": "Manifestierendes Herz",
+                    "title": "ALCHEMIE DES HERZENS",
                     "archetype": "Erwachen",
-                    "desc": "Manifestations-Territorium. Ideal, wenn du Entscheidungen treffen und Richtung finden möchtest. Manifestieren ist Kohärenz."
+                    "desc": "Berge und Meer, um dich zu inspirieren, danke zu sagen und Richtung zu finden.\n\nIdeal, wenn Sie Klarheit für Ihre nächsten Schritte suchen, sich wieder mit Ihrer Motivation verbinden und sinnvolle Erlebnisse leben möchten.\n\nDie Sierra Nevada de Santa Marta wird von ihren indigenen Völkern als das „Herz der Welt“ angesehen. Die Weisheit ihrer angestammten Wächter, ihre Harmonisierungspraktiken und der Respekt vor der Natur inspirieren Erlebnisse der Dankbarkeit, des Gleichgewichts und einer tiefen Verbindung mit dem Leben.\n\nAusgewählte Erlebnisse:\n• Kulturelle Begegnungen und Ahnenwissen\n• Wanderungen zwischen Berg, Fluss und Meer\n• Räume für Kontemplation und Wellness\n• Traditionelle Rituale der Dankbarkeit und Harmonisierung\n• Lebendige Natur und transformative Erlebnisse\n\nPerfekt für:\n• Inspiration und Sinn\n• Ganzheitliches Wohlbefinden\n• Verbindung mit Natur und Kultur\n• Reisen mit Sinn und menschlicher Tiefe\n\n(Dankbarkeits- und Manifestationsgebiet)"
                 },
                 "Pacífico": {
-                    "title": "Erinnerung des Ozeans",
+                    "title": "ERINNERUNG DES OZEANS",
                     "archetype": "Heilung",
-                    "desc": "Linien-Territorium. Ideal, wenn du Emotionen loslassen und dich wieder mit deiner tiefen Geschichte verbinden musst. Zuhören transformiert."
+                    "desc": "Dschungel und Meer zum Ausruhen, Fühlen und Verbinden.\n\nIdeal, wenn Sie Spannungen abbauen, auf sich selbst aufpassen und eine warme, authentische und zutiefst menschliche Erfahrung machen möchten.\n\nDer kolumbianische Pazifik lädt Sie ein, sich mit dem natürlichen Rhythmus des Ozeans, der traditionellen Musik und dem kulturellen Reichtum seiner Gemeinden zu verbinden.\n\nAusgewählte Erlebnisse:\n• Walbeobachtung\n• Traditionelle Musik und Tanz\n• Pazifische Gastronomie\n• Wanderungen zwischen Dschungel und Strand\n• Wellness am Meer\n\n(Bindungs- und Erinnerungsgebiet)"
                 },
                 "Putumayo": {
-                    "title": "Medizinwald",
+                    "title": "ZUFLUCHT DER AHNEN",
                     "archetype": "Alchemie",
-                    "desc": "Übergangs-Territorium. Ideal, um das Erlebte zu assimilieren und Tiefe ohne Bruch zu suchen. Jede Transformation bedarf der Integration."
+                    "desc": "Tiefe Natur zum Ausruhen und Integrieren.\n\nIdeal, wenn Sie geistige oder körperliche Erschöpfung spüren und eine ruhige, erholsame Erfahrung suchen, die mit traditionellem Wissen verbunden ist.\n\nDieses Gebiet zwischen den Anden und dem Amazonas bietet Räume der Stille, Natur und Wellness, die helfen, Gleichgewicht und Präsenz wiederherzustellen.\n\nPerfekt für:\n• Tiefe Erholung\n• Natürliches Wohlbefinden\n• Persönliche Integration\n• Kulturelle Verbindung\n\n(Integrationsgebiet)"
                 },
                 "Bogota": {
-                    "title": "Kreis der Integration",
+                    "title": "WEISHEIT",
                     "archetype": "Weisheit",
-                    "desc": "Bewusstseins-Territorium. Ideal, um das Erlebte zu ordnen und geistige Klarheit zu suchen. Verstehen bedeutet auch transformieren."
+                    "desc": "Räume zum Innehalten, Ideen ordnen und Klarheit gewinnen.\n\nIdeal, wenn Sie eine neue Perspektive gewinnen, den Moment, den Sie gerade erleben, besser verstehen und mit einem ruhigeren und fokussierteren Geist zurückkehren möchten.\n\nDie Sabana von Bogotá verbindet Kultur, Natur und Hochgebirgslandschaften, die dazu einladen, langsamer zu atmen und sich wieder mit der Umgebung zu verbinden. Ihre heiligen Lagunen, Páramos und traditionellen musikalischen Praktiken schaffen Erlebnisse der Kontemplation, der Erinnerung und des Wohlbefindens.\n\nAusgewählte Erlebnisse:\n• Sanfte Wanderungen in Páramos und Naturschutzgebieten\n• Besuche heiliger Lagunen und andiner Landschaften\n• Musikalische und kulturelle Erlebnisse\n• Lokale Gastronomie und urbane Wellness\n• Räume für Gespräche und bewusste Pausen\n\nPerfekt für Reisende, die sich interessieren für:\n• Urbane Wellness\n• Kultur und Geschichte\n• Natur in der Nähe\n• Inspiration und geistige Klarheit\n\n(Bewusstseinsgebiet)"
                 },
                 "Medellin": {
-                    "title": "Kreative Expansion",
+                    "title": "KREATIVE EXPANSION",
                     "archetype": "Aktion",
-                    "desc": "Bewegungs-Territorium. Ideal, wenn du vorwärts gehen, Projekte aktivieren und aus der Pause herauskommen möchtest. Vorwärtsgehen ist Teil des Wohlbefindens."
+                    "desc": "Energie, Innovation und neue Erfahrungen.\n\nIdeal, wenn Sie nach Inspiration, Bewegung, Verbindung mit anderen und einem dynamischen Umfeld suchen, das neue Ideen und Projekte vorantreibt.\n\nMedellín verbindet Kreativität, Kultur, urbane Transformation und nahegelegene Natur zu einem lebendigen und zeitgenössischen Erlebnis.\n\nPerfekt für:\n• Kreative Reisende\n• Innovation\n• Kunst und Design\n• Urbane Erlebnisse mit Sinn\n\n(Aktionskraft)"
                 }
+            },
+            "landing_outro": {
+                "vision": "🌎 UNSERE VISION\n\nWir glauben, dass Reisen auch eine Möglichkeit sein kann:\n• Besser auszuruhen\n• Sich inspirieren zu lassen\n• Sich wieder zu verbinden\n• Zu erschaffen\n• Zu teilen\n• Sich präsenter zu fühlen\n\nMehr als nur Reiseziele bietet Kolumbien lebendige Gebiete, die verschiedene Momente im Leben begleiten.\n\n✨ Willkommen beim Reisen nach dem, was Sie heute fühlen müssen."
             },
             "introduccion": {
                 "titulo": "Lebendige Territorien",
@@ -717,46 +741,56 @@ const resources = {
                 "ropa": "Apportez des vêtements à séchage rapide, des manches longues pour les moustiques, des bottes confortables, du répulsif et vos médicaments personnels. La jungle vous attend préparé !",
                 "wifi": "La grenouille préfère l'eau au Wi-Fi. Il n'y aura de connexion que dans les hôtels ; dans le territoire profond, la connexion est directe avec la terre et votre cœur. 🌿",
                 "quien": "Je suis le pouls d'Ecodestinos. Mon chant vous guide vers le territoire dont votre énergie a besoin aujourd'hui. Je suis le pont entre votre battement de cœur et celui de la terre.",
-                "default": "Mes oreilles de grenouille sont attentives, mais je ne reconnais pas encore ce mot. Posez-moi des questions sur les territoires, les vaccins, ce qu'il faut emporter ou la signification spirituelle de votre voyage.",
-                "cierre": "\n\n✨ J'entends votre vibration, {{nombre}}... Si mon chant ne suffit pas, appuyez ci-dessous pour parler avec les gardiens humains.",
-                "cierre_anon": "\n\n✨ J'entends votre vibration... Si mon chant ne suffit pas, appuyez ci-dessous pour parler avec les gardiens humains.",
-                "placeholder": "Parlez avec la grenouille...",
-                "whatsapp": "📲 Appeler un gardien sur WhatsApp"
-            },
-            "validation": {
-                "error_nombre": "Veuillez entrer votre nom.",
-                "error_correo": "Veuillez entrer votre adresse e-mail."
+                "default": "Mes oreilles de grenouille sont attentives, mais je ne reconnais pas encore ce mot. Posez-moi des quest            "landing_intro": {
+                "titulo": "LA COLOMBIE COMME CARTE DE BIEN-ÊTRE",
+                "subtitulo": "Des territoires vivants pour voyager selon le moment que vous vivez",
+                "descripcion": "Chez Ecodestinos, nous comprenons que tous les voyages ne se ressentent pas de la même manière.\nChaque territoire de Colombie a une énergie, un rythme et une façon différente de nous accompagner.\n\nCertains endroits aident à se reposer. D'autres inspirent de nouvelles idées. D'autres encore invitent à se reconnecter avec la nature, avec les gens ou avec soi-même.\n\nCette carte d'expériences a été créée pour aider chaque voyageur à découvrir quel territoire peut lui faire du bien aujourd'hui."
             },
             "destinos": {
                 "Amazonas": {
-                    "title": "Racine Vive",
+                    "title": "ORIGINE ET ANCRAGE",
                     "archetype": "Ascendance",
-                    "desc": "Territoire Racine. Idéal quand vous avez besoin de stabilité, d'ancrage et de silence profond. Il nous rappelle que sans racine il n'y a pas d'expansion."
+                    "desc": "Jungle vivante pour se déconnecter et revenir à l'essentiel.\n\nIdéal si vous avez besoin de ralentir, de faire taire votre esprit et de vous sentir plus présent, stable et connecté à la nature.\n\nL'Amazonie colombienne offre des expériences d'immersion dans la jungle, les rivières et les cultures locales qui aident à retrouver équilibre et simplicité.\n\nParfait pour :\n• Déconnexion numérique\n• Repos mental\n• Nature profonde\n• Voyages conscients\n\n(Force Racine)"
                 },
                 "Macizo": {
-                    "title": "Utérus de la Terre",
+                    "title": "ARCHÉOLOGIE INTÉRIEURE",
                     "archetype": "Nutrition",
-                    "desc": "Territoire Utérus. Idéal lorsque vous êtes en transition ou que quelque chose de nouveau veut naître. Toute transformation nécessite un contenant."
+                    "desc": "Nature, mémoire ancestrale et bien-être pour se renouveler profondément.\n\nIdéal si vous fermez un chapitre ou en commencez un nouveau, et que vous recherchez du repos, du calme et un sentiment de renouveau intérieur.\n\nLe Massif Colombien et San Agustín abritent l'un des héritages archéologiques les plus importants d'Amérique du Sud. Ses paysages, ses sculptures ancestrales et ses sites cérémoniels invitent à la réflexion sur l'origine, la mémoire et la transformation personnelle.\n\nExpériences phares :\n• Exploration archéologique et culturelle\n• Céramique et création d'ocarinas\n• Musique et folklore traditionnel\n• Agriculture biologique\n• Randonnées douces et bien-être\n• Espaces de pause et de contemplation\n\nParfait pour :\n• Renouveau personnel\n• Voyages culturels et conscients\n• Créativité et repos\n• Connexion avec l'histoire vivante du territoire\n\n(Territoire de Transformation)"
                 },
                 "Guainia": {
-                    "title": "Eaux d'Unité",
+                    "title": "EAUX D'UNITÉ",
                     "archetype": "Conciliation",
-                    "desc": "Territoire Trinité. Idéal quand vous cherchez un équilibre intérieur et une harmonie. Les différences peuvent aussi coexister."
+                    "desc": "Un territoire de calme, de connexion et d'équilibre.\n\nIdéal si vous souhaitez vous déconnecter du bruit, vous sentir en harmonie et vous reconnecter à vous-même et aux autres dans un environnement naturel unique.\n\nLe Guainía vous invite à voyager sereinement, à naviguer entre les rivières et à découvrir des cultures et des paysages profondément authentiques. Les traditions vivantes de communautés comme les Curripacos et les Puinaves enrichissent l'expérience à travers des récits, des savoirs locaux et des façons ancestrales de se lier à l'eau et à la jungle.\n\nExpériences phares :\n• Navigation entre rivières et collines sacrées\n• Rencontres culturelles avec les communautés locales\n• Gastronomie traditionnelle\n• Nature et contemplation\n• Expériences boutique de bien-être et de connexion\n\nParfait pour :\n• Slow travel\n• Bien-être émotionnel\n• Connexion avec la nature\n• Cultures vivantes et expériences authentiques\n\n(Territoire de Rencontre)"
                 },
                 "SierraNevada": {
-                    "title": "Cœur Manifesteur",
+                    "title": "ALCHIMIE DU CŒUR",
                     "archetype": "Éveil",
-                    "desc": "Territoire Manifestation. Idéal lorsque vous souhaitez prendre des décisions et trouver une direction. Manifester est cohérence."
+                    "desc": "Montagnes et mer pour s'inspirer, remercier et trouver sa direction.\n\nIdéal si vous cherchez de la clarté pour vos prochaines étapes, à vous reconnecter à votre motivation et à vivre des expériences pleines de sens.\n\nLa Sierra Nevada de Santa Marta est considérée par ses peuples indigènes comme le « Cœur du Monde ». La sagesse de ses gardiens ancestraux, ses pratiques d'harmonisation et son respect de la nature inspirent des expériences de gratitude, d'équilibre et de connexion profonde avec la vie.\n\nExpériences phares :\n• Rencontres culturelles et savoirs ancestraux\n• Randonnées entre montagne, rivière et mer\n• Espaces de contemplation et de bien-être\n• Rituels traditionnels de gratitude et d'harmonisation\n• Nature vivante et expériences transformatrices\n\nParfait pour :\n• Inspiration et but\n• Bien-être holistique\n• Connexion avec la nature et la culture\n• Voyages avec du sens et une profondeur humaine\n\n(Territoire de Gratitude et de Manifestation)"
                 },
                 "Pacífico": {
-                    "title": "Mémoire de l'Océan",
+                    "title": "MÉMOIRE DE L'OCÉAN",
                     "archetype": "Guérison",
-                    "desc": "Territoire Lignage. Idéal quand vous avez besoin de libérer des émotions et de vous reconnecter à votre histoire profonde. Écouter transforme."
+                    "desc": "Jungle et mer pour se reposer, ressentir et se reconnecter.\n\nIdéal si vous avez besoin de relâcher la tension, de prendre soin de vous et de vivre une expérience chaleureuse, authentique et profondément humaine.\n\nLe Pacifique colombien vous invite à vous connecter au rythme naturel de l'océan, à la musique traditionnelle et à la richesse culturelle de ses communautés.\n\nExpériences phares :\n• Observation des baleines\n• Musique et danse traditionnelles\n• Gastronomie du Pacifique\n• Randonnées entre jungle et plage\n• Bien-être en bord de mer\n\n(Territoire de Lien et de Mémoire)"
                 },
                 "Putumayo": {
-                    "title": "Forêt Médecine",
+                    "title": "REFUGE ANCESTRAL",
                     "archetype": "Alchimie",
-                    "desc": "Territoire Transition. Idéal pour assimiler ce qui a été vécu et chercher de la profondeur sans rupture. Toute transformation nécessite une intégration."
+                    "desc": "Nature profonde pour se reposer et intégrer.\n\nIdéal si vous ressentez un épuisement mental ou physique et que vous recherchez une expérience calme, réparatrice et connectée aux savoirs traditionnels.\n\nCe territoire, entre les Andes et l'Amazonie, offre des espaces de silence, nature et de bien-être qui aident à retrouver équilibre et présence.\n\nParfait pour :\n• Repos profond\n• Bien-être naturel\n• Intégration personnelle\n• Connexion culturelle\n\n(Territoire d'Intégration)"
+                },
+                "Bogota": {
+                    "title": "SAGESSE",
+                    "archetype": "Sagesse",
+                    "desc": "Des espaces pour faire une pause, ordonner ses idées et gagner en clarté.\n\nIdéal si vous cherchez à prendre du recul, à mieux comprendre le moment que vous vivez et à revenir avec un esprit plus calme et concentré.\n\nLa savane de Bogotá combine culture, nature et paysages de haute montagne qui invitent à respirer plus lentement et à se reconnecter à l'environnement. Ses lagunes sacrées, ses páramos et ses pratiques musicales traditionnelles créent des expériences de contemplation, de mémoire et de bien-être.\n\nExpériences phares :\n• Randonnées douces dans les páramos et les réserves naturelles\n• Visites de lagunes sacrées et de paysages andins\n• Expériences musicales et culturelles\n• Gastronomie locale et bien-être urbain\n• Espaces de conversation et de pause consciente\n\nParfait pour les voyageurs intéressés par :\n• Bien-être urbain\n• Culture et histoire\n• Nature de proximité\n• Inspiration et clarté mentale\n\n(Territoire de Conscience)"
+                },
+                "Medellin": {
+                    "title": "EXPANSION CRÉATIVE",
+                    "archetype": "Action",
+                    "desc": "Énergie, innovation et nouvelles expériences.\n\nIdéal si vous recherchez de l'inspiration, du mouvement, une connexion avec les autres et un environnement dynamique qui stimule de nouvelles idées et projets.\n\nMedellín allie créativité, culture, transformation urbaine et nature de proximité dans une expérience vibrante et contemporaine.\n\nParfait pour :\n• Voyageurs créatifs\n• Innovation\n• Art et design\n• Expériences urbaines avec du sens\n\n(Force d'Action)"
+                }
+            },
+            "landing_outro": {
+                "vision": "🌎 NOTRE VISION\n\nNous croyons que voyager peut aussi être une façon de :\n• Mieux se reposer\n• S'inspirer\n• Se reconnecter\n• Créer\n• Partager\n• Se sentir plus présent\n\nPlus que des destinations, la Colombie offre des territoires vivants qui accompagnent différents moments de la vie.\n\n✨ Bienvenue pour voyager selon ce que vous avez besoin de ressentir aujourd'hui."
+            },nsition. Idéal pour assimiler ce qui a été vécu et chercher de la profondeur sans rupture. Toute transformation nécessite une intégration."
                 },
                 "Bogota": {
                     "title": "Cercle d'Intégration",
