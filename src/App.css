@@ -1688,3 +1688,55 @@ button {
   color: #333333;
   /* Ajusta este tono si tu fondo es muy oscuro */
 }
+
+/* ==========================================
+   ACTUALIZACIÓN DE ESTILOS ECODESTINOS (IA)
+   ========================================== */
+
+/* Variables de color (Ajusta o añade estas a tu :root) */
+:root {
+  --color-fondo-verde: #0f2619; /* Verde oscuro profundo */
+  --color-texto-principal: #e4dfd5; /* Crema/Hueso para legibilidad */
+  --color-dorado-acento: #c9ad76; /* Dorado elegante */
+  --fuente-titulos: 'Playfair Display', serif;
+  --fuente-textos: 'Montserrat', sans-serif;
+}
+
+/* Reseteo global del fondo blanco */
+body, html, #root {
+  background-color: var(--color-fondo-verde) !important;
+  color: var(--color-texto-principal) !important;
+  font-family: var(--fuente-textos) !important;
+}
+
+/* Tipografía para Títulos */
+h1, h2, h3, .titulo-destino, .titulo-principal {
+  font-family: var(--fuente-titulos) !important;
+  color: var(--color-dorado-acento) !important;
+}
+
+/* Fondos específicos por vista */
+.pantalla-centrada {
+  background-image: url('/assets/fondo-app-landing.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.quiz-contenedor {
+  background-image: url('/assets/fondo-app-quiz.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.contenedor-home-mapa-total {
+  background-image: url('/assets/fondo-app-home.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.logo-landing { 
+  max-width: 90px !important;
+  height: auto !important;
+  margin: 0 auto 30px auto !important;
+  display: block !important;
+}
