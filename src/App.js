@@ -248,7 +248,7 @@ export default function App() {
 
       case 'resultados':
         return (
-          <div className="pantalla-centrada fade-in">
+          <div className="pantalla-centrada contenedor-resultados fade-in">
             <h2 className="titulo-resultados">{t('resultados.title')}</h2>
             <div className="contenedor-tarjetas grid-resultados">
               {resultadosQuiz.map((clave, index) => {
@@ -257,7 +257,7 @@ export default function App() {
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
                 const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : clave;
                 return (
-                  <div key={index} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
+                  <div key={index} data-id={clave} className="tarjeta-resultado" style={{ borderLeft: `6px solid ${info.color}` }}>
                     {info.foto && (
                       <img src={info.foto} alt={tInfo.title || info.titulo} className="imagen-tarjeta-resultado" style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '12px', objectFit: 'cover', maxHeight: '150px' }} />
                     )}
