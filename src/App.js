@@ -215,8 +215,13 @@ export default function App() {
         return (
           <div className="pantalla-centrada fade-in">
             <img src={t('logo_circular')} alt="Ecodestinos" className="logo-landing" />
-            <h1 className="titulo-principal">{t('landing.title')}</h1>
-            <p className="texto-tagline" style={{ fontWeight: 'bold', color: '#064E3B' }}>{t('landing.tagline')}</p>
+            <div className="main-title-container">
+              <h1 className="main-title">
+                <span className="t-dorado">Territorios</span>
+                <span className="t-blanco">Vivos</span>
+              </h1>
+            </div>
+            <p className="subtitle-text">En 90 segundos descubre qué territorio conecta con tu esencia</p>
 
             <div className="selector-idioma">
               <button className={i18n.language === 'es' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('es')}>🇨🇴 ES</button>
