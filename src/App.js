@@ -213,7 +213,12 @@ export default function App() {
     switch (pantallaActiva) {
       case 'landing':
         return (
-          <div className="pantalla-centrada fade-in">
+          <div className="pantalla-centrada fade-in" style={{
+            background: "linear-gradient(rgba(15, 38, 25, 0.5), rgba(15, 38, 25, 0.7)), url('/assets/fondo-app-landing.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh"
+          }}>
             <img src={t('logo_circular')} alt="Ecodestinos" className="logo-landing" />
             <div className="main-title-container">
               <h1 className="main-title">
@@ -248,7 +253,12 @@ export default function App() {
 
       case 'resultados':
         return (
-          <div className="pantalla-centrada contenedor-resultados fade-in">
+          <div className="pantalla-centrada contenedor-resultados fade-in" style={{
+            background: "linear-gradient(rgba(15, 38, 25, 0.7), rgba(15, 38, 25, 0.9)), url('/assets/fondo-app-home.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh"
+          }}>
             <h2 className="titulo-resultados">{t('resultados.title')}</h2>
             <div className="contenedor-tarjetas grid-resultados">
               {resultadosQuiz.map((clave, index) => {

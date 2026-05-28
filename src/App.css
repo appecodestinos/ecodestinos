@@ -2026,9 +2026,6 @@ p.texto-cierre-resultados {
 
 /* 1. Fondo del Quiz: Capa verde más clara para revelar la textura de hojas */
 .quiz-contenedor {
-  background: linear-gradient(rgba(15, 38, 25, 0.3), rgba(15, 38, 25, 0.7)), url('/assets/fondo-app-quiz.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
   min-height: 100vh !important;
 }
 

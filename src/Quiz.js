@@ -61,8 +61,13 @@ const Quiz = ({ alTerminar }) => {
     };
 
     return (
-        // Fondo controlado por CSS
-        <div className="quiz-contenedor fade-in">
+        // Fondo controlado por CSS en línea
+        <div className="quiz-contenedor fade-in" style={{
+            background: "linear-gradient(rgba(15, 38, 25, 0.3), rgba(15, 38, 25, 0.7)), url('/assets/fondo-app-quiz.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh"
+        }}>
             <div className="quiz-tarjeta">
 
                 {/* Progreso oculto según solicitud
