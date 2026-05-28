@@ -2080,3 +2080,25 @@ p.texto-cierre-resultados {
 .quiz-progreso {
   display: none !important;
 }
+
+/* ========================================================
+   ESTILOS PREMIUM PANTALLA DE CARGA (LA RANA ESCUCHA)
+   ======================================================== */
+
+/* 2. Estilización del texto 'La Rana está escuchando tu latido...' */
+p.texto-exotico {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.6rem !important;
+  color: #c8a96e !important; /* Dorado premium */
+  font-style: italic !important;
+  margin-top: 2rem !important;
+  text-align: center !important;
+  letter-spacing: 1.5px !important;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)) !important;
+}
+
+/* 3. Ajuste opcional del aro/spinner si es CSS */
+.halo-azul {
+  border-color: rgba(200, 169, 110, 0.2) !important; /* Base sutil */
+  border-top-color: #c8a96e !important; /* Giro dorado */
+}

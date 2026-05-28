@@ -245,7 +245,20 @@ export default function App() {
 
       case 'procesando':
         return (
-          <div className="pantalla-centrada fade-in">
+          <div className="pantalla-carga fade-in" style={{
+            background: "linear-gradient(rgba(15, 38, 25, 0.8), rgba(15, 38, 25, 0.95)), url('/assets/fondo-app-quiz.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            minHeight: "100vh",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999
+          }}>
             <div className="contenedor-agente-magico"><div className="halo-azul"></div><img src="/assets/agente.png" alt="A" className="agente-pequeno" /></div>
             <p className="texto-exotico">{t('procesando.rana')}</p>
           </div>
