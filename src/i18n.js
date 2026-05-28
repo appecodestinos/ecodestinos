@@ -11,6 +11,13 @@ const resources = {
                 "start": "Comenzar el viaje",
                 "skip": "Explorar el mapa"
             },
+            "landing_ui": {
+                "title_1": "Territorios",
+                "title_2": "Vivos",
+                "sub_1": "En ",
+                "sub_highlight": "90 segundos",
+                "sub_2": " descubre qué territorio conecta con tu esencia"
+            },
             "procesando": {
                 "rana": "La Rana está escuchando tu latido..."
             },
@@ -244,6 +251,13 @@ const resources = {
                 "start": "Begin the journey",
                 "skip": "Explore the map"
             },
+            "landing_ui": {
+                "title_1": "Living",
+                "title_2": "Territories",
+                "sub_1": "In ",
+                "sub_highlight": "90 seconds",
+                "sub_2": " discover which territory connects with your essence"
+            },
             "procesando": {
                 "rana": "The Frog is listening to your heartbeat..."
             },
@@ -435,6 +449,13 @@ const resources = {
                 "start": "Die Reise beginnen",
                 "skip": "Die Karte erkunden"
             },
+            "landing_ui": {
+                "title_1": "Lebendige",
+                "title_2": "Gebiete",
+                "sub_1": "In ",
+                "sub_highlight": "90 Sekunden",
+                "sub_2": " entdecken Sie, welches Gebiet zu Ihrer Essenz passt"
+            },
             "procesando": {
                 "rana": "Der Frosch hört deinen Herzschlag..."
             },
@@ -625,6 +646,13 @@ const resources = {
                 "tagline": "En seulement 90 secondes, découvrez quel territoire résonne le mieux avec vous et recevez des recommandations",
                 "start": "Commencer le voyage",
                 "skip": "Explorer la carte"
+            },
+            "landing_ui": {
+                "title_1": "Territoires",
+                "title_2": "Vivants",
+                "sub_1": "En ",
+                "sub_highlight": "90 secondes",
+                "sub_2": " découvrez quel territoire correspond à votre essence"
             },
             "procesando": {
                 "rana": "La Grenouille écoute votre rythme cardiaque..."

@@ -222,11 +222,16 @@ export default function App() {
             <img src={t('logo_circular')} alt="Ecodestinos" className="logo-landing" />
             <div className="main-title-container">
               <h1 className="main-title">
-                <span className="t-dorado">Territorios</span>
-                <span className="t-blanco">Vivos</span>
+                <span className="t-dorado">{t('landing_ui.title_1')}</span>
+                <br />
+                <span className="t-blanco">{t('landing_ui.title_2')}</span>
               </h1>
             </div>
-            <p className="subtitle-text">En 90 segundos descubre qué territorio conecta con tu esencia</p>
+            <p className="subtitle-text">
+              {t('landing_ui.sub_1')}
+              <span className="dorado-vivo">{t('landing_ui.sub_highlight')}</span>
+              {t('landing_ui.sub_2')}
+            </p>
 
             <div className="selector-idioma">
               <button className={i18n.language === 'es' ? 'idioma-activo' : ''} onClick={() => i18n.changeLanguage('es')}>🇨🇴 ES</button>
