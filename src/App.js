@@ -89,9 +89,9 @@ const INFO_DESTINOS = {
 export default function App() {
   const { t, i18n } = useTranslation();
 
-  const [pantallaActiva, setPantallaActiva] = useState('resultados');
+  const [pantallaActiva, setPantallaActiva] = useState('landing');
   const [seccionInterna, setSeccionInterna] = useState('home');
-  const [resultadosQuiz, setResultadosQuiz] = useState(['Amazonas', 'Macizo']);
+  const [resultadosQuiz, setResultadosQuiz] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState('');
   const [inputNombre, setInputNombre] = useState('');
   const [inputCorreo, setInputCorreo] = useState('');
