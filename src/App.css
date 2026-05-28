@@ -2019,3 +2019,67 @@ p.texto-cierre-resultados {
   box-shadow: 0 6px 20px rgba(74, 140, 92, 0.5) !important;
   background-color: #559f69 !important; /* Brillo sutil al pasar el ratón */
 }
+
+/* ========================================================
+   ESTILOS PREMIUM DEL QUIZ (FONDO Y BOTONES DE CRISTAL)
+   ======================================================== */
+
+/* 1. Fondo del Quiz: Capa verde más clara para revelar la textura de hojas */
+.quiz-contenedor {
+  background: linear-gradient(rgba(15, 38, 25, 0.3), rgba(15, 38, 25, 0.7)), url('/assets/fondo-app-quiz.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 100vh !important;
+}
+
+/* 2. Contenedor de la Tarjeta del Quiz (Fondo transparente, sin caja sólida) */
+.quiz-tarjeta {
+  background-color: transparent !important; /* Eliminamos el bloque verde sólido */
+  box-shadow: none !important;
+  border: none !important;
+  padding: 2rem 1rem !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 3. Título de la Pregunta (Tipografía Premium) */
+.quiz-pregunta {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(1.8rem, 6vw, 2.8rem) !important;
+  color: #f5f0e8 !important; /* Crema puro */
+  text-align: left !important; /* Alineación elegante como en la referencia */
+  margin-bottom: 2.5rem !important;
+  line-height: 1.2 !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+}
+
+/* 4. Opciones de Respuesta (Botones Oscuros Translúcidos) */
+.quiz-boton-opcion {
+  background-color: rgba(0, 0, 0, 0.4) !important; /* Cristal oscuro premium */
+  border: 1px solid rgba(200, 169, 110, 0.2) !important; /* Borde dorado muy sutil */
+  border-radius: 15px !important; /* Redondeo amable */
+  padding: 1.2rem 1.5rem !important;
+  color: #f5f0e8 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.1rem !important;
+  text-align: left !important;
+  width: 100% !important;
+  display: block !important;
+  margin-bottom: 1rem !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* 5. Efecto Hover y Selección en Opciones */
+.quiz-boton-opcion:hover,
+.quiz-boton-opcion.selected {
+  background-color: rgba(200, 169, 110, 0.15) !important; /* Brillo dorado interno */
+  border-color: #c8a96e !important; /* Borde dorado vivo */
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+}
+
+/* 6. Ocultar contador por CSS (Respaldo por si falla el JSX) */
+.quiz-progreso {
+  display: none !important;
+}

@@ -61,16 +61,17 @@ const Quiz = ({ alTerminar }) => {
     };
 
     return (
-        // Fondo con un tinte muy suave (5% opacidad) del color actual para no cansar la vista
-        <div className="quiz-contenedor fade-in" style={{ backgroundColor: `${colorActual}0D`, minHeight: '100vh' }}>
-            <div className="quiz-tarjeta" style={{ borderColor: colorActual }}>
+        // Fondo controlado por CSS
+        <div className="quiz-contenedor fade-in">
+            <div className="quiz-tarjeta">
 
-                {/* Progreso y Título con el color fuerte exacto */}
+                {/* Progreso oculto según solicitud
                 <p className="quiz-progreso" style={{ color: colorActual, opacity: 0.8 }}>
                     {t('quiz.progress', { current: paso + 1 })}
                 </p>
+                */}
 
-                <h2 className="quiz-pregunta" style={{ color: colorActual }}>
+                <h2 className="quiz-pregunta">
                     {t(`quiz.q${paso}.question`)}
                 </h2>
 
@@ -78,15 +79,8 @@ const Quiz = ({ alTerminar }) => {
                     {[0, 1, 2, 3].map((index) => (
                         <button
                             key={index}
-                            className={`quiz-boton-opcion ${respuestas[paso] === index ? 'seleccionado' : ''}`}
+                            className={`quiz-boton-opcion ${respuestas[paso] === index ? 'selected' : ''}`}
                             onClick={() => responder(index)}
-                            // El borde izquierdo y el texto al pasar el mouse usarán el color exacto
-                            style={{
-                                '--color-hover': colorActual,
-                                borderLeftColor: respuestas[paso] === index ? colorActual : 'rgba(139, 69, 19, 0.3)',
-                                backgroundColor: respuestas[paso] === index ? `${colorActual}1A` : 'transparent',
-                                color: respuestas[paso] === index ? colorActual : '#3a2e28'
-                            }}
                         >
                             {t('quiz.q' + paso + '.opt' + index)}
                         </button>
