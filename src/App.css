@@ -2102,3 +2102,50 @@ p.texto-exotico {
   border-color: rgba(200, 169, 110, 0.2) !important; /* Base sutil */
   border-top-color: #c8a96e !important; /* Giro dorado */
 }
+
+/* ========================================================
+   OVERRIDE TOTAL: DORADO AMARILLO VIVO (#FFCC00)
+   ======================================================== */
+
+/* OVERRIDE TOTAL: Títulos del Quiz */
+.quiz-card-container h2,
+.quiz-card-container h1,
+.pregunta-card h2,
+.pregunta-card h1,
+.quiz-pregunta-titulo,
+.quiz-pregunta {
+  color: #FFCC00 !important; /* DORADO AMARILLO VIVO OBLIGATORIO */
+  text-transform: none !important; /* DESACTIVA MAYÚSCULAS FORZADAS */
+  font-family: 'Playfair Display', serif !important;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)) !important;
+}
+
+/* OVERRIDE: Dorado Amarillo Vivo Global */
+
+/* 1. Landing Page (Acento '90 segundos' y Títulos) */
+.t-dorado,
+.dorado-vivo {
+  color: #FFCC00 !important;
+}
+
+/* 2. Pantalla de Carga (La Rana) */
+.pantalla-carga p,
+.loading-text,
+.loader-wrapper p,
+p.texto-exotico {
+  color: #FFCC00 !important;
+}
+
+/* 3. Resultados: Nombre Poético (Ej. Origen y Arraigo, Memoria del Océano) */
+.pregunta-card h1.titulo-principal::after,
+.result-card-container h1::after,
+h1.titulo-premium {
+  color: #FFCC00 !important;
+}
+
+/* 4. Formulario de Captura Final (Texto inspiracional) */
+.texto-formulario-lead, 
+.contenedor-resultados p.texto-final,
+p.texto-cierre-resultados {
+  color: #FFCC00 !important;
+}
