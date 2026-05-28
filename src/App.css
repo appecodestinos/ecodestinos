@@ -1927,3 +1927,95 @@ body, html, #root {
   margin-bottom: 2.5rem !important;
   filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)) !important;
 }
+
+/* ========================================================
+   ESTILOS PREMIUM DEL FORMULARIO DE CAPTURA FINAL
+   ======================================================== */
+
+/* 1. Texto Inspiracional ('No eliges un destino...') */
+p.texto-cierre-resultados {
+  font-family: 'Playfair Display', serif !important;
+  color: #c8a96e !important; /* Dorado premium para contraste total */
+  font-size: 1.4rem !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin: 2rem auto 1.5rem auto !important;
+  max-width: 80% !important;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) !important;
+  font-weight: 400 !important;
+}
+
+/* 2. Contenedor del Formulario */
+.formulario-registro {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+}
+
+/* Ajuste de etiquetas para contraste en Dark Theme */
+.etiqueta-input {
+  color: #f5f0e8 !important; /* Crema pura */
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-size: 0.9rem !important;
+}
+
+/* 3. Campos de Texto (Inputs: Nombre, Correo) */
+.formulario-registro input[type="text"],
+.formulario-registro input[type="email"],
+.input-correo-elegante {
+  width: 100% !important;
+  background-color: rgba(0, 0, 0, 0.5) !important; /* Cristal oscuro */
+  border: 1px solid rgba(200, 169, 110, 0.4) !important; /* Borde dorado sutil */
+  color: #f5f0e8 !important; /* Texto crema al escribir */
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1rem !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 50px !important; /* Redondeo total */
+  outline: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* Efecto Hover/Focus en los Inputs */
+.formulario-registro input:focus,
+.input-correo-elegante:focus {
+  border-color: #c8a96e !important; /* Dorado fuerte al hacer clic */
+  box-shadow: 0 0 10px rgba(200, 169, 110, 0.2), inset 0 2px 4px rgba(0,0,0,0.3) !important;
+}
+
+/* 4. Placeholders (Los textos 'Tu nombre', 'Tu correo') */
+.formulario-registro input::placeholder,
+.input-correo-elegante::placeholder {
+  color: rgba(245, 240, 232, 0.6) !important; /* Crema translúcido para legibilidad */
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* 5. Botón de Enviar ('RECIBIR MIS DESTINOS') */
+.formulario-registro button[type="submit"] {
+  background-color: #4a8c5c !important; /* Verde esmeralda de contraste */
+  color: #ffffff !important; /* Blanco puro */
+  border: none !important;
+  padding: 1.2rem 3rem !important;
+  border-radius: 50px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  margin-top: 1rem !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.formulario-registro button[type="submit"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(74, 140, 92, 0.5) !important;
+  background-color: #559f69 !important; /* Brillo sutil al pasar el ratón */
+}
