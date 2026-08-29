@@ -99,6 +99,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [mensajeErrorDetallado, setMensajeErrorDetallado] = useState('');
 
   // ESTADOS NUEVOS PARA LA NAVEGACIÓN MAPA -> TERRITORIO
   const [territorioActivo, setTerritorioActivo] = useState(null);
@@ -151,6 +152,7 @@ export default function App() {
     if (valido) {
       setIsLoading(true);
       setIsError(false);
+      setMensajeErrorDetallado('');
       try {
         capturarLead(inputNombre, inputCorreo, resultadosQuiz);
 
@@ -165,15 +167,22 @@ export default function App() {
         });
 
         if (response.ok) {
+          const resData = await response.json();
+          console.log("🟢 [Frontend] Lead y correo enviados con éxito:", resData);
           setIsSuccess(true);
           setNombreUsuario(inputNombre);
           localStorage.setItem('ecoNombre', inputNombre);
           localStorage.setItem('ecoEmail', inputCorreo);
         } else {
+          const errorPayload = await response.json().catch(() => ({ message: 'Respuesta no legible' }));
+          console.error(`🔴 [Frontend] Error HTTP ${response.status} en /api/submitLead:`, errorPayload);
+          const msg = errorPayload.brevoError?.message || errorPayload.message || '';
+          setMensajeErrorDetallado(msg);
           setIsError(true);
         }
       } catch (error) {
-        console.error("Error al enviar el correo:", error);
+        console.error("🔴 [Frontend] Excepción de red al enviar el correo:", error);
+        setMensajeErrorDetallado(error.toString());
         setIsError(true);
       } finally {
         setIsLoading(false);
@@ -324,7 +333,12 @@ export default function App() {
                   <input type="email" value={inputCorreo} onChange={(e) => setInputCorreo(e.target.value)} className="input-correo-elegante" disabled={isLoading} />
                   {erroresValidacion.correo && <span style={{ color: '#D32F2F', fontSize: '12px', marginTop: '4px', display: 'block' }}>{erroresValidacion.correo}</span>}
                 </div>
-                {isError && <p style={{ color: '#D32F2F', fontSize: '14px', marginTop: '10px', textAlign: 'center' }}>Hubo un error al conectar. Por favor, intenta de nuevo.</p>}
+                {isError && (
+                  <div style={{ color: '#FFCDD2', fontSize: '13px', marginTop: '10px', textAlign: 'center', backgroundColor: 'rgba(211, 47, 47, 0.25)', padding: '12px', borderRadius: '10px', border: '1px solid #EF5350' }}>
+                    <p style={{ margin: 0, fontWeight: 'bold' }}>Hubo un error al conectar. Por favor, intenta de nuevo.</p>
+                    {mensajeErrorDetallado && <p style={{ margin: '6px 0 0 0', fontSize: '12px', color: '#FFF' }}><strong>Brevo:</strong> {mensajeErrorDetallado}</p>}
+                  </div>
+                )}
                 <button type="submit" className="boton-brillante-grande" disabled={isLoading}>
                   {isLoading ? 'Enviando...' : t('resultados.button')}
                 </button>
