@@ -67,12 +67,12 @@ export default function Mapa({ onMarkerClick }) {
                     zIndex: 100,
                     width: '200px',
                     border: `2px solid ${sel.color}`,
-                    pointerEvents: 'none' // Para que no bloquee clics accidentales
+                    pointerEvents: 'none'
                 }}>
                     <strong style={{ color: sel.color, fontSize: '15px', display: 'block', fontFamily: 'Cinzel, serif' }}>
                         {sel.lugar.toUpperCase()}
                     </strong>
-                    <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#333', lineHeight: '1.4', fontFamily: 'sans-serif' }}>
+                    <p style={{ margin: '8px 0 0', fontSize: '12px', color: '#1a2b22', lineHeight: '1.4', fontFamily: 'Montserrat, sans-serif' }}>
                         {sel.desc}
                     </p>
                 </div>

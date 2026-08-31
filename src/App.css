@@ -511,10 +511,13 @@ img {
 /* === HEADER Y CONTENEDOR APP === */
 .header-app {
   width: 100%;
-  background: white;
+  background-image: url('./assets/fondo-app-home.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   padding: 15px 0;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -844,12 +847,15 @@ h4 {
   width: 100%;
   height: 75px;
   /* Altura fija para la barra */
-  background-color: #003344;
+  background-image: url('./assets/fondo-app-home.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-top: 1px solid rgba(200, 169, 110, 0.25) !important;
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 9999;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .icono-nav {
@@ -1029,8 +1035,14 @@ h4 {
 
 /* 2. TAMAÑOS DE LOGOS */
 .logo-landing {
-  width: 380px !important;
-  /* Más grande al inicio */
+  width: 165px !important;
+  max-width: 165px !important;
+  height: auto !important;
+  margin-top: 45px !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .logo-header {
@@ -1118,7 +1130,8 @@ h4 {
 
 /* 4. LOGOS Y TARJETAS */
 .logo-landing {
-  width: 380px !important;
+  width: 165px !important;
+  max-width: 165px !important;
 }
 
 .logo-header {
@@ -1386,52 +1399,56 @@ h4 {
   margin: 4px 0;
 }
 
-/* 1. AGRANDAR LA NAVBAR */
+/* 1. AGRANDAR LA NAVBAR CON TEXTURA SAGRADA */
 .barra-navegacion {
   height: 85px !important;
-  /* Aumentado de los ~65px estándar */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(1, 40, 99);
-  border-top: 1px solid #eee;
+  background-image: url('./assets/fondo-app-home.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-top: 1px solid rgba(200, 169, 110, 0.3) !important;
   position: fixed;
   bottom: 0;
   width: 100%;
   padding-bottom: 10px;
-  /* Espacio extra para pulgares en móviles modernos */
   z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* 2. AGRANDAR LOS LOGOS/ICONOS DE LA NAV */
 .icono-nav {
   width: 32px !important;
-  /* Antes solían estar en 24px */
   height: 32px !important;
   margin-bottom: 4px;
   object-fit: contain;
 }
 
 /* 3. AJUSTAR EL TEXTO DE LA NAV */
-.barra-navegacion button {
+.barra-navegacion button,
+.barra-navegacion a {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: none;
   border: none;
-  color: #666;
-  /* Font inherited from the universal .barra-navegacion button rule */
+  color: rgba(245, 240, 232, 0.7) !important;
   font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.barra-navegacion button.activo {
-  color: #064E3B;
+.barra-navegacion button.activo,
+.barra-navegacion button:hover,
+.barra-navegacion a.activo {
+  color: #c8a96e !important;
   font-weight: 700;
 }
 
 .barra-navegacion button span {
-  font-size: 1rem !important;
-  /* Un poco más grande para legibilidad */
+  font-size: 0.85rem !important;
+  color: inherit !important;
 }
 
 /* 4. OPCIONAL: AGRANDAR EL LOGO DEL HEADER (ARRIBA) */
@@ -1453,19 +1470,23 @@ h4 {
 /* 1. HEADER Y LOGO PRO */
 .header-app {
   height: 80px !important;
-  background: white;
+  background-image: url('./assets/fondo-app-home.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .logo-header-pro {
   height: 60px !important;
-  /* MÁS GRANDE */
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* 2. EL MAPA COMO FONDO TOTAL */
@@ -1485,20 +1506,29 @@ h4 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.98);
-  padding: 40px;
-  border-radius: 40px;
+  background: #fdfbf7 !important;
+  padding: 35px 30px;
+  border-radius: 30px;
   text-align: center;
   z-index: 9999;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   width: 85%;
   max-width: 400px;
+  border: 1px solid rgba(200, 169, 110, 0.4) !important;
 }
 
 .burbuja-transicion h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2rem !important;
+  margin-bottom: 10px !important;
+}
+
+.burbuja-transicion p {
+  color: #1a2b22 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin-top: 10px !important;
 }
 
 .barra-carga-ancestral {
@@ -1522,23 +1552,61 @@ h4 {
   }
 }
 
-/* 4. PÁGINA DE DETALLE MULTIMEDIA */
+/* 4. PÁGINA DE DETALLE MULTIMEDIA CON ALTO CONTRASTE */
 .pagina-territorio {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
+  background: #f9f7f2 !important;
   z-index: 500;
   overflow-y: auto;
   padding-bottom: 100px;
+  color: #1a2b22 !important;
+}
+
+.pagina-territorio h1,
+.pagina-territorio h2,
+.pagina-territorio h3,
+.pagina-territorio h4 {
+  color: #0f2619 !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+.pagina-territorio p,
+.pagina-territorio .texto-maestro,
+.pagina-territorio span {
+  color: #1c3527 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
+}
+
+.pagina-territorio .bloque-texto {
+  background: #ffffff !important;
+  padding: 24px !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  margin-bottom: 24px !important;
+  border: 1px solid rgba(15, 38, 25, 0.1) !important;
+}
+
+.pagina-territorio .bloque-texto h3,
+.pagina-territorio .bloque-video h3,
+.pagina-territorio .bloque-galeria h3 {
+  color: #0f2619 !important;
+  font-size: 1.4rem !important;
+  margin-bottom: 14px !important;
+  border-bottom: 2px solid #c8a96e !important;
+  display: inline-block !important;
+  padding-bottom: 4px !important;
 }
 
 .hero-territorio {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 280px;
 }
 
 .foto-cabecera {
@@ -1552,14 +1620,25 @@ h4 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 24px 20px 16px 20px;
+  background: linear-gradient(transparent, rgba(15, 38, 25, 0.9));
   color: white;
 }
 
 .overlay-titulo h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.2rem;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2.4rem !important;
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+  margin: 0 !important;
+}
+
+.overlay-titulo .arquetipo-sub {
+  color: #e8c98a !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1rem !important;
+  margin-top: 4px !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 .contenido-multimedia-wrap {
@@ -1587,19 +1666,31 @@ h4 {
   border-radius: 15px;
 }
 
+/* BOTÓN REGRESAR AL MAPA (REPOSICIONADO FLOTANTE INFERIOR) */
 .boton-regresar {
-  position: fixed;
-  top: 90px;
-  left: 20px;
-  z-index: 1001;
-  background: white;
-  border: 2px solid #064E3B;
-  color: #064E3B;
-  padding: 8px 15px;
-  border-radius: 50px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
-  font-weight: bold;
+  position: fixed !important;
+  bottom: 95px !important;
+  top: auto !important;
+  left: 16px !important;
+  z-index: 10001 !important;
+  background-color: #0e382b !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  border: 1px solid rgba(200, 169, 110, 0.4) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.boton-regresar:hover {
+  background-color: #164d3b !important;
+  border-color: #c8a96e !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
 }
 
 /* 1. EL CONTENEDOR DEBE LLENAR TODO EL ESPACIO DISPONIBLE */
@@ -1697,18 +1788,24 @@ button {
   /* Esquema Dark Nature Premium */
   --verde-selva-profundo: #0f2619;
   --verde-selva-acento: #2d5a3d;
-  --verde-claro-contraste: #4a8c5c; /* Nuevo color para botones CTA */
+  --verde-claro-contraste: #4a8c5c;
+  /* Nuevo color para botones CTA */
   --dorado-premium: #c8a96e;
-  --crema-pura: #f5f0e8; /* Contraste máximo para texto */
-  --negro-translucido-premium: rgba(0, 0, 0, 0.4); /* Para tarjetas del Quiz */
-  
+  --crema-pura: #f5f0e8;
+  /* Contraste máximo para texto */
+  --negro-translucido-premium: rgba(0, 0, 0, 0.4);
+  /* Para tarjetas del Quiz */
+
   /* Tipografías Advanced */
   --fuente-titulos: 'Playfair Display', serif;
-  --fuente-amable: 'Montserrat', sans-serif; /* Para subtítulos, cuerpo y botones */
+  --fuente-amable: 'Montserrat', sans-serif;
+  /* Para subtítulos, cuerpo y botones */
 }
 
 /* Reseteo de tipografía global para legibilidad */
-body, html, #root {
+body,
+html,
+#root {
   background-color: var(--verde-selva-profundo) !important;
   color: var(--crema-pura) !important;
   font-family: var(--fuente-amable) !important;
@@ -1718,27 +1815,37 @@ body, html, #root {
 /* --- TÍTULOS Y LÍNEAS DECORATIVAS (Piso y Techo) --- */
 .main-title-container {
   text-align: center;
-  margin: 2rem 0;
-  border-top: 1px solid rgba(200, 169, 110, 0.3); /* Techo */
-  border-bottom: 1px solid rgba(200, 169, 110, 0.3); /* Piso */
-  padding: 1.5rem 0;
+  margin: 0.8rem 0 2rem 0;
+  border-top: 1px solid rgba(200, 169, 110, 0.3);
+  /* Techo */
+  border-bottom: 1px solid rgba(200, 169, 110, 0.3);
+  /* Piso */
+  padding: 1.2rem 0;
+}
+
+.main-title {
+  margin: 0 !important;
+  line-height: 0.9 !important;
 }
 
 .t-dorado {
   font-family: var(--fuente-titulos) !important;
-  font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+  font-size: clamp(2.3rem, 7.5vw, 4.2rem) !important;
   color: var(--dorado-premium) !important;
   font-weight: 400 !important;
   display: block !important;
+  line-height: 0.95 !important;
 }
 
 .t-blanco {
   font-family: var(--fuente-titulos) !important;
-  font-size: clamp(2.5rem, 8vw, 4.5rem) !important;
+  font-size: clamp(2.8rem, 9.2vw, 5.2rem) !important;
   color: var(--crema-pura) !important;
   font-weight: 400 !important;
   font-style: italic !important;
   display: block !important;
+  line-height: 0.95 !important;
+  margin-top: -0.15em !important;
 }
 
 /* Subtítulo: Más redondito, más grande, contraste máximo (blanco puro) */
@@ -1746,18 +1853,24 @@ body, html, #root {
   font-family: var(--fuente-amable) !important;
   font-weight: 400 !important;
   font-size: 1.25rem !important;
-  color: #fff !important; /* Blanco puro para legibilidad */
-  opacity: 1 !important; /* Eliminamos transparencia para contraste */
+  color: #fff !important;
+  /* Blanco puro para legibilidad */
+  opacity: 1 !important;
+  /* Eliminamos transparencia para contraste */
   margin: 1.5rem 0 2rem 0 !important;
 }
 
-/* --- LOGO CIRCULAR (Más grande) --- */
+/* --- LOGO CIRCULAR (165px) --- */
 .logo-landing {
-  max-width: 130px !important;
+  width: 165px !important;
+  max-width: 165px !important;
   height: auto !important;
-  margin: 0 auto 1.5rem auto !important;
+  margin-top: 45px !important;
+  margin-bottom: 8px !important;
   display: block !important;
-  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.4)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4)) !important;
 }
 
 /* --- BOTONES DE IDIOMA (Contraste elegante sin marrón) --- */
@@ -1780,23 +1893,26 @@ body, html, #root {
 }
 
 .selector-idioma button.idioma-activo {
-  background: #1f3a47 !important; /* Contraste azul/índigo sutil */
+  background: #1f3a47 !important;
+  /* Contraste azul/índigo sutil */
   border-color: #e8c98a !important;
   color: #e8c98a !important;
 }
 
 /* --- BOTONES CTA --- */
 .boton-brillante-grande {
-  background-color: var(--verde-claro-contraste) !important; /* Verde esmeralda para contraste */
+  background-color: var(--verde-claro-contraste) !important;
+  /* Verde esmeralda para contraste */
   color: #fff !important;
-  border-radius: 50px !important; /* Redondeo total */
+  border-radius: 50px !important;
+  /* Redondeo total */
   padding: 1.2rem 3rem !important;
   font-family: var(--fuente-amable) !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
   border: none !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
 }
 
@@ -1820,26 +1936,30 @@ body, html, #root {
 /* Tarjeta de Quiz Translúcida Advanced */
 .quiz-tarjeta {
   background-color: var(--negro-translucido-premium) !important;
-  backdrop-filter: blur(10px) !important; /* Efecto cristal */
+  backdrop-filter: blur(10px) !important;
+  /* Efecto cristal */
   -webkit-backdrop-filter: blur(10px) !important;
   border-radius: 20px !important;
-  border: 1px solid rgba(200, 169, 110, 0.15) !important; /* Borde dorado tenue */
+  border: 1px solid rgba(200, 169, 110, 0.15) !important;
+  /* Borde dorado tenue */
   padding: 2.5rem !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
   color: var(--crema-pura) !important;
 }
 
 /* Opciones del Quiz con redondeo */
 .quiz-boton-opcion {
   border-radius: 12px !important;
-  background-color: rgba(245, 240, 232, 0.05) !important; /* Sutil fondo */
+  background-color: rgba(245, 240, 232, 0.05) !important;
+  /* Sutil fondo */
   color: var(--crema-pura) !important;
   font-family: var(--fuente-amable) !important;
   transition: all 0.3s ease !important;
   border: 1px solid transparent !important;
 }
 
-.quiz-boton-opcion:hover, .quiz-boton-opcion.seleccionado {
+.quiz-boton-opcion:hover,
+.quiz-boton-opcion.seleccionado {
   background-color: rgba(200, 169, 110, 0.15) !important;
   border-color: var(--dorado-premium) !important;
 }
@@ -1854,7 +1974,7 @@ body, html, #root {
   border-radius: 20px !important;
   border: 1px solid rgba(200, 169, 110, 0.2) !important;
   padding: 2.5rem !important;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
   margin-bottom: 2rem !important;
 }
 
@@ -1864,7 +1984,7 @@ body, html, #root {
   object-fit: cover !important;
   max-height: 200px !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5) !important;
   margin-bottom: 2rem !important;
 }
 
@@ -1878,7 +1998,8 @@ body, html, #root {
 
 .destino-geografico {
   font-family: 'Montserrat', sans-serif !important;
-  color: #f5f0e8 !important; /* Crema pura */
+  color: #f5f0e8 !important;
+  /* Crema pura */
   text-transform: uppercase !important;
   letter-spacing: 4px !important;
   font-size: 1rem !important;
@@ -1888,13 +2009,14 @@ body, html, #root {
 
 .titulo-premium {
   font-family: 'Playfair Display', serif !important;
-  color: #c8a96e !important; /* Dorado premium */
+  color: #c8a96e !important;
+  /* Dorado premium */
   font-size: clamp(2.5rem, 6vw, 3.8rem) !important;
   font-style: italic !important;
   text-align: center !important;
   line-height: 1.1 !important;
   margin: 0 !important;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
 }
 
 .descripcion-premium {
@@ -1906,7 +2028,7 @@ body, html, #root {
 }
 
 /* Reparación de botones de acción finales */
-.contenedor-resultados button, 
+.contenedor-resultados button,
 .contenedor-resultados a.btn {
   color: #ffffff !important;
   border-radius: 50px !important;
@@ -1920,12 +2042,13 @@ body, html, #root {
 .contenedor-resultados h2.titulo-resultados {
   font-family: 'Montserrat', sans-serif !important;
   font-size: 1.2rem !important;
-  color: #fff !important; /* Blanco puro para legibilidad total */
+  color: #fff !important;
+  /* Blanco puro para legibilidad total */
   opacity: 1 !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
   margin-bottom: 2.5rem !important;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)) !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* ========================================================
@@ -1935,13 +2058,14 @@ body, html, #root {
 /* 1. Texto Inspiracional ('No eliges un destino...') */
 p.texto-cierre-resultados {
   font-family: 'Playfair Display', serif !important;
-  color: #c8a96e !important; /* Dorado premium para contraste total */
+  color: #c8a96e !important;
+  /* Dorado premium para contraste total */
   font-size: 1.4rem !important;
   font-style: italic !important;
   text-align: center !important;
   margin: 2rem auto 1.5rem auto !important;
   max-width: 80% !important;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6)) !important;
   font-weight: 400 !important;
 }
 
@@ -1958,7 +2082,8 @@ p.texto-cierre-resultados {
 
 /* Ajuste de etiquetas para contraste en Dark Theme */
 .etiqueta-input {
-  color: #f5f0e8 !important; /* Crema pura */
+  color: #f5f0e8 !important;
+  /* Crema pura */
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
@@ -1971,36 +2096,44 @@ p.texto-cierre-resultados {
 .formulario-registro input[type="email"],
 .input-correo-elegante {
   width: 100% !important;
-  background-color: rgba(0, 0, 0, 0.5) !important; /* Cristal oscuro */
-  border: 1px solid rgba(200, 169, 110, 0.4) !important; /* Borde dorado sutil */
-  color: #f5f0e8 !important; /* Texto crema al escribir */
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  /* Cristal oscuro */
+  border: 1px solid rgba(200, 169, 110, 0.4) !important;
+  /* Borde dorado sutil */
+  color: #f5f0e8 !important;
+  /* Texto crema al escribir */
   font-family: 'Montserrat', sans-serif !important;
   font-size: 1rem !important;
   padding: 1rem 1.5rem !important;
-  border-radius: 50px !important; /* Redondeo total */
+  border-radius: 50px !important;
+  /* Redondeo total */
   outline: none !important;
   transition: all 0.3s ease !important;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Efecto Hover/Focus en los Inputs */
 .formulario-registro input:focus,
 .input-correo-elegante:focus {
-  border-color: #c8a96e !important; /* Dorado fuerte al hacer clic */
-  box-shadow: 0 0 10px rgba(200, 169, 110, 0.2), inset 0 2px 4px rgba(0,0,0,0.3) !important;
+  border-color: #c8a96e !important;
+  /* Dorado fuerte al hacer clic */
+  box-shadow: 0 0 10px rgba(200, 169, 110, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* 4. Placeholders (Los textos 'Tu nombre', 'Tu correo') */
 .formulario-registro input::placeholder,
 .input-correo-elegante::placeholder {
-  color: rgba(245, 240, 232, 0.6) !important; /* Crema translúcido para legibilidad */
+  color: rgba(245, 240, 232, 0.6) !important;
+  /* Crema translúcido para legibilidad */
   font-family: 'Montserrat', sans-serif !important;
 }
 
 /* 5. Botón de Enviar ('RECIBIR MIS DESTINOS') */
 .formulario-registro button[type="submit"] {
-  background-color: #4a8c5c !important; /* Verde esmeralda de contraste */
-  color: #ffffff !important; /* Blanco puro */
+  background-color: #4a8c5c !important;
+  /* Verde esmeralda de contraste */
+  color: #ffffff !important;
+  /* Blanco puro */
   border: none !important;
   padding: 1.2rem 3rem !important;
   border-radius: 50px !important;
@@ -2010,14 +2143,15 @@ p.texto-cierre-resultados {
   text-transform: uppercase !important;
   cursor: pointer !important;
   margin-top: 1rem !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
   transition: all 0.3s ease !important;
 }
 
 .formulario-registro button[type="submit"]:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(74, 140, 92, 0.5) !important;
-  background-color: #559f69 !important; /* Brillo sutil al pasar el ratón */
+  background-color: #559f69 !important;
+  /* Brillo sutil al pasar el ratón */
 }
 
 /* ========================================================
@@ -2031,7 +2165,8 @@ p.texto-cierre-resultados {
 
 /* 2. Contenedor de la Tarjeta del Quiz (Fondo transparente, sin caja sólida) */
 .quiz-tarjeta {
-  background-color: transparent !important; /* Eliminamos el bloque verde sólido */
+  background-color: transparent !important;
+  /* Eliminamos el bloque verde sólido */
   box-shadow: none !important;
   border: none !important;
   padding: 2rem 1rem !important;
@@ -2043,18 +2178,23 @@ p.texto-cierre-resultados {
 .quiz-pregunta {
   font-family: 'Playfair Display', serif !important;
   font-size: clamp(1.8rem, 6vw, 2.8rem) !important;
-  color: #f5f0e8 !important; /* Crema puro */
-  text-align: left !important; /* Alineación elegante como en la referencia */
+  color: #f5f0e8 !important;
+  /* Crema puro */
+  text-align: left !important;
+  /* Alineación elegante como en la referencia */
   margin-bottom: 2.5rem !important;
   line-height: 1.2 !important;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) !important;
 }
 
 /* 4. Opciones de Respuesta (Botones Oscuros Translúcidos) */
 .quiz-boton-opcion {
-  background-color: rgba(0, 0, 0, 0.4) !important; /* Cristal oscuro premium */
-  border: 1px solid rgba(200, 169, 110, 0.2) !important; /* Borde dorado muy sutil */
-  border-radius: 15px !important; /* Redondeo amable */
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  /* Cristal oscuro premium */
+  border: 1px solid rgba(200, 169, 110, 0.2) !important;
+  /* Borde dorado muy sutil */
+  border-radius: 15px !important;
+  /* Redondeo amable */
   padding: 1.2rem 1.5rem !important;
   color: #f5f0e8 !important;
   font-family: 'Montserrat', sans-serif !important;
@@ -2070,10 +2210,12 @@ p.texto-cierre-resultados {
 /* 5. Efecto Hover y Selección en Opciones */
 .quiz-boton-opcion:hover,
 .quiz-boton-opcion.selected {
-  background-color: rgba(200, 169, 110, 0.15) !important; /* Brillo dorado interno */
-  border-color: #c8a96e !important; /* Borde dorado vivo */
+  background-color: rgba(200, 169, 110, 0.15) !important;
+  /* Brillo dorado interno */
+  border-color: #c8a96e !important;
+  /* Borde dorado vivo */
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* 6. Ocultar contador por CSS (Respaldo por si falla el JSX) */
@@ -2089,18 +2231,21 @@ p.texto-cierre-resultados {
 p.texto-exotico {
   font-family: 'Playfair Display', serif !important;
   font-size: 1.6rem !important;
-  color: #c8a96e !important; /* Dorado premium */
+  color: #c8a96e !important;
+  /* Dorado premium */
   font-style: italic !important;
   margin-top: 2rem !important;
   text-align: center !important;
   letter-spacing: 1.5px !important;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)) !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8)) !important;
 }
 
 /* 3. Ajuste opcional del aro/spinner si es CSS */
 .halo-azul {
-  border-color: rgba(200, 169, 110, 0.2) !important; /* Base sutil */
-  border-top-color: #c8a96e !important; /* Giro dorado */
+  border-color: rgba(200, 169, 110, 0.2) !important;
+  /* Base sutil */
+  border-top-color: #c8a96e !important;
+  /* Giro dorado */
 }
 
 /* ========================================================
@@ -2114,10 +2259,12 @@ p.texto-exotico {
 .pregunta-card h1,
 .quiz-pregunta-titulo,
 .quiz-pregunta {
-  color: #FFCC00 !important; /* DORADO AMARILLO VIVO OBLIGATORIO */
-  text-transform: none !important; /* DESACTIVA MAYÚSCULAS FORZADAS */
+  color: #FFCC00 !important;
+  /* DORADO AMARILLO VIVO OBLIGATORIO */
+  text-transform: none !important;
+  /* DESACTIVA MAYÚSCULAS FORZADAS */
   font-family: 'Playfair Display', serif !important;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.8)) !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8)) !important;
 }
 
 /* OVERRIDE: Dorado Amarillo Vivo Global */
@@ -2144,7 +2291,7 @@ h1.titulo-premium {
 }
 
 /* 4. Formulario de Captura Final (Texto inspiracional) */
-.texto-formulario-lead, 
+.texto-formulario-lead,
 .contenedor-resultados p.texto-final,
 p.texto-cierre-resultados {
   color: #FFCC00 !important;
