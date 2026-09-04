@@ -2369,35 +2369,55 @@ p.texto-cierre-resultados {
   color: #FFCC00 !important;
 }
 
-/* ELIMINACIÓN DEFINITIVA DE LA BARRA VERDE OSCURA SOBRE LA NAVEGACIÓN */
+/* ELIMINACIÓN DE BARRA VERDE Y MAPA AMPLIADO 100% PANTALLA */
 .area-contenido-app.modo-mapa {
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: calc(100vh - 165px) !important;
+  max-height: calc(100vh - 165px) !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  position: relative !important;
+}
+
+.area-contenido-app.modo-mapa .seccion-mapa-enmarcada,
+.seccion-mapa-enmarcada {
+  width: 100% !important;
+  height: 100% !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
   background: transparent !important;
 }
 
 .area-contenido-app.modo-mapa .contenedor-home-mapa-total,
 .contenedor-home-mapa-total {
   position: relative !important;
-  top: auto !important;
-  left: auto !important;
   width: 100% !important;
-  height: auto !important;
-  min-height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
+  height: 100% !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
   background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.seccion-mapa-enmarcada {
-  position: relative !important;
+.mapa-anclado-fondo {
   width: 100% !important;
-  height: auto !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-  background: transparent !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
 }
 
 .mapa-seccion .barra-navegacion-bg,
