@@ -16,6 +16,8 @@ import Pacifico from './Pacifico';
 import SabanaDeBogota from './SabanaDeBogota';
 import Antioquia from './Antioquia';
 import MiRuta from './MiRuta';
+import Maloka from './Maloka';
+import Comunidad from './Comunidad';
 
 const INFO_DESTINOS = {
   Amazonas: {
@@ -306,12 +308,12 @@ export default function App() {
                 );
               })}
             </div>
-            <p className="texto-cierre-resultados" style={{ fontSize: '15px', fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', color: '#064E3B', padding: '0 10px' }}>
+            <p className="texto-cierre-resultados" style={{ fontSize: '15px', fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', color: '#FFCC00', padding: '0 10px', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
               {t('frase_final')}
             </p>
             {isSuccess ? (
-              <div className="mensaje-exito" style={{ marginTop: '20px', padding: '20px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '15px', border: '1px solid #064E3B', textAlign: 'center' }}>
-                <p style={{ color: '#064E3B', fontSize: '18px', fontWeight: 'bold', marginBottom: '15px' }}>
+              <div className="mensaje-exito" style={{ marginTop: '20px', padding: '24px', backgroundColor: 'rgba(10, 30, 20, 0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', borderRadius: '15px', border: '1px solid rgba(200, 169, 110, 0.4)', textAlign: 'center', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
+                <p style={{ color: '#FFFFFF', fontSize: '18px', fontWeight: '600', marginBottom: '18px', textShadow: '0 2px 4px rgba(0,0,0,0.8)', lineHeight: '1.5' }}>
                   ¡El viaje ha comenzado! Revisa tu correo electrónico para ver tus rutas (revisa también tu bandeja de spam).
                 </p>
                 <button onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }} className="boton-brillante-grande">
@@ -372,42 +374,11 @@ export default function App() {
                 </>
               )}
 
-              {seccionInterna === 'maloka' && (
-                <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>{t('maloka.title')}</h2>
-                  <div className="tarjeta-multimedia">
-                    <h3>{t('maloka.workshop1_title')}</h3>
-                    <p>{t('maloka.workshop1_desc')}</p>
-                    <div className="video-fake">{t('maloka.workshop1_btn')}</div>
-                  </div>
-                  <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
-                    <h3>{t('maloka.audio1_title')}</h3>
-                    <p>{t('maloka.audio1_desc')}</p>
-                  </div>
-                  <div className="tarjeta-multimedia" style={{ marginTop: '20px' }}>
-                    <h3>{t('maloka.podcast1_title')}</h3>
-                    <p>{t('maloka.podcast1_desc')}</p>
-                  </div>
-                </div>
-              )}
+              {seccionInterna === 'maloka' && <Maloka />}
 
               {seccionInterna === 'miruta' && <MiRuta />}
 
-              {seccionInterna === 'comunidades' && (
-                <div className="fade-in p-20">
-                  <h2 style={{ color: '#064E3B' }}>{t('comunidades.title')}</h2>
-                  <div className="modulo-comunidad">
-                    <h3>{t('comunidades.partners_title')}</h3>
-                    <p>{t('comunidades.partners_desc')}</p>
-                    <div className="tarjeta-transparencia">
-                      <p><strong>{t('comunidades.transparency_title')}</strong> {t('comunidades.transparency_desc')}</p>
-                    </div>
-                    <div className="galeria-fotos-comu">
-                      <div className="foto-placeholder">{t('comunidades.gallery')}</div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {seccionInterna === 'comunidades' && <Comunidad />}
 
             </div>
 

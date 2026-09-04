@@ -962,10 +962,21 @@ h4 {
 }
 
 .pin-destino img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain !important;
-  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pin-destino img.pin-antioquia-icono {
+  width: 250% !important;
+  height: 250% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(1.2) !important;
 }
 
 /* Animación de Latido (Pulse) */
@@ -988,34 +999,43 @@ h4 {
 
 .agente-flotante-container {
   position: fixed !important;
-  /* Subimos a 140px y ponemos !important para que nadie le gane */
-  bottom: 140px !important;
-  right: 20px !important;
-  z-index: 9999 !important;
+  bottom: 95px !important;
+  right: 16px !important;
+  z-index: 9998 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  pointer-events: none !important;
 }
 
 
 /* La burbuja que late */
 .burbuja-agente {
-  width: 70px;
-  height: 70px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 3px solid #064E3B;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: latir 2s infinite;
-  /* Efecto late-late */
-  transition: all 0.3s ease;
+  width: 56px !important;
+  height: 56px !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  border: 2.5px solid #064E3B !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  animation: latir 2s infinite !important;
+  transition: all 0.3s ease !important;
+  pointer-events: auto !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
 }
 
 .burbuja-agente img {
-  width: 85%;
-  height: 85%;
-  object-fit: contain;
-  border-radius: 50%;
+  width: 85% !important;
+  height: 85% !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
 }
 
 /* Ventana del Chat */
@@ -1763,11 +1783,15 @@ button {
   justify-content: center;
 }
 
-/* 3. Textos de Párrafos y Tarjetas (Lectura relajante y fluida) */
+/* 3. Textos de Párrafos y Tarjetas - ALTO CONTRASTE */
 .tarjeta-multimedia p,
 .tarjeta-multimedia ul,
 .tarjeta-multimedia li,
 .tarjeta-multimedia div,
+.tarjeta-multimedia-dark p,
+.tarjeta-multimedia-dark ul,
+.tarjeta-multimedia-dark li,
+.tarjeta-multimedia-dark div,
 .modulo-comunidad p,
 .modulo-comunidad ul,
 .modulo-comunidad li,
@@ -1778,13 +1802,42 @@ button {
 .grabadora-experiencia textarea,
 .pantalla-territorio p,
 .pantalla-territorio ul,
-.pantalla-territorio li {
+.pantalla-territorio li,
+.vista-seccion-contenedor p,
+.vista-seccion-contenedor span {
   font-family: 'Montserrat', sans-serif !important;
   font-size: 15px !important;
   line-height: 1.6 !important;
   font-weight: 400 !important;
-  color: #333333;
-  /* Ajusta este tono si tu fondo es muy oscuro */
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Títulos principales (h1, h2) en Maloka, Mi Ruta, Comunidad */
+.vista-seccion-contenedor h1,
+.vista-seccion-contenedor h2,
+.tarjeta-multimedia h1,
+.tarjeta-multimedia h2,
+.tarjeta-multimedia-dark h1,
+.tarjeta-multimedia-dark h2,
+.modulo-comunidad h1,
+.modulo-comunidad h2 {
+  color: #F4E8C1 !important;
+  font-family: 'Playfair Display', serif !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Subtítulos y encabezados (h3, h4) */
+.vista-seccion-contenedor h3,
+.vista-seccion-contenedor h4,
+.tarjeta-multimedia h3,
+.tarjeta-multimedia h4,
+.tarjeta-multimedia-dark h3,
+.tarjeta-multimedia-dark h4,
+.modulo-comunidad h3,
+.modulo-comunidad h4 {
+  color: #A7F3D0 !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
 }
 
 /* ==========================================

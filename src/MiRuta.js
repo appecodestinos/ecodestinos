@@ -185,9 +185,17 @@ export default function MiRuta() {
 
     // Estilos extraídos
     const containerStyle = {
-        padding: '30px',
+        padding: '24px',
         maxWidth: '800px',
-        margin: '0 auto'
+        margin: '0 auto',
+        backgroundColor: 'rgba(10, 25, 18, 0.75)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        borderRadius: '16px',
+        border: '1px solid rgba(200, 169, 110, 0.3)',
+        boxShadow: '0 8px 25px rgba(0,0,0,0.4)',
+        marginTop: '20px',
+        marginBottom: '40px'
     };
 
     const textAreaStyle = {
@@ -195,13 +203,14 @@ export default function MiRuta() {
         minHeight: '200px',
         padding: '15px',
         borderRadius: '12px',
-        border: '1px solid #8B4513',
-        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        border: '1px solid rgba(200, 169, 110, 0.4)',
+        backgroundColor: 'rgba(5, 15, 10, 0.6)',
         fontSize: '1.1rem',
-        color: '#3a2e28',
-        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)',
+        color: '#FFFFFF',
+        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.4)',
         resize: 'vertical',
-        marginBottom: '20px'
+        marginBottom: '20px',
+        outline: 'none'
     };
 
     const buttonRowStyle = {
@@ -253,7 +262,7 @@ export default function MiRuta() {
         padding: '12px 24px',
         borderRadius: '25px',
         border: 'none',
-        backgroundColor: '#8B4513',
+        backgroundColor: '#064E3B',
         color: '#fff',
         cursor: textoTranscrito.trim() === '' ? 'not-allowed' : 'pointer',
         opacity: textoTranscrito.trim() === '' ? 0.5 : 1,
@@ -271,8 +280,8 @@ export default function MiRuta() {
     return (
         <div style={containerStyle} className="fade-in">
             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-                <h1 style={{ color: '#2A3B2B', fontSize: '2.5rem' }}>{t('miruta.title')}</h1>
-                <p style={{ color: '#5C4B3F', fontSize: '1.2rem', marginBottom: '20px' }}>{t('miruta.record_desc')}</p>
+                <h1 style={{ color: '#F4E8C1', fontSize: '2.3rem', fontFamily: 'Playfair Display, serif', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>{t('miruta.title')}</h1>
+                <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.1rem', marginBottom: '20px' }}>{t('miruta.record_desc')}</p>
 
                 {/* Botones de Tracking Offline  */}
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '30px', flexWrap: 'wrap' }}>
