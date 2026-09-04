@@ -353,7 +353,7 @@ export default function App() {
               <img src="/assets/logoecodestinos.png" alt="L" className="logo-header-pro" />
             </header>
 
-            <div className="area-contenido-app">
+            <div className={`area-contenido-app ${seccionInterna === 'home' ? 'modo-mapa' : ''}`}>
 
               {seccionInterna === 'home' && (
                 <div className="contenedor-home-mapa-total">

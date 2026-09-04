@@ -2369,18 +2369,37 @@ p.texto-cierre-resultados {
   color: #FFCC00 !important;
 }
 
-/* SOLUCIÓN AL BLOQUE / BARRA VERDE SOBRE EL MAPA Y NAVEGACIÓN */
-.seccion-mapa-enmarcada,
-.contenedor-home-mapa-total,
-.mapa-contenedor,
-.contenedor-mapa,
-.map-wrapper {
+/* ELIMINACIÓN DEFINITIVA DE LA BARRA VERDE OSCURA SOBRE LA NAVEGACIÓN */
+.area-contenido-app.modo-mapa {
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
   background: transparent !important;
 }
 
-/* Remueve cualquier overlay u opacidad rígida sobre el mapa */
+.area-contenido-app.modo-mapa .contenedor-home-mapa-total,
+.contenedor-home-mapa-total {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+}
+
+.seccion-mapa-enmarcada {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+}
+
 .mapa-seccion .barra-navegacion-bg,
 .mapa-seccion .overlay-inferior,
 .seccion-mapa-enmarcada::after,
