@@ -12,6 +12,17 @@ const DESTINOS = [
     { id: 'Antioquia', key: 'antioquia', color: '#E65100', x: '42%', y: '45%', iconoImg: '/assets/icon_antioquia.png' }
 ];
 
+const MAP_CLASES_PIN = {
+    sierra: 'pin-sierra',
+    pacifico: 'pin-pacifico',
+    sabanadebogota: 'pin-bogota',
+    guainia: 'pin-guainia',
+    macizo: 'pin-macizo',
+    putumayo: 'pin-putumayo',
+    amazonas: 'pin-amazonia',
+    antioquia: 'pin-antioquia'
+};
+
 export default function Mapa({ onMarkerClick }) {
     const { t } = useTranslation();
     const [sel, setSel] = useState(null);
@@ -50,7 +61,7 @@ export default function Mapa({ onMarkerClick }) {
                     <button
                         key={d.id}
                         onClick={() => manejarViaje(d)}
-                        className="pin-destino"
+                        className={`pin-destino ${MAP_CLASES_PIN[d.key] || `pin-${d.key}`}`}
                         style={{
                             position: 'absolute',
                             left: d.x,
@@ -68,8 +79,6 @@ export default function Mapa({ onMarkerClick }) {
                         <img
                             src={d.iconoImg}
                             alt={d.id}
-                            className={d.id === 'Antioquia' ? 'pin-antioquia-icono' : ''}
-                            style={d.id === 'Antioquia' ? { width: '250%', height: '250%', objectFit: 'cover', borderRadius: '50%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%) scale(1.2)' } : { width: '100%', height: '100%', objectFit: 'contain' }}
                         />
                     </button>
                 ))}

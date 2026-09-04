@@ -962,21 +962,11 @@ h4 {
 }
 
 .pin-destino img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.pin-destino img.pin-antioquia-icono {
-  width: 250% !important;
-  height: 250% !important;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover !important;
   border-radius: 50% !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) scale(1.2) !important;
+  display: block !important;
 }
 
 /* Animación de Latido (Pulse) */
@@ -1744,19 +1734,41 @@ h4 {
   display: block;
 }
 
-/* 3. AGRANDAMOS LOS ICONOS DE LOS DESTINOS */
+/* 3. AGRANDAMOS LOS ICONOS DE LOS DESTINOS (CON RECORTE CIRCULAR PERFECTO) */
 .pin-destino {
   width: 55px !important;
-  /* Eran de 45px, ahora son más imponentes */
   height: 55px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
   transition: transform 0.3s ease;
 }
 
+/* Regla para que la imagen dentro del pin llene el círculo sin salirse */
+.pin-destino img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
 .pin-destino:active {
   transform: translate(-50%, -50%) scale(1.2);
-  /* Efecto al tocar */
 }
+
+/* CONTROL INDIVIDUAL POR TERRITORIO (PERSONALIZACIÓN MANUAL DE PINES) */
+.pin-antioquia img { transform: scale(1.0); object-position: center; }
+.pin-amazonia img { transform: scale(1.0); object-position: center; }
+.pin-sierra img { transform: scale(1.0); object-position: center; }
+.pin-pacifico img { transform: scale(1.0); object-position: center; }
+.pin-macizo img { transform: scale(1.0); object-position: center; }
+.pin-guainia img { transform: scale(1.0); object-position: center; }
+.pin-bogota img { transform: scale(1.0); object-position: center; }
+.pin-putumayo img { transform: scale(1.0); object-position: center; }
 
 /* ==========================================
    TIPOGRAFÍA PREMIUM Y ESTILOS UI/UX
@@ -2355,4 +2367,24 @@ h1.titulo-premium {
 .contenedor-resultados p.texto-final,
 p.texto-cierre-resultados {
   color: #FFCC00 !important;
+}
+
+/* SOLUCIÓN AL BLOQUE / BARRA VERDE SOBRE EL MAPA Y NAVEGACIÓN */
+.seccion-mapa-enmarcada,
+.contenedor-home-mapa-total,
+.mapa-contenedor,
+.contenedor-mapa,
+.map-wrapper {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+}
+
+/* Remueve cualquier overlay u opacidad rígida sobre el mapa */
+.mapa-seccion .barra-navegacion-bg,
+.mapa-seccion .overlay-inferior,
+.seccion-mapa-enmarcada::after,
+.seccion-mapa-enmarcada::before {
+  background: transparent !important;
+  box-shadow: none !important;
 }
