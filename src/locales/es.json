@@ -1,0 +1,305 @@
+{
+  "logo_circular": "/assets/logocircular.png",
+  "landing": {
+    "title": "Territorios Vivos",
+    "tagline": "En solo 90 segundos descubre qué territorio conecta mejor contigo y recibe recomendaciones",
+    "start": "Comenzar el viaje",
+    "skip": "Explorar el mapa"
+  },
+  "landing_ui": {
+    "title_1": "Territorios",
+    "title_2": "Vivos",
+    "sub_1": "En ",
+    "sub_highlight": "90 segundos",
+    "sub_2": " descubre qué territorio conecta con tu esencia"
+  },
+  "procesando": {
+    "rana": "La Rana está escuchando tu latido..."
+  },
+  "resultados": {
+    "title": "TU VIAJE RESUENA CON:",
+    "name_label": "tu nombre:",
+    "email_label": "tu correo:",
+    "button": "Recibir mis destinos"
+  },
+  "nav": {
+    "home": "Inicio",
+    "maloka": "Maloka",
+    "route": "Mi Ruta",
+    "community": "Comunidad"
+  },
+  "territory": {
+    "back": "← VOLVER AL MAPA",
+    "wisdom": "Sabiduría del Territorio",
+    "video": "Video Inmersivo",
+    "gallery": "Galería de Memorias"
+  },
+  "app": {
+    "save_success": "¡Bitácora guardada con éxito en la nube!",
+    "save_error": "Hubo un error al guardar tu bitácora."
+  },
+  "map": {
+    "alt_text": "Mapa Sagrado de los Territorios Vivos",
+    "sierra": {
+      "title": "Sierra Nevada",
+      "location": "Sierra Nevada",
+      "pillars": "Manifestación",
+      "desc": "Invita a materializar, llevar la intención a la acción y dar forma a aquello que viene gestándose."
+    },
+    "pacifico": {
+      "title": "Pacífico",
+      "location": "Pacífico",
+      "pillars": "Linaje · Sonido",
+      "desc": "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede."
+    },
+    "sabanadebogota": {
+      "title": "Bogotá & Sabana",
+      "location": "Bogotá / Sabana",
+      "pillars": "Conciencia · Claridad",
+      "desc": "Invita a observar, integrar, comprender y elegir con mayor claridad."
+    },
+    "guainia": {
+      "title": "Guainía",
+      "location": "Guainía",
+      "pillars": "Amor · Relación",
+      "desc": "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos."
+    },
+    "macizo": {
+      "title": "Macizo Colombiano",
+      "location": "Macizo / San Agustín",
+      "pillars": "Renacer · Intención",
+      "desc": "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo."
+    },
+    "putumayo": {
+      "title": "Putumayo",
+      "location": "Putumayo / Caquetá",
+      "pillars": "Alquimia · Transición",
+      "desc": "Invita a transformar la energía, profundizar en el silencio interior y asentarse en un nuevo equilibrio."
+    },
+    "amazonas": {
+      "title": "Amazonas",
+      "location": "Amazonía",
+      "pillars": "Raíz · Equilibrio",
+      "desc": "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio."
+    },
+    "antioquia": {
+      "title": "Antioquia",
+      "location": "Antioquia / Zona Cafetera",
+      "pillars": "Fuerza · Vitalidad",
+      "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
+    }
+  },
+  "maloka": {
+    "title": "Maloka Ancestral",
+    "workshop1_title": "🎬 Talleres: El Útero del Macizo",
+    "workshop1_desc": "Encuentro con los Hijos del Agua (Misak) y la medicina del barro.",
+    "workshop1_btn": "▶ Reproducir Taller",
+    "audio1_title": "🎧 Audios: El Canto de las Ballenas",
+    "audio1_desc": "Meditación guiada para la sanación del linaje familiar en el Pacífico.",
+    "podcast1_title": "🎙️ Podcast: La Voz de los Abuelos",
+    "podcast1_desc": "Sabiduría Kogui y Arhuaca sobre el propósito de vida."
+  },
+  "miruta": {
+    "title": "Mi Bitácora de Viaje",
+    "btn_location": "📍 Ubicación en Territorio",
+    "btn_offline": "🗺️ Mapas Offline (Maps.me)",
+    "record_title": "🎙️ Graba lo que sientes hoy (o escríbelo)",
+    "record_desc": "Tus registros quedarán guardados para tu integración posviaje.",
+    "placeholder": "Escribe o graba tus procesos emocionales aquí...",
+    "btn_start_record": "🎙️ Iniciar Grabación",
+    "btn_stop_record": "⏹️ Detener Grabación",
+    "btn_audio": "🔴 Iniciar Audio (Próximamente)",
+    "btn_save": "☁️ Guardar Texto",
+    "saving": "Guardando en Nube...",
+    "save_success": "Bitácora guardada en la nube ☁️",
+    "save_error": "Error al guardar la bitácora. Inténtalo de nuevo.",
+    "record_not_supported": "Transcripción de voz no soportada en tu navegador.",
+    "btn_start_tracking": "📍 Iniciar Rastro GPS",
+    "btn_tracking": "📍 Rastreo... ({{count}} pts)"
+  },
+  "comunidades": {
+    "title": "Comunidades Vivas",
+    "partners_title": "👥 Aliados Estratégicos",
+    "partners_desc": "Nuestra comunidad participa en la toma de decisiones y formación emocional.",
+    "transparency_title": "Transparencia:",
+    "transparency_desc": "El 85% del valor de tu viaje va directo a la autonomía comunitaria.",
+    "gallery": "Galería de Testimonios"
+  },
+  "quiz": {
+    "progress": "ESTACIÓN {{current}} DE 7",
+    "q0": {
+      "question": "¿Cómo te has sentido últimamente?",
+      "opt0": "Con cansancio o agotamiento mental",
+      "opt1": "En cambio o transición",
+      "opt2": "Alegre y optimista",
+      "opt3": "En equilibrio y con curiosidad"
+    },
+    "q1": {
+      "question": "¿Qué es lo que más necesitas de la naturaleza?",
+      "opt0": "Estabilidad y arraigo",
+      "opt1": "Armonía y suavidad",
+      "opt2": "Recuperación e integración",
+      "opt3": "Inspiración y aire fresco"
+    },
+    "q2": {
+      "question": "¿Qué paisaje te acompaña mejor hoy?",
+      "opt0": "La tierra húmeda",
+      "opt1": "Respirar el horizonte en las montañas",
+      "opt2": "Atardecer a la orilla del mar",
+      "opt3": "Contemplar el reflejo en el agua serena"
+    },
+    "q3": {
+      "question": "¿Qué ritmo de viaje prefieres?",
+      "opt0": "Tranquilo, una actividad al día",
+      "opt1": "Equilibrado, dos actividades al día",
+      "opt2": "Activo, varias experiencias al día",
+      "opt3": "Flexible, según el día"
+    },
+    "q4": {
+      "question": "¿Qué quieres activar en ti con este viaje?",
+      "opt0": "Enraizamiento y estabilidad (Raíz)",
+      "opt1": "Creatividad y nuevos comienzos (Creación)",
+      "opt2": "Amor propio y vínculos (Corazón)",
+      "opt3": "Manifestación y visión (Propósito)"
+    },
+    "q5": {
+      "question": "¿Qué tipo de bienestar quieres vivir?",
+      "opt0": "Caminatas conscientes en la naturaleza",
+      "opt1": "Masajes, spa y rituales de bienestar",
+      "opt2": "Conexión con comunidades y prácticas ancestrales",
+      "opt3": "Crear con las manos (tejido, cerámica, cocina)"
+    },
+    "q6": {
+      "question": "¿Qué formato de viaje prefieres?",
+      "opt0": "Independiente, solo/a o a mi ritmo",
+      "opt1": "En pareja",
+      "opt2": "En familia",
+      "opt3": "En grupo para retiro o experiencia guiada"
+    }
+  },
+  "agente": {
+    "rana_nombre": "La Rana",
+    "rana_saludo": "¡Hola {{nombre}}! Te doy la bienvenida a Territorios Vivos. Soy La Rana, tu guía y guardiana. Estoy aquí para ayudarte a elegir el territorio que mejor sintoniza con tu momento. ¿Cómo te sientes hoy o qué deseas explorar?",
+    "rana_saludo_anon": "¡Hola! Te doy la bienvenida a Territorios Vivos. Soy La Rana, tu guía y guardiana. Estoy aquí para ayudarte a elegir el territorio que mejor sintoniza con tu momento. ¿Cómo te sientes hoy o qué deseas explorar?",
+    "menu_territorio": "Deseo conocer un territorio",
+    "menu_llevar": "¿Qué debo empacar?",
+    "menu_salud": "Dudas sobre salud o vacunas",
+    "menu_asesor": "Hablar con un asesor (WhatsApp)",
+    "respuesta_mistica": "Cada territorio tiene su propia frecuencia vibratoria. Para diseñar tu ruta personalizada y verificar la disponibilidad de este espacio sagrado, te invito a conversar con nuestro equipo por WhatsApp.",
+    "btn_whatsapp": "Ir a WhatsApp",
+    "macizo": "Macizo / San Agustín (Renacer · Intención): Invita a sembrar una intención profunda, soltar aquello que cumplió su ciclo y abrir espacio para lo nuevo en el nacimiento de las aguas sagradas de Colombia.",
+    "amazonas": "Amazonía (Raíz · Equilibrio): Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar el sentido de pertenencia y equilibrio en el pulmón del mundo.",
+    "guainia": "Guainía (Amor · Relación): Invita al encuentro, la escucha atenta, la reciprocidad y el cuidado amoroso de los vínculos entre ríos y cerros milenarios.",
+    "pacifico": "Pacífico (Linaje · Sonido): Invita a escuchar la memoria del océano y la selva, reconocer nuestras raíces y conectar con el sonido de aquello que nos precede.",
+    "antioquia": "Antioquia / Zona Cafetera (Fuerza · Vitalidad): Invita a activar tu fuerza interior, transformar la energía y poner en movimiento aquello que requiere acción y creación.",
+    "sierra": "Sierra Nevada (Manifestación): Invita a materializar, llevar la intención a la acción consciente y dar forma tangible a aquello que se ha venido gestando.",
+    "sierranevada": "Sierra Nevada (Manifestación): Invita a materializar, llevar la intención a la acción consciente y dar forma tangible a aquello que se ha venido gestando.",
+    "sabanadebogota": "Bogotá / Sabana (Conciencia · Claridad): Invita a observar, integrar, comprender tus experiencias y elegir tu camino con mayor claridad de pensamiento.",
+    "bogota": "Bogotá / Sabana (Conciencia · Claridad): Invita a observar, integrar, comprender tus experiencias y elegir tu camino con mayor claridad de pensamiento.",
+    "putumayo": "Putumayo / Caquetá (Alquimia · Transición): Invita a transformar la energía personal, profundizar en el silencio interior y asentarse en un equilibrio renovado.",
+    "funnel": {
+      "que_llevar_pregunta": "¿Qué territorio tienes pensado visitar?",
+      "que_llevar_consejo": "Para tu viaje recomendamos calzado cómodo e impermeable, ropa ligera y de secado rápido, capa para lluvia y repelente biológico biodegradable para cuidar el territorio.",
+      "salud_texto": "Tu bienestar es nuestra prioridad. Te recomendamos traer tus medicamentos habituales. En áreas selváticas como Amazonas o Putumayo se sugiere la vacuna contra la fiebre amarilla. ¡Estamos listos para orientarte!",
+      "btn_disenar_viaje": "Diseñar mi viaje por WhatsApp",
+      "btn_consultar_asesor": "Consultar un asesor por WhatsApp",
+      "btn_volver": "Volver al menú principal",
+      "terr_amazonas": "Amazonas (Raíz · Equilibrio)",
+      "terr_macizo": "Macizo Colombiano (Renacer · Intención)",
+      "terr_guainia": "Guainía (Amor · Relación)",
+      "terr_sierranevada": "Sierra Nevada (Manifestación)",
+      "terr_pacifico": "Pacífico (Linaje · Sonido)",
+      "terr_putumayo": "Putumayo & Caquetá (Alquimia · Transición)",
+      "terr_sabanadebogota": "Bogotá & Sabana (Conciencia · Claridad)",
+      "terr_bogota": "Bogotá & Sabana (Conciencia · Claridad)",
+      "terr_antioquia": "Antioquia / Zona Cafetera (Fuerza · Vitalidad)",
+      "terr_medellin": "Antioquia / Zona Cafetera (Fuerza · Vitalidad)"
+    },
+    "welcome": "Hola {{nombre}}, te doy la bienvenida al palpitar de la tierra. ¿Qué territorio o pregunta deseas compartir hoy?",
+    "welcome_anon": "Hola, te doy la bienvenida al palpitar de la tierra. ¿Qué territorio o pregunta deseas compartir hoy?",
+    "cierre": "\n\n✨ Siento tu vibración, {{nombre}}... Si deseas profundizar en la logística o reservar tu viaje, toca el botón para contactar con nuestro equipo humano.",
+    "cierre_anon": "\n\n✨ Siento tu vibración... Si deseas profundizar en la logística o reservar tu viaje, toca el botón para contactar con nuestro equipo humano.",
+    "placeholder": "Conversa con la rana...",
+    "whatsapp": "📲 ¿Dudas sobre tu viaje? WhatsApp directo"
+  },
+  "validation": {
+    "error_nombre": "Por favor ingresa tu nombre.",
+    "error_correo": "Por favor ingresa tu correo electrónico.",
+    "error_correo_valido": "Por favor ingresa un correo electrónico válido."
+  },
+  "landing_intro": {
+    "titulo": "COLOMBIA COMO MAPA DE BIENESTAR",
+    "subtitulo": "Territorios vivos para viajar según el momento que estás viviendo",
+    "descripcion": "En Ecodestinos entendemos que no todos los viajes se sienten igual.\nCada territorio en Colombia tiene una energía, un ritmo y una forma distinta de acompañarnos.\n\nAlgunos lugares ayudan a descansar. Otros inspiran nuevas ideas. Otros invitan a reconectar con la naturaleza, con las personas o con uno mismo.\n\nEste mapa de experiencias fue creado para ayudar a cada viajero a descubrir qué territorio le puede hacer bien hoy."
+  },
+  "destinos": {
+    "Amazonas": {
+      "title": "AMAZONÍA",
+      "archetype": "Raíz · Equilibrio",
+      "desc": "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio en la selva profunda."
+    },
+    "Macizo": {
+      "title": "MACIZO / SAN AGUSTÍN",
+      "archetype": "Renacer · Intención",
+      "desc": "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo en el origen de las aguas."
+    },
+    "Guainia": {
+      "title": "GUAINÍA",
+      "archetype": "Amor · Relación",
+      "desc": "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos sagrados."
+    },
+    "SierraNevada": {
+      "title": "SIERRA NEVADA",
+      "archetype": "Manifestación",
+      "desc": "Invita a materializar, llevar la intención a la acción y dar forma a aquello que viene gestándose."
+    },
+    "Pacífico": {
+      "title": "PACÍFICO",
+      "archetype": "Linaje · Sonido",
+      "desc": "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede."
+    },
+    "Pacifico": {
+      "title": "PACÍFICO",
+      "archetype": "Linaje · Sonido",
+      "desc": "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede."
+    },
+    "Putumayo": {
+      "title": "PUTUMAYO / CAQUETÁ",
+      "archetype": "Alquimia · Transición",
+      "desc": "Invita a transformar la energía, profundizar en el silencio interior y asentarse en un nuevo equilibrio."
+    },
+    "SabanaDeBogota": {
+      "title": "BOGOTÁ / SABANA",
+      "archetype": "Conciencia · Claridad",
+      "desc": "Invita a observar, integrar, comprender y elegir con mayor claridad."
+    },
+    "Bogota": {
+      "title": "BOGOTÁ / SABANA",
+      "archetype": "Conciencia · Claridad",
+      "desc": "Invita a observar, integrar, comprender y elegir con mayor claridad."
+    },
+    "Sabana": {
+      "title": "BOGOTÁ / SABANA",
+      "archetype": "Conciencia · Claridad",
+      "desc": "Invita a observar, integrar, comprender y elegir con mayor claridad."
+    },
+    "Antioquia": {
+      "title": "ANTIOQUIA / ZONA CAFETERA",
+      "archetype": "Fuerza · Vitalidad",
+      "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
+    },
+    "Medellin": {
+      "title": "ANTIOQUIA / ZONA CAFETERA",
+      "archetype": "Fuerza · Vitalidad",
+      "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
+    }
+  },
+  "landing_outro": {
+    "vision": "🌎 NUESTRA VISIÓN\n\nCreemos que viajar también puede ser una forma de:\n• Descansar mejor\n• Inspirarse\n• Reconectar\n• Crear\n• Compartir\n• Sentirse más presente\n\nMás que destinos, Colombia ofrece territorios vivos que acompañan distintos momentos de la vida.\n\n✨ Te damos la bienvenida a viajar desde lo que necesitas sentir hoy."
+  },
+  "introduccion": {
+    "titulo": "Territorios Vivos",
+    "texto": "En Ecodestinos, un destino no es solo un lugar. Es un territorio vivo donde la naturaleza, la cultura y la memoria ancestral sostienen una energía única que acompaña tu momento de vida."
+  },
+  "frase_final": "No eliges un destino. Eliges el territorio que acompaña tu momento."
+}

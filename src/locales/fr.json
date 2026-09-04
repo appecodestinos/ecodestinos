@@ -1,0 +1,305 @@
+{
+  "logo_circular": "/assets/logocircular.png",
+  "landing": {
+    "title": "Territoires Vivants",
+    "tagline": "En seulement 90 secondes découvrez quel territoire résonne le mieux avec vous et recevez vos recommandations",
+    "start": "Commencer le voyage",
+    "skip": "Explorer la carte"
+  },
+  "landing_ui": {
+    "title_1": "Territoires",
+    "title_2": "Vivants",
+    "sub_1": "En ",
+    "sub_highlight": "90 secondes",
+    "sub_2": " découvrez quel territoire résonne avec votre essence"
+  },
+  "procesando": {
+    "rana": "La Grenouille écoute votre battement de cœur..."
+  },
+  "resultados": {
+    "title": "VOTRE VOYAGE RÉSONNE AVEC :",
+    "name_label": "votre nom :",
+    "email_label": "votre e-mail :",
+    "button": "Recevoir mes destinations"
+  },
+  "nav": {
+    "home": "Accueil",
+    "maloka": "Maloka",
+    "route": "Mon Itinéraire",
+    "community": "Communauté"
+  },
+  "territory": {
+    "back": "← RETOUR À LA CARTE",
+    "wisdom": "Sagesse du Territoire",
+    "video": "Vidéo Immersive",
+    "gallery": "Galerie de Souvenirs"
+  },
+  "app": {
+    "save_success": "Carnet de bord enregistré dans le cloud avec succès !",
+    "save_error": "Erreur lors de l'enregistrement du carnet de bord."
+  },
+  "map": {
+    "alt_text": "Carte Sacrée des Territoires Vivants",
+    "sierra": {
+      "title": "Sierra Nevada",
+      "location": "Sierra Nevada",
+      "pillars": "Manifestation",
+      "desc": "Invite à matérialiser, passer de l'intention à l'action et donner forme à ce qui germe."
+    },
+    "pacifico": {
+      "title": "Pacifique",
+      "location": "Pacifique",
+      "pillars": "Lignée · Son",
+      "desc": "Invite à écouter la mémoire, reconnaître nos racines et se connecter à ce qui nous précède."
+    },
+    "sabanadebogota": {
+      "title": "Bogotá & Savane",
+      "location": "Bogotá / Savane",
+      "pillars": "Conscience · Clarté",
+      "desc": "Invite à observer, intégrer, comprendre et choisir avec plus de clarté."
+    },
+    "guainia": {
+      "title": "Guainía",
+      "location": "Guainía",
+      "pillars": "Amour · Relation",
+      "desc": "Invite à la rencontre, l'écoute, la réciprocité et le soin des liens sacrés."
+    },
+    "macizo": {
+      "title": "Massif Colombien",
+      "location": "Massif / San Agustín",
+      "pillars": "Renaissance · Intention",
+      "desc": "Invite à semer une intention, libérer ce qui a accompli son cycle et ouvrir l'espace au nouveau."
+    },
+    "putumayo": {
+      "title": "Putumayo",
+      "location": "Putumayo / Caquetá",
+      "pillars": "Alchimie · Transition",
+      "desc": "Invite à transformer l'énergie, approfondir le silence intérieur et s'installer dans un nouvel équilibre."
+    },
+    "amazonas": {
+      "title": "Amazonie",
+      "location": "Amazonie",
+      "pillars": "Racine · Équilibre",
+      "desc": "Invite à revenir à l'essentiel, reconnaître ce qui nous soutient et retrouver le sentiment d'appartenance."
+    },
+    "antioquia": {
+      "title": "Antioquia",
+      "location": "Antioquia / Zone Caféière",
+      "pillars": "Force · Vitalité",
+      "desc": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action."
+    }
+  },
+  "maloka": {
+    "title": "Maloka Ancestrale",
+    "workshop1_title": "🎬 Ateliers : L'Utérus du Massif",
+    "workshop1_desc": "Rencontre avec les Enfants de l'Eau (Misak) et la médecine de l'argile.",
+    "workshop1_btn": "▶ Lancer l'Atelier",
+    "audio1_title": "🎧 Audios : Le Chant des Baleines",
+    "audio1_desc": "Méditation guidée pour la guérison de la lignée familiale dans le Pacifique.",
+    "podcast1_title": "🎙️ Podcast : La Voix des Aînés",
+    "podcast1_desc": "Sagesse Kogui et Arhuaco sur le but de la vie."
+  },
+  "miruta": {
+    "title": "Mon Carnet de Voyage",
+    "btn_location": "📍 Emplacement sur le Territoire",
+    "btn_offline": "🗺️ Cartes Hors Ligne (Maps.me)",
+    "record_title": "🎙️ Enregistrez ce que vous ressentez (ou écrivez-le)",
+    "record_desc": "Vos notes seront sauvegardées pour votre intégration post-voyage.",
+    "placeholder": "Écrivez ou enregistrez vos ressentis ici...",
+    "btn_start_record": "🎙️ Démarrer l'enregistrement",
+    "btn_stop_record": "⏹️ Arrêter l'enregistrement",
+    "btn_audio": "🔴 Audio (Bientôt)",
+    "btn_save": "☁️ Sauvegarder",
+    "saving": "Sauvegarde dans le Cloud...",
+    "save_success": "Carnet enregistré dans le cloud ☁️",
+    "save_error": "Erreur lors de l'enregistrement. Veuillez réessayer.",
+    "record_not_supported": "La transcription vocale n'est pas supportée par votre navigateur.",
+    "btn_start_tracking": "📍 Démarrer le Suivi GPS",
+    "btn_tracking": "📍 Suivi... ({{count}} pts)"
+  },
+  "comunidades": {
+    "title": "Communautés Vivantes",
+    "partners_title": "👥 Partenaires Stratégiques",
+    "partners_desc": "Notre communauté participe aux décisions et à la formation émotionnelle.",
+    "transparency_title": "Transparence :",
+    "transparency_desc": "85% de la valeur de votre voyage soutient directement l'autonomie communautaire.",
+    "gallery": "Galerie de Témoignages"
+  },
+  "quiz": {
+    "progress": "STATION {{current}} SUR 7",
+    "q0": {
+      "question": "Comment vous êtes-vous senti(e) dernièrement ?",
+      "opt0": "Fatigue ou épuisement mental",
+      "opt1": "En changement ou transition",
+      "opt2": "Joyeux(se) et optimiste",
+      "opt3": "En équilibre et curieux(se)"
+    },
+    "q1": {
+      "question": "De quoi avez-vous le plus besoin de la part de la nature ?",
+      "opt0": "Stabilité et ancrage",
+      "opt1": "Harmonie et douceur",
+      "opt2": "Récupération et intégration",
+      "opt3": "Inspiration et air frais"
+    },
+    "q2": {
+      "question": "Quel paysage vous accompagne le mieux aujourd'hui ?",
+      "opt0": "La terre humide",
+      "opt1": "Respirer l'horizon dans les montagnes",
+      "opt2": "Un coucher de soleil au bord de la mer",
+      "opt3": "Contempler le reflet dans une eau sereine"
+    },
+    "q3": {
+      "question": "Quel rythme de voyage préférez-vous ?",
+      "opt0": "Calme, une activité par jour",
+      "opt1": "Équilibré, deux activités par jour",
+      "opt2": "Actif, plusieurs expériences par jour",
+      "opt3": "Flexible, selon la journée"
+    },
+    "q4": {
+      "question": "Que souhaitez-vous activer en vous avec ce voyage ?",
+      "opt0": "Ancrage et stabilité (Racine)",
+      "opt1": "Créativité et nouveaux départs (Création)",
+      "opt2": "Amour propre et liens (Cœur)",
+      "opt3": "Manifestation et vision (Objectif)"
+    },
+    "q5": {
+      "question": "Quel type de bien-être souhaitez-vous vivre ?",
+      "opt0": "Marches conscientes dans la nature",
+      "opt1": "Massages, spa et rituels de bien-être",
+      "opt2": "Connexion avec les communautés et pratiques ancestrales",
+      "opt3": "Créer avec ses mains (tissage, céramique, cuisine)"
+    },
+    "q6": {
+      "question": "Quel format de voyage préférez-vous ?",
+      "opt0": "Indépendant(e), seul(e) ou à mon rythme",
+      "opt1": "En couple",
+      "opt2": "En famille",
+      "opt3": "En groupe pour une retraite ou expérience guidée"
+    }
+  },
+  "agente": {
+    "rana_nombre": "La Grenouille",
+    "rana_saludo": "Bonjour {{nombre}} ! Bienvenue dans Territoires Vivants. Je suis La Grenouille, votre guide et gardienne. Je suis ici pour vous aider à choisir le territoire qui s'accorde le mieux avec votre moment.",
+    "rana_saludo_anon": "Bonjour ! Bienvenue dans Territoires Vivants. Je suis La Grenouille, votre guide et gardienne. Je suis ici pour vous aider à choisir le territoire qui s'accorde le mieux avec votre moment.",
+    "menu_territorio": "Je veux connaître un territoire",
+    "menu_llevar": "Que dois-je emporter ?",
+    "menu_salud": "Doutes sur la santé ou vaccins",
+    "menu_asesor": "Parler avec un conseiller (WhatsApp)",
+    "respuesta_mistica": "Chaque territoire a sa propre fréquence vibratoire. Pour concevoir votre itinéraire personnalisé, je vous invite à échanger avec notre équipe sur WhatsApp.",
+    "btn_whatsapp": "Aller sur WhatsApp",
+    "macizo": "Massif Colombien / San Agustín (Renaissance · Intention) : Invite à semer une intention profonde et ouvrir un nouvel espace.",
+    "amazonas": "Amazonie (Racine · Équilibre) : Invite à revenir à l'essentiel et retrouver l'équilibre dans le poumon du monde.",
+    "guainia": "Guainía (Amour · Relation) : Invite à la rencontre, l'écoute attentive et le soin des liens entre rivières et collines.",
+    "pacifico": "Pacifique (Lignée · Son) : Invite à écouter la mémoire de l'océan et de la forêt, et reconnaître nos racines.",
+    "antioquia": "Antioquia / Zone Caféière (Force · Vitalité) : Invite à activer votre force intérieure et mettre en mouvement ce qui nécessite de l'action.",
+    "sierra": "Sierra Nevada (Manifestation) : Invite à matérialiser et donner une forme tangible à ce qui germe.",
+    "sierranevada": "Sierra Nevada (Manifestation) : Invite à matérialiser et donner une forme tangible à ce qui germe.",
+    "sabanadebogota": "Bogotá / Savane (Conscience · Clarté) : Invite à observer, comprendre vos expériences et choisir avec clarté.",
+    "bogota": "Bogotá / Savane (Conscience · Clarté) : Invite à observer, comprendre vos expériences et choisir avec clarté.",
+    "putumayo": "Putumayo / Caquetá (Alchimie · Transition) : Invite à transformer l'énergie personnelle et s'installer dans un nouvel équilibre.",
+    "funnel": {
+      "que_llevar_pregunta": "Quel territoire prévoyez-vous de visiter ?",
+      "que_llevar_consejo": "Chaussures imperméables confortables, vêtements légers à séchage rapide, veste de pluie et répulsif biodégradable.",
+      "salud_texto": "Votre bien-être est notre priorité. Pour les zones de jungle comme l'Amazonie ou le Putumayo, le vaccin contre la fièvre jaune est suggéré.",
+      "btn_disenar_viaje": "Concevoir mon voyage sur WhatsApp",
+      "btn_consultar_asesor": "Consulter un conseiller sur WhatsApp",
+      "btn_volver": "Retour au menu principal",
+      "terr_amazonas": "Amazonie (Racine · Équilibre)",
+      "terr_macizo": "Massif Colombien (Renaissance · Intention)",
+      "terr_guainia": "Guainía (Amour · Relation)",
+      "terr_sierranevada": "Sierra Nevada (Manifestation)",
+      "terr_pacifico": "Pacifique (Lignée · Son)",
+      "terr_putumayo": "Putumayo & Caquetá (Alchimie · Transition)",
+      "terr_sabanadebogota": "Bogotá & Savane (Conscience · Clarté)",
+      "terr_bogota": "Bogotá & Savane (Conscience · Clarté)",
+      "terr_antioquia": "Antioquia / Zone Caféière (Force · Vitalité)",
+      "terr_medellin": "Antioquia / Zone Caféière (Force · Vitalité)"
+    },
+    "welcome": "Bonjour {{nombre}}, bienvenue au battement de cœur de la terre.",
+    "welcome_anon": "Bonjour, bienvenue au battement de cœur de la terre.",
+    "cierre": "\n\n✨ J'entends votre vibration, {{nombre}}... Cliquez ci-dessous pour parler avec nos guides humains.",
+    "cierre_anon": "\n\n✨ J'entends votre vibration... Cliquez ci-dessous pour parler avec nos guides humains.",
+    "placeholder": "Parlez avec la grenouille...",
+    "whatsapp": "📲 Contact direct WhatsApp"
+  },
+  "validation": {
+    "error_nombre": "Veuillez entrer votre nom.",
+    "error_correo": "Veuillez entrer votre adresse e-mail.",
+    "error_correo_valido": "Veuillez entrer une adresse e-mail valide."
+  },
+  "landing_intro": {
+    "titulo": "LA COLOMBIE COMME CARTE DE BIEN-ÊTRE",
+    "subtitulo": "Des territoires vivants pour voyager selon ce que vous vivez",
+    "descripcion": "Chez Ecodestinos nous comprenons que tous les voyages ne se ressentent pas de la même manière."
+  },
+  "destinos": {
+    "Amazonas": {
+      "title": "AMAZONIE",
+      "archetype": "Racine · Équilibre",
+      "desc": "Invite à revenir à l'essentiel et retrouver l'équilibre dans la forêt profonde."
+    },
+    "Macizo": {
+      "title": "MASSIF COLOMBIEN / SAN AGUSTÍN",
+      "archetype": "Renaissance · Intention",
+      "desc": "Invite à semer une intention et libérer ce qui a accompli son cycle."
+    },
+    "Guainia": {
+      "title": "GUAINÍA",
+      "archetype": "Amour · Relation",
+      "desc": "Invite à la rencontre, l'écoute et le soin des liens sacrés."
+    },
+    "SierraNevada": {
+      "title": "SIERRA NEVADA",
+      "archetype": "Manifestation",
+      "desc": "Invite à matérialiser, passer à l'action et donner forme à ce qui germe."
+    },
+    "Pacífico": {
+      "title": "PACIFIQUE",
+      "archetype": "Lignée · Son",
+      "desc": "Invite à écouter la mémoire et se connecter avec nos racines."
+    },
+    "Pacifico": {
+      "title": "PACIFIQUE",
+      "archetype": "Lignée · Son",
+      "desc": "Invite à écouter la mémoire et se connecter avec nos racines."
+    },
+    "Putumayo": {
+      "title": "PUTUMAYO / CAQUETÁ",
+      "archetype": "Alchimie · Transition",
+      "desc": "Invite à transformer l'énergie et approfondir le silence intérieur."
+    },
+    "SabanaDeBogota": {
+      "title": "BOGOTÁ / SAVANE",
+      "archetype": "Conscience · Clarté",
+      "desc": "Invite à observer, comprendre et choisir avec plus de clarté."
+    },
+    "Bogota": {
+      "title": "BOGOTÁ / SAVANE",
+      "archetype": "Conscience · Clarté",
+      "desc": "Invite à observer, comprendre et choisir avec plus de clarté."
+    },
+    "Sabana": {
+      "title": "BOGOTÁ / SAVANE",
+      "archetype": "Conscience · Clarté",
+      "desc": "Invite à observer, comprendre et choisir avec plus de clarté."
+    },
+    "Antioquia": {
+      "title": "ANTIOQUIA / ZONE CAFÈIRE",
+      "archetype": "Force · Vitalité",
+      "desc": "Invite à activer la force intérieure et mettre en mouvement ce qui nécessite de l'action."
+    },
+    "Medellin": {
+      "title": "ANTIOQUIA / ZONE CAFÈIRE",
+      "archetype": "Force · Vitalité",
+      "desc": "Invite à activer la force intérieure et mettre en mouvement ce qui nécessite de l'action."
+    }
+  },
+  "landing_outro": {
+    "vision": "🌎 NOTRE VISION\n\nNous croyons que voyager peut être une façon de mieux se reposer, s'inspirer et se reconnecter."
+  },
+  "introduccion": {
+    "titulo": "Territoires Vivants",
+    "texto": "Un territoire vivant où la nature et la mémoire gardent une énergie unique."
+  },
+  "frase_final": "Vous ne choisissez pas une destination. Vous choisissez le territoire qui accompagne votre moment."
+}

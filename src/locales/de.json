@@ -1,0 +1,305 @@
+{
+  "logo_circular": "/assets/logocircular.png",
+  "landing": {
+    "title": "Lebendige Gebiete",
+    "tagline": "Entdecke in nur 90 Sekunden, welches Gebiet am besten zu dir passt, und erhalte Empfehlungen",
+    "start": "Reise beginnen",
+    "skip": "Karte erkunden"
+  },
+  "landing_ui": {
+    "title_1": "Lebendige",
+    "title_2": "Gebiete",
+    "sub_1": "In ",
+    "sub_highlight": "90 Sekunden",
+    "sub_2": " entdecke, welches Gebiet zu deiner Essenz passt"
+  },
+  "procesando": {
+    "rana": "Der Frosch lauscht deinem Herzschlag..."
+  },
+  "resultados": {
+    "title": "DEINE REISE RESONIERT MIT:",
+    "name_label": "Dein Name:",
+    "email_label": "Deine E-Mail:",
+    "button": "Meine Reiseziele erhalten"
+  },
+  "nav": {
+    "home": "Start",
+    "maloka": "Maloka",
+    "route": "Meine Route",
+    "community": "Gemeinschaft"
+  },
+  "territory": {
+    "back": "← ZURÜCK ZUR KARTE",
+    "wisdom": "Weisheit des Gebiets",
+    "video": "Immersives Video",
+    "gallery": "Erinnerungsgalerie"
+  },
+  "app": {
+    "save_success": "Logbuch erfolgreich in der Cloud gespeichert!",
+    "save_error": "Fehler beim Speichern des Logbuchs."
+  },
+  "map": {
+    "alt_text": "Heilige Karte der lebendigen Gebiete",
+    "sierra": {
+      "title": "Sierra Nevada",
+      "location": "Sierra Nevada",
+      "pillars": "Manifestation",
+      "desc": "Lädt ein zu materialisieren, Absichten in Taten umzusetzen und Gestalt zu geben."
+    },
+    "pacifico": {
+      "title": "Pazifik",
+      "location": "Pazifik",
+      "pillars": "Abstammung · Klang",
+      "desc": "Lädt ein, der Erinnerung zu lauschen, unsere Wurzeln zu erkennen und zu verbinden."
+    },
+    "sabanadebogota": {
+      "title": "Bogotá & Savanne",
+      "location": "Bogotá / Savanne",
+      "pillars": "Bewusstsein · Klarheit",
+      "desc": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen."
+    },
+    "guainia": {
+      "title": "Guainía",
+      "location": "Guainía",
+      "pillars": "Liebe · Beziehung",
+      "desc": "Lädt ein zur Begegnung, zum Zuhören, zur Gegenseitigkeit und Pflege der Bande."
+    },
+    "macizo": {
+      "title": "Kolumbianisches Massiv",
+      "location": "Massiv / San Agustín",
+      "pillars": "Wiedergeburt · Absicht",
+      "desc": "Lädt ein, eine Absicht zu säen, Altes loszulassen und Raum für Neues zu schaffen."
+    },
+    "putumayo": {
+      "title": "Putumayo",
+      "location": "Putumayo / Caquetá",
+      "pillars": "Alchemie · Übergang",
+      "desc": "Lädt ein, Energie zu transformieren, innere Stille zu vertiefen und Ruhe zu finden."
+    },
+    "amazonas": {
+      "title": "Amazonas",
+      "location": "Amazonien",
+      "pillars": "Wurzel · Gleichgewicht",
+      "desc": "Lädt ein, zum Wesentlichen zurückzukehren und Gleichgewicht wiederzuerlangen."
+    },
+    "antioquia": {
+      "title": "Antioquia",
+      "location": "Antioquia / Kaffeeregion",
+      "pillars": "Kraft · Vitalität",
+      "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen."
+    }
+  },
+  "maloka": {
+    "title": "Ahnen-Maloka",
+    "workshop1_title": "🎬 Workshops: Der Schoß des Massivs",
+    "workshop1_desc": "Begegnung mit den Kindern des Wassers (Misak) und Tonmedizin.",
+    "workshop1_btn": "▶ Workshop abspielen",
+    "audio1_title": "🎧 Audios: Der Gesang der Wale",
+    "audio1_desc": "Geführte Meditation zur Heilung der Familienlinie im Pazifik.",
+    "podcast1_title": "🎙️ Podcast: Die Stimme der Ältesten",
+    "podcast1_desc": "Weisheit der Kogui und Arhuaco zum Lebenszweck."
+  },
+  "miruta": {
+    "title": "Mein Reiselogbuch",
+    "btn_location": "📍 Standort im Gebiet",
+    "btn_offline": "🗺️ Offline-Karten (Maps.me)",
+    "record_title": "🎙️ Nimm auf, was du heute fühlst (oder schreibe es)",
+    "record_desc": "Deine Einträge werden für deine Integration nach der Reise gespeichert.",
+    "placeholder": "Schreibe oder nimm deine emotionalen Prozesse hier auf...",
+    "btn_start_record": "🎙️ Aufnahme starten",
+    "btn_stop_record": "⏹️ Aufnahme stoppen",
+    "btn_audio": "🔴 Audio starten (Demnächst)",
+    "btn_save": "☁️ Text speichern",
+    "saving": "Speichern in der Cloud...",
+    "save_success": "Logbuch in der Cloud gespeichert ☁️",
+    "save_error": "Fehler beim Speichern. Bitte versuche es erneut.",
+    "record_not_supported": "Sprachtranskription wird in deinem Browser nicht unterstützt.",
+    "btn_start_tracking": "📍 GPS-Tracking starten",
+    "btn_tracking": "📍 Tracking... ({{count}} Pkt)"
+  },
+  "comunidades": {
+    "title": "Lebendige Gemeinschaften",
+    "partners_title": "👥 Strategische Partner",
+    "partners_desc": "Unsere Gemeinschaft beteiligt sich an Entscheidungen und emotionaler Bildung.",
+    "transparency_title": "Transparenz:",
+    "transparency_desc": "85% des Reisewerts fließen direkt in die Autonomie der Gemeinschaft.",
+    "gallery": "Erfahrungsberichte Galerie"
+  },
+  "quiz": {
+    "progress": "STATION {{current}} VON 7",
+    "q0": {
+      "question": "Wie hast du dich in letzter Zeit gefühlt?",
+      "opt0": "Müde oder geistig erschöpft",
+      "opt1": "Im Wandel oder Übergang",
+      "opt2": "Fröhlich und optimistisch",
+      "opt3": "Im Gleichgewicht und neugierig"
+    },
+    "q1": {
+      "question": "Was brauchst du am meisten von der Natur?",
+      "opt0": "Stabilität und Erdung",
+      "opt1": "Harmonie und Sanftheit",
+      "opt2": "Erholung und Integration",
+      "opt3": "Inspiration und frische Luft"
+    },
+    "q2": {
+      "question": "Welche Landschaft begleitet dich heute am besten?",
+      "opt0": "Feuchte Erde",
+      "opt1": "Den Horizont in den Bergen atmen",
+      "opt2": "Sonnenuntergang am Meeresufer",
+      "opt3": "Das Spiegelbild im ruhigen Wasser betrachten"
+    },
+    "q3": {
+      "question": "Welches Reisetempo bevorzugst du?",
+      "opt0": "Ruhig, eine Aktivität pro Tag",
+      "opt1": "Ausgewogen, zwei Aktivitäten pro Tag",
+      "opt2": "Aktiv, mehrere Erlebnisse pro Tag",
+      "opt3": "Flexibel, je nach Tag"
+    },
+    "q4": {
+      "question": "Was möchtest du mit dieser Reise in dir aktivieren?",
+      "opt0": "Verwurzelung und Stabilität (Wurzel)",
+      "opt1": "Kreativität und Neuanfang (Schöpfung)",
+      "opt2": "Selbstliebe und Verbindungen (Herz)",
+      "opt3": "Manifestation und Vision (Ziel)"
+    },
+    "q5": {
+      "question": "Welche Art von Wohlbefinden möchtest du erleben?",
+      "opt0": "Achtsame Wanderungen in der Natur",
+      "opt1": "Massagen, Spa und Wohlfühlrituale",
+      "opt2": "Verbindung mit Gemeinschaften und alten Praktiken",
+      "opt3": "Mit den Händen erschaffen (Weben, Keramik, Kochen)"
+    },
+    "q6": {
+      "question": "Welches Reiseformat bevorzugst du?",
+      "opt0": "Unabhängig, allein oder in meinem eigenen Tempo",
+      "opt1": "Als Paar",
+      "opt2": "Mit der Familie",
+      "opt3": "In einer Gruppe für ein Retreat oder geführte Erfahrung"
+    }
+  },
+  "agente": {
+    "rana_nombre": "Der Frosch",
+    "rana_saludo": "Hallo {{nombre}}! Willkommen bei Lebendige Gebiete. Ich bin Der Frosch, dein Führer und Hüter. Ich bin hier, um dir zu helfen, das Gebiet auszuwählen, das am besten zu deinem Moment passt.",
+    "rana_saludo_anon": "Hallo! Willkommen bei Lebendige Gebiete. Ich bin Der Frosch, dein Führer und Hüter. Ich bin hier, um dir zu helfen, das Gebiet auszuwählen, das am besten zu deinem Moment passt.",
+    "menu_territorio": "Ich möchte ein Gebiet kennenlernen",
+    "menu_llevar": "Was soll ich einpacken?",
+    "menu_salud": "Fragen zu Gesundheit oder Impfungen",
+    "menu_asesor": "Mit einem Berater sprechen (WhatsApp)",
+    "respuesta_mistica": "Jedes Gebiet hat seine eigene Schwingungsfrequenz. Um deine personalisierte Route zu gestalten, lade ich dich ein, mit unserem Team auf WhatsApp zu chatten.",
+    "btn_whatsapp": "Zu WhatsApp",
+    "macizo": "Kolumbianisches Massiv / San Agustín (Wiedergeburt · Absicht): Lädt ein, eine tiefe Absicht zu säen.",
+    "amazonas": "Amazonas (Wurzel · Gleichgewicht): Lädt ein, zum Wesentlichen zurückzukehren.",
+    "guainia": "Guainía (Liebe · Beziehung): Lädt ein zur Begegnung und Pflege der Bande.",
+    "pacifico": "Pazifik (Abstammung · Klang): Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen.",
+    "antioquia": "Antioquia / Kaffeeregion (Kraft · Vitalität): Lädt ein, innere Kraft zu aktivieren.",
+    "sierra": "Sierra Nevada (Manifestation): Lädt ein zu materialisieren und Gestalt zu geben.",
+    "sierranevada": "Sierra Nevada (Manifestation): Lädt ein zu materialisieren und Gestalt zu geben.",
+    "sabanadebogota": "Bogotá / Savanne (Bewusstsein · Klarheit): Lädt ein zu beobachten und mit Klarheit zu wählen.",
+    "bogota": "Bogotá / Savanne (Bewusstsein · Klarheit): Lädt ein zu beobachten und mit Klarheit zu wählen.",
+    "putumayo": "Putumayo / Caquetá (Alchemie · Übergang): Lädt ein, persönliche Energie zu transformieren.",
+    "funnel": {
+      "que_llevar_pregunta": "Welches Gebiet möchtest du besuchen?",
+      "que_llevar_consejo": "Bequeme wasserdichte Schuhe, leichte Kleidung, Regenjacke und biologisches Insektenschutzmittel.",
+      "salud_texto": "Dein Wohlbefinden ist unsere Priorität. Für Dschungelgebiete wird eine Gelbfieberimpfung empfohlen.",
+      "btn_disenar_viaje": "Meine Reise auf WhatsApp gestalten",
+      "btn_consultar_asesor": "Einen Berater auf WhatsApp konsultieren",
+      "btn_volver": "Zurück zum Hauptmenü",
+      "terr_amazonas": "Amazonas (Wurzel · Gleichgewicht)",
+      "terr_macizo": "Kolumbianisches Massiv (Wiedergeburt · Absicht)",
+      "terr_guainia": "Guainía (Liebe · Beziehung)",
+      "terr_sierranevada": "Sierra Nevada (Manifestation)",
+      "terr_pacifico": "Pazifik (Abstammung · Klang)",
+      "terr_putumayo": "Putumayo & Caquetá (Alchemie · Übergang)",
+      "terr_sabanadebogota": "Bogotá & Savanne (Bewusstsein · Klarheit)",
+      "terr_bogota": "Bogotá & Savanne (Bewusstsein · Klarheit)",
+      "terr_antioquia": "Antioquia / Kaffeeregion (Kraft · Vitalidad)",
+      "terr_medellin": "Antioquia / Kaffeeregion (Kraft · Vitalidad)"
+    },
+    "welcome": "Hallo {{nombre}}, willkommen beim Herzschlag der Erde.",
+    "welcome_anon": "Hallo, willkommen beim Herzschlag der Erde.",
+    "cierre": "\n\n✨ Ich spüre deine Schwingung, {{nombre}}... Tippe unten, um mit unserem Team zu sprechen.",
+    "cierre_anon": "\n\n✨ Ich spüre deine Schwingung... Tippe unten, um mit unserem Team zu sprechen.",
+    "placeholder": "Mit dem Frosch sprechen...",
+    "whatsapp": "📲 Direktkontakt über WhatsApp"
+  },
+  "validation": {
+    "error_nombre": "Bitte gib deinen Namen ein.",
+    "error_correo": "Bitte gib deine E-Mail-Adresse ein.",
+    "error_correo_valido": "Bitte gib eine gültige E-Mail-Adresse ein."
+  },
+  "landing_intro": {
+    "titulo": "KOLUMBIEN ALS WELLNESS-KARTE",
+    "subtitulo": "Lebendige Gebiete zum Reisen, je nach deinem Moment",
+    "descripcion": "Bei Ecodestinos verstehen wir, dass sich nicht alle Reisen gleich anfühlen."
+  },
+  "destinos": {
+    "Amazonas": {
+      "title": "AMAZONAS",
+      "archetype": "Wurzel · Gleichgewicht",
+      "desc": "Lädt ein, zum Wesentlichen zurückzukehren im tiefen Dschungel."
+    },
+    "Macizo": {
+      "title": "KOLUMBIANISCHES MASSIV / SAN AGUSTÍN",
+      "archetype": "Wiedergeburt · Absicht",
+      "desc": "Lädt ein, eine Absicht zu säen und Altes loszulassen."
+    },
+    "Guainia": {
+      "title": "GUAINÍA",
+      "archetype": "Liebe · Beziehung",
+      "desc": "Lädt ein zur Begegnung und Pflege heiliger Bande."
+    },
+    "SierraNevada": {
+      "title": "SIERRA NEVADA",
+      "archetype": "Manifestation",
+      "desc": "Lädt ein zu materialisieren und Gestalt zu geben."
+    },
+    "Pacífico": {
+      "title": "PAZIFIK",
+      "archetype": "Abstammung · Klang",
+      "desc": "Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen."
+    },
+    "Pacifico": {
+      "title": "PAZIFIK",
+      "archetype": "Abstammung · Klang",
+      "desc": "Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen."
+    },
+    "Putumayo": {
+      "title": "PUTUMAYO / CAQUETÁ",
+      "archetype": "Alchemie · Übergang",
+      "desc": "Lädt ein, Energie zu transformieren und Ruhe zu finden."
+    },
+    "SabanaDeBogota": {
+      "title": "BOGOTÁ / SAVANNE",
+      "archetype": "Bewusstsein · Klarheit",
+      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+    },
+    "Bogota": {
+      "title": "BOGOTÁ / SAVANNE",
+      "archetype": "Bewusstsein · Klarheit",
+      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+    },
+    "Sabana": {
+      "title": "BOGOTÁ / SAVANNE",
+      "archetype": "Bewusstsein · Klarheit",
+      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+    },
+    "Antioquia": {
+      "title": "ANTIOQUIA / KAFFEEREGION",
+      "archetype": "Kraft · Vitalität",
+      "desc": "Lädt ein, innere Kraft zu aktivieren und in Bewegung zu setzen."
+    },
+    "Medellin": {
+      "title": "ANTIOQUIA / KAFFEEREGION",
+      "archetype": "Kraft · Vitalität",
+      "desc": "Lädt ein, innere Kraft zu aktivieren und in Bewegung zu setzen."
+    }
+  },
+  "landing_outro": {
+    "vision": "🌎 UNSERE VISION\n\nWir glauben, dass Reisen eine Möglichkeit sein kann, sich besser zu erholen, sich inspirieren zu lassen und sich neu zu verbinden."
+  },
+  "introduccion": {
+    "titulo": "Lebendige Gebiete",
+    "texto": "Ein lebendiges Gebiet, in dem Natur und Erinnerung einzigartige Energie bewahren."
+  },
+  "frase_final": "Du wählst kein Reiseziel. Du wählst das Gebiet, das deinen Moment begleitet."
+}

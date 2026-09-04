@@ -2,33 +2,30 @@ import { useTranslation } from "react-i18next";
 import React, { useState } from 'react';
 
 const MAPEO_PREGUNTAS = [
-    // Q0: Sentimiento
-    ['Putumayo', 'Macizo', 'Medellin', 'SierraNevada'], 
-    // Q1: Necesidad
-    ['Amazonas', 'Pacífico', 'Putumayo', 'Bogota'],
-    // Q2: Paisaje
+    // Q0: Sentimiento -> Putumayo, Macizo, Antioquia, SierraNevada
+    ['Putumayo', 'Macizo', 'Antioquia', 'SierraNevada'], 
+    // Q1: Necesidad de la naturaleza -> Amazonas, Pacífico, Putumayo, SabanaDeBogota
+    ['Amazonas', 'Pacífico', 'Putumayo', 'SabanaDeBogota'],
+    // Q2: Paisaje -> Amazonas, SierraNevada, Pacífico, Guainia
     ['Amazonas', 'SierraNevada', 'Pacífico', 'Guainia'],
-    // Q3: Ritmo
-    ['Guainia', 'Macizo', 'Medellin', 'Bogota'],
-    // Q4: Activar
-    ['Amazonas', 'Medellin', 'Pacífico', 'SierraNevada'],
-    // Q5: Bienestar
-    ['SierraNevada', 'Bogota', 'Putumayo', 'Guainia'],
-    // Q6: Formato
+    // Q3: Ritmo de viaje -> Guainia, Macizo, Antioquia, SabanaDeBogota
+    ['Guainia', 'Macizo', 'Antioquia', 'SabanaDeBogota'],
+    // Q4: Activar en ti -> Amazonas, Antioquia, Guainia, SierraNevada
+    ['Amazonas', 'Antioquia', 'Guainia', 'SierraNevada'],
+    // Q5: Tipo de bienestar -> SierraNevada, SabanaDeBogota, Putumayo, Macizo
+    ['SierraNevada', 'SabanaDeBogota', 'Putumayo', 'Macizo'],
+    // Q6: Formato de viaje -> SierraNevada, Pacífico, Amazonas, Macizo
     ['SierraNevada', 'Pacífico', 'Amazonas', 'Macizo']
 ];
 
-// 🎨 PALETA EXACTA SEGÚN TUS IMÁGENES (Rotamos estos 3 colores elegantes)
 const COLORES_VIBRATORIOS = [
-    '#003333', // 1. Verde Petróleo Profundo (Imagen 1)
-    '#550D00', // 2. Rojo Tierra Sangre (Imagen 3)
-    '#003A21', // 3. Verde Bosque Oscuro (Imagen 2)
-    '#003333', // 4. Repite Petróleo
-    '#550D00', // 5. Repite Rojo
-    '#003A21', // 6. Repite Bosque
-    '#003333', // 7. Repite Petróleo
-    '#550D00', // 8. Repite Rojo
-    '#003A21'  // 9. Repite Bosque
+    '#003333',
+    '#550D00',
+    '#003A21',
+    '#003333',
+    '#550D00',
+    '#003A21',
+    '#003333'
 ];
 
 const Quiz = ({ alTerminar }) => {
@@ -47,11 +44,13 @@ const Quiz = ({ alTerminar }) => {
             if (paso < 6) {
                 setPaso(paso + 1);
             } else {
-                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, SierraNevada: 0, Pacífico: 0, Putumayo: 0, Bogota: 0, Medellin: 0 };
+                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, SierraNevada: 0, Pacífico: 0, Putumayo: 0, SabanaDeBogota: 0, Antioquia: 0 };
                 nuevasRespuestas.forEach((idxSeleccion, indicePregunta) => {
                     if (idxSeleccion !== null) {
                         const territorio = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
-                        puntajes[territorio]++;
+                        if (territorio) {
+                            puntajes[territorio] = (puntajes[territorio] || 0) + 1;
+                        }
                     }
                 });
                 const ordenados = Object.entries(puntajes).sort((a, b) => b[1] - a[1]);
@@ -61,7 +60,6 @@ const Quiz = ({ alTerminar }) => {
     };
 
     return (
-        // Fondo controlado por CSS en línea
         <div className="quiz-contenedor fade-in" style={{
             background: "linear-gradient(rgba(15, 38, 25, 0.3), rgba(15, 38, 25, 0.7)), url('/assets/fondo-app-quiz.png')",
             backgroundSize: "cover",
@@ -69,12 +67,9 @@ const Quiz = ({ alTerminar }) => {
             minHeight: "100vh"
         }}>
             <div className="quiz-tarjeta">
-
-                {/* Progreso oculto según solicitud
-                <p className="quiz-progreso" style={{ color: colorActual, opacity: 0.8 }}>
+                <p className="quiz-progreso" style={{ color: colorActual, opacity: 0.85, fontSize: '13px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '12px' }}>
                     {t('quiz.progress', { current: paso + 1 })}
                 </p>
-                */}
 
                 <h2 className="quiz-pregunta">
                     {t(`quiz.q${paso}.question`)}
@@ -87,11 +82,10 @@ const Quiz = ({ alTerminar }) => {
                             className={`quiz-boton-opcion ${respuestas[paso] === index ? 'selected' : ''}`}
                             onClick={() => responder(index)}
                         >
-                            {t('quiz.q' + paso + '.opt' + index)}
+                            {t(`quiz.q${paso}.opt${index}`)}
                         </button>
                     ))}
                 </div>
-
             </div>
         </div>
     );

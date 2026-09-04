@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import React from 'react';
 
-const Bogota = ({ info, onVolver }) => {
+const Antioquia = ({ info, onVolver }) => {
     const { t } = useTranslation();
     if (!info) return null;
 
@@ -12,15 +12,15 @@ const Bogota = ({ info, onVolver }) => {
             <div className="hero-territorio">
                 <img src={info.foto} alt="F" className="foto-cabecera" />
                 <div className="overlay-titulo">
-                    <h1 className="cinzel-font">BOGOTÁ</h1>
-                    <p className="arquetipo-sub">{t("destinos.Bogota.archetype") || info.arquetipo}</p>
+                    <h1 className="cinzel-font">ANTIOQUIA</h1>
+                    <p className="arquetipo-sub">{t("destinos.Antioquia.archetype") || info.arquetipo}</p>
                 </div>
             </div>
 
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
                     <h3>{t("territory.wisdom")}</h3>
-                    <p className="texto-maestro">{t("destinos.Bogota.desc") || info.desc}</p>
+                    <p className="texto-maestro">{t("destinos.Antioquia.desc") || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">
@@ -41,4 +41,4 @@ const Bogota = ({ info, onVolver }) => {
     );
 };
 
-export default Bogota;
+export default Antioquia

@@ -1,0 +1,305 @@
+{
+  "logo_circular": "/assets/logocircular.png",
+  "landing": {
+    "title": "Living Territories",
+    "tagline": "In just 90 seconds discover which territory connects best with you and receive recommendations",
+    "start": "Begin Journey",
+    "skip": "Explore the Map"
+  },
+  "landing_ui": {
+    "title_1": "Living",
+    "title_2": "Territories",
+    "sub_1": "In ",
+    "sub_highlight": "90 seconds",
+    "sub_2": " discover which territory connects with your essence"
+  },
+  "procesando": {
+    "rana": "The Frog is listening to your heartbeat..."
+  },
+  "resultados": {
+    "title": "YOUR JOURNEY RESONATES WITH:",
+    "name_label": "your name:",
+    "email_label": "your email:",
+    "button": "Receive my destinations"
+  },
+  "nav": {
+    "home": "Home",
+    "maloka": "Maloka",
+    "route": "My Route",
+    "community": "Community"
+  },
+  "territory": {
+    "back": "← BACK TO MAP",
+    "wisdom": "Territory Wisdom",
+    "video": "Immersive Video",
+    "gallery": "Memory Gallery"
+  },
+  "app": {
+    "save_success": "Logbook saved successfully to the cloud!",
+    "save_error": "There was an error saving your logbook."
+  },
+  "map": {
+    "alt_text": "Sacred Map of Living Territories",
+    "sierra": {
+      "title": "Sierra Nevada",
+      "location": "Sierra Nevada",
+      "pillars": "Manifestation",
+      "desc": "Invites you to materialize, take intention into action, and shape what has been gestating."
+    },
+    "pacifico": {
+      "title": "Pacific",
+      "location": "Pacific",
+      "pillars": "Lineage · Sound",
+      "desc": "Invites you to listen to memory, recognize our roots, and connect with what precedes us."
+    },
+    "sabanadebogota": {
+      "title": "Bogotá & Savanna",
+      "location": "Bogotá / Savanna",
+      "pillars": "Consciousness · Clarity",
+      "desc": "Invites you to observe, integrate, understand, and choose with greater clarity."
+    },
+    "guainia": {
+      "title": "Guainía",
+      "location": "Guainía",
+      "pillars": "Love · Relation",
+      "desc": "Invites encounter, listening, reciprocity, and caring for sacred bonds."
+    },
+    "macizo": {
+      "title": "Colombian Massif",
+      "location": "Massif / San Agustín",
+      "pillars": "Rebirth · Intention",
+      "desc": "Invites you to plant an intention, release what completed its cycle, and make space for the new."
+    },
+    "putumayo": {
+      "title": "Putumayo",
+      "location": "Putumayo / Caquetá",
+      "pillars": "Alchemy · Transition",
+      "desc": "Invites you to transform energy, deepen inner silence, and settle into a new balance."
+    },
+    "amazonas": {
+      "title": "Amazon",
+      "location": "Amazon",
+      "pillars": "Root · Balance",
+      "desc": "Invites you to return to the essential, recognize what sustains us, and recover belonging and balance."
+    },
+    "antioquia": {
+      "title": "Antioquia",
+      "location": "Antioquia / Coffee Zone",
+      "pillars": "Strength · Vitality",
+      "desc": "Invites you to activate inner strength, transform, and set into motion what needs action."
+    }
+  },
+  "maloka": {
+    "title": "Ancestral Maloka",
+    "workshop1_title": "🎬 Workshops: The Womb of the Massif",
+    "workshop1_desc": "Encounter with the Children of Water (Misak) and clay medicine.",
+    "workshop1_btn": "▶ Play Workshop",
+    "audio1_title": "🎧 Audios: Song of the Whales",
+    "audio1_desc": "Guided meditation for family lineage healing in the Pacific.",
+    "podcast1_title": "🎙️ Podcast: Voice of the Elders",
+    "podcast1_desc": "Kogui and Arhuaco wisdom on life purpose."
+  },
+  "miruta": {
+    "title": "My Travel Logbook",
+    "btn_location": "📍 Territory Location",
+    "btn_offline": "🗺️ Offline Maps (Maps.me)",
+    "record_title": "🎙️ Record what you feel today (or write it)",
+    "record_desc": "Your entries will be saved for post-trip integration.",
+    "placeholder": "Write or record your emotional processes here...",
+    "btn_start_record": "🎙️ Start Recording",
+    "btn_stop_record": "⏹️ Stop Recording",
+    "btn_audio": "🔴 Start Audio (Coming Soon)",
+    "btn_save": "☁️ Save Text",
+    "saving": "Saving to Cloud...",
+    "save_success": "Logbook saved to cloud ☁️",
+    "save_error": "Error saving logbook. Please try again.",
+    "record_not_supported": "Voice transcription is not supported in your browser.",
+    "btn_start_tracking": "📍 Start GPS Tracking",
+    "btn_tracking": "📍 Tracking... ({{count}} pts)"
+  },
+  "comunidades": {
+    "title": "Living Communities",
+    "partners_title": "👥 Strategic Partners",
+    "partners_desc": "Our community participates in decision-making and emotional training.",
+    "transparency_title": "Transparency:",
+    "transparency_desc": "85% of your trip value goes directly to community autonomy.",
+    "gallery": "Testimonials Gallery"
+  },
+  "quiz": {
+    "progress": "STATION {{current}} OF 7",
+    "q0": {
+      "question": "How have you been feeling lately?",
+      "opt0": "Tired or mentally exhausted",
+      "opt1": "In change or transition",
+      "opt2": "Joyful and optimistic",
+      "opt3": "In balance and curious"
+    },
+    "q1": {
+      "question": "What do you need most from nature?",
+      "opt0": "Stability and grounding",
+      "opt1": "Harmony and gentleness",
+      "opt2": "Recovery and integration",
+      "opt3": "Inspiration and fresh air"
+    },
+    "q2": {
+      "question": "Which landscape best accompanies you today?",
+      "opt0": "Moist earth",
+      "opt1": "Breathing the mountain horizon",
+      "opt2": "Sunset by the seashore",
+      "opt3": "Contemplating reflections in serene water"
+    },
+    "q3": {
+      "question": "What travel pace do you prefer?",
+      "opt0": "Quiet, one activity per day",
+      "opt1": "Balanced, two activities per day",
+      "opt2": "Active, several experiences per day",
+      "opt3": "Flexible, depending on the day"
+    },
+    "q4": {
+      "question": "What do you want to activate in yourself on this trip?",
+      "opt0": "Grounding and stability (Root)",
+      "opt1": "Creativity and new beginnings (Creation)",
+      "opt2": "Self-love and bonds (Heart)",
+      "opt3": "Manifestation and vision (Purpose)"
+    },
+    "q5": {
+      "question": "What type of wellness do you want to experience?",
+      "opt0": "Mindful walks in nature",
+      "opt1": "Massages, spa, and wellness rituals",
+      "opt2": "Connection with communities and ancestral practices",
+      "opt3": "Creating with your hands (weaving, ceramics, cooking)"
+    },
+    "q6": {
+      "question": "What travel format do you prefer?",
+      "opt0": "Independent, solo or at my own pace",
+      "opt1": "As a couple",
+      "opt2": "With family",
+      "opt3": "In a group for a retreat or guided experience"
+    }
+  },
+  "agente": {
+    "rana_nombre": "The Frog",
+    "rana_saludo": "Hello {{nombre}}! Welcome to Living Territories. I am The Frog, your guide and guardian. I am here to help you choose the territory that best tunes with your moment. How are you feeling today or what would you like to explore?",
+    "rana_saludo_anon": "Hello! Welcome to Living Territories. I am The Frog, your guide and guardian. I am here to help you choose the territory that best tunes with your moment. How are you feeling today or what would you like to explore?",
+    "menu_territorio": "I want to know a territory",
+    "menu_llevar": "What should I pack?",
+    "menu_salud": "Health or vaccine questions",
+    "menu_asesor": "Talk to an advisor (WhatsApp)",
+    "respuesta_mistica": "Each territory has its own vibrational frequency. To design your customized route and verify availability for this sacred space, I invite you to chat with our team on WhatsApp.",
+    "btn_whatsapp": "Go to WhatsApp",
+    "macizo": "Colombian Massif / San Agustín (Rebirth · Intention): Invites you to plant a deep intention, release what completed its cycle, and open space for the new at the origin of Colombia's sacred waters.",
+    "amazonas": "Amazon (Root · Balance): Invites you to return to the essential, recognize what sustains us, and recover belonging and balance in the world's lung.",
+    "guainia": "Guainía (Love · Relation): Invites encounter, attentive listening, reciprocity, and loving care for bonds between ancient rivers and hills.",
+    "pacifico": "Pacific (Lineage · Sound): Invites listening to the memory of ocean and jungle, recognizing our roots, and connecting with the sound of what precedes us.",
+    "antioquia": "Antioquia / Coffee Zone (Strength · Vitality): Invites activating your inner strength, transforming energy, and moving what requires action and creation.",
+    "sierra": "Sierra Nevada (Manifestation): Invites materializing, taking intention into conscious action, and giving tangible shape to what has been gestating.",
+    "sierranevada": "Sierra Nevada (Manifestation): Invites materializing, taking intention into conscious action, and giving tangible shape to what has been gestating.",
+    "sabanadebogota": "Bogotá / Savanna (Consciousness · Clarity): Invites observing, integrating, understanding your experiences, and choosing your path with mental clarity.",
+    "bogota": "Bogotá / Savanna (Consciousness · Clarity): Invites observing, integrating, understanding your experiences, and choosing your path with mental clarity.",
+    "putumayo": "Putumayo / Caquetá (Alchemy · Transition): Invites transforming personal energy, deepening inner silence, and settling into renewed balance.",
+    "funnel": {
+      "que_llevar_pregunta": "Which territory are you planning to visit?",
+      "que_llevar_consejo": "For your trip we recommend comfortable waterproof footwear, lightweight fast-drying clothing, rain jacket, and biodegradable repellent.",
+      "salud_texto": "Your wellness is our priority. We recommend bringing your regular medications. For jungle areas like Amazon or Putumayo, yellow fever vaccination is suggested.",
+      "btn_disenar_viaje": "Design my trip on WhatsApp",
+      "btn_consultar_asesor": "Consult an advisor on WhatsApp",
+      "btn_volver": "Back to main menu",
+      "terr_amazonas": "Amazon (Root · Balance)",
+      "terr_macizo": "Colombian Massif (Rebirth · Intention)",
+      "terr_guainia": "Guainía (Love · Relation)",
+      "terr_sierranevada": "Sierra Nevada (Manifestation)",
+      "terr_pacifico": "Pacific (Lineage · Sound)",
+      "terr_putumayo": "Putumayo & Caquetá (Alchemy · Transition)",
+      "terr_sabanadebogota": "Bogotá & Savanna (Consciousness · Clarity)",
+      "terr_bogota": "Bogotá & Savanna (Consciousness · Clarity)",
+      "terr_antioquia": "Antioquia / Coffee Zone (Strength · Vitality)",
+      "terr_medellin": "Antioquia / Coffee Zone (Strength · Vitality)"
+    },
+    "welcome": "Hello {{nombre}}, welcome to the heartbeat of the land. What territory or question do you wish to share today?",
+    "welcome_anon": "Hello, welcome to the heartbeat of the land. What territory or question do you wish to share today?",
+    "cierre": "\n\n✨ I feel your vibration, {{nombre}}... If you wish to learn more, tap the button to talk with our team.",
+    "cierre_anon": "\n\n✨ I feel your vibration... If you wish to learn more, tap the button to talk with our team.",
+    "placeholder": "Talk with the frog...",
+    "whatsapp": "📲 Direct WhatsApp contact"
+  },
+  "validation": {
+    "error_nombre": "Please enter your name.",
+    "error_correo": "Please enter your email address.",
+    "error_correo_valido": "Please enter a valid email address."
+  },
+  "landing_intro": {
+    "titulo": "COLOMBIA AS A WELLNESS MAP",
+    "subtitulo": "Living territories to travel according to your current moment",
+    "descripcion": "At Ecodestinos we understand that not all trips feel the same.\nEach territory in Colombia has a different energy and pace.\n\nThis experience map was created to help every traveler discover which territory can do them good today."
+  },
+  "destinos": {
+    "Amazonas": {
+      "title": "AMAZON",
+      "archetype": "Root · Balance",
+      "desc": "Invites returning to the essential, recognizing what sustains us, and recovering belonging and balance in deep jungle."
+    },
+    "Macizo": {
+      "title": "COLOMBIAN MASSIF / SAN AGUSTÍN",
+      "archetype": "Rebirth · Intention",
+      "desc": "Invites planting an intention, releasing what completed its cycle, and opening space for the new."
+    },
+    "Guainia": {
+      "title": "GUAINÍA",
+      "archetype": "Love · Relation",
+      "desc": "Invites encounter, listening, reciprocity, and caring for sacred bonds."
+    },
+    "SierraNevada": {
+      "title": "SIERRA NEVADA",
+      "archetype": "Manifestation",
+      "desc": "Invites materializing, taking intention into action, and shaping what has been gestating."
+    },
+    "Pacífico": {
+      "title": "PACIFIC",
+      "archetype": "Lineage · Sound",
+      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us."
+    },
+    "Pacifico": {
+      "title": "PACIFIC",
+      "archetype": "Lineage · Sound",
+      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us."
+    },
+    "Putumayo": {
+      "title": "PUTUMAYO / CAQUETÁ",
+      "archetype": "Alchemy · Transition",
+      "desc": "Invites transforming energy, deepening inner silence, and settling into a new balance."
+    },
+    "SabanaDeBogota": {
+      "title": "BOGOTÁ / SAVANNA",
+      "archetype": "Consciousness · Clarity",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+    },
+    "Bogota": {
+      "title": "BOGOTÁ / SAVANNA",
+      "archetype": "Consciousness · Clarity",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+    },
+    "Sabana": {
+      "title": "BOGOTÁ / SAVANNA",
+      "archetype": "Consciousness · Clarity",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+    },
+    "Antioquia": {
+      "title": "ANTIOQUIA / COFFEE ZONE",
+      "archetype": "Strength · Vitality",
+      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action."
+    },
+    "Medellin": {
+      "title": "ANTIOQUIA / COFFEE ZONE",
+      "archetype": "Strength · Vitality",
+      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action."
+    }
+  },
+  "landing_outro": {
+    "vision": "🌎 OUR VISION\n\nWe believe that traveling can also be a way to rest better, get inspired, reconnect, create, share, and feel more present."
+  },
+  "introduccion": {
+    "titulo": "Living Territories",
+    "texto": "In Ecodestinos, a destination is a living territory where nature and ancestral memory sustain unique energy."
+  },
+  "frase_final": "You don't choose a destination. You choose the territory that accompanies your moment."
+}

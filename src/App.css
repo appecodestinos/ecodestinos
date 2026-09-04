@@ -809,13 +809,10 @@ h4 {
   width: 100%;
   max-width: 430px;
   height: 100vh;
-  /* Obliga a que el celular no mida más que la pantalla */
   position: relative;
-  /* Base para el anclaje de la nav */
   background-color: var(--crema-fondo);
   margin: 0 auto;
   overflow: hidden;
-  /* Evita que el celular entero haga scroll */
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -824,29 +821,25 @@ h4 {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  /* Obliga a medir solo la pantalla */
   overflow: hidden;
-  /* Evita que la app entera se mueva */
   position: relative;
 }
 
 .area-contenido-app {
   flex: 1;
-  /* Estira el centro para ocupar el espacio */
   overflow-y: auto;
-  /* Permite el scroll SOLO aquí dentro */
+  padding-bottom: 75px;
+  /* Espacio para no ocultar contenido detrás de la nav bar */
 }
 
-/* 4. La Nav Bar anclada al fondo del contenedor anterior */
+/* 4. La Nav Bar anclada al fondo */
 .barra-navegacion {
   position: absolute;
-  /* Se pega al fondo de .app-container */
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   height: 75px;
-  /* Altura fija para la barra */
   background-image: url('./assets/fondo-app-home.png') !important;
   background-size: cover !important;
   background-position: center !important;
@@ -875,10 +868,57 @@ h4 {
 }
 
 /* =========================================
-   ESTILOS DEL HOME: MAPA FIJO Y DESTINOS 
+   ESTILOS DEL HOME: MAPA ENMARCADO Y DESTINOS 
    ========================================= */
 
-/* Contenedor que agrupa el mapa y la lista */
+.seccion-mapa-enmarcada {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.franja-blanca-top,
+.franja-blanca-bottom {
+  width: 100%;
+  height: 25px;
+  background-color: #ffffff !important;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.contenedor-home-mapa-total {
+  position: relative;
+  width: 100%;
+  background-color: #f4f1ea;
+}
+
+.mapa-anclado-fondo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Animación suave para la burbuja flotante del mapa */
+.fade-in {
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -120%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -130%);
+  }
+}
+
+/* Contenedor flexible de destinos */
 .contenedor-home-flexible {
   display: flex;
   flex-direction: column;
@@ -886,52 +926,22 @@ h4 {
   position: relative;
 }
 
-/* El mapa actúa como un "techo" que no se mueve */
-.mapa-fijo-superior {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #FDFBF6;
-  /* Fondo crema para que los textos no se trasluzcan al subir */
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #E5E7EB;
-  /* Línea sutil elegante */
-}
-
-.titulo-seccion-fijo {
-  text-align: center;
-  color: #064E3B;
-  /* Verde profundo */
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-/* Área donde los destinos se deslizan */
 .lista-destinos-scroll {
   padding: 20px 15px;
 }
 
-/* Diseño de las tarjetas de los 7 territorios */
 .tarjeta-destino-info {
   background-color: #FFFFFF;
   margin-bottom: 18px;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-
-  /* El color exacto de la línea izquierda se lo da el App.js, 
-     aquí solo definimos el grosor y el estilo de la línea */
   border-left-width: 6px;
   border-left-style: solid;
-
   text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Efecto al tocar o pasar el mouse por la tarjeta */
 .tarjeta-destino-info:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
@@ -942,19 +952,16 @@ h4 {
   font-size: 18px;
   font-weight: 700;
   color: #1F2937;
-  /* Gris muy oscuro, casi negro, para lectura clara */
 }
 
 .tarjeta-destino-info p {
   margin: 0;
   font-size: 14.5px;
   color: #4B5563;
-  /* Gris medio elegante */
   line-height: 1.6;
 }
 
-/* Asegura que los iconos en el mapa no se desborden */
-.mapa-wrapper button img {
+.pin-destino img {
   width: 100% !important;
   height: 100% !important;
   object-fit: contain !important;

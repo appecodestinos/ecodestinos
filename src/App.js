@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes } from "firebase/storage";
 import { useTranslation } from 'react-i18next';
-import { db, storage } from "./firebase";
+import { db } from "./firebase";
 import './App.css';
 import Mapa from './Mapa';
 import Quiz from './Quiz';
@@ -14,71 +13,71 @@ import Macizo from './Macizo';
 import Guainia from './Guainia';
 import SierraNevada from './SierraNevada';
 import Pacifico from './Pacifico';
-import Bogota from './Bogota';
-import Medellin from './Medellin';
+import SabanaDeBogota from './SabanaDeBogota';
+import Antioquia from './Antioquia';
 import MiRuta from './MiRuta';
 
-// 1. EL MAPA DE SABIDURÍA (Con rutas de fotos, colores vivos y nueva multimedia)
 const INFO_DESTINOS = {
   Amazonas: {
-    titulo: "Raíz Viva", arquetipo: "Ancestralidad", proceso: "Equilibrio y Arraigo", color: "rgba(40, 114, 38, 1)",
-    desc: "Tierra del pulmón verde. Conectamos con el Mundo de Adentro (Wiwa) y restauramos el equilibrio en la Maloka con médicos tradicionales.",
+    titulo: "Amazonía", arquetipo: "Raíz · Equilibrio", proceso: "Equilibrio y Arraigo", color: "rgba(40, 114, 38, 1)",
+    desc: "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio en la selva profunda.",
     foto: "/assets/amazonastarjeta.jpg",
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
     galeria: ["/assets/amz1.jpg", "/assets/amz2.jpg", "/assets/amz3.jpg"]
   },
   Macizo: {
-    titulo: "Útero de la Tierra", arquetipo: "Nutrición", proceso: "Gestación y Transformación", color: "rgba(138, 100, 240, 1)",
-    desc: "San Agustín y Silvia. Donde nace la estrella fluvial (Río Magdalena). Custodiado por los volcanes Puracé y Sotará. Sabiduría Misak y arcilla.",
+    titulo: "Macizo / San Agustín", arquetipo: "Renacer · Intención", proceso: "Gestación y Transformación", color: "rgba(138, 100, 240, 1)",
+    desc: "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo en el origen de las aguas.",
     foto: "/assets/macizotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/mac1.jpg", "/assets/mac2.jpg"]
   },
   Guainia: {
-    titulo: "Aguas de Unidad", arquetipo: "Conciliación", proceso: "Integración y Unidad", color: "hsla(130, 92%, 29%, 1.00)",
-    desc: "Los Cerros de Mavecure son la Tulpa Gigante de 3 piedras. Rocas más antiguas del planeta para unir los fuegos sagrados de los pueblos.",
+    titulo: "Guainía", arquetipo: "Amor · Relación", proceso: "Integración y Unidad", color: "hsla(130, 92%, 29%, 1.00)",
+    desc: "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos sagrados entre cerros milenarios.",
     foto: "/assets/guainiatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/gua1.jpg", "/assets/gua2.jpg"]
   },
   SierraNevada: {
-    titulo: 'Corazón Manifestador',
-    arquetipo: 'Despertar',
-    proceso: "Manifestación y Propósito",
-    color: "#8d0f6eff",
-    desc: "Sierra Nevada. Abrir el corazón y ordenar el pensamiento con los abuelos Koguis y Arhuacos para diseñar nuestra misión de vida.",
+    titulo: "Sierra Nevada", arquetipo: "Manifestación", proceso: "Manifestación y Propósito", color: "#8d0f6eff",
+    desc: "Invita a materializar, llevar la intención a la acción y dar forma tangible a aquello que viene gestándose.",
     foto: "/assets/sierranevadatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"],
     destacado: true
   },
   Pacífico: {
-    titulo: "Memoria del Océano", arquetipo: "Memoria", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
-    desc: "El parir de las ballenas Yubarta. Selva, mar limpio y la mezcla mágica de culturas Afro y Embera para equilibrar e integrar la historia familiar.",
+    titulo: "Pacífico", arquetipo: "Linaje · Sonido", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
+    desc: "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede.",
     foto: "/assets/pacificotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/pac1.jpg", "/assets/pac2.jpg"]
   },
   Putumayo: {
-    titulo: "Bosque Medicina", arquetipo: "Alquimia", proceso: "Transición e Integración", color: "rgba(0, 61, 0, 1)",
-    desc: "Territorio del Jaguar. Transformación mística en el silencio sonoro de la selva agreste con plantas de poder.",
+    titulo: "Putumayo / Caquetá", arquetipo: "Alquimia · Transición", proceso: "Transición e Integración", color: "rgba(0, 61, 0, 1)",
+    desc: "Invita a transformar la energía, profundizar en el silencio interior y asentarse en un nuevo equilibrio.",
     foto: "/assets/putumayotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/put1.jpg", "/assets/put2.jpg"]
   },
-  Bogota: {
-    titulo: "Círculo de Integración", arquetipo: "Sabiduría", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
-    desc: "Laguna de Guatavita. El vientre de Bachué donde nació la gente. Encontramos el Oro del Alma para brillar en nuestro entorno.",
+  SabanaDeBogota: {
+    titulo: "Bogotá / Sabana", arquetipo: "Conciencia · Claridad", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
+    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad de pensamiento.",
     foto: "/assets/bogotatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
   },
-  Medellin: {
-    titulo: 'Expansión Creativa',
-    arquetipo: 'Acción',
-    proceso: "Acción y Movimiento",
-    color: "#E65100",
-    desc: "Ideal para activar proyectos, salir de la pausa y transformar la realidad a través del movimiento.",
+  Bogota: {
+    titulo: "Bogotá / Sabana", arquetipo: "Conciencia · Claridad", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
+    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad de pensamiento.",
+    foto: "/assets/bogotatarjeta.jpg",
+    video: "URL_VIDEO",
+    galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
+  },
+  Antioquia: {
+    titulo: "Antioquia / Zona Cafetera", arquetipo: "Fuerza · Vitalidad", proceso: "Acción y Movimiento", color: "#E65100",
+    desc: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción y creación.",
     foto: "/assets/medellintarjeta.jpg",
     video: "URL_VIDEO",
     galeria: [],
@@ -92,7 +91,6 @@ export default function App() {
   const [pantallaActiva, setPantallaActiva] = useState('landing');
   const [seccionInterna, setSeccionInterna] = useState('home');
   const [resultadosQuiz, setResultadosQuiz] = useState([]);
-  const [nombreUsuario, setNombreUsuario] = useState('');
   const [inputNombre, setInputNombre] = useState('');
   const [inputCorreo, setInputCorreo] = useState('');
   const [erroresValidacion, setErroresValidacion] = useState({ nombre: '', correo: '' });
@@ -101,23 +99,16 @@ export default function App() {
   const [isError, setIsError] = useState(false);
   const [mensajeErrorDetallado, setMensajeErrorDetallado] = useState('');
 
-  // ESTADOS NUEVOS PARA LA NAVEGACIÓN MAPA -> TERRITORIO
   const [territorioActivo, setTerritorioActivo] = useState(null);
-  const [cargandoDestino, setCargandoDestino] = useState(false);
+  const [flashActivo, setFlashActivo] = useState(false);
 
-  // ESTADOS DE BITÁCORA
-  const [bitacoraTexto, setBitacoraTexto] = useState('');
-  const [subiendoArchivo, setSubiendoArchivo] = useState(false);
-
-  // 2. RECUPERAR MEMORIA
   useEffect(() => {
     const n = localStorage.getItem('ecoNombre');
     const c = localStorage.getItem('ecoEmail');
-    if (n) { setNombreUsuario(n); setInputNombre(n); }
+    if (n) { setInputNombre(n); }
     if (c) setInputCorreo(c);
   }, []);
 
-  // 3. CAPTURA DE LEADS
   const capturarLead = async (nombre, correo, destinos) => {
     console.log("🐸 Lead para Firebase:", { nombre, correo, destinos, fecha: new Date().toLocaleString() });
     try {
@@ -138,12 +129,17 @@ export default function App() {
     let errores = { nombre: '', correo: '' };
     let valido = true;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (inputNombre.trim() === '') {
       errores.nombre = t('validation.error_nombre', { defaultValue: 'Por favor, ingresa tu nombre.' });
       valido = false;
     }
     if (inputCorreo.trim() === '') {
       errores.correo = t('validation.error_correo', { defaultValue: 'Por favor, ingresa tu correo electrónico.' });
+      valido = false;
+    } else if (!emailRegex.test(inputCorreo.trim())) {
+      errores.correo = t('validation.error_correo_valido', { defaultValue: 'Por favor, ingresa un correo electrónico válido.' });
       valido = false;
     }
 
@@ -154,68 +150,67 @@ export default function App() {
       setIsError(false);
       setMensajeErrorDetallado('');
       try {
-        capturarLead(inputNombre, inputCorreo, resultadosQuiz);
+        await capturarLead(inputNombre.trim(), inputCorreo.trim(), resultadosQuiz);
 
         const response = await fetch('/api/submitLead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            nombre: inputNombre,
-            correo: inputCorreo,
+            nombre: inputNombre.trim(),
+            correo: inputCorreo.trim(),
             destinos: resultadosQuiz
           })
         });
 
+        let resData = null;
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          resData = await response.json().catch(() => null);
+        }
+
         if (response.ok) {
-          const resData = await response.json();
           console.log("🟢 [Frontend] Lead y correo enviados con éxito:", resData);
           setIsSuccess(true);
-          setNombreUsuario(inputNombre);
-          localStorage.setItem('ecoNombre', inputNombre);
-          localStorage.setItem('ecoEmail', inputCorreo);
+          localStorage.setItem('ecoNombre', inputNombre.trim());
+          localStorage.setItem('ecoEmail', inputCorreo.trim());
         } else {
-          const errorPayload = await response.json().catch(() => ({ message: 'Respuesta no legible' }));
-          console.error(`🔴 [Frontend] Error HTTP ${response.status} en /api/submitLead:`, errorPayload);
-          const msg = errorPayload.brevoError?.message || errorPayload.message || '';
-          setMensajeErrorDetallado(msg);
-          setIsError(true);
+          console.warn(`⚠️ [Frontend] /api/submitLead status ${response.status}:`, resData);
+          const msg = resData?.brevoError?.message || resData?.message || '';
+
+          if (response.status === 404) {
+            console.log("🟢 [Frontend] Lead registrado en Firebase (API local 404). Permitiendo entrada al mapa.");
+            setIsSuccess(true);
+            localStorage.setItem('ecoNombre', inputNombre.trim());
+            localStorage.setItem('ecoEmail', inputCorreo.trim());
+          } else {
+            setMensajeErrorDetallado(msg);
+            setIsError(true);
+          }
         }
       } catch (error) {
-        console.error("🔴 [Frontend] Excepción de red al enviar el correo:", error);
-        setMensajeErrorDetallado(error.toString());
-        setIsError(true);
+        console.error("🔴 [Frontend] Excepción al enviar el correo:", error);
+        setIsSuccess(true);
+        localStorage.setItem('ecoNombre', inputNombre.trim());
+        localStorage.setItem('ecoEmail', inputCorreo.trim());
       } finally {
         setIsLoading(false);
       }
     }
   };
 
-  // FUNCIÓN MAESTRA DE VIAJE (Los 5 segundos)
   const iniciarViaje = (nombreLugar) => {
     setTerritorioActivo(nombreLugar);
-    setCargandoDestino(true);
+    setFlashActivo(true);
 
     setTimeout(() => {
-      setCargandoDestino(false);
       setSeccionInterna('detalle-territorio');
-    }, 5000);
+      setFlashActivo(false);
+    }, 600);
   };
 
-  const guardarBitacora = async () => {
-    if (!bitacoraTexto.trim()) return;
-    setSubiendoArchivo(true);
-    try {
-      const timestamp = Date.now();
-      const archivoRef = ref(storage, `bitacoras/${nombreUsuario || 'anon'}_${timestamp}.txt`);
-      const blob = new Blob([bitacoraTexto], { type: "text/plain" });
-      await uploadBytes(archivoRef, blob);
-      alert(t('app.save_success'));
-      setBitacoraTexto('');
-    } catch (error) {
-      console.error("Error al subir bitácora", error);
-      alert(t('app.save_error'));
-    }
-    setSubiendoArchivo(false);
+  const volverAlMapa = () => {
+    setSeccionInterna('home');
+    setTerritorioActivo(null);
   };
 
   const renderizarPantalla = () => {
@@ -290,18 +285,20 @@ export default function App() {
             <div className="contenedor-tarjetas grid-resultados">
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
-                // Obtener datos traducidos
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
-                const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : clave;
+                const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : (clave === 'SabanaDeBogota' || clave === 'Bogota' ? 'Bogotá / Sabana' : (clave === 'Antioquia' || clave === 'Medellin' ? 'Antioquia / Zona Cafetera' : (clave === 'Macizo' ? 'Macizo / San Agustín' : clave)));
                 return (
                   <div key={index} className="result-card-container">
                     {info.foto && (
                       <img src={info.foto} alt={tInfo.title || info.titulo} className="result-card-image" />
                     )}
-                    
+
                     <div className="header-destino">
-                      <h4 className="destino-geografico">{nombreDestino}</h4> 
+                      <h4 className="destino-geografico">{nombreDestino}</h4>
                       <h1 className="titulo-premium">{tInfo.title || info.titulo}</h1>
+                      {tInfo.archetype && (
+                        <p style={{ color: '#F39C12', fontWeight: 'bold', fontSize: '14px', margin: '4px 0 8px 0' }}>{tInfo.archetype}</p>
+                      )}
                     </div>
 
                     <p className="descripcion-premium">{tInfo.desc || info.desc}</p>
@@ -356,42 +353,25 @@ export default function App() {
 
             <div className="area-contenido-app">
 
-              {/* --- 1. SECCIÓN HOME (MAPA GIGANTE INMERSIVO) --- */}
               {seccionInterna === 'home' && (
                 <div className="contenedor-home-mapa-total">
                   <Mapa onMarkerClick={iniciarViaje} />
-
-                  {/* BURBUJA DE TRANSICIÓN MÍSTICA (5 SEGUNDOS) */}
-                  {cargandoDestino && (
-                    <div className="burbuja-transicion fade-in">
-                      <div className="halo-energia" style={{ borderColor: INFO_DESTINOS[territorioActivo].color }}></div>
-                      <h2 style={{ color: INFO_DESTINOS[territorioActivo].color }}>
-                        {territorioActivo.toUpperCase()}
-                      </h2>
-                      <p>{t(`destinos.${territorioActivo}.desc`)}</p>
-                      <div className="barra-carga-ancestral">
-                        <div className="progreso" style={{ backgroundColor: INFO_DESTINOS[territorioActivo].color }}></div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
 
-              {/* --- 2. SECCIÓN DETALLE TERRITORIO (MODULARIZADA) --- */}
               {seccionInterna === 'detalle-territorio' && territorioActivo && (
                 <>
-                  {territorioActivo === 'Amazonas' && <Amazonas info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Putumayo' && <Putumayo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Macizo' && <Macizo info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Guainia' && <Guainia info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'SierraNevada' && <SierraNevada info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Pacífico' && <Pacifico info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Bogota' && <Bogota info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
-                  {territorioActivo === 'Medellin' && <Medellin info={INFO_DESTINOS[territorioActivo]} onVolver={() => setSeccionInterna('home')} />}
+                  {territorioActivo === 'Amazonas' && <Amazonas info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'Putumayo' && <Putumayo info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'Macizo' && <Macizo info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'Guainia' && <Guainia info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'SierraNevada' && <SierraNevada info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'Pacífico' && <Pacifico info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'SabanaDeBogota' && <SabanaDeBogota info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
+                  {territorioActivo === 'Antioquia' && <Antioquia info={INFO_DESTINOS[territorioActivo]} onVolver={volverAlMapa} />}
                 </>
               )}
 
-              {/* --- 3. SECCIÓN MALOKA (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'maloka' && (
                 <div className="fade-in p-20">
                   <h2 style={{ color: '#064E3B' }}>{t('maloka.title')}</h2>
@@ -411,10 +391,8 @@ export default function App() {
                 </div>
               )}
 
-              {/* --- 4. SECCIÓN MI RUTA (CON SPEECH TO TEXT) --- */}
               {seccionInterna === 'miruta' && <MiRuta />}
 
-              {/* --- 5. SECCIÓN COMUNIDADES (TUS LÍNEAS ORIGINALES RESTAURADAS) --- */}
               {seccionInterna === 'comunidades' && (
                 <div className="fade-in p-20">
                   <h2 style={{ color: '#064E3B' }}>{t('comunidades.title')}</h2>
@@ -430,6 +408,7 @@ export default function App() {
                   </div>
                 </div>
               )}
+
             </div>
 
             <nav className="barra-navegacion">
@@ -446,17 +425,37 @@ export default function App() {
                 <img src="/assets/comunidades.png" alt="c" className="icono-nav" /><span>{t('nav.community')}</span>
               </button>
             </nav>
+
+            <Agente nombre={inputNombre} />
+
+            {flashActivo && (
+              <div style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'white',
+                zIndex: 99999,
+                pointerEvents: 'none',
+                animation: 'efectoFlash 0.8s ease-out forwards'
+              }}>
+                <style>
+                  {`@keyframes efectoFlash { 0% { opacity: 1; } 100% { opacity: 0; } }`}
+                </style>
+              </div>
+            )}
           </div>
         );
+
       default:
         return null;
     }
   };
 
   return (
-    <div className="contenedor-maestro">
+    <div className="App">
       {renderizarPantalla()}
-      {pantallaActiva === 'app' && <Agente nombre={nombreUsuario} />}
       <Analytics />
     </div>
   );

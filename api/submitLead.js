@@ -3,11 +3,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
-  const { nombre, correo, destinos } = req.body;
+  const { nombre, correo, destinos } = req.body || {};
 
   if (!nombre || !correo || !destinos) {
     console.error("🔴 [submitLead] Faltan campos obligatorios:", { nombre, correo, destinos });
-    return res.status(400).json({ message: 'Faltan campos obligatorios' });
+    return res.status(400).json({ message: 'Faltan campos obligatorios (nombre, correo o destinos).' });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(correo.trim())) {
+    console.error("🔴 [submitLead] Correo con formato inválido:", correo);
+    return res.status(400).json({ message: 'El correo electrónico proporcionado no es válido.' });
   }
 
   const apiKey = process.env.BREVO_API_KEY;
@@ -25,12 +31,12 @@ export default async function handler(req, res) {
   let contactResult = null;
   let emailResult = null;
 
-  // 1. Crear o actualizar contacto en la lista de contactos de Brevo (/v3/contacts)
+  // 1. Crear o actualizar contacto en Brevo (/v3/contacts)
   try {
     const contactPayload = {
-      email: correo,
+      email: correo.trim(),
       attributes: {
-        NOMBRE: nombre,
+        NOMBRE: nombre.trim(),
         DESTINOS: stringDestinos
       },
       updateEnabled: true
@@ -48,13 +54,18 @@ export default async function handler(req, res) {
       body: JSON.stringify(contactPayload)
     });
 
-    let contactData = await contactResponse.json();
+    let contactText = await contactResponse.text();
+    let contactData;
+    try {
+      contactData = JSON.parse(contactText);
+    } catch (e) {
+      contactData = { rawResponse: contactText };
+    }
 
     if (!contactResponse.ok) {
-      console.warn(`⚠️ [submitLead] Primer intento con atributos en /v3/contacts falló (Status ${contactResponse.status}):`, contactData);
+      console.warn(`⚠️ [submitLead] Primer intento en /v3/contacts falló (Status ${contactResponse.status}):`, contactData);
       
-      // Fallback: si falla por atributos no definidos en Brevo, reintentar solo con email
-      const fallbackPayload = { email: correo, updateEnabled: true };
+      const fallbackPayload = { email: correo.trim(), updateEnabled: true };
       console.log("🟡 [submitLead] Reintentando registro de contacto solo con email...", fallbackPayload);
       
       const fallbackResponse = await fetch('https://api.brevo.com/v3/contacts', {
@@ -66,7 +77,14 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify(fallbackPayload)
       });
-      const fallbackData = await fallbackResponse.json();
+
+      let fallbackText = await fallbackResponse.text();
+      let fallbackData;
+      try {
+        fallbackData = JSON.parse(fallbackText);
+      } catch (e) {
+        fallbackData = { rawResponse: fallbackText };
+      }
       
       if (!fallbackResponse.ok) {
         console.error(`🔴 [submitLead] Fallback en Brevo /v3/contacts también falló (Status ${fallbackResponse.status}):`, fallbackData);
@@ -93,8 +111,8 @@ export default async function handler(req, res) {
     },
     to: [
       {
-        email: correo,
-        name: nombre
+        email: correo.trim(),
+        name: nombre.trim()
       }
     ],
     bcc: [
@@ -135,14 +153,20 @@ export default async function handler(req, res) {
       body: JSON.stringify(emailPayload)
     });
 
-    const emailData = await emailResponse.json();
+    let emailText = await emailResponse.text();
+    let emailData;
+    try {
+      emailData = JSON.parse(emailText);
+    } catch (e) {
+      emailData = { rawResponse: emailText };
+    }
 
     if (!emailResponse.ok) {
       console.error(`🔴 [submitLead] Error enviando correo Brevo /v3/smtp/email (Status ${emailResponse.status}):`, emailData);
       emailResult = { success: false, status: emailResponse.status, error: emailData };
 
       return res.status(emailResponse.status || 500).json({
-        message: 'Error en la API de Brevo al enviar correo',
+        message: emailData.message || 'Error en la API de Brevo al enviar correo',
         status: emailResponse.status,
         brevoError: emailData,
         contactResult
