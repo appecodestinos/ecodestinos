@@ -73,8 +73,8 @@
     "putumayo": {
       "title": "Putumayo",
       "location": "Putumayo / Caquetá",
-      "pillars": "Alchemy · Transition",
-      "desc": "Invites you to transform energy, deepen inner silence, and settle into a new balance."
+      "pillars": "Medicine · Harmony",
+      "desc": "Invites you to clear your gaze, forgive the past, and restore harmony of the spirit."
     },
     "amazonas": {
       "title": "Amazon",
@@ -236,62 +236,86 @@
     "Amazonas": {
       "title": "AMAZON",
       "archetype": "Root · Balance",
-      "desc": "Invites returning to the essential, recognizing what sustains us, and recovering belonging and balance in deep jungle."
+      "concepto_corto": "Invites returning to the essential, recognizing what sustains us, and recovering belonging and balance.",
+      "desc": "Invites returning to the essential, recognizing what sustains us, and recovering belonging and balance.",
+      "sabiduria_larga": "The deep jungle of the Amazon is the living web where the memory of the planet beats. Entering its density and navigating its ancestral rivers, this territory invites you to return to the essential, strip away the superfluous, and recognize the quiet strength of what truly sustains you. In the jungle, balance is not static, but a continuous dance of interconnection and reciprocity. It is the sacred space to reclaim belonging to the great web of life and realign from within."
     },
     "Macizo": {
       "title": "COLOMBIAN MASSIF / SAN AGUSTÍN",
       "archetype": "Rebirth · Intention",
-      "desc": "Invites planting an intention, releasing what completed its cycle, and opening space for the new."
+      "concepto_corto": "Invites planting an intention, releasing what completed its cycle, and opening space for the new.",
+      "desc": "Invites planting an intention, releasing what completed its cycle, and opening space for the new.",
+      "sabiduria_larga": "In the cradle of Colombia's great rivers, the Colombian Massif—guarded by the carved stone statues of San Agustín—is a sacred portal of origin and transformation. Walking these lands is a call to plant a deep intention at the core of your being, release with gratitude what has completed its cycle, and allow vital energy to flow clear once more. Here, the earth teaches that to be reborn one must return to the source, honor the silence, and open space courageously for the new that wishes to bloom."
     },
     "Guainia": {
       "title": "GUAINÍA",
       "archetype": "Love · Relation",
-      "desc": "Invites encounter, listening, reciprocity, and caring for sacred bonds."
+      "concepto_corto": "Invites encounter, listening, reciprocity, and caring for sacred bonds.",
+      "desc": "Invites encounter, listening, reciprocity, and caring for sacred bonds.",
+      "sabiduria_larga": "Between the majestic Mavecure Hills and rivers of mysterious waters, Guainía guards the vibration of genuine encounter and deep communion. Its infinite horizons and mystical stillness invite respectful approach toward others, attentive listening of the heart, and cultivating love in all its expressions. In this territory of ancient waters, you will learn reciprocity, healing of bonds, and the beauty of relating from transparency, empathy, and absolute presence."
     },
     "SierraNevada": {
       "title": "SIERRA NEVADA",
       "archetype": "Manifestation",
-      "desc": "Invites materializing, taking intention into action, and shaping what has been gestating."
+      "concepto_corto": "Invites materializing, taking intention into action, and shaping what has been gestating.",
+      "desc": "Invites materializing, taking intention into action, and shaping what has been gestating.",
+      "sabiduria_larga": "The great sacred mountain by the sea is a natural temple of organizing thought and high spiritual frequency. Sierra Nevada invites you to materialize your highest visions, take intention kept in the spirit into concrete action on the earthly plane, and give real shape to what has been gestating within. From snowy peaks to Caribbean shores, this territory teaches the responsibility of manifesting with purpose, coherence, and profound respect for life."
     },
     "Pacífico": {
       "title": "PACIFIC",
       "archetype": "Lineage · Sound",
-      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us."
+      "concepto_corto": "Invites listening to memory, recognizing our roots, and connecting with what precedes us.",
+      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us.",
+      "sabiduria_larga": "Where the dense jungle embraces the wild ocean, the Colombian Pacific rumbles with the force of primordial sound and whale song. This territory invites you to listen to the living memory that lives in your bones, recognize the wisdom of your roots, and honor the generations that came before you. Through the rhythm of its drums, the power of its tides, and the medicine of the sea, the Pacific reconnects the traveler with deep joy, ancestral resilience, and their own voice."
     },
     "Pacifico": {
       "title": "PACIFIC",
       "archetype": "Lineage · Sound",
-      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us."
+      "concepto_corto": "Invites listening to memory, recognizing our roots, and connecting with what precedes us.",
+      "desc": "Invites listening to memory, recognizing our roots, and connecting with what precedes us.",
+      "sabiduria_larga": "Where the dense jungle embraces the wild ocean, the Colombian Pacific rumbles with the force of primordial sound and whale song. This territory invites you to listen to the living memory that lives in your bones, recognize the wisdom of your roots, and honor the generations that came before you. Through the rhythm of its drums, the power of its tides, and the medicine of the sea, the Pacific reconnects the traveler with deep joy, ancestral resilience, and their own voice."
     },
     "Putumayo": {
       "title": "PUTUMAYO / CAQUETÁ",
-      "archetype": "Alchemy · Transition",
-      "desc": "Invites transforming energy, deepening inner silence, and settling into a new balance."
+      "archetype": "Medicine · Harmony",
+      "concepto_corto": "Invites you to clear your gaze, forgive the past, and restore harmony of the spirit.",
+      "desc": "Invites you to clear your gaze, forgive the past, and restore harmony of the spirit.",
+      "sabiduria_larga": "At the meeting of the Andean mountains and Amazonian plains, Putumayo holds the secret of plant medicine and deep transformation of being. Its crystal rivers, sacred waterfalls, and wise elders invite you to clear your gaze, release old burdens, and restore harmony in all dimensions of your existence. It is a territory of alchemy and revelation, where the traveler immerses in a renewal experience to return to center in alignment with the soul."
     },
     "SabanaDeBogota": {
       "title": "BOGOTÁ / SAVANNA",
       "archetype": "Consciousness · Clarity",
-      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+      "concepto_corto": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "sabiduria_larga": "Under the embrace of mountain air, frailejones, and ancestral wetlands, the Savanna of Bogotá is the high plateau where the mind finds height to observe with perspective. This place invites you to take a reflective pause, look above daily hurry, and integrate your experiences with lucidity. Between guardian hills and sacred lagoons, high plateau energy promotes mental clarity, serene discernment, and conscious decision-making."
     },
     "Bogota": {
       "title": "BOGOTÁ / SAVANNA",
       "archetype": "Consciousness · Clarity",
-      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+      "concepto_corto": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "sabiduria_larga": "Under the embrace of mountain air, frailejones, and ancestral wetlands, the Savanna of Bogotá is the high plateau where the mind finds height to observe with perspective. This place invites you to take a reflective pause, look above daily hurry, and integrate your experiences with lucidity. Between guardian hills and sacred lagoons, high plateau energy promotes mental clarity, serene discernment, and conscious decision-making."
     },
     "Sabana": {
       "title": "BOGOTÁ / SAVANNA",
       "archetype": "Consciousness · Clarity",
-      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity."
+      "concepto_corto": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "desc": "Invites observing, integrating, understanding, and choosing with greater clarity.",
+      "sabiduria_larga": "Under the embrace of mountain air, frailejones, and ancestral wetlands, the Savanna of Bogotá is the high plateau where the mind finds height to observe with perspective. This place invites you to take a reflective pause, look above daily hurry, and integrate your experiences with lucidity. Between guardian hills and sacred lagoons, high plateau energy promotes mental clarity, serene discernment, and conscious decision-making."
     },
     "Antioquia": {
       "title": "ANTIOQUIA / COFFEE ZONE",
       "archetype": "Strength · Vitality",
-      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action."
+      "concepto_corto": "Invites activating inner strength, transforming, and putting into motion what needs action.",
+      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action.",
+      "sabiduria_larga": "Amid standing mountains, green valleys, and scents of fertile land, this territory embodies the spirit of transformation and resilience. Antioquia and the Coffee Region invite you to activate inner strength, shake off stagnation, and set into dynamic motion what requires conscious action in your life. The mountain energy and landscape vitality awaken vital drive, renewing your ability to build dreams, overcome challenges, and bloom with enthusiasm."
     },
     "Medellin": {
       "title": "ANTIOQUIA / COFFEE ZONE",
       "archetype": "Strength · Vitality",
-      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action."
+      "concepto_corto": "Invites activating inner strength, transforming, and putting into motion what needs action.",
+      "desc": "Invites activating inner strength, transforming, and putting into motion what needs action.",
+      "sabiduria_larga": "Amid standing mountains, green valleys, and scents of fertile land, this territory embodies the spirit of transformation and resilience. Antioquia and the Coffee Region invite you to activate inner strength, shake off stagnation, and set into dynamic motion what requires conscious action in your life. The mountain energy and landscape vitality awaken vital drive, renewing your ability to build dreams, overcome challenges, and bloom with enthusiasm."
     }
   },
   "landing_outro": {

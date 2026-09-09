@@ -20,7 +20,7 @@ const Pacifico = ({ info, onVolver }) => {
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
                     <h3>{t("territory.wisdom")}</h3>
-                    <p className="texto-maestro">{t("destinos.Pacífico.desc") || info.desc}</p>
+                    <p className="texto-maestro">{t("destinos.Pacífico.sabiduria_larga") || t("destinos.Pacifico.sabiduria_larga") || t("destinos.Pacífico.desc") || info.sabiduria_larga || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">

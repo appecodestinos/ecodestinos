@@ -20,7 +20,7 @@ const Macizo = ({ info, onVolver }) => {
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
                     <h3>{t("territory.wisdom")}</h3>
-                    <p className="texto-maestro">{t("destinos.Macizo.desc") || info.desc}</p>
+                    <p className="texto-maestro">{t("destinos.Macizo.sabiduria_larga") || t("destinos.Macizo.desc") || info.sabiduria_larga || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">

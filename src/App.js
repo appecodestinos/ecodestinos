@@ -22,28 +22,36 @@ import Comunidad from './Comunidad';
 const INFO_DESTINOS = {
   Amazonas: {
     titulo: "Amazonía", arquetipo: "Raíz · Equilibrio", proceso: "Equilibrio y Arraigo", color: "rgba(40, 114, 38, 1)",
-    desc: "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio en la selva profunda.",
+    concepto_corto: "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio.",
+    desc: "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio.",
+    sabiduria_larga: "La selva profunda de la Amazonía es el tejido vivo donde late la memoria del planeta. Al adentrarte en su espesura y navegar sus ríos ancestrales, este territorio te invita a volver a lo esencial, despojarte de lo superfluo y reconocer la fuerza silenciosa de lo que verdaderamente te sostiene. En la selva, el equilibrio no es estático, sino una danza continua de interconexión y reciprocidad. Es el espacio sagrado para recuperar la pertenencia a la gran red de la vida y reencontrar la alineación interior.",
     foto: "/assets/amazonastarjeta.jpg",
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
     galeria: ["/assets/amz1.jpg", "/assets/amz2.jpg", "/assets/amz3.jpg"]
   },
   Macizo: {
     titulo: "Macizo / San Agustín", arquetipo: "Renacer · Intención", proceso: "Gestación y Transformación", color: "rgba(138, 100, 240, 1)",
-    desc: "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo en el origen de las aguas.",
+    concepto_corto: "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo.",
+    desc: "Invita a sembrar una intención, soltar aquello que ya cumplió su ciclo y abrir espacio para lo nuevo.",
+    sabiduria_larga: "En la cuna de los grandes ríos de Colombia, el Macizo Colombiano —guardado por las piedras talladas de San Agustín— es un portal sagrado de origen y transformación. Caminar estas tierras es un llamado a sembrar una intención profunda en el centro del ser, soltar con gratitud lo que ya cumplió su ciclo y permitir que la energía vital vuelva a fluir limpia. Aquí, la tierra enseña que para renacer es necesario volver a la fuente, honrar el silencio y abrir espacio con valentía a lo nuevo que quiere florecer.",
     foto: "/assets/macizotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/mac1.jpg", "/assets/mac2.jpg"]
   },
   Guainia: {
     titulo: "Guainía", arquetipo: "Amor · Relación", proceso: "Integración y Unidad", color: "hsla(130, 92%, 29%, 1.00)",
-    desc: "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos sagrados entre cerros milenarios.",
+    concepto_corto: "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos.",
+    desc: "Invita al encuentro, la escucha, la reciprocidad y al cuidado de los vínculos.",
+    sabiduria_larga: "Entre los majestuosos Cerros de Mavecure y ríos de aguas misteriosas, Guainía guarda la vibración del encuentro genuino y la comunión profunda. Sus horizontes infinitos y su calma mística invitan al acercamiento respetuoso con el otro, a la escucha atenta del corazón y a cultivar el amor en todas sus expresiones. En este territorio de aguas antiguas, aprenderás sobre la reciprocidad, la sanación de los lazos y la belleza de relacionarte desde la transparencia, la empatía y la presencia absoluta.",
     foto: "/assets/guainiatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/gua1.jpg", "/assets/gua2.jpg"]
   },
   SierraNevada: {
     titulo: "Sierra Nevada", arquetipo: "Manifestación", proceso: "Manifestación y Propósito", color: "#8d0f6eff",
-    desc: "Invita a materializar, llevar la intención a la acción y dar forma tangible a aquello que viene gestándose.",
+    concepto_corto: "Invita a materializar, llevar la intención a la acción y dar forma a aquello que viene gestándose.",
+    desc: "Invita a materializar, llevar la intención a la acción y dar forma a aquello que viene gestándose.",
+    sabiduria_larga: "La gran montaña sagrada junto al mar es un templo natural de pensamiento ordenador y alta frecuencia espiritual. La Sierra Nevada te invita a materializar tus visiones más elevadas, llevar la intención guardada en el espíritu a la acción concreta en el plano terrenal y dar forma real a aquello que viene gestándose en tu interior. Desde sus picos nevados hasta las costas caribeñas, este territorio enseña la responsabilidad de manifestar con propósito, coherencia y profundo respeto por la vida.",
     foto: "/assets/sierranevadatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/sie1.jpg", "/assets/sie2.jpg"],
@@ -51,35 +59,45 @@ const INFO_DESTINOS = {
   },
   Pacífico: {
     titulo: "Pacífico", arquetipo: "Linaje · Sonido", proceso: "Emoción y Escucha", color: "rgba(9, 114, 212, 1)",
+    concepto_corto: "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede.",
     desc: "Invita a escuchar la memoria, reconocer nuestras raíces y conectar con aquello que nos precede.",
+    sabiduria_larga: "Donde la selva espesa se abraza con el océano indomable, el Pacífico colombiano retumba con la fuerza del sonido primordial y el canto de las ballenas. Este territorio te invita a escuchar la memoria viva que habita en tus huesos, reconocer la sabiduría de tus raíces y honrar a las generaciones que te preceden. A través del ritmo de sus tambores, la fuerza de sus mareas y la medicina del mar, el Pacífico reconecta al viajero con la alegría profunda, la resiliencia ancestral y la voz propia.",
     foto: "/assets/pacificotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/pac1.jpg", "/assets/pac2.jpg"]
   },
   Putumayo: {
-    titulo: "Putumayo / Caquetá", arquetipo: "Alquimia · Transición", proceso: "Transición e Integración", color: "rgba(0, 61, 0, 1)",
-    desc: "Invita a transformar la energía, profundizar en el silencio interior y asentarse en un nuevo equilibrio.",
+    titulo: "Putumayo / Caquetá", arquetipo: "Medicina · Armonía", proceso: "Transición e Integración", color: "rgba(0, 61, 0, 1)",
+    concepto_corto: "Invita a limpiar la mirada, perdonar el pasado y restablecer la armonía del espíritu.",
+    desc: "Invita a limpiar la mirada, perdonar el pasado y restablecer la armonía del espíritu.",
+    sabiduria_larga: "En el encuentro entre la cordillera andina y la llanura amazónica, el Putumayo guarda el secreto de la medicina vegetal y la transformación profunda del ser. Sus ríos cristalinos, cascadas sagradas y abuelos sabios invitan a limpiar la mirada, liberar cargas antiguas y restaurar la armonía en todas las dimensiones de tu existencia. Es un territorio de alquimia y revelación, donde el viajero se sumerge en una experiencia de renovación para retornar a su centro en alineación con el alma.",
     foto: "/assets/putumayotarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/put1.jpg", "/assets/put2.jpg"]
   },
   SabanaDeBogota: {
     titulo: "Bogotá / Sabana", arquetipo: "Conciencia · Claridad", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
-    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad de pensamiento.",
+    concepto_corto: "Invita a observar, integrar, comprender y elegir con mayor claridad.",
+    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad.",
+    sabiduria_larga: "Bajo el abrazo del aire de montaña, los frailejones y los humedales ancestrales, la Sabana de Bogotá es el territorio del altiplano donde la mente encuentra altura para observar con perspectiva. Este lugar te invita a hacer una pausa reflexiva, elevar la vista por encima de la prisa cotidiana e integrar tus experiencias con lucidez. Entre cerros tutelares y lagunas sagradas, la energía del altiplano promueve la claridad mental, el discernimiento sereno y la toma de decisiones conscientes.",
     foto: "/assets/bogotatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
   },
   Bogota: {
     titulo: "Bogotá / Sabana", arquetipo: "Conciencia · Claridad", proceso: "Conciencia y Comprensión", color: "rgba(139, 21, 0, 1)",
-    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad de pensamiento.",
+    concepto_corto: "Invita a observar, integrar, comprender y elegir con mayor claridad.",
+    desc: "Invita a observar, integrar, comprender y elegir con mayor claridad.",
+    sabiduria_larga: "Bajo el abrazo del aire de montaña, los frailejones y los humedales ancestrales, la Sabana de Bogotá es el territorio del altiplano donde la mente encuentra altura para observar con perspectiva. Este lugar te invita a hacer una pausa reflexiva, elevar la vista por encima de la prisa cotidiana e integrar tus experiencias con lucidez. Entre cerros tutelares y lagunas sagradas, la energía del altiplano promueve la claridad mental, el discernimiento sereno y la toma de decisiones conscientes.",
     foto: "/assets/bogotatarjeta.jpg",
     video: "URL_VIDEO",
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
   },
   Antioquia: {
     titulo: "Antioquia / Zona Cafetera", arquetipo: "Fuerza · Vitalidad", proceso: "Acción y Movimiento", color: "#E65100",
-    desc: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción y creación.",
+    concepto_corto: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
+    desc: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
+    sabiduria_larga: "Entre montañas erguidas, valles verdes y aromas a tierra fértil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y la zona cafetera te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo.",
     foto: "/assets/medellintarjeta.jpg",
     video: "URL_VIDEO",
     galeria: [],
@@ -303,7 +321,7 @@ export default function App() {
                       )}
                     </div>
 
-                    <p className="descripcion-premium">{tInfo.desc || info.desc}</p>
+                    <p className="descripcion-premium">{tInfo.concepto_corto || tInfo.desc || info.concepto_corto || info.desc}</p>
                   </div>
                 );
               })}

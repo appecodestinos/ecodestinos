@@ -20,7 +20,7 @@ const Putumayo = ({ info, onVolver }) => {
             <div className="contenido-multimedia-wrap">
                 <div className="bloque-texto">
                     <h3>{t("territory.wisdom")}</h3>
-                    <p className="texto-maestro">{t("destinos.Putumayo.desc") || info.desc}</p>
+                    <p className="texto-maestro">{t("destinos.Putumayo.sabiduria_larga") || t("destinos.Putumayo.desc") || info.sabiduria_larga || info.desc}</p>
                 </div>
 
                 <div className="bloque-video">

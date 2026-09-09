@@ -73,8 +73,8 @@
     "putumayo": {
       "title": "Putumayo",
       "location": "Putumayo / Caquetá",
-      "pillars": "Alchemie · Übergang",
-      "desc": "Lädt ein, Energie zu transformieren, innere Stille zu vertiefen und Ruhe zu finden."
+      "pillars": "Medizin · Harmonie",
+      "desc": "Lädt ein, den Blick zu klären, der Vergangenheit zu vergeben und die Harmonie des Geistes wiederherzustellen."
     },
     "amazonas": {
       "title": "Amazonas",
@@ -236,62 +236,86 @@
     "Amazonas": {
       "title": "AMAZONAS",
       "archetype": "Wurzel · Gleichgewicht",
-      "desc": "Lädt ein, zum Wesentlichen zurückzukehren im tiefen Dschungel."
+      "concepto_corto": "Lädt ein, zum Wesentlichen zurückzukehren, das zu erkennen, was uns trägt, und Gleichgewicht wiederzuerlangen.",
+      "desc": "Lädt ein, zum Wesentlichen zurückzukehren, das zu erkennen, was uns trägt, und Gleichgewicht wiederzuerlangen.",
+      "sabiduria_larga": "Der tiefe Dschungel des Amazonas ist das lebendige Gewebe, in dem das Gedächtnis des Planeten schlägt. Wenn du in seine Dichte eintauchst und seine uralten Flüsse befahrst, lädt dich dieses Gebiet ein, zum Wesentlichen zurückzukehren, das Überflüssige abzulegen und die stille Kraft dessen zu erkennen, was dich wahrhaft trägt. Im Dschungel ist das Gleichgewicht nicht statisch, sondern ein kontinuierlicher Tanz der Verbindung und Gegenseitigkeit. Es ist der heilige Raum, um die Zugehörigkeit zum großen Netz des Lebens zurückzuerlangen und sich innerlich neu auszurichten."
     },
     "Macizo": {
       "title": "KOLUMBIANISCHES MASSIV / SAN AGUSTÍN",
       "archetype": "Wiedergeburt · Absicht",
-      "desc": "Lädt ein, eine Absicht zu säen und Altes loszulassen."
+      "concepto_corto": "Lädt ein, eine Absicht zu säen, Altes loszulassen und Raum für Neues zu schaffen.",
+      "desc": "Lädt ein, eine Absicht zu säen, Altes loszulassen und Raum für Neues zu schaffen.",
+      "sabiduria_larga": "In der Wiege der großen Flüsse Kolumbiens ist das Kolumbianische Massiv —bewacht von den geschnitzten Steinfiguren von San Agustín— ein heiliges Portal des Ursprungs und der Transformation. Das Durchwandern dieser Lande ist ein Ruf, eine tiefe Absicht im Zentrum des Seins zu säen, in Dankbarkeit loszulassen, was seinen Zyklus vollendet hat, und die Lebensenergie wieder rein fließen zu lassen. Hier lehrt die Erde, dass man zur Quelle zurückkehren, die Stille ehren und mutig Raum schaffen muss für das Neue, das erblühen will."
     },
     "Guainia": {
       "title": "GUAINÍA",
       "archetype": "Liebe · Beziehung",
-      "desc": "Lädt ein zur Begegnung und Pflege heiliger Bande."
+      "concepto_corto": "Lädt ein zur Begegnung, zum Zuhören, zur Gegenseitigkeit und Pflege heiliger Bande.",
+      "desc": "Lädt ein zur Begegnung, zum Zuhören, zur Gegenseitigkeit und Pflege heiliger Bande.",
+      "sabiduria_larga": "Zwischen den majestätischen Cerros de Mavecure und Flüssen geheimnisvollen Wassers bewahrt Guainía die Schwingung echter Begegnung und tiefer Gemeinschaft. Seine unendlichen Horizonte und seine mystische Stille laden zur respektvollen Annäherung an den Anderen, zum aufmerksamen Zuhören des Herzens und zur Pflege der Liebe in all ihren Formen ein. In diesem Gebiet alter Gewässer lernst du Gegenseitigkeit, die Heilung von Banden und die Schönheit, sich aus Transparenz, Empathie und absoluter Präsenz zu verbinden."
     },
     "SierraNevada": {
       "title": "SIERRA NEVADA",
       "archetype": "Manifestation",
-      "desc": "Lädt ein zu materialisieren und Gestalt zu geben."
+      "concepto_corto": "Lädt ein zu materialisieren, Absichten in Taten umzusetzen und Gestalt zu geben, was heranreift.",
+      "desc": "Lädt ein zu materialisieren, Absichten in Taten umzusetzen und Gestalt zu geben, was heranreift.",
+      "sabiduria_larga": "Der große heilige Berg am Meer ist ein natürlicher Tempel ordnenden Denkens und hoher spiritueller Frequenz. Die Sierra Nevada lädt dich ein, deine höchsten Visionen zu materialisieren, die im Geist bewahrte Absicht in konkretes Handeln auf irdischer Ebene umzusetzen und dem, was in deinem Inneren herangereift ist, reale Gestalt zu geben. Von seinen schneebedeckten Gipfeln bis zu den karibischen Küsten lehrt dieses Gebiet die Verantwortung, mit Sinn, Kohärenz und tiefem Respekt vor dem Leben zu manifestieren."
     },
     "Pacífico": {
       "title": "PAZIFIK",
       "archetype": "Abstammung · Klang",
-      "desc": "Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen."
+      "concepto_corto": "Lädt ein, der Erinnerung zu lauschen, unsere Wurzeln zu erkennen und uns mit dem zu verbinden, was uns vorausgeht.",
+      "desc": "Lädt ein, der Erinnerung zu lauschen, unsere Wurzeln zu erkennen und uns mit dem zu verbinden, was uns vorausgeht.",
+      "sabiduria_larga": "Wo der dichte Dschungel den unbezähmbaren Ozean umarmt, dröhnt der kolumbianische Pazifik mit der Kraft des ursprünglichen Klangs und dem Gesang der Wale. Dieses Gebiet lädt dich ein, der lebendigen Erinnerung zu lauschen, die in deinen Knochen wohnt, die Weisheit deiner Wurzeln zu erkennen und die Generationen zu ehren, die dir vorausgingen. Durch den Rhythmus seiner Trommeln, die Kraft seiner Gezeiten und die Medizin des Meeres verbindet der Pazifik den Reisenden neu mit tiefer Freude, ahnenhafter Resilienz und der eigenen Stimme."
     },
     "Pacifico": {
       "title": "PAZIFIK",
       "archetype": "Abstammung · Klang",
-      "desc": "Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen."
+      "concepto_corto": "Lädt ein, der Erinnerung zu lauschen, unsere Wurzeln zu erkennen und uns mit dem zu verbinden, was uns vorausgeht.",
+      "desc": "Lädt ein, der Erinnerung zu lauschen, unsere Wurzeln zu erkennen und uns mit dem zu verbinden, was uns vorausgeht.",
+      "sabiduria_larga": "Wo der dichte Dschungel den unbezähmbaren Ozean umarmt, dröhnt der kolumbianische Pazifik mit der Kraft des ursprünglichen Klangs und dem Gesang der Wale. Dieses Gebiet lädt dich ein, der lebendigen Erinnerung zu lauschen, die in deinen Knochen wohnt, die Weisheit deiner Wurzeln zu erkennen und die Generationen zu ehren, die dir vorausgingen. Durch den Rhythmus seiner Trommeln, die Kraft seiner Gezeiten und die Medizin des Meeres verbindet der Pazifik den Reisenden neu mit tiefer Freude, ahnenhafter Resilienz und der eigenen Stimme."
     },
     "Putumayo": {
       "title": "PUTUMAYO / CAQUETÁ",
-      "archetype": "Alchemie · Übergang",
-      "desc": "Lädt ein, Energie zu transformieren und Ruhe zu finden."
+      "archetype": "Medizin · Harmonie",
+      "concepto_corto": "Lädt ein, den Blick zu klären, der Vergangenheit zu vergeben und die Harmonie des Geistes wiederherzustellen.",
+      "desc": "Lädt ein, den Blick zu klären, der Vergangenheit zu vergeben und die Harmonie des Geistes wiederherzustellen.",
+      "sabiduria_larga": "Treffpunkt der Andenkordillere und der Amazonasebene hütet Putumayo das Geheimnis der Pflanzenmedizin und der tiefen Transformation des Seins. Seine kristallklaren Flüsse, heiligen Wasserfälle und weisen Ältesten laden ein, den Blick zu klären, alte Lasten zu befreien und die Harmonie in allen Dimensionen deines Daseins wiederherzustellen. Es ist ein Gebiet der Alchemie und Offenbarung, in dem der Reisende in eine Erfahrung der Erneuerung eintaucht, um in Ausrichtung mit der Seele zu seinem Zentrum zurückzukehren."
     },
     "SabanaDeBogota": {
       "title": "BOGOTÁ / SAVANNE",
       "archetype": "Bewusstsein · Klarheit",
-      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+      "concepto_corto": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "desc": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "sabiduria_larga": "Unter der Umarmung der Bergluft, der Frailejones und der uralten Feuchtgebiete ist die Savanne von Bogotá das Hochlandgebiet, in dem der Geist Höhe findet, um mit Perspektive zu beobachten. Dieser Ort lädt dich ein, eine reflektierende Pause einzulegen, den Blick über die tägliche Eile zu heben und deine Erfahrungen mit Klarheit zu integrieren. Zwischen Schutzbergen und heiligen Lagunen fördert die Energie des Hochlands mentale Klarheit, gelassenes Unterscheidungsvermögen und bewusste Entscheidungsfindung."
     },
     "Bogota": {
       "title": "BOGOTÁ / SAVANNE",
       "archetype": "Bewusstsein · Klarheit",
-      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+      "concepto_corto": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "desc": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "sabiduria_larga": "Unter der Umarmung der Bergluft, der Frailejones und der uralten Feuchtgebiete ist die Savanne von Bogotá das Hochlandgebiet, in dem der Geist Höhe findet, um mit Perspektive zu beobachten. Dieser Ort lädt dich ein, eine reflektierende Pause einzulegen, den Blick über die tägliche Eile zu heben und deine Erfahrungen mit Klarheit zu integrieren. Zwischen Schutzbergen und heiligen Lagunen fördert die Energie des Hochlands mentale Klarheit, gelassenes Unterscheidungsvermögen und bewusste Entscheidungsfindung."
     },
     "Sabana": {
       "title": "BOGOTÁ / SAVANNE",
       "archetype": "Bewusstsein · Klarheit",
-      "desc": "Lädt ein zu beobachten, zu verstehen und mit Klarheit zu wählen."
+      "concepto_corto": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "desc": "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen.",
+      "sabiduria_larga": "Unter der Umarmung der Bergluft, der Frailejones und der uralten Feuchtgebiete ist die Savanne von Bogotá das Hochlandgebiet, in dem der Geist Höhe findet, um mit Perspektive zu beobachten. Dieser Ort lädt dich ein, eine reflektierende Pause einzulegen, den Blick über die tägliche Eile zu heben und deine Erfahrungen mit Klarheit zu integrieren. Zwischen Schutzbergen und heiligen Lagunen fördert die Energie des Hochlands mentale Klarheit, gelassenes Unterscheidungsvermögen und bewusste Entscheidungsfindung."
     },
     "Antioquia": {
       "title": "ANTIOQUIA / KAFFEEREGION",
       "archetype": "Kraft · Vitalität",
-      "desc": "Lädt ein, innere Kraft zu aktivieren und in Bewegung zu setzen."
+      "concepto_corto": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
+      "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
+      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und die Kaffeeregion laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
     },
     "Medellin": {
       "title": "ANTIOQUIA / KAFFEEREGION",
-      "archetype": "Kraft · Vitalität",
-      "desc": "Lädt ein, innere Kraft zu aktivieren und in Bewegung zu setzen."
+      "archetype": "Kraft · Vitalidad",
+      "concepto_corto": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
+      "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
+      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und die Kaffeeregion laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
     }
   },
   "landing_outro": {
