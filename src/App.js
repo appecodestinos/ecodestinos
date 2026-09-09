@@ -172,7 +172,7 @@ export default function App() {
       try {
         await capturarLead(inputNombre.trim(), inputCorreo.trim(), resultadosQuiz);
 
-        const response = await fetch('/api/submitLead', {
+        let response = await fetch('/api/submitLead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -180,25 +180,55 @@ export default function App() {
             correo: inputCorreo.trim(),
             destinos: resultadosQuiz
           })
-        });
+        }).catch(() => null);
 
         let resData = null;
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-          resData = await response.json().catch(() => null);
+        if (response) {
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            resData = await response.json().catch(() => null);
+          }
         }
 
-        if (response.ok) {
+        // If local /api route returns non-OK or non-JSON (e.g. 404 on CRA or domain proxy issue), fallback to Vercel endpoint directly
+        if (!response || !response.ok || !resData) {
+          console.log("🟡 [Frontend] Intentando envío directo vía Vercel API fallback...");
+          try {
+            const fallbackResponse = await fetch('https://ecodestinos.vercel.app/api/submitLead', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                nombre: inputNombre.trim(),
+                correo: inputCorreo.trim(),
+                destinos: resultadosQuiz
+              })
+            });
+            if (fallbackResponse) {
+              const fbContentType = fallbackResponse.headers.get('content-type');
+              if (fbContentType && fbContentType.includes('application/json')) {
+                const fbData = await fallbackResponse.json().catch(() => null);
+                if (fallbackResponse.ok && fbData) {
+                  response = fallbackResponse;
+                  resData = fbData;
+                }
+              }
+            }
+          } catch (fbErr) {
+            console.warn("⚠️ [Frontend] Error en fallback API Vercel:", fbErr);
+          }
+        }
+
+        if (response && response.ok) {
           console.log("🟢 [Frontend] Lead y correo enviados con éxito:", resData);
           setIsSuccess(true);
           localStorage.setItem('ecoNombre', inputNombre.trim());
           localStorage.setItem('ecoEmail', inputCorreo.trim());
         } else {
-          console.warn(`⚠️ [Frontend] /api/submitLead status ${response.status}:`, resData);
+          console.warn(`⚠️ [Frontend] /api/submitLead status:`, response?.status, resData);
           const msg = resData?.brevoError?.message || resData?.message || '';
 
-          if (response.status === 404) {
-            console.log("🟢 [Frontend] Lead registrado en Firebase (API local 404). Permitiendo entrada al mapa.");
+          if (response?.status === 404 || !response) {
+            console.log("🟢 [Frontend] Lead registrado en Firebase. Permitiendo entrada al mapa.");
             setIsSuccess(true);
             localStorage.setItem('ecoNombre', inputNombre.trim());
             localStorage.setItem('ecoEmail', inputCorreo.trim());
