@@ -145,6 +145,16 @@ function AppMain() {
     }
   };
 
+  // Notifica al MapaLive (/mapa-live) para que haga un fetch instantáneo
+  // de /api/getLiveStats justo después de registrar un lead.
+  const avisarMapaLiveLeads = () => {
+    try {
+      window.dispatchEvent(new Event('ecodestinos:leads-updated'));
+    } catch (e) {
+      console.warn("⚠️ [Frontend] No se pudo disparar 'ecodestinos:leads-updated':", e);
+    }
+  };
+
   const enviarCorreoYEntrar = async (e) => {
     e.preventDefault();
     let errores = { nombre: '', correo: '' };
@@ -225,6 +235,7 @@ function AppMain() {
           setIsSuccess(true);
           localStorage.setItem('ecoNombre', inputNombre.trim());
           localStorage.setItem('ecoEmail', inputCorreo.trim());
+          avisarMapaLiveLeads();
         } else {
           console.warn(`⚠️ [Frontend] /api/submitLead status:`, response?.status, resData);
           const msg = resData?.brevoError?.message || resData?.message || '';
@@ -234,6 +245,7 @@ function AppMain() {
             setIsSuccess(true);
             localStorage.setItem('ecoNombre', inputNombre.trim());
             localStorage.setItem('ecoEmail', inputCorreo.trim());
+            avisarMapaLiveLeads();
           } else {
             setMensajeErrorDetallado(msg);
             setIsError(true);
@@ -244,6 +256,7 @@ function AppMain() {
         setIsSuccess(true);
         localStorage.setItem('ecoNombre', inputNombre.trim());
         localStorage.setItem('ecoEmail', inputCorreo.trim());
+        avisarMapaLiveLeads();
       } finally {
         setIsLoading(false);
       }

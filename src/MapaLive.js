@@ -88,10 +88,19 @@ export default function MapaLive() {
   useEffect(() => {
     fetchStats();
 
-    intervalRef.current = setInterval(fetchStats, 4000);
+    intervalRef.current = setInterval(fetchStats, 2000);
+
+    // Fetch instantáneo cuando el formulario registra un nuevo lead
+    // (dispara el evento global 'ecodestinos:leads-updated' en App.js).
+    const onLeadsUpdated = () => {
+      console.log('⚡ [MapaLive] Evento leads-updated recibido -> fetch instantáneo');
+      fetchStats();
+    };
+    window.addEventListener('ecodestinos:leads-updated', onLeadsUpdated);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
+      window.removeEventListener('ecodestinos:leads-updated', onLeadsUpdated);
     };
   }, [fetchStats]);
 
