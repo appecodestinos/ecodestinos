@@ -1,4 +1,3 @@
-import { useTranslation } from "react-i18next";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";

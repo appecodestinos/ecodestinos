@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { db } from "./firebase";
 import './App.css';
 import Mapa from './Mapa';
+import MapaLive from './MapaLive';
 import Quiz from './Quiz';
 import Agente from './Agente';
 import Amazonas from './Amazonas';
@@ -105,7 +106,7 @@ const INFO_DESTINOS = {
   }
 };
 
-export default function App() {
+function AppMain() {
   const { t, i18n } = useTranslation();
 
   const [pantallaActiva, setPantallaActiva] = useState('landing');
@@ -191,7 +192,6 @@ export default function App() {
           }
         }
 
-        // If local /api route returns non-OK or non-JSON (e.g. 404 on CRA or domain proxy issue), fallback to Vercel endpoint directly
         if (!response || !response.ok || !resData) {
           console.log("🟡 [Frontend] Intentando envío directo vía Vercel API fallback...");
           try {
@@ -478,4 +478,12 @@ export default function App() {
       <Analytics />
     </div>
   );
+}
+
+export default function App() {
+  if (typeof window !== 'undefined' && window.location.pathname === '/mapa-live') {
+    return <MapaLive />;
+  }
+
+  return <AppMain />;
 }

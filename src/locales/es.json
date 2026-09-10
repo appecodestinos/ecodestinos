@@ -328,5 +328,14 @@
     "titulo": "Territorios Vivos",
     "texto": "En Ecodestinos, un destino no es solo un lugar. Es un territorio vivo donde la naturaleza, la cultura y la memoria ancestral sostienen una energía única que acompaña tu momento de vida."
   },
-  "frase_final": "No eliges un destino. Eliges el territorio que acompaña tu momento."
+  "frase_final": "No eliges un destino. Eliges el territorio que acompaña tu momento.",
+  "mapa_live": {
+    "title": "Mapa Vivo de Territorios",
+    "subtitle": "Leads en tiempo real",
+    "updated": "Actualizado",
+    "loading": "Cargando leads en vivo...",
+    "map_alt": "Mapa base de Colombia con territorios",
+    "pins_layer": "Marcadores de territorios con contadores en vivo",
+    "disclaimer": "Datos actualizados cada 4 segundos desde Brevo"
+  }
 }

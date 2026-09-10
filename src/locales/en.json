@@ -328,5 +328,14 @@
     "titulo": "Living Territories",
     "texto": "In Ecodestinos, a destination is a living territory where nature and ancestral memory sustain unique energy."
   },
-  "frase_final": "You don't choose a destination. You choose the territory that accompanies your moment."
+  "frase_final": "You don't choose a destination. You choose the territory that accompanies your moment.",
+  "mapa_live": {
+    "title": "Live Territory Map",
+    "subtitle": "Real-time leads",
+    "updated": "Updated",
+    "loading": "Loading live leads...",
+    "map_alt": "Colombia base map with territories",
+    "pins_layer": "Territory markers with live counters",
+    "disclaimer": "Data updated every 4 seconds from Brevo"
+  }
 }

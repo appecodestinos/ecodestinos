@@ -328,5 +328,14 @@
     "titulo": "Territoires Vivants",
     "texto": "Un territoire vivant où la nature et la mémoire gardent une énergie unique."
   },
-  "frase_final": "Vous ne choisissez pas une destination. Vous choisissez le territoire qui accompagne votre moment."
+  "frase_final": "Vous ne choisissez pas une destination. Vous choisissez le territoire qui accompagne votre moment.",
+  "mapa_live": {
+    "title": "Carte Vivante des Territoires",
+    "subtitle": "Leads en temps réel",
+    "updated": "Mis à jour",
+    "loading": "Chargement des leads en direct...",
+    "map_alt": "Carte de base de Colombie avec territoires",
+    "pins_layer": "Marqueurs de territoires avec compteurs en direct",
+    "disclaimer": "Données mises à jour toutes les 4 secondes depuis Brevo"
+  }
 }

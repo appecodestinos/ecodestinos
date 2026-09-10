@@ -1,24 +1,19 @@
 import { useTranslation } from "react-i18next";
 import React, { useState } from 'react';
 
-// Ahora cada opción [0, 1, 2, 3] otorga puntos a 2 destinos simultáneamente.
-// 4 opciones x 2 destinos = 8 destinos evaluados en TODAS las preguntas.
+// Matriz perfecta: 1-factorización de K8 (28 pares únicos, cada destino 7 veces)
+// Garantiza equilibrio matemático + sorteo ponderado (peso = 1 + puntos)
 const MAPEO_PREGUNTAS = [
-    // Q0: Sentimiento
-    [['Putumayo', 'Macizo'], ['Antioquia', 'SierraNevada'], ['Amazonas', 'Pacífico'], ['Guainia', 'SabanaDeBogota']],
-    // Q1: Necesidad de la naturaleza
-    [['Amazonas', 'Guainia'], ['Pacífico', 'Putumayo'], ['SabanaDeBogota', 'Macizo'], ['SierraNevada', 'Antioquia']],
-    // Q2: Paisaje
-    [['Amazonas', 'SierraNevada'], ['Pacífico', 'Guainia'], ['Macizo', 'Putumayo'], ['Antioquia', 'SabanaDeBogota']],
-    // Q3: Ritmo de viaje
-    [['Guainia', 'Macizo'], ['Antioquia', 'SabanaDeBogota'], ['Amazonas', 'Putumayo'], ['SierraNevada', 'Pacífico']],
-    // Q4: Activar en ti
-    [['Amazonas', 'Antioquia'], ['Guainia', 'SierraNevada'], ['Putumayo', 'Pacífico'], ['SabanaDeBogota', 'Macizo']],
-    // Q5: Tipo de bienestar
-    [['SierraNevada', 'SabanaDeBogota'], ['Putumayo', 'Macizo'], ['Amazonas', 'Guainia'], ['Pacífico', 'Antioquia']],
-    // Q6: Formato de viaje
-    [['SierraNevada', 'Pacífico'], ['Amazonas', 'Macizo'], ['Guainia', 'Antioquia'], ['Putumayo', 'SabanaDeBogota']]
+    [['Antioquia', 'Amazonas'], ['Macizo', 'SabanaDeBogota'], ['Guainia', 'Putumayo'], ['SierraNevada', 'Pacífico']],
+    [['Antioquia', 'Macizo'], ['Guainia', 'Amazonas'], ['SierraNevada', 'SabanaDeBogota'], ['Pacífico', 'Putumayo']],
+    [['Antioquia', 'Guainia'], ['SierraNevada', 'Macizo'], ['Pacífico', 'Amazonas'], ['Putumayo', 'SabanaDeBogota']],
+    [['Antioquia', 'SierraNevada'], ['Pacífico', 'Guainia'], ['Putumayo', 'Macizo'], ['SabanaDeBogota', 'Amazonas']],
+    [['Antioquia', 'Pacífico'], ['Putumayo', 'SierraNevada'], ['SabanaDeBogota', 'Guainia'], ['Amazonas', 'Macizo']],
+    [['Antioquia', 'Putumayo'], ['SabanaDeBogota', 'Pacífico'], ['Amazonas', 'SierraNevada'], ['Macizo', 'Guainia']],
+    [['Antioquia', 'SabanaDeBogota'], ['Amazonas', 'Putumayo'], ['Macizo', 'Pacífico'], ['Guainia', 'SierraNevada']]
 ];
+
+const DESTINOS = ['Amazonas', 'Macizo', 'Guainia', 'SierraNevada', 'Pacífico', 'Putumayo', 'SabanaDeBogota', 'Antioquia'];
 
 const COLORES_VIBRATORIOS = [
     '#003333',
@@ -46,33 +41,36 @@ const Quiz = ({ alTerminar }) => {
             if (paso < 6) {
                 setPaso(paso + 1);
             } else {
-                const puntajes = {
-                    Amazonas: 0,
-                    Macizo: 0,
-                    Guainia: 0,
-                    SierraNevada: 0,
-                    Pacífico: 0,
-                    Putumayo: 0,
-                    SabanaDeBogota: 0,
-                    Antioquia: 0
-                };
+                const puntos = {};
+                DESTINOS.forEach(d => puntos[d] = 0);
 
-                // Recorremos las respuestas y sumamos puntos a AMBOS territorios asignados a la opción
                 nuevasRespuestas.forEach((idxSeleccion, indicePregunta) => {
                     if (idxSeleccion !== null) {
-                        const territoriosAsignados = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
-                        if (Array.isArray(territoriosAsignados)) {
-                            territoriosAsignados.forEach((territorio) => {
-                                if (puntajes[territorio] !== undefined) {
-                                    puntajes[territorio] += 1;
-                                }
-                            });
+                        const pareja = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
+                        if (Array.isArray(pareja)) {
+                            const elegido = pareja[Math.floor(Math.random() * pareja.length)];
+                            if (puntos[elegido] !== undefined) {
+                                puntos[elegido] += 1;
+                            }
                         }
                     }
                 });
 
-                const ordenados = Object.entries(puntajes).sort((a, b) => b[1] - a[1]);
-                alTerminar([ordenados[0][0], ordenados[1][0]]);
+                const items = DESTINOS.map(d => ({ d, peso: 1 + puntos[d] }));
+                const resultados = [];
+                for (let i = 0; i < 2; i++) {
+                    const totalPeso = items.reduce((s, it) => s + it.peso, 0);
+                    let r = Math.random() * totalPeso;
+                    for (let j = 0; j < items.length; j++) {
+                        r -= items[j].peso;
+                        if (r <= 0) {
+                            resultados.push(items[j].d);
+                            items.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
+                alTerminar(resultados);
             }
         }, 300);
     };

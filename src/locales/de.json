@@ -328,5 +328,14 @@
     "titulo": "Lebendige Gebiete",
     "texto": "Ein lebendiges Gebiet, in dem Natur und Erinnerung einzigartige Energie bewahren."
   },
-  "frase_final": "Du wählst kein Reiseziel. Du wählst das Gebiet, das deinen Moment begleitet."
+  "frase_final": "Du wählst kein Reiseziel. Du wählst das Gebiet, das deinen Moment begleitet.",
+  "mapa_live": {
+    "title": "Live-Gebietskarte",
+    "subtitle": "Echtzeit-Anfragen",
+    "updated": "Aktualisiert",
+    "loading": "Lade Live-Anfragen...",
+    "map_alt": "Kolumbien-Basiskarte mit Gebieten",
+    "pins_layer": "Gebietsmarkierungen mit Live-Zählern",
+    "disclaimer": "Daten werden alle 4 Sekunden von Brevo aktualisiert"
+  }
 }
