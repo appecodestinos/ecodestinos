@@ -3,61 +3,98 @@ import { getFirestore } from 'firebase-admin/firestore';
 
 const apiKey = process.env.BREVO_API_KEY;
 
-// Llaves canónicas: EXACTAMENTE las mismas que consume MapaLive (/src/MapaLive.js -> ID_MAPPING)
-const CANONICAL_KEYS = [
-  'SIERRA NEVADA',
-  'PACÍFICO',
-  'ANTIOQUIA / EJE CAFETERO',
-  'SABANA DE BOGOTÁ',
-  'MACIZO / SAN AGUSTÍN',
-  'PUTUMAYO',
-  'GUAINÍA',
-  'AMAZONAS'
+// Identificadores canónicos COMUNES: MISMA clave en Brevo, Firestore, este endpoint
+// y el mapa (src/MapaLive.js -> ID_MAPPING). Ej: 'antioquia_eje_cafetero' agrupa
+// "Antioquia / Zona Cafetera", "ANTIOQUIA / EJE CAFETERO", "Eje Cafetero", "Medellín", etc.
+const IDENTIFICADORES = [
+  'sierra_nevada',
+  'pacifico',
+  'antioquia_eje_cafetero',
+  'sabana_bogota',
+  'macizo_san_agustin',
+  'putumayo',
+  'guainia',
+  'amazonas'
 ];
+
+// Nombre comercial de cada territorio (para el mapa y para depuración).
+const NOMBRES_TERRITORIOS = {
+  sierra_nevada: 'Sierra Nevada',
+  pacifico: 'Pacífico',
+  antioquia_eje_cafetero: 'Antioquia / Eje Cafetero',
+  sabana_bogota: 'Sabana de Bogotá',
+  macizo_san_agustin: 'Macizo / San Agustín',
+  putumayo: 'Putumayo',
+  guainia: 'Guainía',
+  amazonas: 'Amazonas'
+};
 
 const emptyCounts = () => {
   const c = {};
-  CANONICAL_KEYS.forEach(k => c[k] = 0);
+  IDENTIFICADORES.forEach(k => c[k] = 0);
   return c;
 };
 
-// Esta normalización es la columna vertebral del conteo: convierte cualquier
-// nombre (claves del quiz, nombres por idioma, texto libre) -> llave canónica.
+// Normalización: convierte CUALQUIER variante (claves del quiz, nombres por idioma,
+// texto libre o lo que guarde el formulario/Brevo) -> identificador canónico.
+// ⚠️ Las claves van SIN tildes y EN MAYÚSCULAS (normalizeDestino lo hace antes de buscar).
 const DESTINO_ALIASES = {
-  'AMAZONAS': 'AMAZONAS',
-  'AMAZONIA': 'AMAZONAS',
-  'AMAZON': 'AMAZONAS',
-  'AMAZONIE': 'AMAZONAS',
-  'MACIZO': 'MACIZO / SAN AGUSTÍN',
-  'MACIZO / SAN AGUSTIN': 'MACIZO / SAN AGUSTÍN',
-  'SAN AGUSTIN': 'MACIZO / SAN AGUSTÍN',
-  'COLOMBIAN MASSIF / SAN AGUSTIN': 'MACIZO / SAN AGUSTÍN',
-  'KOLUMBIANISCHES MASSIV / SAN AGUSTIN': 'MACIZO / SAN AGUSTÍN',
-  'MASSIF COLOMBIEN / SAN AGUSTIN': 'MACIZO / SAN AGUSTÍN',
-  'GUAINIA': 'GUAINÍA',
-  'SIERRANEVADA': 'SIERRA NEVADA',
-  'SIERRA NEVADA': 'SIERRA NEVADA',
-  'PACIFICO': 'PACÍFICO',
-  'PACIFIC': 'PACÍFICO',
-  'PAZIFIK': 'PACÍFICO',
-  'PACIFIQUE': 'PACÍFICO',
-  'PUTUMAYO': 'PUTUMAYO',
-  'PUTUMAYO / CAQUETA': 'PUTUMAYO',
-  'SABANADEBOGOTA': 'SABANA DE BOGOTÁ',
-  'BOGOTA': 'SABANA DE BOGOTÁ',
-  'BOGOTA / SABANA': 'SABANA DE BOGOTÁ',
-  'BOGOTA / SAVANA': 'SABANA DE BOGOTÁ',
-  'BOGOTA / SAVANNE': 'SABANA DE BOGOTÁ',
-  'BOGOTA / SAVANE': 'SABANA DE BOGOTÁ',
-  'SABANA': 'SABANA DE BOGOTÁ',
-  'ANTIOQUIA': 'ANTIOQUIA / EJE CAFETERO',
-  'ANTIOQUIA / ZONA CAFETERA': 'ANTIOQUIA / EJE CAFETERO',
-  'ANTIOQUIA / COFFEE ZONE': 'ANTIOQUIA / EJE CAFETERO',
-  'ANTIOQUIA / KAFFEREGION': 'ANTIOQUIA / EJE CAFETERO',
-  'ANTIOQUIA / KAFFEEREGION': 'ANTIOQUIA / EJE CAFETERO',
-  'ANTIOQUIA / ZONE CAFEIERE': 'ANTIOQUIA / EJE CAFETERO',
-  'EJE CAFETERO': 'ANTIOQUIA / EJE CAFETERO',
-  'MEDELLIN': 'ANTIOQUIA / EJE CAFETERO'
+  // Amazonas
+  'AMAZONAS': 'amazonas',
+  'AMAZONIA': 'amazonas',
+  'AMAZON': 'amazonas',
+  'AMAZONIE': 'amazonas',
+  // Macizo / San Agustín
+  'MACIZO': 'macizo_san_agustin',
+  'MACIZO / SAN AGUSTIN': 'macizo_san_agustin',
+  'MACIZO/SAN AGUSTIN': 'macizo_san_agustin',
+  'SAN AGUSTIN': 'macizo_san_agustin',
+  'COLOMBIAN MASSIF / SAN AGUSTIN': 'macizo_san_agustin',
+  'COLOMBIAN MASSIF / SAN AGUSTIN ': 'macizo_san_agustin',
+  'KOLUMBIANISCHES MASSIV / SAN AGUSTIN': 'macizo_san_agustin',
+  'MASSIF COLOMBIEN / SAN AGUSTIN': 'macizo_san_agustin',
+  // Guainía
+  'GUAINIA': 'guainia',
+  // Sierra Nevada
+  'SIERRANEVADA': 'sierra_nevada',
+  'SIERRA NEVADA': 'sierra_nevada',
+  'SIERRA NEVADA DE SANTA MARTA': 'sierra_nevada',
+  // Pacífico
+  'PACIFICO': 'pacifico',
+  'PACIFIC': 'pacifico',
+  'PAZIFIK': 'pacifico',
+  'PACIFIQUE': 'pacifico',
+  // Putumayo
+  'PUTUMAYO': 'putumayo',
+  'PUTUMAYO / CAQUETA': 'putumayo',
+  'PUTUMAYO/CAQUETA': 'putumayo',
+  // Sabana de Bogotá
+  'SABANADEBOGOTA': 'sabana_bogota',
+  'SABANA DE BOGOTA': 'sabana_bogota',
+  'SABANA BOGOTA': 'sabana_bogota',
+  'BOGOTA': 'sabana_bogota',
+  'BOGOTA / SABANA': 'sabana_bogota',
+  'BOGOTA/SABANA': 'sabana_bogota',
+  'BOGOTA / SAVANA': 'sabana_bogota',
+  'BOGOTA / SAVANNE': 'sabana_bogota',
+  'BOGOTA / SAVANE': 'sabana_bogota',
+  'SABANA': 'sabana_bogota',
+  // Antioquia / Eje Cafetero
+  'ANTIOQUIA': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / ZONA CAFETERA': 'antioquia_eje_cafetero',
+  'ANTIOQUIA/ZONA CAFETERA': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / EJE CAFETERO': 'antioquia_eje_cafetero',
+  'ANTIOQUIA/EJE CAFETERO': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / COFFEE ZONE': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / KAFFEREGION': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / KAFFEEREGION': 'antioquia_eje_cafetero',
+  'ANTIOQUIA / ZONE CAFEIERE': 'antioquia_eje_cafetero',
+  'EJE CAFETERO': 'antioquia_eje_cafetero',
+  'ZONA CAFETERA': 'antioquia_eje_cafetero',
+  'COFFEE ZONE': 'antioquia_eje_cafetero',
+  'MEDELLIN': 'antioquia_eje_cafetero',
+  'MEDELLIN / EJE CAFETERO': 'antioquia_eje_cafetero',
+  'MEDELLIN / ZONA CAFETERA': 'antioquia_eje_cafetero'
 };
 
 function normalizeDestino(value) {
@@ -68,11 +105,11 @@ function normalizeDestino(value) {
 
 // Extrae destinos de un lead: soporta array (Firestore) o string separado por comas (Brevo).
 function extraerDestinos(raw) {
-  const list = Array.isArray(raw) ? raw : (typeof raw === 'string' ? raw.split(',') : []);
+  const list = Array.isArray(raw) ? raw : (typeof raw === 'string' ? raw.split(',').map((d) => d.trim()) : []);
   return list.map(normalizeDestino).filter(Boolean);
 }
 
-// ---------- Fuente 1: Firestore (la más confiable) ----------
+// ---------- Firestore Admin ----------
 let adminApp = null;
 let adminFirestore = null;
 
@@ -95,40 +132,18 @@ function getAdminFirestore() {
   }
 }
 
-async function countFromFirestore() {
-  const fs = getAdminFirestore();
-  if (!fs) return null;
+// ---------- Fuente 1: Brevo (autoritativa: el lead SIEMPRE se crea aquí) ----------
+async function leerLeadsDesdeBrevo(agregar) {
+  if (!apiKey) {
+    console.warn('🟡 [getLiveStats] Sin BREVO_API_KEY: se omite la lectura de contactos.');
+    return;
+  }
 
-  const counts = emptyCounts();
-  let processed = 0;
-
-  const snapshot = await fs.collection('leads').get();
-
-  snapshot.forEach((doc) => {
-    const data = doc.data() || {};
-    const destinos = data.destinos;
-    if (destinos) {
-      extraerDestinos(destinos).forEach((canonical) => {
-        if (counts[canonical] !== undefined) counts[canonical] += 1;
-      });
-      processed += 1;
-    }
-  });
-
-  console.log(`🟢 [getLiveStats] Conteo desde Firestore: ${processed} leads procesados.`, counts);
-  return { counts, total: snapshot.size, processed };
-}
-
-// ---------- Fuente 2: Brevo (fallback) ----------
-async function countFromBrevo() {
-  const counts = emptyCounts();
-
-  let allContacts = [];
   let offset = 0;
   const limit = 500;
-  let hasMore = true;
 
-  while (hasMore) {
+  // Evita loops infinitos ante desbordes de offsets
+  while (offset <= 50000) {
     const response = await fetch(`https://api.brevo.com/v3/contacts?limit=${limit}&offset=${offset}`, {
       method: 'GET',
       headers: {
@@ -144,27 +159,78 @@ async function countFromBrevo() {
 
     const data = await response.json();
     const contacts = data.contacts || [];
-    allContacts = allContacts.concat(contacts);
 
-    hasMore = contacts.length === limit;
+    contacts.forEach((contact) => {
+      const attributes = contact.attributes || {};
+      const destinos = attributes.DESTINOS || attributes.destinos || '';
+      agregar(contact.email, destinos);
+    });
+
+    if (contacts.length < limit) break;
     offset += limit;
   }
+}
 
-  allContacts.forEach((contact) => {
-    const attributes = contact.attributes || {};
-    const destinos = attributes.DESTINOS || attributes.destinos || '';
-    if (destinos) {
-      extraerDestinos(destinos).forEach((canonical) => {
-        if (counts[canonical] !== undefined) counts[canonical] += 1;
-      });
-    }
+// ---------- Fuente 2: Firestore (complementa leads que solo existan ahí) ----------
+async function leerLeadsDesdeFirestore(agregar) {
+  const fs = getAdminFirestore();
+  if (!fs) return;
+
+  const snapshot = await fs.collection('leads').get();
+
+  snapshot.forEach((doc) => {
+    const data = doc.data() || {};
+    const correo = data.correo || data.email || data['Correo'] || '';
+    const destinos = data.destinos || data.DESTINOS || '';
+    agregar(correo, destinos);
   });
+}
 
-  console.log(`🟢 [getLiveStats] Conteo desde Brevo: ${allContacts.length} contactos totales.`, counts);
-  return { counts, total: allContacts.length };
+// Consulta AMBAS fuentes y fusiona por email para NO duplicar leads que están
+// tanto en Firestore como en Brevo. El resultado es email -> Set(identificador).
+async function consultarTerritoriosPorEmail() {
+  const porEmail = new Map(); // email(minusculas) -> Set(identificador)
+
+  const agregar = (email, rawDestinos) => {
+    if (!email) return;
+    const clave = String(email).trim().toLowerCase();
+    if (!clave) return;
+
+    const destinosNorm = extraerDestinos(rawDestinos);
+    if (destinosNorm.length === 0) return;
+
+    if (!porEmail.has(clave)) porEmail.set(clave, new Set());
+    destinosNorm.forEach((id) => porEmail.get(clave).add(id));
+  };
+
+  let errorBrevo = null;
+  try {
+    await leerLeadsDesdeBrevo(agregar);
+    console.log(`🟢 [getLiveStats] Brevo consultado correctamente.`);
+  } catch (err) {
+    errorBrevo = err;
+    console.error('🔴 [getLiveStats] Error leyendo Brevo:', err.message || err);
+  }
+
+  try {
+    await leerLeadsDesdeFirestore(agregar);
+    console.log(`🟢 [getLiveStats] Firestore consultado correctamente.`);
+  } catch (err) {
+    console.error('🔴 [getLiveStats] Error leyendo Firestore:', err.message || err);
+  }
+
+  if (errorBrevo && porEmail.size === 0) {
+    throw errorBrevo;
+  }
+
+  return porEmail;
 }
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
@@ -180,45 +246,33 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Firestore (fuente primaria: garantiza el conteo aunque Brevo no tenga atributos)
-    if (firestoreReady) {
-      try {
-        const firestoreResult = await countFromFirestore();
-        if (firestoreResult) {
-          return res.status(200).json({
-            totals: firestoreResult.counts,
-            totalContacts: firestoreResult.total,
-            source: 'firestore',
-            timestamp: new Date().toISOString()
-          });
-        }
-      } catch (err) {
-        console.error('🔴 [getLiveStats] Error leyendo Firestore, pasando a fallback Brevo:', err.message || err);
-      }
-    }
+    const porEmail = await consultarTerritoriosPorEmail();
 
-    // 2. Brevo (fallback)
-    if (brevoReady) {
-      const brevoResult = await countFromBrevo();
-      return res.status(200).json({
-        totals: brevoResult.counts,
-        totalContacts: brevoResult.total,
-        source: 'brevo',
-        timestamp: new Date().toISOString()
+    const totals = emptyCounts();
+    porEmail.forEach((territorios) => {
+      territorios.forEach((id) => {
+        if (totals[id] !== undefined) totals[id] += 1;
       });
-    }
-
-    // 3. Ninguna fuente funcionó: devolver ceros para no romper el mapa
-    console.error('🔴 [getLiveStats] Ambas fuentes fallaron. Devolviendo contadores en cero.');
-    return res.status(200).json({
-      totals: emptyCounts(),
-      totalContacts: 0,
-      source: 'none',
-      timestamp: new Date().toISOString()
     });
 
+    console.log(`🟢 [getLiveStats] ${porEmail.size} leads únicos procesados.`, totals);
+
+    const source = (brevoReady && firestoreReady)
+      ? 'brevo+firestore'
+      : (brevoReady ? 'brevo' : 'firestore');
+
+    return res.status(200).json({
+      totals,
+      totalContacts: porEmail.size,
+      territorios: NOMBRES_TERRITORIOS,
+      source,
+      timestamp: new Date().toISOString()
+    });
   } catch (error) {
     console.error('🔴 [getLiveStats] Error grave:', error);
-    return res.status(500).json({ message: 'Error interno del servidor', error: error.toString() });
+    return res.status(500).json({
+      message: 'Error al consultar los contadores del mapa',
+      error: error.toString()
+    });
   }
 }

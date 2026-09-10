@@ -26,7 +26,26 @@ export default async function handler(req, res) {
   console.log(`🟢 [submitLead] Procesando lead para: ${correo} (${nombre}). Idioma: ${lang || 'es'}. API Key detectada (${apiKey.substring(0, 6)}...)`);
 
   const arrayDestinos = Array.isArray(destinos) ? destinos : [destinos];
-  const stringDestinos = arrayDestinos.join(', ');
+
+  // Nombres comerciales para almacenar en Brevo (atributo DESTINOS). Los identificadores
+  // del quiz/claves internas -> nombre humano estable. getLiveStats normaliza TODAS
+  // estas variantes al identificador común (p.ej. antioquia_eje_cafetero).
+  const NOMBRES_BREVO = {
+    Amazonas: 'Amazonas',
+    Macizo: 'Macizo / San Agustín',
+    Guainia: 'Guainía',
+    SierraNevada: 'Sierra Nevada',
+    'Pacífico': 'Pacífico',
+    Pacifico: 'Pacífico',
+    Putumayo: 'Putumayo',
+    SabanaDeBogota: 'Bogotá / Sabana',
+    Bogota: 'Bogotá / Sabana',
+    Sabana: 'Bogotá / Sabana',
+    Antioquia: 'Antioquia / Zona Cafetera',
+    Medellin: 'Antioquia / Zona Cafetera'
+  };
+
+  const stringDestinos = arrayDestinos.map((d) => NOMBRES_BREVO[d] || d).join(', ');
 
   let contactResult = null;
   let emailResult = null;

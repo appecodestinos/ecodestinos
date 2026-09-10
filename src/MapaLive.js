@@ -2,37 +2,61 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const DESTINOS = [
-  { id: 'sierra-nevada', name: 'Sierra Nevada', top: '13%', left: '48%' },
+  { id: 'sierra_nevada', name: 'Sierra Nevada', top: '13%', left: '48%' },
   { id: 'pacifico', name: 'Pacífico', top: '50%', left: '33%' },
-  { id: 'eje-cafetero', name: 'Antioquia / Eje Cafetero', top: '50%', left: '44%' },
-  { id: 'sabana-bogota', name: 'Sabana de Bogotá', top: '55%', left: '53%' },
-  { id: 'macizo', name: 'Macizo / San Agustín', top: '68%', left: '38%' },
+  { id: 'antioquia_eje_cafetero', name: 'Antioquia / Eje Cafetero', top: '50%', left: '44%' },
+  { id: 'sabana_bogota', name: 'Sabana de Bogotá', top: '55%', left: '53%' },
+  { id: 'macizo_san_agustin', name: 'Macizo / San Agustín', top: '68%', left: '38%' },
   { id: 'putumayo', name: 'Putumayo', top: '80%', left: '45%' },
   { id: 'guainia', name: 'Guainía', top: '62%', left: '70%' },
   { id: 'amazonas', name: 'Amazonas', top: '94%', left: '58%' }
 ];
 
-// Mapeo flexible para hacer match entre las llaves del backend/Brevo/DB y los IDs del mapa
+// Mapeo flexible: hace match entre los IDs del mapa y TODAS las llaves que puede
+// devolver el backend (identificador común + nombres comerciales con/sin tildes,
+// mayúsculas o no). La comparación es insensible a mayúsculas y a tildes.
 const ID_MAPPING = {
-  'sierra-nevada': ['sierra-nevada', 'SIERRA NEVADA', 'Sierra Nevada'],
+  'sierra_nevada': ['sierra_nevada', 'sierra-nevada', 'SIERRA NEVADA', 'Sierra Nevada'],
   'pacifico': ['pacifico', 'PACÍFICO', 'PACIFICO', 'Pacífico'],
-  'eje-cafetero': ['eje-cafetero', 'ANTIOQUIA / EJE CAFETERO', 'EJE CAFETERO', 'Antioquia / Eje Cafetero'],
-  'sabana-bogota': ['sabana-bogota', 'SABANA DE BOGOTÁ', 'SABANA DE BOGOTA', 'Sabana de Bogotá'],
-  'macizo': ['macizo', 'MACIZO / SAN AGUSTÍN', 'MACIZO / SAN AGUSTIN', 'Macizo / San Agustín'],
+  'antioquia_eje_cafetero': [
+    'antioquia_eje_cafetero',
+    'eje-cafetero',
+    'ANTIOQUIA / EJE CAFETERO',
+    'ANTIOQUIA / ZONA CAFETERA',
+    'Antioquia / Eje Cafetero',
+    'Antioquia / Zona Cafetera',
+    'EJE CAFETERO'
+  ],
+  'sabana_bogota': [
+    'sabana_bogota',
+    'sabana-bogota',
+    'SABANA DE BOGOTÁ',
+    'SABANA DE BOGOTA',
+    'BOGOTA / SABANA',
+    'Sabana de Bogotá'
+  ],
+  'macizo_san_agustin': [
+    'macizo_san_agustin',
+    'macizo',
+    'MACIZO / SAN AGUSTÍN',
+    'MACIZO / SAN AGUSTIN',
+    'Macizo / San Agustín'
+  ],
   'putumayo': ['putumayo', 'PUTUMAYO', 'Putumayo'],
   'guainia': ['guainia', 'GUAINÍA', 'GUAINIA', 'Guainía'],
-  'amazonas': ['amazonas', 'AMAZONAS', 'Amazonas']
+  'amazonas': ['amazonas', 'AMAZONAS', 'AMAZONIA', 'Amazonas']
 };
+
+const norm = (s) => String(s || '').trim().toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
 const getCountForDestino = (destinoId, statsObj) => {
   if (!statsObj) return 0;
-  const possibleKeys = ID_MAPPING[destinoId] || [destinoId];
-  for (const key of possibleKeys) {
-    if (statsObj[key] !== undefined && statsObj[key] !== null) {
-      return Number(statsObj[key]) || 0;
-    }
-  }
-  return 0;
+  const candidates = (ID_MAPPING[destinoId] || [destinoId]).map(norm);
+  const keys = Object.keys(statsObj);
+  const idx = keys.findIndex((k) => candidates.includes(norm(k)));
+  if (idx === -1) return 0;
+  const value = statsObj[keys[idx]];
+  return value ? Number(value) || 0 : 0;
 };
 
 const WHITE = '#ffffff';
@@ -46,18 +70,20 @@ export default function MapaLive() {
 
   const fetchStats = useCallback(async () => {
     try {
-      const response = await fetch('/api/getLiveStats');
+      const response = await fetch('/api/getLiveStats', { cache: 'no-store' });
       if (!response.ok) throw new Error('Error fetching stats');
       const data = await response.json();
 
-      prevStatsRef.current = { ...stats };
-      setStats(data.totals || data || {});
+      setStats((prev) => {
+        prevStatsRef.current = { ...prev };
+        return data.totals || data || {};
+      });
     } catch (error) {
       console.error('Error fetching live stats:', error);
     } finally {
       setIsLoading(false);
     }
-  }, [stats]);
+  }, []);
 
   useEffect(() => {
     fetchStats();
@@ -74,14 +100,14 @@ export default function MapaLive() {
     const previous = getCountForDestino(territoryId, prevStatsRef.current);
 
     if (current !== previous && current > previous) {
-      return { count: current, isAnimating: true, previous };
+      return { count: current, isAnimating: true };
     }
     return { count: current, isAnimating: false };
   };
 
   const TerritorioPin = ({ destino }) => {
-    const { count, isAnimating, previous } = getAnimatedCount(destino.id);
-    const displayCount = isAnimating ? previous : count;
+    const { count, isAnimating } = getAnimatedCount(destino.id);
+    const displayCount = count;
 
     const pinStyle = {
       position: 'absolute',
