@@ -90,17 +90,25 @@ export default function MapaLive() {
 
     intervalRef.current = setInterval(fetchStats, 2000);
 
-    // Fetch instantáneo cuando el formulario registra un nuevo lead
-    // (dispara el evento global 'ecodestinos:leads-updated' en App.js).
+    // Fetch instantáneo: cuando el formulario registra un nuevo lead o cuando la
+    // pestaña/vista vuelve a recibir foco (sin esperar el siguiente ciclo de polling).
     const onLeadsUpdated = () => {
       console.log('⚡ [MapaLive] Evento leads-updated recibido -> fetch instantáneo');
       fetchStats();
     };
+    const onWindowFocus = () => {
+      console.log('⚡ [MapaLive] Focus recibido -> fetch instantáneo');
+      fetchStats();
+    };
     window.addEventListener('ecodestinos:leads-updated', onLeadsUpdated);
+    window.addEventListener('focus', onWindowFocus);
+    document.addEventListener('visibilitychange', onWindowFocus);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       window.removeEventListener('ecodestinos:leads-updated', onLeadsUpdated);
+      window.removeEventListener('focus', onWindowFocus);
+      document.removeEventListener('visibilitychange', onWindowFocus);
     };
   }, [fetchStats]);
 

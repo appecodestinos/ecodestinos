@@ -34,37 +34,6 @@ const NOMBRES_TERRITORIOS = {
   amazonas: 'Amazonas'
 };
 
-// Conteo base dinámico: si Brevo/Firestore no entregan leads reales (API key ausente,
-// arrray vacío o error), se usa este base para que los marcadores NUNCA queden en 0.
-// Se puede sobrescribir desde Vercel con la variable FALLBACK_LEADS (JSON válido).
-const DEFAULT_FALLBACK_LEADS = {
-  sierra_nevada: 12,
-  pacifico: 18,
-  antioquia_eje_cafetero: 24,
-  sabana_bogota: 15,
-  macizo_san_agustin: 9,
-  putumayo: 7,
-  guainia: 5,
-  amazonas: 11
-};
-
-function getFallbackLeads() {
-  const raw = process.env.FALLBACK_LEADS;
-  if (raw) {
-    try {
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === 'object' && IDENTIFICADORES.some((id) => parsed[id] !== undefined)) {
-        console.log('🟢 [getLiveStats] Fallback configurado desde FALLBACK_LEADS:', parsed);
-        return parsed;
-      }
-      console.warn('🟡 [getLiveStats] FALLBACK_LEADS inválido, se usará el base por defecto.');
-    } catch (e) {
-      console.error('🔴 [getLiveStats] FALLBACK_LEADS no es JSON válido:', e.message || e);
-    }
-  }
-  return DEFAULT_FALLBACK_LEADS;
-}
-
 const emptyCounts = () => {
   const c = {};
   IDENTIFICADORES.forEach(k => c[k] = 0);
@@ -314,21 +283,6 @@ async function consultarTerritoriosPorEmail(diagnostico) {
   return porEmail;
 }
 
-// Conteo base dinámico: devuelve totals a partir del fallback configurado.
-function contarFallback() {
-  const base = getFallbackLeads();
-  const totals = emptyCounts();
-  let total = 0;
-  IDENTIFICADORES.forEach((id) => {
-    const v = Number(base[id]);
-    if (Number.isFinite(v) && v > 0) {
-      totals[id] = Math.round(v);
-      total += Math.round(v);
-    }
-  });
-  return { totals, totalContacts: total };
-}
-
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.setHeader('Pragma', 'no-cache');
@@ -352,37 +306,23 @@ export default async function handler(req, res) {
   });
 
   if (!firestoreReady && !brevoReady) {
-    console.error('🔴 [getLiveStats] Sin fuente de datos: falta FIREBASE_SERVICE_ACCOUNT y BREVO_API_KEY. Usando fallback.');
+    console.error('🔴 [getLiveStats] Sin fuentes de datos configuradas (FIREBASE_SERVICE_ACCOUNT y BREVO_API_KEY). Devolviendo 0.');
 
-    if (debug) {
-      return res.status(200).json({
-        totals: emptyCounts(),
-        totalContacts: 0,
-        territorios: NOMBRES_TERRITORIOS,
-        source: 'fallback',
-        fallback: true,
-        demo: true,
-        mensaje: 'Sin fuentes configuradas en Vercel. No hay contadores reales.',
-        diagnostico: {
-          firestoreReady,
-          brevoReady,
-          error: 'Faltan FIREBASE_SERVICE_ACCOUNT y BREVO_API_KEY'
-        },
-        timestamp: new Date().toISOString()
-      });
-    }
-
-    const fb = contarFallback();
-    return res.status(200).json({
-      totals: fb.totals,
-      totalContacts: fb.totalContacts,
+    const response = {
+      totals: emptyCounts(),
+      totalContacts: 0,
       territorios: NOMBRES_TERRITORIOS,
-      source: 'fallback',
-      fallback: true,
-      demo: true,
-      mensaje: 'Conteo base temporal (sin fuentes de datos configuradas en Vercel).',
+      source: 'none',
       timestamp: new Date().toISOString()
-    });
+    };
+    if (debug) {
+      response.diagnostico = {
+        firestoreReady,
+        brevoReady,
+        error: 'Faltan FIREBASE_SERVICE_ACCOUNT y BREVO_API_KEY en Vercel'
+      };
+    }
+    return res.status(200).json(response);
   }
 
   const diagnostico = { firestoreReady, brevoReady };
@@ -399,19 +339,19 @@ export default async function handler(req, res) {
 
     console.log(`🟢 [getLiveStats] ${porEmail.size} leads únicos reales procesados.`, totals);
 
-    // ⚠️ Si no hay NINGÚN lead real contado (ej. Brevo devolvió array vacío o sin
-    // atributo DESTINOS), se devuelve el conteo base para que el mapa NO quede en 0.
+    // ⚠️ Sin leads reales: se devuelven TODOS los territorios en 0 (sin valores base).
     if (porEmail.size === 0) {
-      console.warn('🟡 [getLiveStats] 0 leads reales detectados -> activando conteo base (no-0).');
-      const fb = contarFallback();
+      console.warn('🟡 [getLiveStats] 0 leads reales -> devolviendo contadores en 0.');
+
+      const source = (brevoReady && firestoreReady)
+        ? 'brevo+firestore'
+        : (brevoReady ? 'brevo' : 'firestore');
+
       const response = {
-        totals: fb.totals,
-        totalContacts: fb.totalContacts,
+        totals: emptyCounts(),
+        totalContacts: 0,
         territorios: NOMBRES_TERRITORIOS,
-        source: 'fallback',
-        fallback: true,
-        demo: true,
-        mensaje: 'Conteo base temporal: no se detectaron leads reales en Brevo/Firestore.',
+        source,
         timestamp: new Date().toISOString()
       };
       if (debug) response.diagnostico = diagnostico;
@@ -435,29 +375,16 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('🔴 [getLiveStats] Error grave consultando Brevo:', error);
 
-    if (debug) {
-      return res.status(200).json({
-        totals: emptyCounts(),
-        totalContacts: 0,
-        territorios: NOMBRES_TERRITORIOS,
-        source: 'error',
-        diagnostico,
-        error: error.toString(),
-        timestamp: new Date().toISOString()
-      });
-    }
-
-    const fb = contarFallback();
-    return res.status(200).json({
-      totals: fb.totals,
-      totalContacts: fb.totalContacts,
+    // Ante error SIEMPRE se devuelven 0 reales, nunca valores base simulados.
+    const response = {
+      totals: emptyCounts(),
+      totalContacts: 0,
       territorios: NOMBRES_TERRITORIOS,
-      source: 'fallback',
-      fallback: true,
-      demo: true,
-      mensaje: 'Conteo base temporal: error al consultar Brevo.',
+      source: 'error',
       error: error.toString(),
       timestamp: new Date().toISOString()
-    });
+    };
+    if (debug) response.diagnostico = diagnostico;
+    return res.status(200).json(response);
   }
 }
