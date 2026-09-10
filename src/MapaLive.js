@@ -70,7 +70,7 @@ export default function MapaLive() {
 
   const fetchStats = useCallback(async () => {
     try {
-      const response = await fetch('/api/getLiveStats', { cache: 'no-store' });
+      const response = await fetch('/api/getLiveStats?t=' + Date.now(), { cache: 'no-store' });
       if (!response.ok) throw new Error('Error fetching stats');
       const data = await response.json();
 
