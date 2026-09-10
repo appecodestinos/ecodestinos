@@ -1,3 +1,5 @@
+import { normalizarDestinoACanonico, NOMBRES_CANONICOS } from './lib/destinos.js';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
@@ -27,25 +29,15 @@ export default async function handler(req, res) {
 
   const arrayDestinos = Array.isArray(destinos) ? destinos : [destinos];
 
-  // Nombres comerciales para almacenar en Brevo (atributo DESTINOS). Los identificadores
-  // del quiz/claves internas -> nombre humano estable. getLiveStats normaliza TODAS
-  // estas variantes al identificador común (p.ej. antioquia_eje_cafetero).
-  const NOMBRES_BREVO = {
-    Amazonas: 'Amazonas',
-    Macizo: 'Macizo / San Agustín',
-    Guainia: 'Guainía',
-    SierraNevada: 'Sierra Nevada',
-    'Pacífico': 'Pacífico',
-    Pacifico: 'Pacífico',
-    Putumayo: 'Putumayo',
-    SabanaDeBogota: 'Bogotá / Sabana',
-    Bogota: 'Bogotá / Sabana',
-    Sabana: 'Bogotá / Sabana',
-    Antioquia: 'Antioquia / Eje Cafetero',
-    Medellin: 'Antioquia / Eje Cafetero'
-  };
-
-  const stringDestinos = arrayDestinos.map((d) => NOMBRES_BREVO[d] || d).join(', ');
+  // Nombre canónico para guardar en Brevo (atributo DESTINOS): una SOLA fuente
+  // de verdad (api/lib/destinos.js) -> normaliza cualquier variante del quiz y
+  // devuelve el nombre exacto que también usa getLiveStats y el mapa.
+  const stringDestinos = arrayDestinos
+    .map((d) => {
+      const canonico = normalizarDestinoACanonico(d);
+      return NOMBRES_CANONICOS[canonico] || d;
+    })
+    .join(', ');
 
   let contactResult = null;
   let emailResult = null;
