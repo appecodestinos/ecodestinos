@@ -22,6 +22,10 @@
     "email_label": "your email:",
     "button": "Receive my destinations"
   },
+  "quiz_result": {
+    "journey_started": "The journey has begun! Check your email to see your routes (check your spam folder as well).",
+    "enter_map": "ENTER THE MAP"
+  },
   "nav": {
     "home": "Home",
     "maloka": "Maloka",

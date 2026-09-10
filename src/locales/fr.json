@@ -16,11 +16,15 @@
   "procesando": {
     "rana": "La Grenouille écoute votre battement de cœur..."
   },
-  "resultados": {
-    "title": "VOTRE VOYAGE RÉSONNE AVEC :",
+"resultados": {
+    "title": "VOTRE VOYAGE RÉSONE AVEC :",
     "name_label": "votre nom :",
     "email_label": "votre e-mail :",
     "button": "Recevoir mes destinations"
+  },
+  "quiz_result": {
+    "journey_started": "Le voyage a commencé ! Vérifiez votre e-mail pour voir vos itinéraires (vérifiez également votre dossier spams).",
+    "enter_map": "VOIR LA CARTE"
   },
   "nav": {
     "home": "Accueil",

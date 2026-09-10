@@ -362,10 +362,10 @@ function AppMain() {
             {isSuccess ? (
               <div className="mensaje-exito" style={{ marginTop: '20px', padding: '24px', backgroundColor: 'rgba(10, 30, 20, 0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', borderRadius: '15px', border: '1px solid rgba(200, 169, 110, 0.4)', textAlign: 'center', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
                 <p style={{ color: '#FFFFFF', fontSize: '18px', fontWeight: '600', marginBottom: '18px', textShadow: '0 2px 4px rgba(0,0,0,0.8)', lineHeight: '1.5' }}>
-                  {t('quiz.success_title')} {t('quiz.success_message')}
+                  {t('quiz_result.journey_started')}
                 </p>
                 <button onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }} className="boton-brillante-grande">
-                  {t('quiz.map_button')}
+                  {t('quiz_result.enter_map')}
                 </button>
               </div>
             ) : (

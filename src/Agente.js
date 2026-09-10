@@ -199,7 +199,7 @@ IMPORTANTE: El usuario está navegando la app en el idioma [${i18n.language}]. D
     return (
         <div className="agente-flotante-container">
             {isOpen && (
-                <div className={`ventana-chat-agente fade-in embudo-${nivelEmbudo}`}>
+                <div className={`ventana-chat-agente fade-in embudo-${nivelEmbudo}`} onClick={(e) => e.stopPropagation()} data-pointer-events="enabled">
                     <div style={{ background: '#2E472D', color: 'white', padding: '15px', display: 'flex', justifyContent: 'space-between', borderRadius: '15px 15px 0 0' }}>
                         <span className="nombre-rana">{t('agente.rana_nombre')}</span>
                         <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'white', cursor: 'pointer', fontSize: '20px' }}>×</button>

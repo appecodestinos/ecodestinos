@@ -22,6 +22,10 @@
     "email_label": "Deine E-Mail:",
     "button": "Meine Reiseziele erhalten"
   },
+  "quiz_result": {
+    "journey_started": "Die Reise hat begonnen! Überprüfe deine E-Mails, um deine Routen zu sehen (schau auch im Spam-Ordner nach).",
+    "enter_map": "ZUR KARTE"
+  },
   "nav": {
     "home": "Start",
     "maloka": "Maloka",

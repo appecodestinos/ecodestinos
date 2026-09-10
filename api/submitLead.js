@@ -590,50 +590,77 @@ ${tpl.quote}`,
 </html>`
   };
 
-  try {
-    console.log("🟡 [submitLead] Enviando correo transaccional en Brevo...", { to: correo, sender: emailPayload.sender.email, lang: currentLang });
+  // 2. Enviar correo transaccional de Brevo (/v3/smtp/email)
+  //    DESACOPLADO: el correo tarda o falla y NUNCA bloquea la respuesta.
+  //    El contador del Mapa Live depende del CONTACTO (paso 1), no del correo.
+  const enviarCorreoConReintento = async (intentos = 2) => {
+    for (let i = 0; i < intentos; i++) {
+      try {
+        if (i > 0) await new Promise((r) => setTimeout(r, 800));
 
-    const emailResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'api-key': apiKey
-      },
-      body: JSON.stringify(emailPayload)
-    });
+        console.log(`🟡 [submitLead] Enviando correo transaccional en Brevo (intento ${i + 1}/${intentos})...`, { to: correo, sender: emailPayload.sender.email, lang: currentLang });
 
-    let emailText = await emailResponse.text();
-    let emailData;
-    try {
-      emailData = JSON.parse(emailText);
-    } catch (e) {
-      emailData = { rawResponse: emailText };
+        const emailResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'api-key': apiKey
+          },
+          body: JSON.stringify(emailPayload)
+        });
+
+        let emailText = await emailResponse.text();
+        let emailData;
+        try {
+          emailData = JSON.parse(emailText);
+        } catch (e) {
+          emailData = { rawResponse: emailText };
+        }
+
+        if (emailResponse.ok) {
+          console.log(`🟢 [submitLead] Correo transaccional enviado con éxito:`, emailData);
+          return { success: true, data: emailData };
+        }
+
+        console.warn(`⚠️ [submitLead] Intento ${i + 1} del correo falló (Status ${emailResponse.status}):`, emailData);
+        if (i === intentos - 1) {
+          return { success: false, status: emailResponse.status, error: emailData };
+        }
+      } catch (emailError) {
+        console.warn(`⚠️ [submitLead] Excepción en el intento ${i + 1} del correo:`, emailError);
+        if (i === intentos - 1) {
+          return { success: false, error: emailError.toString() };
+        }
+      }
     }
+    return { success: false, error: 'Sin intentos restantes' };
+  };
 
-    if (!emailResponse.ok) {
-      console.error(`🔴 [submitLead] Error enviando correo Brevo /v3/smtp/email (Status ${emailResponse.status}):`, emailData);
-      emailResult = { success: false, status: emailResponse.status, error: emailData };
+  emailResult = null;
+  if (contactResult && contactResult.success) {
+    emailResult = await enviarCorreoConReintento();
+  } else {
+    console.warn('⚠️ [submitLead] No se envió correo porque el contacto no se registró en Brevo.');
+    emailResult = { success: false, error: 'contactResult no exitoso' };
+  }
 
-      return res.status(emailResponse.status || 500).json({
-        message: emailData.message || 'Error en la API de Brevo al enviar correo',
-        status: emailResponse.status,
-        brevoError: emailData,
-        contactResult
-      });
-    }
-
-    console.log(`🟢 [submitLead] Correo transaccional enviado con éxito:`, emailData);
-    emailResult = { success: true, data: emailData };
-
+  // 3. Respuesta al cliente: SIEMPRE devolver éxito cuando el contacto se registró,
+  //    independientemente del resultado del correo. Así el Mapa Live suma aunque
+  //    el envío tarde o requiera reintento.
+  if (contactResult && contactResult.success) {
     return res.status(200).json({
-      message: 'Lead registrado y correo enviado exitosamente',
+      success: true,
+      message: 'Lead registrado exitosamente',
       contactResult,
       emailResult
     });
-
-  } catch (error) {
-    console.error('🔴 [submitLead] Error grave en fetch a Brevo:', error);
-    return res.status(500).json({ message: 'Error interno del servidor', error: error.toString(), contactResult });
   }
+
+  console.error('🔴 [submitLead] No se pudo registrar el contacto en Brevo:', contactResult);
+  return res.status(500).json({
+    message: 'No se pudo registrar el lead en Brevo',
+    contactResult,
+    emailResult
+  });
 }

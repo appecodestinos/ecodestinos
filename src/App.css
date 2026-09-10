@@ -1040,6 +1040,18 @@ h4 {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #ddd;
+  /* Asegura que la ventana intercepte los clics
+     aunque el contenedor padre tenga pointer-events: none */
+  pointer-events: auto !important;
+  touch-action: manipulation;
+  z-index: 10000 !important;
+}
+
+.ventana-chat-agente button,
+.ventana-chat-agente input,
+.ventana-chat-agente a,
+.ventana-chat-agente form {
+  pointer-events: auto !important;
 }
 
 /* 1. FUENTES: Master of Custom en los títulos que pediste */

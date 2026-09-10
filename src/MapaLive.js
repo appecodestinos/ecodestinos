@@ -12,6 +12,29 @@ const DESTINOS = [
   { id: 'amazonas', name: 'Amazonas', top: '94%', left: '58%' }
 ];
 
+// Mapeo flexible para hacer match entre las llaves del backend/Brevo/DB y los IDs del mapa
+const ID_MAPPING = {
+  'sierra-nevada': ['sierra-nevada', 'SIERRA NEVADA', 'Sierra Nevada'],
+  'pacifico': ['pacifico', 'PACÍFICO', 'PACIFICO', 'Pacífico'],
+  'eje-cafetero': ['eje-cafetero', 'ANTIOQUIA / EJE CAFETERO', 'EJE CAFETERO', 'Antioquia / Eje Cafetero'],
+  'sabana-bogota': ['sabana-bogota', 'SABANA DE BOGOTÁ', 'SABANA DE BOGOTA', 'Sabana de Bogotá'],
+  'macizo': ['macizo', 'MACIZO / SAN AGUSTÍN', 'MACIZO / SAN AGUSTIN', 'Macizo / San Agustín'],
+  'putumayo': ['putumayo', 'PUTUMAYO', 'Putumayo'],
+  'guainia': ['guainia', 'GUAINÍA', 'GUAINIA', 'Guainía'],
+  'amazonas': ['amazonas', 'AMAZONAS', 'Amazonas']
+};
+
+const getCountForDestino = (destinoId, statsObj) => {
+  if (!statsObj) return 0;
+  const possibleKeys = ID_MAPPING[destinoId] || [destinoId];
+  for (const key of possibleKeys) {
+    if (statsObj[key] !== undefined && statsObj[key] !== null) {
+      return Number(statsObj[key]) || 0;
+    }
+  }
+  return 0;
+};
+
 const WHITE = '#ffffff';
 
 export default function MapaLive() {
@@ -28,7 +51,7 @@ export default function MapaLive() {
       const data = await response.json();
 
       prevStatsRef.current = { ...stats };
-      setStats(data.totals || {});
+      setStats(data.totals || data || {});
     } catch (error) {
       console.error('Error fetching live stats:', error);
     } finally {
@@ -47,8 +70,8 @@ export default function MapaLive() {
   }, [fetchStats]);
 
   const getAnimatedCount = (territoryId) => {
-    const current = stats[territoryId] || 0;
-    const previous = prevStatsRef.current[territoryId] || 0;
+    const current = getCountForDestino(territoryId, stats);
+    const previous = getCountForDestino(territoryId, prevStatsRef.current);
 
     if (current !== previous && current > previous) {
       return { count: current, isAnimating: true, previous };
