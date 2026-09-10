@@ -1,5 +1,42 @@
 import { normalizarDestinoACanonico, NOMBRES_CANONICOS } from './lib/destinos.js';
 
+// Brevo descarta en silencio cualquier atributo que NO exista en la cuenta
+// (Contact attributes). Para que el Mapa Live cuente, asegúramos que los
+// atributos de destino existen (se crean una vez; si ya existen, Brevo
+// responde 400 "already exists" y lo ignoramos).
+const ATRIBUTOS_A_CREAR = ['DESTINOS', 'DESTINO'];
+let atributosAsegurados = false;
+
+async function asegurarAtributosBrevo(apiKey) {
+  if (atributosAsegurados || !apiKey) return;
+
+  for (const nombre of ATRIBUTOS_A_CREAR) {
+    try {
+      const resp = await fetch(`https://api.brevo.com/v3/contacts/attributes/normal/${nombre}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'api-key': apiKey
+        },
+        body: JSON.stringify({ type: 'text' })
+      });
+
+      // 201 creado | 400 ya existe (o valor inválido) -> en ambos casos está listo.
+      if (resp.ok || resp.status === 400) {
+        console.log(`🟢 [submitLead] Atributo Brevo "${nombre}" listo (Status ${resp.status}).`);
+      } else {
+        const cuerpo = await resp.text().catch(() => '');
+        console.warn(`⚠️ [submitLead] No se pudo crear el atributo "${nombre}" (Status ${resp.status}):`, cuerpo.slice(0, 300));
+      }
+    } catch (err) {
+      console.warn(`⚠️ [submitLead] Excepción creando el atributo "${nombre}":`, (err && err.message) || err);
+    }
+  }
+
+  atributosAsegurados = true;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
@@ -26,6 +63,9 @@ export default async function handler(req, res) {
   }
 
   console.log(`🟢 [submitLead] Procesando lead para: ${correo} (${nombre}). Idioma: ${lang || 'es'}. API Key detectada (${apiKey.substring(0, 6)}...)`);
+
+  // Asegura que el atributo DESTINOS existe en Brevo (si no, Brevo lo descarta).
+  await asegurarAtributosBrevo(apiKey);
 
   const arrayDestinos = Array.isArray(destinos) ? destinos : [destinos];
 

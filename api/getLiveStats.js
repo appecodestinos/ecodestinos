@@ -197,9 +197,12 @@ async function leerLeadsDesdeFirestore(agregar, diagnostico) {
   }
 }
 
-// Consulta Firestore como FUENTE PRIMARIA DE VERDAD (sin delay de indexación).
-// Solo si Firestore está vacío o no disponible se consulta Brevo (que puede tardar
-// en indexar atributos). Fusiona por email para no duplicar.
+// Consulta los territorios combinando las fuentes SIN quemar cuota:
+//   1) Brevo SIEMPRE primero (fuente autoritativa: el lead se crea allí y ahora
+//      con el atributo DESTINOS garantizado). Sin límites de cuota.
+//   2) Firestore SOLO como respaldo (datos legacy) cuando Brevo no trajo destinos
+//      o falló. Así una colección grande no se lee en cada polling del mapa.
+// Fusiona por email para no duplicar contactos entre fuentes.
 async function consultarTerritorios(diagnostico) {
   const porEmail = new Map(); // email(minusculas) -> Set(identificador)
 
@@ -215,28 +218,29 @@ async function consultarTerritorios(diagnostico) {
     canonicos.forEach((id) => porEmail.get(clave).add(id));
   };
 
-  // 1) Firestore primero: fuente de verdad, lectura inmediata.
-  await leerLeadsDesdeFirestore(agregar, diagnostico);
-  const firestoreConDatos = porEmail.size > 0;
-  console.log(`🟢 [getLiveStats] Firestore primario -> ${porEmail.size} leads únicos.`);
-
-  if (firestoreConDatos) {
-    return porEmail;
-  }
-
-  // 2) Firestore vacío/no disponible -> Brevo (respaldo, puede haber delay de indexación).
-  console.log('🟡 [getLiveStats] Firestore sin leads -> consultando Brevo.');
+  // 1) Brevo: fuente principal.
   let errorBrevo = null;
   await leerLeadsDesdeBrevo(agregar, diagnostico).catch((err) => {
     errorBrevo = err;
     console.error('🔴 [getLiveStats] Error leyendo Brevo:', (err && err.message) || err);
   });
 
+  const brevoConDestinos = !!(diagnostico.brevo && diagnostico.brevo.contactosConDestinos > 0);
+  console.log(`🟢 [getLiveStats] Brevo -> ${porEmail.size} leads únicos (conDestinos=${brevoConDestinos}).`);
+
+  // 2) Firestore SOLO si Brevo no aportó destinos (protege la cuota).
+  if (porEmail.size === 0) {
+    await leerLeadsDesdeFirestore(agregar, diagnostico);
+    console.log(`🟢 [getLiveStats] Firestore respaldo -> ${porEmail.size} leads únicos.`);
+  }
+
   if (errorBrevo && porEmail.size === 0) {
     throw errorBrevo;
   }
 
-  return porEmail;
+  const fuente = porEmail.size > 0 ? (brevoConDestinos ? 'brevo' : 'firestore') : 'none';
+
+  return { porEmail, fuente };
 }
 
 export default async function handler(req, res) {
@@ -284,7 +288,7 @@ export default async function handler(req, res) {
   const diagnostico = { firestoreReady, brevoReady };
 
   try {
-    const porEmail = await consultarTerritorios(diagnostico);
+    const { porEmail, fuente } = await consultarTerritorios(diagnostico);
 
     const totals = emptyCounts();
     porEmail.forEach((territorios) => {
@@ -293,7 +297,7 @@ export default async function handler(req, res) {
       });
     });
 
-    console.log(`🟢 [getLiveStats] ${porEmail.size} leads únicos reales procesados.`, totals);
+    console.log(`🟢 [getLiveStats] ${porEmail.size} leads únicos reales procesados (fuente=${fuente}).`, totals);
 
     // ⚠️ Sin leads reales: se devuelven TODOS los territorios en 0 (sin valores base).
     if (porEmail.size === 0) {
@@ -310,15 +314,11 @@ export default async function handler(req, res) {
       return res.status(200).json(response);
     }
 
-    // Firestore es la fuente primaria; Brevo se usa solo cuando Firestore está vacío.
-    const firestoreTieneDatos = diagnostico.firestore && diagnostico.firestore.totalDocs > 0;
-    const source = firestoreTieneDatos ? 'firestore' : 'brevo';
-
     const response = {
       totals,
       totalContacts: porEmail.size,
       territorios: NOMBRES_CANONICOS,
-      source,
+      source: fuente,
       timestamp: new Date().toISOString()
     };
     if (debug) response.diagnostico = diagnostico;
