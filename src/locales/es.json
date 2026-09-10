@@ -87,8 +87,8 @@
       "desc": "Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar sentido de pertenencia y equilibrio."
     },
     "antioquia": {
-      "title": "Antioquia",
-      "location": "Antioquia / Zona Cafetera",
+      "title": "Antioquia / Eje Cafetero",
+      "location": "Antioquia / Eje Cafetero",
       "pillars": "Fuerza · Vitalidad",
       "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
     }
@@ -198,7 +198,7 @@
     "amazonas": "Amazonía (Raíz · Equilibrio): Invita a volver a lo esencial, reconocer lo que nos sostiene y recuperar el sentido de pertenencia y equilibrio en el pulmón del mundo.",
     "guainia": "Guainía (Amor · Relación): Invita al encuentro, la escucha atenta, la reciprocidad y el cuidado amoroso de los vínculos entre ríos y cerros milenarios.",
     "pacifico": "Pacífico (Linaje · Sonido): Invita a escuchar la memoria del océano y la selva, reconocer nuestras raíces y conectar con el sonido de aquello que nos precede.",
-    "antioquia": "Antioquia / Zona Cafetera (Fuerza · Vitalidad): Invita a activar tu fuerza interior, transformar la energía y poner en movimiento aquello que requiere acción y creación.",
+    "antioquia": "Antioquia / Eje Cafetero (Fuerza · Vitalidad): Invita a activar tu fuerza interior, transformar la energía y poner en movimiento aquello que requiere acción y creación.",
     "sierra": "Sierra Nevada (Manifestación): Invita a materializar, llevar la intención a la acción consciente y dar forma tangible a aquello que se ha venido gestando.",
     "sierranevada": "Sierra Nevada (Manifestación): Invita a materializar, llevar la intención a la acción consciente y dar forma tangible a aquello que se ha venido gestando.",
     "sabanadebogota": "Bogotá / Sabana (Conciencia · Claridad): Invita a observar, integrar, comprender tus experiencias y elegir tu camino con mayor claridad de pensamiento.",
@@ -219,8 +219,8 @@
       "terr_putumayo": "Putumayo & Caquetá (Alquimia · Transición)",
       "terr_sabanadebogota": "Bogotá & Sabana (Conciencia · Claridad)",
       "terr_bogota": "Bogotá & Sabana (Conciencia · Claridad)",
-      "terr_antioquia": "Antioquia / Zona Cafetera (Fuerza · Vitalidad)",
-      "terr_medellin": "Antioquia / Zona Cafetera (Fuerza · Vitalidad)"
+      "terr_antioquia": "Antioquia / Eje Cafetero (Fuerza · Vitalidad)",
+      "terr_medellin": "Antioquia / Eje Cafetero (Fuerza · Vitalidad)"
     },
     "welcome": "Hola {{nombre}}, te doy la bienvenida al palpitar de la tierra. ¿Qué territorio o pregunta deseas compartir hoy?",
     "welcome_anon": "Hola, te doy la bienvenida al palpitar de la tierra. ¿Qué territorio o pregunta deseas compartir hoy?",
@@ -311,18 +311,18 @@
       "sabiduria_larga": "Bajo el abrazo del aire de montaña, los frailejones y los humedales ancestrales, la Sabana de Bogotá es el territorio del altiplano donde la mente encuentra altura para observar con perspectiva. Este lugar te invita a hacer una pausa reflexiva, elevar la vista por encima de la prisa cotidiana e integrar tus experiencias con lucidez. Entre cerros tutelares y lagunas sagradas, la energía del altiplano promueve la claridad mental, el discernimiento sereno y la toma de decisiones conscientes."
     },
     "Antioquia": {
-      "title": "ANTIOQUIA / ZONA CAFETERA",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Fuerza · Vitalidad",
       "concepto_corto": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
       "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
-      "sabiduria_larga": "Entre montañas erguidas, valles verdes y aromas a tierra féil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y la zona cafetera te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo."
+      "sabiduria_larga": "Entre montañas erguidas, valles verdes y aromas a tierra féil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y el Eje Cafetero te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo."
     },
     "Medellin": {
-      "title": "ANTIOQUIA / ZONA CAFETERA",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Fuerza · Vitalidad",
       "concepto_corto": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
       "desc": "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
-      "sabiduria_larga": "Entre montañas erguidas, valles verdes y aromas a tierra fértil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y la zona cafetera te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo."
+      "sabiduria_larga": "Entre montañas erguidas, valles verdes y aromas a tierra fértil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y el Eje Cafetero te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo."
     }
   },
   "landing_outro": {

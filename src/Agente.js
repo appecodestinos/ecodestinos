@@ -12,7 +12,7 @@ const mensajesWhatsApp = {
     pacifico: "¡Hola! Estaba hablando con La Rana y siento el llamado del Pacífico. Me gustaría diseñar mi viaje para reconectar con mi linaje y sonido.",
     putumayo: "¡Hola! Estaba hablando con La Rana y siento el llamado del Putumayo. Me gustaría diseñar mi viaje para vivir mi alquimia y transición.",
     sabanadebogota: "¡Hola! Estaba hablando con La Rana y siento el llamado de la Sabana de Bogotá. Me gustaría diseñar mi viaje para encontrar conciencia y claridad.",
-    antioquia: "¡Hola! Estaba hablando con La Rana y siento el llamado de Antioquia. Me gustaría diseñar mi viaje para activar mi fuerza y vitalidad.",
+    antioquia: "¡Hola! Estaba hablando con La Rana y siento el llamado de Antioquia / Eje Cafetero. Me gustaría diseñar mi viaje para activar mi fuerza y vitalidad.",
     salud: "¡Hola! Estaba hablando con La Rana y quiero consultar con un asesor sobre temas de salud, vacunas o equipaje para mi próximo viaje.",
     general: "¡Hola! Quiero información sobre los Territorios Vivos."
 };
@@ -155,7 +155,7 @@ Tu conocimiento de los 8 pilares conceptuales:
 - Amazonía: Raíz · Equilibrio (Volver a lo esencial, reconocer lo que nos sostiene y recuperar equilibrio).
 - Guainía: Amor · Relación (Encuentro, escucha, reciprocidad y cuidado de vínculos).
 - Pacífico: Linaje · Sonido (Escuchar la memoria del océano y la selva, reconocer raíces y conectar con lo que precede).
-- Antioquia / Zona Cafetera: Fuerza · Vitalidad (Activar fuerza interior, transformar y poner en movimiento la acción).
+- Antioquia / Eje Cafetero: Fuerza · Vitalidad (Activar fuerza interior, transformar y poner en movimiento la acción).
 - Sierra Nevada: Manifestación (Materializar, llevar intención a la acción y dar forma a lo gestado).
 - Bogotá / Sabana: Conciencia · Claridad (Observar, integrar, comprender y elegir con claridad).
 - Putumayo / Caquetá: Alquimia · Transición (Transformar la energía personal y profundización silenciosa).

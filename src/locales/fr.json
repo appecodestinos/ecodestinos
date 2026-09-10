@@ -87,8 +87,8 @@
       "desc": "Invite à revenir à l'essentiel, reconnaître ce qui nous soutient et retrouver le sentiment d'appartenance."
     },
     "antioquia": {
-      "title": "Antioquia",
-      "location": "Antioquia / Zone Caféière",
+      "title": "Antioquia / Eje Cafetero",
+      "location": "Antioquia / Eje Cafetero",
       "pillars": "Force · Vitalité",
       "desc": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action."
     }
@@ -198,7 +198,7 @@
     "amazonas": "Amazonie (Racine · Équilibre) : Invite à revenir à l'essentiel et retrouver l'équilibre dans le poumon du monde.",
     "guainia": "Guainía (Amour · Relation) : Invite à la rencontre, l'écoute attentive et le soin des liens entre rivières et collines.",
     "pacifico": "Pacifique (Lignée · Son) : Invite à écouter la mémoire de l'océan et de la forêt, et reconnaître nos racines.",
-    "antioquia": "Antioquia / Zone Caféière (Force · Vitalité) : Invite à activer votre force intérieure et mettre en mouvement ce qui nécessite de l'action.",
+    "antioquia": "Antioquia / Eje Cafetero (Force · Vitalité) : Invite à activer votre force intérieure et mettre en mouvement ce qui nécessite de l'action.",
     "sierra": "Sierra Nevada (Manifestation) : Invite à matérialiser et donner une forme tangible à ce qui germe.",
     "sierranevada": "Sierra Nevada (Manifestation) : Invite à matérialiser et donner une forme tangible à ce qui germe.",
     "sabanadebogota": "Bogotá / Savane (Conscience · Clarté) : Invite à observer, comprendre vos expériences et choisir avec clarté.",
@@ -219,8 +219,8 @@
       "terr_putumayo": "Putumayo & Caquetá (Alchimie · Transition)",
       "terr_sabanadebogota": "Bogotá & Savane (Conscience · Clarté)",
       "terr_bogota": "Bogotá & Savane (Conscience · Clarté)",
-      "terr_antioquia": "Antioquia / Zone Caféière (Force · Vitalité)",
-      "terr_medellin": "Antioquia / Zone Caféière (Force · Vitalité)"
+      "terr_antioquia": "Antioquia / Eje Cafetero (Force · Vitalité)",
+      "terr_medellin": "Antioquia / Eje Cafetero (Force · Vitalité)"
     },
     "welcome": "Bonjour {{nombre}}, bienvenue au battement de cœur de la terre.",
     "welcome_anon": "Bonjour, bienvenue au battement de cœur de la terre.",
@@ -311,18 +311,18 @@
       "sabiduria_larga": "Sous l'étreinte de l'air des montagnes, des frailejones et des zones humides ancestrales, la Savane de Bogotá est le territoire du haut plateau où l'esprit trouve de la hauteur pour observer avec perspective. Ce lieu vous invite à faire une pause réflexive, élever votre regard au-dessus de la hâte quotidienne et intégrer vos expériences avec lucidité. Entre collines tutélaires et lagunes sacrées, l'énergie du haut plateau favorise la clarté mentale, le discernement serein et la prise de décision consciente."
     },
     "Antioquia": {
-      "title": "ANTIOQUIA / ZONE CAFÈIRE",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Force · Vitalité",
       "concepto_corto": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action.",
       "desc": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action.",
-      "sabiduria_larga": "Entre montagnes élevées, vallées verdoyantes et parfums de terre fertile, ce territoire incarne l'esprit de transformation et de résilience. L'Antioquia et la zone caféière vous invitent à activer la force intérieure, secouer la stagnation et mettre en mouvement dynamique ce qui demande une action consciente dans votre vie. L'énergie de la montagne et la vitalité du paysage réveillent l'élan vital, renouvelant votre capacité à construire vos rêves, surmonter les défis et fleurir avec enthousiasme."
+      "sabiduria_larga": "Entre montagnes élevées, vallées verdoyantes et parfums de terre fertile, ce territoire incarne l'esprit de transformation et de résilience. L'Antioquia et l'Eje Cafetero vous invitent à activer la force intérieure, secouer la stagnation et mettre en mouvement dynamique ce qui demande une action consciente dans votre vie. L'énergie de la montagne et la vitalité du paysage réveillent l'élan vital, renouvelant votre capacité à construire vos rêves, surmonter les défis et fleurir avec enthousiasme."
     },
     "Medellin": {
-      "title": "ANTIOQUIA / ZONE CAFÈIRE",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Force · Vitalité",
       "concepto_corto": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action.",
       "desc": "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action.",
-      "sabiduria_larga": "Entre montagnes élevées, vallées verdoyantes et parfums de terre fertile, ce territoire incarne l'esprit de transformation et de résilience. L'Antioquia et la zone caféière vous invitent à activer la force intérieure, secouer la stagnation et mettre en mouvement dynamique ce qui demande une action consciente dans votre vie. L'énergie de la montagne et la vitalité du paysage réveillent l'élan vital, renouvelant votre capacité à construire vos rêves, surmonter les défis et fleurir avec enthousiasme."
+      "sabiduria_larga": "Entre montagnes élevées, vallées verdoyantes et parfums de terre fertile, ce territoire incarne l'esprit de transformation et de résilience. L'Antioquia et l'Eje Cafetero vous invitent à activer la force intérieure, secouer la stagnation et mettre en mouvement dynamique ce qui demande une action consciente dans votre vie. L'énergie de la montagne et la vitalité du paysage réveillent l'élan vital, renouvelant votre capacité à construire vos rêves, surmonter les défis et fleurir avec enthousiasme."
     }
   },
   "landing_outro": {

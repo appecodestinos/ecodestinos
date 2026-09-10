@@ -41,8 +41,8 @@ export default async function handler(req, res) {
     SabanaDeBogota: 'Bogotá / Sabana',
     Bogota: 'Bogotá / Sabana',
     Sabana: 'Bogotá / Sabana',
-    Antioquia: 'Antioquia / Zona Cafetera',
-    Medellin: 'Antioquia / Zona Cafetera'
+    Antioquia: 'Antioquia / Eje Cafetero',
+    Medellin: 'Antioquia / Eje Cafetero'
   };
 
   const stringDestinos = arrayDestinos.map((d) => NOMBRES_BREVO[d] || d).join(', ');
@@ -175,12 +175,12 @@ export default async function handler(req, res) {
         descripcion: "Invita a observar, integrar, comprender y elegir con mayor claridad."
       },
       Antioquia: {
-        nombre: "Antioquia / Zona Cafetera",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Fuerza · Vitalidad",
         descripcion: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
       },
       Medellin: {
-        nombre: "Antioquia / Zona Cafetera",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Fuerza · Vitalidad",
         descripcion: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción."
       }
@@ -237,12 +237,12 @@ export default async function handler(req, res) {
         descripcion: "Invites observing, integrating, understanding, and choosing with greater clarity."
       },
       Antioquia: {
-        nombre: "Antioquia / Coffee Zone",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Strength · Vitality",
         descripcion: "Invites activating inner strength, transforming, and setting into motion what needs action."
       },
       Medellin: {
-        nombre: "Antioquia / Coffee Zone",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Strength · Vitality",
         descripcion: "Invites activating inner strength, transforming, and setting into motion what needs action."
       }
@@ -299,12 +299,12 @@ export default async function handler(req, res) {
         descripcion: "Lädt ein zu beobachten, zu integrieren, zu verstehen und mit Klarheit zu wählen."
       },
       Antioquia: {
-        nombre: "Antioquia / Kaffeeregion",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Kraft · Vitalität",
         descripcion: "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen."
       },
       Medellin: {
-        nombre: "Antioquia / Kaffeeregion",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Kraft · Vitalität",
         descripcion: "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen."
       }
@@ -361,12 +361,12 @@ export default async function handler(req, res) {
         descripcion: "Invite à observer, intégrer, comprendre et choisir avec plus de clarté."
       },
       Antioquia: {
-        nombre: "Antioquia / Zone Caféière",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Force · Vitalité",
         descripcion: "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action."
       },
       Medellin: {
-        nombre: "Antioquia / Zone Caféière",
+        nombre: "Antioquia / Eje Cafetero",
         cualidad: "Force · Vitalité",
         descripcion: "Invite à activer la force intérieure, transformer et mettre en mouvement ce qui nécessite de l'action."
       }

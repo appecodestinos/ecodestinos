@@ -12,7 +12,7 @@ const Antioquia = ({ info, onVolver }) => {
             <div className="hero-territorio">
                 <img src={info.foto} alt="F" className="foto-cabecera" />
                 <div className="overlay-titulo">
-                    <h1 className="cinzel-font">ANTIOQUIA</h1>
+                    <h1 className="cinzel-font">ANTIOQUIA / EJE CAFETERO</h1>
                     <p className="arquetipo-sub">{t("destinos.Antioquia.archetype") || info.arquetipo}</p>
                 </div>
             </div>

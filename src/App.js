@@ -95,10 +95,10 @@ const INFO_DESTINOS = {
     galeria: ["/assets/bog1.jpg", "/assets/bog2.jpg"]
   },
   Antioquia: {
-    titulo: "Antioquia / Zona Cafetera", arquetipo: "Fuerza · Vitalidad", proceso: "Acción y Movimiento", color: "#E65100",
+    titulo: "Antioquia / Eje Cafetero", arquetipo: "Fuerza · Vitalidad", proceso: "Acción y Movimiento", color: "#E65100",
     concepto_corto: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
     desc: "Invita a activar la fuerza interior, transformar y poner en movimiento aquello que necesita acción.",
-    sabiduria_larga: "Entre montañas erguidas, valles verdes y aromas a tierra fértil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y la zona cafetera te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo.",
+    sabiduria_larga: "Entre montañas erguidas, valles verdes y aromas a tierra fértil, este territorio encarna el espíritu de la transformación y la resiliencia. Antioquia y el Eje Cafetero te invitan a activar la fuerza interior, sacudir el estancamiento y poner en movimiento dinámico aquello que en tu vida requiere acción consciente. La energía de la montaña y la vitalidad del paisaje despiertan el impulso vital, renovando tu capacidad de construir sueños, superar retos y florecer con entusiasmo.",
     foto: "/assets/medellintarjeta.jpg",
     video: "URL_VIDEO",
     galeria: [],

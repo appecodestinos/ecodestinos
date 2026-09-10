@@ -87,8 +87,8 @@
       "desc": "Lädt ein, zum Wesentlichen zurückzukehren und Gleichgewicht wiederzuerlangen."
     },
     "antioquia": {
-      "title": "Antioquia",
-      "location": "Antioquia / Kaffeeregion",
+      "title": "Antioquia / Eje Cafetero",
+      "location": "Antioquia / Eje Cafetero",
       "pillars": "Kraft · Vitalität",
       "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen."
     }
@@ -198,7 +198,7 @@
     "amazonas": "Amazonas (Wurzel · Gleichgewicht): Lädt ein, zum Wesentlichen zurückzukehren.",
     "guainia": "Guainía (Liebe · Beziehung): Lädt ein zur Begegnung und Pflege der Bande.",
     "pacifico": "Pazifik (Abstammung · Klang): Lädt ein, der Erinnerung zu lauschen und Wurzeln zu erkennen.",
-    "antioquia": "Antioquia / Kaffeeregion (Kraft · Vitalität): Lädt ein, innere Kraft zu aktivieren.",
+    "antioquia": "Antioquia / Eje Cafetero (Kraft · Vitalität): Lädt ein, innere Kraft zu aktivieren.",
     "sierra": "Sierra Nevada (Manifestation): Lädt ein zu materialisieren und Gestalt zu geben.",
     "sierranevada": "Sierra Nevada (Manifestation): Lädt ein zu materialisieren und Gestalt zu geben.",
     "sabanadebogota": "Bogotá / Savanne (Bewusstsein · Klarheit): Lädt ein zu beobachten und mit Klarheit zu wählen.",
@@ -219,8 +219,8 @@
       "terr_putumayo": "Putumayo & Caquetá (Alchemie · Übergang)",
       "terr_sabanadebogota": "Bogotá & Savanne (Bewusstsein · Klarheit)",
       "terr_bogota": "Bogotá & Savanne (Bewusstsein · Klarheit)",
-      "terr_antioquia": "Antioquia / Kaffeeregion (Kraft · Vitalidad)",
-      "terr_medellin": "Antioquia / Kaffeeregion (Kraft · Vitalidad)"
+      "terr_antioquia": "Antioquia / Eje Cafetero (Kraft · Vitalidad)",
+      "terr_medellin": "Antioquia / Eje Cafetero (Kraft · Vitalidad)"
     },
     "welcome": "Hallo {{nombre}}, willkommen beim Herzschlag der Erde.",
     "welcome_anon": "Hallo, willkommen beim Herzschlag der Erde.",
@@ -311,18 +311,18 @@
       "sabiduria_larga": "Unter der Umarmung der Bergluft, der Frailejones und der uralten Feuchtgebiete ist die Savanne von Bogotá das Hochlandgebiet, in dem der Geist Höhe findet, um mit Perspektive zu beobachten. Dieser Ort lädt dich ein, eine reflektierende Pause einzulegen, den Blick über die tägliche Eile zu heben und deine Erfahrungen mit Klarheit zu integrieren. Zwischen Schutzbergen und heiligen Lagunen fördert die Energie des Hochlands mentale Klarheit, gelassenes Unterscheidungsvermögen und bewusste Entscheidungsfindung."
     },
     "Antioquia": {
-      "title": "ANTIOQUIA / KAFFEEREGION",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Kraft · Vitalität",
       "concepto_corto": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
       "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
-      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und die Kaffeeregion laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
+      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und das Eje Cafetero laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
     },
     "Medellin": {
-      "title": "ANTIOQUIA / KAFFEEREGION",
+      "title": "ANTIOQUIA / EJE CAFETERO",
       "archetype": "Kraft · Vitalidad",
       "concepto_corto": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
       "desc": "Lädt ein, innere Kraft zu aktivieren, zu transformieren und in Bewegung zu setzen, was Handlung braucht.",
-      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und die Kaffeeregion laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
+      "sabiduria_larga": "Zwischen erhabenen Bergen, grünen Tälern und dem Duft fruchtbarer Erde verkörpert dieses Gebiet den Geist der Transformation und Resilienz. Antioquia und das Eje Cafetero laden dich ein, deine innere Kraft zu aktivieren, Stagnation abzuschütteln und das in dynamische Bewegung zu versetzen, was in deinem Leben bewusste Handlung erfordert. Die Energie der Berge und die Vitalität der Landschaft wecken den Lebensantrieb und erneuern deine Fähigkeit, Träume zu bauen, Herausforderungen zu meistern und mit Begeisterung zu erblühen."
     }
   },
   "landing_outro": {
