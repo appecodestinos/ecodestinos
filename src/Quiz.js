@@ -1,21 +1,23 @@
 import { useTranslation } from "react-i18next";
 import React, { useState } from 'react';
 
+// Ahora cada opción [0, 1, 2, 3] otorga puntos a 2 destinos simultáneamente.
+// 4 opciones x 2 destinos = 8 destinos evaluados en TODAS las preguntas.
 const MAPEO_PREGUNTAS = [
-    // Q0: Sentimiento -> Putumayo, Macizo, Antioquia, SierraNevada
-    ['Putumayo', 'Macizo', 'Antioquia', 'SierraNevada'], 
-    // Q1: Necesidad de la naturaleza -> Amazonas, Pacífico, Putumayo, SabanaDeBogota
-    ['Amazonas', 'Pacífico', 'Putumayo', 'SabanaDeBogota'],
-    // Q2: Paisaje -> Amazonas, SierraNevada, Pacífico, Guainia
-    ['Amazonas', 'SierraNevada', 'Pacífico', 'Guainia'],
-    // Q3: Ritmo de viaje -> Guainia, Macizo, Antioquia, SabanaDeBogota
-    ['Guainia', 'Macizo', 'Antioquia', 'SabanaDeBogota'],
-    // Q4: Activar en ti -> Amazonas, Antioquia, Guainia, SierraNevada
-    ['Amazonas', 'Antioquia', 'Guainia', 'SierraNevada'],
-    // Q5: Tipo de bienestar -> SierraNevada, SabanaDeBogota, Putumayo, Macizo
-    ['SierraNevada', 'SabanaDeBogota', 'Putumayo', 'Macizo'],
-    // Q6: Formato de viaje -> SierraNevada, Pacífico, Amazonas, Macizo
-    ['SierraNevada', 'Pacífico', 'Amazonas', 'Macizo']
+    // Q0: Sentimiento
+    [['Putumayo', 'Macizo'], ['Antioquia', 'SierraNevada'], ['Amazonas', 'Pacífico'], ['Guainia', 'SabanaDeBogota']],
+    // Q1: Necesidad de la naturaleza
+    [['Amazonas', 'Guainia'], ['Pacífico', 'Putumayo'], ['SabanaDeBogota', 'Macizo'], ['SierraNevada', 'Antioquia']],
+    // Q2: Paisaje
+    [['Amazonas', 'SierraNevada'], ['Pacífico', 'Guainia'], ['Macizo', 'Putumayo'], ['Antioquia', 'SabanaDeBogota']],
+    // Q3: Ritmo de viaje
+    [['Guainia', 'Macizo'], ['Antioquia', 'SabanaDeBogota'], ['Amazonas', 'Putumayo'], ['SierraNevada', 'Pacífico']],
+    // Q4: Activar en ti
+    [['Amazonas', 'Antioquia'], ['Guainia', 'SierraNevada'], ['Putumayo', 'Pacífico'], ['SabanaDeBogota', 'Macizo']],
+    // Q5: Tipo de bienestar
+    [['SierraNevada', 'SabanaDeBogota'], ['Putumayo', 'Macizo'], ['Amazonas', 'Guainia'], ['Pacífico', 'Antioquia']],
+    // Q6: Formato de viaje
+    [['SierraNevada', 'Pacífico'], ['Amazonas', 'Macizo'], ['Guainia', 'Antioquia'], ['Putumayo', 'SabanaDeBogota']]
 ];
 
 const COLORES_VIBRATORIOS = [
@@ -44,15 +46,31 @@ const Quiz = ({ alTerminar }) => {
             if (paso < 6) {
                 setPaso(paso + 1);
             } else {
-                const puntajes = { Amazonas: 0, Macizo: 0, Guainia: 0, SierraNevada: 0, Pacífico: 0, Putumayo: 0, SabanaDeBogota: 0, Antioquia: 0 };
+                const puntajes = {
+                    Amazonas: 0,
+                    Macizo: 0,
+                    Guainia: 0,
+                    SierraNevada: 0,
+                    Pacífico: 0,
+                    Putumayo: 0,
+                    SabanaDeBogota: 0,
+                    Antioquia: 0
+                };
+
+                // Recorremos las respuestas y sumamos puntos a AMBOS territorios asignados a la opción
                 nuevasRespuestas.forEach((idxSeleccion, indicePregunta) => {
                     if (idxSeleccion !== null) {
-                        const territorio = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
-                        if (territorio) {
-                            puntajes[territorio] = (puntajes[territorio] || 0) + 1;
+                        const territoriosAsignados = MAPEO_PREGUNTAS[indicePregunta][idxSeleccion];
+                        if (Array.isArray(territoriosAsignados)) {
+                            territoriosAsignados.forEach((territorio) => {
+                                if (puntajes[territorio] !== undefined) {
+                                    puntajes[territorio] += 1;
+                                }
+                            });
                         }
                     }
                 });
+
                 const ordenados = Object.entries(puntajes).sort((a, b) => b[1] - a[1]);
                 alTerminar([ordenados[0][0], ordenados[1][0]]);
             }

@@ -127,6 +127,9 @@
   },
   "quiz": {
     "progress": "STATION {{current}} OF 7",
+    "success_title": "The journey has begun!",
+    "success_message": "Check your email to see your routes (check your spam folder as well).",
+    "map_button": "ENTER THE MAP",
     "q0": {
       "question": "How have you been feeling lately?",
       "opt0": "Tired or mentally exhausted",
@@ -143,7 +146,7 @@
     },
     "q2": {
       "question": "Which landscape best accompanies you today?",
-      "opt0": "Moist earth",
+      "opt0": "The aroma of earth and the humid forest",
       "opt1": "Breathing the mountain horizon",
       "opt2": "Sunset by the seashore",
       "opt3": "Contemplating reflections in serene water"

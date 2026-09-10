@@ -127,6 +127,9 @@
   },
   "quiz": {
     "progress": "STATION {{current}} VON 7",
+    "success_title": "Die Reise hat begonnen!",
+    "success_message": "Überprüfen Sie Ihre E-Mails, um Ihre Routen zu sehen (prüfen Sie auch Ihren Spam-Ordner).",
+    "map_button": "KARTE ÖFFNEN",
     "q0": {
       "question": "Wie hast du dich in letzter Zeit gefühlt?",
       "opt0": "Müde oder geistig erschöpft",
@@ -143,7 +146,7 @@
     },
     "q2": {
       "question": "Welche Landschaft begleitet dich heute am besten?",
-      "opt0": "Feuchte Erde",
+      "opt0": "Der Duft von Erde und feuchtem Wald",
       "opt1": "Den Horizont in den Bergen atmen",
       "opt2": "Sonnenuntergang am Meeresufer",
       "opt3": "Das Spiegelbild im ruhigen Wasser betrachten"

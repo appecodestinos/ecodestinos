@@ -178,7 +178,8 @@ export default function App() {
           body: JSON.stringify({
             nombre: inputNombre.trim(),
             correo: inputCorreo.trim(),
-            destinos: resultadosQuiz
+            destinos: resultadosQuiz,
+            lang: i18n.language
           })
         }).catch(() => null);
 
@@ -200,7 +201,8 @@ export default function App() {
               body: JSON.stringify({
                 nombre: inputNombre.trim(),
                 correo: inputCorreo.trim(),
-                destinos: resultadosQuiz
+                destinos: resultadosQuiz,
+                lang: i18n.language
               })
             });
             if (fallbackResponse) {
@@ -336,7 +338,6 @@ export default function App() {
               {resultadosQuiz.map((clave, index) => {
                 const info = INFO_DESTINOS[clave] || INFO_DESTINOS['Amazonas'];
                 const tInfo = t(`destinos.${clave}`, { returnObjects: true });
-                const nombreDestino = clave === 'SierraNevada' ? 'Sierra Nevada' : (clave === 'SabanaDeBogota' || clave === 'Bogota' ? 'Bogotá / Sabana' : (clave === 'Antioquia' || clave === 'Medellin' ? 'Antioquia / Zona Cafetera' : (clave === 'Macizo' ? 'Macizo / San Agustín' : clave)));
                 return (
                   <div key={index} className="result-card-container">
                     {info.foto && (
@@ -344,7 +345,6 @@ export default function App() {
                     )}
 
                     <div className="header-destino">
-                      <h4 className="destino-geografico">{nombreDestino}</h4>
                       <h1 className="titulo-premium">{tInfo.title || info.titulo}</h1>
                       {tInfo.archetype && (
                         <p style={{ color: '#F39C12', fontWeight: 'bold', fontSize: '14px', margin: '4px 0 8px 0' }}>{tInfo.archetype}</p>
@@ -362,10 +362,10 @@ export default function App() {
             {isSuccess ? (
               <div className="mensaje-exito" style={{ marginTop: '20px', padding: '24px', backgroundColor: 'rgba(10, 30, 20, 0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', borderRadius: '15px', border: '1px solid rgba(200, 169, 110, 0.4)', textAlign: 'center', boxShadow: '0 8px 30px rgba(0,0,0,0.5)' }}>
                 <p style={{ color: '#FFFFFF', fontSize: '18px', fontWeight: '600', marginBottom: '18px', textShadow: '0 2px 4px rgba(0,0,0,0.8)', lineHeight: '1.5' }}>
-                  ¡El viaje ha comenzado! Revisa tu correo electrónico para ver tus rutas (revisa también tu bandeja de spam).
+                  {t('quiz.success_title')} {t('quiz.success_message')}
                 </p>
                 <button onClick={() => { setPantallaActiva('app'); setSeccionInterna('home'); }} className="boton-brillante-grande">
-                  Entrar al Mapa
+                  {t('quiz.map_button')}
                 </button>
               </div>
             ) : (

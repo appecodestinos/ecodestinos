@@ -127,6 +127,9 @@
   },
   "quiz": {
     "progress": "ESTACIÓN {{current}} DE 7",
+    "success_title": "¡El viaje ha comenzado!",
+    "success_message": "Revisa tu correo electrónico para ver tus rutas (revisa también tu bandeja de spam).",
+    "map_button": "ENTRAR AL MAPA",
     "q0": {
       "question": "¿Cómo te has sentido últimamente?",
       "opt0": "Con cansancio o agotamiento mental",
@@ -143,7 +146,7 @@
     },
     "q2": {
       "question": "¿Qué paisaje te acompaña mejor hoy?",
-      "opt0": "La tierra húmeda",
+      "opt0": "El aroma de la tierra y del bosque húmedo",
       "opt1": "Respirar el horizonte en las montañas",
       "opt2": "Atardecer a la orilla del mar",
       "opt3": "Contemplar el reflejo en el agua serena"

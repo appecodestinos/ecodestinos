@@ -127,6 +127,9 @@
   },
   "quiz": {
     "progress": "STATION {{current}} SUR 7",
+    "success_title": "Le voyage a commencé !",
+    "success_message": "Vérifiez votre e-mail pour voir vos itinéraires (vérifiez également votre dossier spams).",
+    "map_button": "VOIR LA CARTE",
     "q0": {
       "question": "Comment vous êtes-vous senti(e) dernièrement ?",
       "opt0": "Fatigue ou épuisement mental",
@@ -143,7 +146,7 @@
     },
     "q2": {
       "question": "Quel paysage vous accompagne le mieux aujourd'hui ?",
-      "opt0": "La terre humide",
+      "opt0": "L'arôme de la terre et de la forêt humide",
       "opt1": "Respirer l'horizon dans les montagnes",
       "opt2": "Un coucher de soleil au bord de la mer",
       "opt3": "Contempler le reflet dans une eau sereine"
